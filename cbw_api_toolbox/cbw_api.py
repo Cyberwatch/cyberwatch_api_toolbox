@@ -4,11 +4,12 @@ from json import JSONDecodeError
 from typing import List
 
 import requests
-from requests import Response, HTTPError, Timeout, ConnectTimeout, ReadTimeout
-from requests.exceptions import ProxyError, SSLError, URLRequired, RetryError, InvalidProxyURL, InvalidHeader
+from requests import Response
+from requests.exceptions import ProxyError, SSLError, RetryError, InvalidProxyURL, InvalidHeader, ConnectionError
+from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox import API_DEFAULT_URL
-from cbw_api_toolbox.__routes__ import ROUTE_GET_SERVERS
+from cbw_api_toolbox.__routes__ import ROUTE_GET_SERVERS, ROUTE_GET_PING
 from cbw_api_toolbox.cbw_auth import CBWAuth
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_parser import CBWParser
@@ -37,10 +38,14 @@ class CBWApi(object):
         except JSONDecodeError as e:
             self.logger.error(f"An error occurred when decoding {raw_response.text} "
                               f"with route {self.api_url}/{route}{self._get_params(params)} : {e}")
-        except (HTTPError, ConnectionError, ProxyError, SSLError, Timeout,
-                ConnectTimeout, ReadTimeout, RetryError, InvalidProxyURL, InvalidHeader) as e:
+        except (ConnectionError, ProxyError, SSLError, NewConnectionError, RetryError,
+                InvalidProxyURL, InvalidHeader, MaxRetryError) as e:
             self.logger.error(f"An error occurred when requesting"
                               f" {self.api_url}/{route}{self._get_params(params)} : {e}")
+
+    def ping(self):
+        result = self._request(ROUTE_GET_PING)
+        print("OK") if result and 'uuid' in result else self.logger.error("FAILED")
 
     def servers(self):
         return [CBWParser().parse(CBWServer, server) for server in self._request(ROUTE_GET_SERVERS)]
