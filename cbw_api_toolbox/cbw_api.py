@@ -1,9 +1,10 @@
 import json
 import logging
+import os
 from json import JSONDecodeError
 
 import requests
-from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader, ConnectionError
+from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader, ConnectionError, MissingSchema
 from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox import API_DEFAULT_URL
@@ -40,6 +41,9 @@ class CBWApi(object):
                 InvalidHeader, MaxRetryError) as e:
             self.logger.error("An error occurred when requesting {0}/{1}{2} : {3}"
                               .format(self.api_url, route, self._get_params(params), e))
+        except MissingSchema as e:
+            self.logger.error("An error occurred, please check your API_URL.")
+            os._exit(-1)
 
     def ping(self):
         result = self._request(ROUTE_GET_PING)
