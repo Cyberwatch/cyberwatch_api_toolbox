@@ -10,7 +10,7 @@ category_by_groups = {}
 
 # append each server to a group by category dict
 for server in servers:
-    if server.groups:
+    if server and server.groups:
         for group in server.groups:
             if group.name not in category_by_groups:
                 category_by_groups[group.name] = {}
@@ -23,7 +23,7 @@ for server in servers:
             concerned_group[server.category].append(server)
 
 for group in category_by_groups:
-    print(f"--- GROUP : {group} ---")
+    print("--- GROUP : {0} ---".format(group))
 
     for category in category_by_groups[group]:
-        print(f"{category}  : {len(category_by_groups[group][category])}")
+        print("{0}  : {1}".format(category, len(category_by_groups[group][category])))

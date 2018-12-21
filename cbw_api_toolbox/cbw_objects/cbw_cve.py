@@ -1,12 +1,12 @@
 class CBWCve(object):
     def __init__(self,
-                 content: str = "",
-                 created_at: str = "",
-                 cve_code: str = "",
-                 cve_score: str = "",
-                 last_modified: str = "",
-                 published: str = "",
-                 updated_at: str = ""):
+                 content="",
+                 created_at="",
+                 cve_code="",
+                 cve_score="",
+                 last_modified="",
+                 published="",
+                 updated_at=""):
         self.content = content
         self.created_at = created_at
         self.cve_code = cve_code
