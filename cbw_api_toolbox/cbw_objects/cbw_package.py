@@ -1,10 +1,10 @@
 class CBWPackage(object):
     def __init__(self,
-                 hash_index: str = "",
-                 product: str = "",
-                 type: str = "",
-                 vendor: str = "",
-                 version: str = ""):
+                 hash_index="",
+                 product="",
+                 type="",
+                 vendor="",
+                 version=""):
         self.hash_index = hash_index
         self.product = product
         self.package_type = type

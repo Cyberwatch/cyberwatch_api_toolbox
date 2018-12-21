@@ -1,9 +1,9 @@
 class CBWGroup(object):
     def __init__(self,
-                 id: str = "",
-                 name: str = "",
-                 created_at: str = "",
-                 updated_at: str = ""):
+                 id="",
+                 name="",
+                 created_at="",
+                 updated_at=""):
         self.group_id = id
         self.name = name
         self.created_at = created_at

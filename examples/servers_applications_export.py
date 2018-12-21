@@ -16,8 +16,8 @@ servers = CBWApi(API_URL, API_KEY, SECRET_KEY).get_detailed_servers()
 exported = xlsxwriter.Workbook('cbw_export_servers_applications.xlsx')
 
 for server in servers:
-    if server.applications:
-        print(f"Export applications for {server.hostname}")
+    if server and server.applications:
+        print("Export applications for {0}".format(server.hostname))
 
         worksheet = exported.add_worksheet(server.hostname)
 

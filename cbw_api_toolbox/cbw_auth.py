@@ -10,13 +10,13 @@ from cbw_api_toolbox import JSON_CONTENT_TYPE, SIGNATURE_HTTP_HEADER, TIMESTAMP_
 
 
 class CBWAuth(AuthBase):
-    def __init__(self, api_key: str, secret_key: str):
-        self.api_key: str = api_key
-        self.secret_key: str = secret_key
+    def __init__(self, api_key, secret_key):
+        self.api_key = api_key
+        self.secret_key = secret_key
 
-        self.raw_data: str = ""
-        self.hash_data: str = ""
-        self.type_data: str = ""
+        self.raw_data = ""
+        self.hash_data = ""
+        self.type_data = ""
 
     def __call__(self, request):
         self._encode(request)
@@ -40,7 +40,7 @@ class CBWAuth(AuthBase):
     def _hash_data(self):
         self.hash_data = md5(self.raw_data.encode('utf-8')).hexdigest()
 
-    def _get_current_timestamp(self) -> str:
+    def _get_current_timestamp(self):
         return datetime.datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
 
     def _add_timestamp(self, request, timestamp):
@@ -50,17 +50,17 @@ class CBWAuth(AuthBase):
         method = request.method
         path = request.path_url
         signature = self._sign(method, timestamp, path).decode("utf-8")
-        request.headers[SIGNATURE_HTTP_HEADER] = f"{SIGNATURE_HEADER} {self.api_key}:{signature}"
+        request.headers[SIGNATURE_HTTP_HEADER] = "{0} {1}:{2}".format(SIGNATURE_HEADER, self.api_key, signature)
 
     def _add_content_type(self, request):
         request.headers[CONTENT_HASH_HEADER] = self.hash_data
         request.headers[CONTENT_TYPE_HEADER] = self.type_data
 
-    def _sign(self, method: str, timestamp, path: str):
+    def _sign(self, method, timestamp, path):
         # Build the message to sign
-        message: str = ",".join([method, self.type_data, self.hash_data, path, timestamp])
+        message = ",".join([method, self.type_data, self.hash_data, path, timestamp])
 
         # Create the signature
-        digest: bytes = hmac.new(bytes(self.secret_key, "utf8"), bytes(message, "utf8"), sha256).digest()
+        digest = hmac.new(bytes(self.secret_key, "utf8"), bytes(message, "utf8"), sha256).digest()
 
         return base64.b64encode(digest).strip()
