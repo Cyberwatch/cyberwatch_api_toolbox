@@ -62,3 +62,9 @@ class CBWApi(object):
     # Use servers method to get all informations for each server
     def get_detailed_servers(self):
         return [self.server(server.server_id) for server in self.servers()]
+
+    def delete_server(self, server_id):
+        servers = self.servers()
+        for server in servers:
+            if server_id == server.server_id:
+                return self._request("{0}/{1}".format(ROUTE_SERVERS, server.server_id), "DELETE")
