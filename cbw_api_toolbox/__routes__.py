@@ -1,2 +1,2 @@
-ROUTE_GET_SERVERS = "servers"
-ROUTE_GET_PING = "ping"
+ROUTE_SERVERS = "servers"
+ROUTE_PING = "ping"
