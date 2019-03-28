@@ -1,29 +1,35 @@
+"""Count the number of computers in each groups"""
+
 from cbw_api_toolbox.cbw_api import CBWApi
 
 API_KEY = ''
 SECRET_KEY = ''
 API_URL = ''
 
-servers = CBWApi(API_URL, API_KEY, SECRET_KEY).get_detailed_servers()
+CLIENT = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
-category_by_groups = {}
+CLIENT.ping()
+
+SERVERS = CLIENT.get_detailed_servers()
+
+CATEGORY_BY_GROUPS = {}
 
 # append each server to a group by category dict
-for server in servers:
+for server in SERVERS:
     if server and server.groups:
         for group in server.groups:
-            if group.name not in category_by_groups:
-                category_by_groups[group.name] = {}
+            if group.name not in CATEGORY_BY_GROUPS:
+                CATEGORY_BY_GROUPS[group.name] = {}
 
-            concerned_group = category_by_groups[group.name]
+            concerned_group = CATEGORY_BY_GROUPS[group.name]
 
             if server.category not in concerned_group:
                 concerned_group[server.category] = []
 
             concerned_group[server.category].append(server)
 
-for group in category_by_groups:
+for group in CATEGORY_BY_GROUPS:
     print("--- GROUP : {0} ---".format(group))
 
-    for category in category_by_groups[group]:
-        print("{0}  : {1}".format(category, len(category_by_groups[group][category])))
+    for category in CATEGORY_BY_GROUPS[group]:
+        print("{0}  : {1}".format(category, len(CATEGORY_BY_GROUPS[group][category])))

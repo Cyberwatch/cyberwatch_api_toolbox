@@ -1,13 +1,16 @@
-from cbw_api_toolbox.cbw_objects.cbw_application import CBWApplication
+""""Model Server"""
+
 from cbw_api_toolbox.cbw_objects.cbw_cve import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_package import CBWPackage
 from cbw_api_toolbox.cbw_parser import CBWParser
 
 
-class CBWServer(object):
+class CBWServer:
+    """Model Server"""
+
     def __init__(self,
-                 id,
+                 id,  # pylint: disable=redefined-builtin
                  hostname="",
                  boot_at="",
                  remote_ip="",
@@ -26,7 +29,7 @@ class CBWServer(object):
                  reboot_required=False,
                  last_communication="",
                  state_sha2=""):
-        self.server_id = id
+        self.server_id = id  # pylint: disable=invalid-name
         self.groups = [CBWParser().parse(CBWGroup, group) for group in groups] if groups else None
         self.hostname = hostname
         self.boot_at = boot_at
@@ -34,15 +37,16 @@ class CBWServer(object):
         self.criticality = criticality
         self.category = category
         self.status = status
-        self.os = os
+        self.os = os  # pylint: disable=invalid-name
         self.state_sha2 = state_sha2
         self.updates_count = updates_count
         self.cve_announcements_count = cve_announcements_count
         self.cve_announcements = [CBWParser().parse(CBWCve, cve) for cve in
                                   cve_announcements] if cve_announcements else None
         self.security_announcements = security_announcements
-        self.packages = [CBWParser().parse(CBWPackage, package) for package in packages] if packages else None
-        self.applications = [CBWParser().parse(CBWApplication, application) for application in
+        self.packages = [CBWParser().parse(CBWPackage, package) for package in
+                         packages] if packages else None
+        self.applications = [CBWParser().parse(CBWPackage, application) for application in
                              applications] if applications else None
         self.agent_version = agent_version
         self.reboot_required = reboot_required

@@ -1,6 +1,11 @@
-class CBWGroup(object):
+"""Group Model"""
+
+
+class CBWGroup:
+    """Group Model"""
+
     def __init__(self,
-                 id="",
+                 id="",  # pylint: disable=redefined-builtin
                  name="",
                  created_at="",
                  updated_at=""):

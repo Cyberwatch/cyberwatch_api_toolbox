@@ -1,8 +1,13 @@
-class CBWPackage(object):
+"""Package/Application Model"""
+
+
+class CBWPackage:
+    """Package/Application Model"""
+
     def __init__(self,
                  hash_index="",
                  product="",
-                 type="",
+                 type="",  # pylint: disable=redefined-builtin
                  vendor="",
                  version=""):
         self.hash_index = hash_index

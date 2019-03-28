@@ -1,4 +1,9 @@
-class CBWCve(object):
+"""CVE Model"""
+
+
+class CBWCve:
+    """CVE Model"""
+
     def __init__(self,
                  content="",
                  created_at="",
