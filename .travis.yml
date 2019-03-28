@@ -1,0 +1,29 @@
+language: python
+
+stages:
+  - tests-pylint
+  - tests-pytest
+
+jobs:
+  include:
+    - stage: tests-pylint
+      python: 3.6
+      env: TOXENV=pylint
+    - stage: tests-pytest
+      python: 3.6
+      env: TOXENV=pytest
+
+before_install:
+  - python --version
+  - uname -a
+
+install:
+  - pip install -U setuptools
+  - pip install tox
+  - virtualenv --version
+  - pip --version
+  - tox --version
+
+script:
+  # Test install with current version of setuptools
+  - pip install .

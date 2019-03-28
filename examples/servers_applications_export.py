@@ -1,25 +1,27 @@
-import xlsxwriter
+"""Example: Export the applications for each servers"""
+
+# FOR THIS EXAMPLE YOU NEED TO INSTALL xlsxwriter : pip3 install xlsxwriter
+import xlsxwriter  # pylint: disable=import-error
 
 from cbw_api_toolbox.cbw_api import CBWApi
-
-"""
-FOR THIS EXAMPLE YOU NEED TO INSTALL xlsxwriter : 
-    pip3 install xlsxwriter
-"""
 
 API_KEY = ''
 SECRET_KEY = ''
 API_URL = ''
 
-servers = CBWApi(API_URL, API_KEY, SECRET_KEY).get_detailed_servers()
+CLIENT = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
-exported = xlsxwriter.Workbook('cbw_export_servers_applications.xlsx')
+CLIENT.ping()
 
-for server in servers:
+SERVERS = CLIENT.get_detailed_servers()
+
+EXPORTED = xlsxwriter.Workbook('cbw_export_servers_applications.xlsx')
+
+for server in SERVERS:
     if server and server.applications:
         print("Export applications for {0}".format(server.hostname))
 
-        worksheet = exported.add_worksheet(server.hostname)
+        worksheet = EXPORTED.add_worksheet(server.hostname)
 
         worksheet.write(0, 0, "Application")
         worksheet.write(0, 1, "Version")
@@ -32,4 +34,4 @@ for server in servers:
             worksheet.write(row, col + 1, application.version)
             row += 1
 
-exported.close()
+EXPORTED.close()
