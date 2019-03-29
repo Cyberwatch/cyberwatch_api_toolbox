@@ -6,12 +6,12 @@ stages:
 
 jobs:
   include:
-    - stage: tests-pylint
+    - stage: static-analysis
       python: 3.6
-      env: TOXENV=pylint
-    - stage: tests-pytest
+      env: TOXENV=static_analysis
+    - stage: unittests
       python: 3.6
-      env: TOXENV=pytest
+      env: TOXENV=unittests
 
 before_install:
   - python --version
@@ -27,3 +27,4 @@ install:
 script:
   # Test install with current version of setuptools
   - pip install .
+  - tox
