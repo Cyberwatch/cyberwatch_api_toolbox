@@ -10,7 +10,7 @@ from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader,
 from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox import API_DEFAULT_URL
-from cbw_api_toolbox.__routes__ import ROUTE_GET_SERVERS, ROUTE_GET_PING
+from cbw_api_toolbox.__routes__ import ROUTE_SERVERS, ROUTE_PING
 from cbw_api_toolbox.cbw_auth import CBWAuth
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_parser import CBWParser
@@ -27,28 +27,32 @@ class CBWApi:
         self.verify_ssl = verify_ssl
         self.logger = logging.getLogger(self.__class__.__name__)
 
-    @staticmethod
-    def _get_params(params=None):
-        return "/{0}".format('/'.join(params)) if params else ""
+    def _build_route(self, params):
+        return "{0}{1}".format(self.api_url, '/'.join(params))
 
-    def _request(self, route, params=None):
+    def _request(self, verb, payloads, body_params=None):
         response = None
+        route = self._build_route(payloads)
+
+        if body_params is not None:
+            body_params = json.dumps(body_params)
+
         try:
-            response = requests.get("{0}{1}{2}".format(self.api_url, route,
-                                                       self._get_params(params)),
-                                    auth=CBWAuth(self.api_key, self.secret_key),
-                                    verify=self.verify_ssl)
+            response = requests.request(
+                verb,
+                route,
+                data=body_params,
+                auth=CBWAuth(self.api_key, self.secret_key),
+                verify=self.verify_ssl)
             return json.loads(response.text)
 
-        except JSONDecodeError as error:
-            self.logger.error("An error occurred when decoding {0} with route {1}/{2}{3} : {4}"
-                              .format(response.text, self.api_url, route,
-                                      self._get_params(params), error))
+        except JSONDecodeError:
+            self.logger.exception("An error occurred when decoding {0} with route {1}".format(
+                response.text, route))
 
         except (ConnectionError, ProxyError, SSLError, NewConnectionError, RetryError,
-                InvalidHeader, MaxRetryError) as error:
-            self.logger.error("An error occurred when requesting {0}/{1}{2} : {3}"
-                              .format(self.api_url, route, self._get_params(params), error))
+                InvalidHeader, MaxRetryError):
+            self.logger.exception("An error occurred when requesting {}".format(route))
 
         except MissingSchema:
             self.logger.error("An error occurred, please check your API_URL.")
@@ -56,7 +60,7 @@ class CBWApi:
 
     def ping(self):
         """GET request to /api/v2/ping then check uuid value"""
-        result = self._request(ROUTE_GET_PING)
+        result = self._request("GET", [ROUTE_PING])
 
         if result and 'uuid' in result:
             print("OK")
@@ -67,12 +71,18 @@ class CBWApi:
 
     def servers(self):
         """GET request to /api/v2/servers to get all servers"""
-        return [CBWParser().parse(CBWServer, server) for server in self._request(ROUTE_GET_SERVERS)]
+        result = []
+        for server in self._request("GET", [ROUTE_SERVERS]):
+            result.append(CBWParser().parse(CBWServer, server))
+        return result
 
     def server(self, server_id):
         """GET request to /api/v2/servers to get all informations about a specific server"""
-        return CBWParser().parse(CBWServer, self._request(ROUTE_GET_SERVERS, [server_id]))
+        return CBWParser().parse(CBWServer, self._request("GET", [ROUTE_SERVERS, server_id]))
 
     def get_detailed_servers(self):
         """Use servers method to get all informations for each server"""
-        return [self.server(server.server_id) for server in self.servers()]
+        result = []
+        for server in self.servers():
+            result.append(self.server(server.server_id))
+        return result
