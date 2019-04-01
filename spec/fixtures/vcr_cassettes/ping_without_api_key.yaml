@@ -7,15 +7,15 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 :OaRirOLF79jLUyox45rBoUftref1yGQzi1AZvIrQ1D4=
+      - CyberWatch APIAuth-HMAC-SHA256 :BsopgYabMEmEBuo+D5OOe7eh6JlqjEU7YN7bgnavOCs=
       Connection:
       - keep-alive
       Date:
-      - Fri, 29 Mar 2019 10:14:31 GMT
+      - Mon, 01 Apr 2019 08:49:30 GMT
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: http://10.10.1.129/api/v2/ping
+    uri: http://10.10.1.109/api/v2/ping
   response:
     body:
       string: '{"error":{"code":401,"status":"Unauthorized","message":"Missing credentials."}}'
@@ -24,18 +24,16 @@ interactions:
       - no-cache
       Connection:
       - keep-alive
-      Content-Length:
-      - '79'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 29 Mar 2019 10:14:31 GMT
+      - Mon, 01 Apr 2019 08:49:30 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      Transfer-Encoding:
+      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -45,10 +43,10 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - e36ae4c7-753b-44fb-85af-43183e2e6195
+      - 9580e8ac-fcf8-4316-81a0-53dc540e8fce
       X-Runtime:
-      - '0.013227'
-      X-Xss-Protection:
+      - '0.011324'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 401

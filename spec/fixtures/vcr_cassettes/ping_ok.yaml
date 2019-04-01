@@ -7,23 +7,23 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 b2mVyRFut9LnK5yAn0uwqe7JklLIUOkn9lgqx3GMTOw=:RaEiiMZTxq4s75hjqYh4dNPtrp7tg6DKG39+gSQaix4=
+      - CyberWatch APIAuth-HMAC-SHA256 VoIGnfE1i292EXJvKbum10CkIsK3q6F4jR7ZirleJoQ=:BsopgYabMEmEBuo+D5OOe7eh6JlqjEU7YN7bgnavOCs=
       Connection:
       - keep-alive
       Date:
-      - Fri, 29 Mar 2019 10:04:08 GMT
+      - Mon, 01 Apr 2019 08:49:30 GMT
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: http://10.10.1.129/api/v2/ping
+    uri: http://10.10.1.109/api/v2/ping
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA6tWKi3NTFGyUjJJNUg0Mk5O1k0yNErUNTFKS9VNNDIy0DVJSU60NEgxTE0zsVSq
-        BQBLwqqoLwAAAA==
+        H4sIAAAAAAAAA6tWKi3NTFGyUkpLMU4ysTA20jUzSzTTNUmxTNZNNE0z1TUwSUu2SEwxTExJMlaq
+        BQDoVhFiLwAAAA==
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -31,13 +31,13 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 29 Mar 2019 10:04:08 GMT
+      - Mon, 01 Apr 2019 08:49:30 GMT
+      ETag:
+      - W/"b283b6cb06f3a04547842535bed482d7"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
@@ -48,17 +48,13 @@ interactions:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - '["zq6d8skoead86i7b0gtt","vvdybthzeiux01xlhh7y"]'
-      X-Miniprofiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 4e0a23cc-b12a-42fe-a220-4dca90d1ef49
+      - fd3b4832-66a6-4d9c-a5f5-04fc8ad1adb3
       X-Runtime:
-      - '0.015916'
-      X-Xss-Protection:
+      - '0.010080'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 200
