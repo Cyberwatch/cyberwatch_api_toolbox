@@ -7,20 +7,20 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 b2mVyRFut9LnK5yAn0uwqe7JklLIUOkn9lgqx3GMTOw=:RaEiiMZTxq4s75hjqYh4dNPtrp7tg6DKG39+gSQaix4=
+      - CyberWatch APIAuth-HMAC-SHA256 zScYV3IUp3YdOtdjJihejh89Nos+j00hhAzRclUtlXo=:Q7EQFSYml/DUkudwbkCJ28epJ4DvpYoBknevBwLHux8=
       Connection:
       - keep-alive
       Date:
-      - Fri, 29 Mar 2019 10:04:08 GMT
+      - Mon, 01 Apr 2019 14:04:30 GMT
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: http://10.10.1.129/api/v2/ping
+    uri: http://localhost/api/v2/ping
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA6tWKi3NTFGyUjJJNUg0Mk5O1k0yNErUNTFKS9VNNDIy0DVJSU60NEgxTE0zsVSq
-        BQBLwqqoLwAAAA==
+        H4sIAAAAAAAAA6tWKi3NTFGyUkpNNbFINDI20DVMTTXQNbFMS9JNMkxK1jVOSwUKWyQaW6SlKtUC
+        ALhKfuMvAAAA
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -31,7 +31,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 29 Mar 2019 10:04:08 GMT
+      - Mon, 01 Apr 2019 14:04:31 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -49,15 +49,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["zq6d8skoead86i7b0gtt","vvdybthzeiux01xlhh7y"]'
+      - '["2s7p44v13e7qdy0fva1p"]'
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 4e0a23cc-b12a-42fe-a220-4dca90d1ef49
+      - ee48a230-1ee0-49fb-b1bc-3fea238a38fe
       X-Runtime:
-      - '0.015916'
+      - '0.014292'
       X-Xss-Protection:
       - 1; mode=block
     status:

@@ -4,9 +4,9 @@ from cbw_api_toolbox.cbw_api import CBWApi
 import vcr  # pylint: disable=import-error
 import pytest  # pylint: disable=import-error
 
-API_KEY = 'b2mVyRFut9LnK5yAn0uwqe7JklLIUOkn9lgqx3GMTOw='
-SECRET_KEY = 'QqSfOLlbkhrrhmnNfJW0mkCx4daURHysF4hk8ydRUoa1Kw7gvwhNuGzSrso5JNiSs/ldb0eez4JowCIXCVlcsA=='  # pylint: disable=line-too-long
-API_URL = 'http://10.10.1.129'
+API_KEY = ''
+SECRET_KEY = ''
+API_URL = 'http://localhost'
 
 
 class TestCBWApi:
