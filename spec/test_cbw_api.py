@@ -4,6 +4,14 @@ from cbw_api_toolbox.cbw_api import CBWApi
 import vcr  # pylint: disable=import-error
 import pytest  # pylint: disable=import-error
 
+# To generate a new vcr cassette:
+# - DO NOT CHANGE THE API_URL
+# - Add your local credentials API_KEY and SECRET_KEY
+# - Execute the test a first time, it should generate the cassette
+# - Remove your credentials
+# - relaunch the test. everything should work.
+
+
 API_KEY = ''
 SECRET_KEY = ''
 API_URL = 'http://localhost'
