@@ -86,3 +86,11 @@ class CBWApi:
         for server in self.servers():
             result.append(self.server(server.server_id))
         return result
+
+    def delete_server(self, server_id):
+        """DELETE request to /api/v2/servers/SERVER_ID to delete a specific server"""
+        if server_id:
+            result = self._request("DELETE", [ROUTE_SERVERS, server_id])
+            if result and 'id' in result:
+                return True
+        return False

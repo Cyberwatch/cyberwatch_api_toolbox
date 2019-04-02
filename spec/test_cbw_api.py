@@ -68,3 +68,14 @@ class TestCBWApi:
             assert isinstance(response, list) is True
             for server in response:
                 assert isinstance(server, CBWServer) is True
+
+    def test_delete_server(self): # pylint: disable=no-self-use
+        """Test for delete_server method"""
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_server_success.yaml'):
+            response = CBWApi(API_URL, API_KEY, SECRET_KEY).delete_server(
+                '76916742355661f3bbff20feacdb9567')
+            assert response is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_server_failure.yaml'):
+            response = CBWApi(API_URL, API_KEY, SECRET_KEY).delete_server('wrong_id')
+            assert response is False
