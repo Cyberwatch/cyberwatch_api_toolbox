@@ -31,24 +31,18 @@ class CBWApi:
         return "{0}{1}".format(self.api_url, '/'.join(params))
 
     def _request(self, verb, payloads, body_params=None):
-        response = None
         route = self._build_route(payloads)
 
         if body_params is not None:
             body_params = json.dumps(body_params)
 
         try:
-            response = requests.request(
+            return requests.request(
                 verb,
                 route,
                 data=body_params,
                 auth=CBWAuth(self.api_key, self.secret_key),
                 verify=self.verify_ssl)
-            return json.loads(response.text)
-
-        except JSONDecodeError:
-            self.logger.exception("An error occurred when decoding {0} with route {1}".format(
-                response.text, route))
 
         except (ConnectionError, ProxyError, SSLError, NewConnectionError, RetryError,
                 InvalidHeader, MaxRetryError):
@@ -58,11 +52,19 @@ class CBWApi:
             self.logger.error("An error occurred, please check your API_URL.")
             sys.exit(-1)
 
+    def _load_json_response(self, response):
+        """Loads the JSON from the response text"""
+        try:
+            return json.loads(response.text)
+
+        except JSONDecodeError:
+            self.logger.exception("An error occurred when decoding {0}".format(response.text))
+
     def ping(self):
         """GET request to /api/v2/ping then check uuid value"""
-        result = self._request("GET", [ROUTE_PING])
+        response = self._request("GET", [ROUTE_PING])
 
-        if result and 'uuid' in result:
+        if response.status_code == 200:
             print("OK")
             return True
 
@@ -72,17 +74,23 @@ class CBWApi:
     def servers(self):
         """GET request to /api/v2/servers to get all servers"""
         result = []
-        for server in self._request("GET", [ROUTE_SERVERS]):
+
+        for server in self._load_json_response(self._request("GET", [ROUTE_SERVERS])):
             result.append(CBWParser().parse(CBWServer, server))
+
         return result
 
     def server(self, server_id):
         """GET request to /api/v2/servers to get all informations about a specific server"""
-        return CBWParser().parse(CBWServer, self._request("GET", [ROUTE_SERVERS, server_id]))
+        result = self._load_json_response(self._request("GET", [ROUTE_SERVERS, server_id]))
+
+        return CBWParser().parse(CBWServer, result)
 
     def get_detailed_servers(self):
-        """Use servers method to get all informations for each server"""
+        """Use servers method to get all information for each server"""
         result = []
+
         for server in self.servers():
             result.append(self.server(server.server_id))
+
         return result
