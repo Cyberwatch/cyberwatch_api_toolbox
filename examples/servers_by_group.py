@@ -10,12 +10,14 @@ CLIENT = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
 CLIENT.ping()
 
-SERVERS = CLIENT.get_detailed_servers()
+SERVERS = CLIENT.servers()
 
 CATEGORY_BY_GROUPS = {}
 
 # append each server to a group by category dict
 for server in SERVERS:
+    server = CLIENT.server(server.id)
+
     if server and server.groups:
         for group in server.groups:
             if group.name not in CATEGORY_BY_GROUPS:

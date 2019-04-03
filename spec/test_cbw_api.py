@@ -60,11 +60,3 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/server_failed.yaml'):
             response = CBWApi(API_URL, API_KEY, SECRET_KEY).server('wrong_id')
             assert isinstance(response, CBWServer) is False
-
-    def test_get_detailed_servers(self): # pylint: disable=no-self-use
-        """Tests for get_detailed_servers method"""
-        with vcr.use_cassette('spec/fixtures/vcr_cassettes/get_detailed_servers.yaml'):
-            response = CBWApi(API_URL, API_KEY, SECRET_KEY).get_detailed_servers()
-            assert isinstance(response, list) is True
-            for server in response:
-                assert isinstance(server, CBWServer) is True

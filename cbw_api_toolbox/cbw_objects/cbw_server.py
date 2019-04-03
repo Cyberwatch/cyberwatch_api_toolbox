@@ -29,7 +29,7 @@ class CBWServer:
                  reboot_required=False,
                  last_communication="",
                  state_sha2=""):
-        self.server_id = id  # pylint: disable=invalid-name
+        self.id = id  # pylint: disable=invalid-name
         self.groups = [CBWParser().parse(CBWGroup, group) for group in groups] if groups else None
         self.hostname = hostname
         self.boot_at = boot_at

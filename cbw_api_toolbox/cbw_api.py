@@ -1,7 +1,6 @@
 """Module used to communicate with the CBW API"""
 
 import json
-from json import JSONDecodeError
 import logging
 import sys
 
@@ -31,24 +30,18 @@ class CBWApi:
         return "{0}{1}".format(self.api_url, '/'.join(params))
 
     def _request(self, verb, payloads, body_params=None):
-        response = None
         route = self._build_route(payloads)
 
         if body_params is not None:
             body_params = json.dumps(body_params)
 
         try:
-            response = requests.request(
+            return requests.request(
                 verb,
                 route,
                 data=body_params,
                 auth=CBWAuth(self.api_key, self.secret_key),
                 verify=self.verify_ssl)
-            return json.loads(response.text)
-
-        except JSONDecodeError:
-            self.logger.exception("An error occurred when decoding {0} with route {1}".format(
-                response.text, route))
 
         except (ConnectionError, ProxyError, SSLError, NewConnectionError, RetryError,
                 InvalidHeader, MaxRetryError):
@@ -60,29 +53,23 @@ class CBWApi:
 
     def ping(self):
         """GET request to /api/v2/ping then check uuid value"""
-        result = self._request("GET", [ROUTE_PING])
+        response = self._request("GET", [ROUTE_PING])
 
-        if result and 'uuid' in result:
+        if response.status_code == 200:
             print("OK")
             return True
 
-        self.logger.error("FAILED")
+        print("KO")
         return False
 
     def servers(self):
         """GET request to /api/v2/servers to get all servers"""
-        result = []
-        for server in self._request("GET", [ROUTE_SERVERS]):
-            result.append(CBWParser().parse(CBWServer, server))
-        return result
+        response = self._request("GET", [ROUTE_SERVERS])
+
+        return CBWParser().parse_response(CBWServer, response)
 
     def server(self, server_id):
         """GET request to /api/v2/servers to get all informations about a specific server"""
-        return CBWParser().parse(CBWServer, self._request("GET", [ROUTE_SERVERS, server_id]))
+        response = self._request("GET", [ROUTE_SERVERS, server_id])
 
-    def get_detailed_servers(self):
-        """Use servers method to get all informations for each server"""
-        result = []
-        for server in self.servers():
-            result.append(self.server(server.server_id))
-        return result
+        return CBWParser().parse_response(CBWServer, response)
