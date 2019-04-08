@@ -60,3 +60,19 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/server_failed.yaml'):
             response = CBWApi(API_URL, API_KEY, SECRET_KEY).server('wrong_id')
             assert isinstance(response, CBWServer) is False
+
+    @staticmethod
+    def test_delete_server():
+        """Tests for method delete_server"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        response = client.delete_server(None)
+        assert response is False
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_server_without_server_id.yaml'):
+            response = client.delete_server('wrong id')
+            assert response is False
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_server_with_server_id.yaml'):
+            response = client.delete_server('fd302ddb48d8634e948afdb84abd1db1')
+            assert response is True

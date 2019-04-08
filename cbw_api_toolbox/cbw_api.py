@@ -51,16 +51,21 @@ class CBWApi:
             self.logger.error("An error occurred, please check your API_URL.")
             sys.exit(-1)
 
-    def ping(self):
-        """GET request to /api/v2/ping then check uuid value"""
-        response = self._request("GET", [ROUTE_PING])
-
+    @staticmethod
+    def verif_response(response):
+        """Check the response status code"""
         if response.status_code == 200:
             print("OK")
             return True
 
         print("KO")
         return False
+
+    def ping(self):
+        """GET request to /api/v2/ping then check uuid value"""
+        response = self._request("GET", [ROUTE_PING])
+
+        return self.verif_response(response)
 
     def servers(self):
         """GET request to /api/v2/servers to get all servers"""
@@ -73,3 +78,13 @@ class CBWApi:
         response = self._request("GET", [ROUTE_SERVERS, server_id])
 
         return CBWParser().parse_response(CBWServer, response)
+
+    def delete_server(self, server_id):
+        """DELETE request to /api/v2/servers/SERVER_ID to delete a specific server"""
+        if server_id:
+            print("Deleting {}".format(server_id))
+            response = self._request("DELETE", [ROUTE_SERVERS, server_id])
+            return self.verif_response(response)
+
+        print("No server id")
+        return False
