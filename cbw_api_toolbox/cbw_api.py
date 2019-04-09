@@ -79,6 +79,18 @@ class CBWApi:
 
         return CBWParser().parse_response(CBWServer, response)
 
+    def update_server(self, server_id, groups_name):
+        """PATCH request to /api/v2/servers/SERVER_ID to update the groups of a server"""
+        if server_id:
+            response = self._request("PATCH", [ROUTE_SERVERS, server_id], {'groups': groups_name})
+
+            print("add group: {}".format(groups_name))
+
+            return self.verif_response(response)
+
+        print("No server id")
+        return False
+
     def delete_server(self, server_id):
         """DELETE request to /api/v2/servers/SERVER_ID to delete a specific server"""
         if server_id:

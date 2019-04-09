@@ -76,3 +76,23 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_server_with_server_id.yaml'):
             response = client.delete_server('fd302ddb48d8634e948afdb84abd1db1')
             assert response is True
+
+    @staticmethod
+    def test_update_server():
+        """Tests for server method"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server.yaml'):
+            response = client.update_server('7472cc6f37a6b5482193ca5184a88d44',
+                                            "production,Development")
+            assert response is True
+
+        response = client.update_server('', "production,Development")
+        assert response is False
+
+        response = client.update_server(None, "Production,Development")
+        assert response is False
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_with_group_none.yaml'):
+            response = client.update_server('7472cc6f37a6b5482193ca5184a88d44', None)
+            assert response is True
