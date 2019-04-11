@@ -2,6 +2,7 @@
 
 from cbw_api_toolbox.cbw_api import CBWApi
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
+from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 
 import vcr  # pylint: disable=import-error
 import pytest  # pylint: disable=import-error
@@ -96,3 +97,14 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_with_group_none.yaml'):
             response = client.update_server('7472cc6f37a6b5482193ca5184a88d44', None)
             assert response is True
+
+    @staticmethod
+    def test_remote_accesses():
+        """Tests for method remote_accesses"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_accesses.yaml'):
+            response = client.remote_accesses()
+            assert isinstance(response, list) is True
+            for remote in response:
+                assert isinstance(remote, CBWRemoteAccess) is True
