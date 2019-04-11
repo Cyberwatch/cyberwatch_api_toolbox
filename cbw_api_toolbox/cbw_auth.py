@@ -3,12 +3,12 @@
 import base64
 import datetime
 import hmac
-from hashlib import sha256, md5
+from hashlib import sha256
 
 from requests.auth import AuthBase
 
 from cbw_api_toolbox import JSON_CONTENT_TYPE, SIGNATURE_HTTP_HEADER, \
-                            TIMESTAMP_HTTP_HEADER, CONTENT_HASH_HEADER, \
+                            TIMESTAMP_HTTP_HEADER, \
                             CONTENT_TYPE_HEADER, SIGNATURE_HEADER
 
 
@@ -33,8 +33,6 @@ class CBWAuth(AuthBase):
         # get data
         self.raw_data = request.body if request.body else ""
         self.type_data = JSON_CONTENT_TYPE if self.raw_data else ""
-        if self.raw_data:
-            self.hash_data = md5(self.raw_data.encode('utf-8')).hexdigest()
 
         # add headers
         if self.raw_data:
@@ -51,7 +49,6 @@ class CBWAuth(AuthBase):
                                                                       signature)
 
     def _add_content_type(self, request):
-        request.headers[CONTENT_HASH_HEADER] = self.hash_data
         request.headers[CONTENT_TYPE_HEADER] = self.type_data
 
     def _sign(self, method, timestamp, path):
