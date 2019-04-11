@@ -56,10 +56,10 @@ class CBWApi:
     def verif_response(response):
         """Check the response status code"""
         if response.status_code >= 200 and response.status_code <= 299:
-            print("OK")
+            logging.debug("response server OK::{}".format(response.text))
             return True
 
-        print("KO")
+        logging.error("response server KO::{}".format(response.text))
         return False
 
     def ping(self):
@@ -79,7 +79,7 @@ class CBWApi:
         about a specific server"""
         response = self._request("GET", [ROUTE_SERVERS, server_id])
         if response.status_code != 200:
-            print("Error server id")
+            logging.error("Error server id::{}".format(response.text))
             return None
 
         return CBWParser().parse_response(CBWServer, response)
@@ -89,21 +89,21 @@ class CBWApi:
         if server_id:
             response = self._request("PATCH", [ROUTE_SERVERS, server_id], {'groups': groups_name})
 
-            print("add group: {}".format(groups_name))
+            logging.debug("add group: {}".format(groups_name))
 
             return self.verif_response(response)
 
-        print("No server id")
+        logging.error("No server id for update")
         return False
 
     def delete_server(self, server_id):
         """DELETE request to /api/v2/servers/SERVER_ID to delete a specific server"""
         if server_id:
-            print("Deleting {}".format(server_id))
+            logging.debug("Deleting {}".format(server_id))
             response = self._request("DELETE", [ROUTE_SERVERS, server_id])
             return self.verif_response(response)
 
-        print("No server id")
+        logging.error("No server id specific for delete")
         return False
 
     def remote_accesses(self):
@@ -123,10 +123,10 @@ class CBWApi:
                 "key": info["key"],
                 "node": info["node"]
             })
-            print("Create connexion")
+            logging.debug("Create connexion remote access::{}".format(response.text))
             return self.verif_response(response)
 
-        print("Error create connection")
+        logging.error("Error create connection remote access")
         return False
 
     def remote_access(self, remote_access_id):
@@ -135,7 +135,7 @@ class CBWApi:
         response = self._request("GET", [ROUTE_REMOTE_ACCESSES, remote_access_id])
 
         if response.status_code != 200:
-            print("error remote_access_id")
+            logging.error("error remote_access_id::{}".format(response.text))
             return None
 
         return CBWParser().parse_response(CBWRemoteAccess, response)
@@ -143,11 +143,11 @@ class CBWApi:
     def delete_remote_access(self, remote_access_id):
         """DELETE request to /api/v2/remote_access/{remote_id} to delete a specific remote access"""
         if remote_access_id:
-            print("Deleting remote access {}".format(remote_access_id))
+            logging.debug("Deleting remote access {}".format(remote_access_id))
             response = self._request("DELETE", [ROUTE_REMOTE_ACCESSES, remote_access_id])
             return self.verif_response(response)
 
-        print("No remote_access_id")
+        logging.error("No remote_access_id for delete")
         return False
 
     def update_remote_access(self, remote_access_id, info):
@@ -162,8 +162,8 @@ class CBWApi:
                 "key": info["key"],
                 "node": info["node"]
             })
-            print("Update remote access")
+            logging.debug("Update remote access::{}".format(response.text))
             return self.verif_response(response)
 
-        print("Error update remote access")
+        logging.error("Error update remote access")
         return False

@@ -1,7 +1,11 @@
 """Make the directory as a package directory"""
 
+import logging
 import urllib3
+
 urllib3.disable_warnings()
+
+logging.basicConfig(level=logging.INFO)
 
 API_DEFAULT_URL = "/api/v2/"
 

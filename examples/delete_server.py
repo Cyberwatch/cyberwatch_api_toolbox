@@ -15,4 +15,4 @@ result = CLIENT.delete_server(SERVER_ID)
 if result:
     print('Successfull deletion')
 else:
-    print('Failure')
+    print('Failure deletion')
