@@ -31,7 +31,7 @@ for server in SERVERS:
             concerned_group[server.category].append(server)
 
 for group in CATEGORY_BY_GROUPS:
-    print("--- GROUP : {0} ---".format(group))
+    print("--- SERVER BY GROUP: {0} ---".format(group))
 
     for category in CATEGORY_BY_GROUPS[group]:
         print("** CATEGORY : {0} **".format(category))
