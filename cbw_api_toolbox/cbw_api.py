@@ -128,3 +128,14 @@ class CBWApi:
 
         print("Error create connection")
         return False
+
+    def remote_access(self, remote_access_id):
+        """GET request to /api/v2/remote_accesses/{remote_access_id} to get all informations
+        about a specific remote access"""
+        response = self._request("GET", [ROUTE_REMOTE_ACCESSES, remote_access_id])
+
+        if response.status_code != 200:
+            print("error remote_access_id")
+            return None
+
+        return CBWParser().parse_response(CBWRemoteAccess, response)
