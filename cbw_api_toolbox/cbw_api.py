@@ -9,9 +9,10 @@ from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader,
 from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox import API_DEFAULT_URL
-from cbw_api_toolbox.__routes__ import ROUTE_SERVERS, ROUTE_PING
+from cbw_api_toolbox.__routes__ import ROUTE_SERVERS, ROUTE_PING, ROUTE_REMOTE_ACCESSES
 from cbw_api_toolbox.cbw_auth import CBWAuth
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
+from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 from cbw_api_toolbox.cbw_parser import CBWParser
 
 
@@ -54,7 +55,7 @@ class CBWApi:
     @staticmethod
     def verif_response(response):
         """Check the response status code"""
-        if response.status_code == 200:
+        if response.status_code >= 200 and response.status_code <= 299:
             print("OK")
             return True
 
@@ -100,3 +101,8 @@ class CBWApi:
 
         print("No server id")
         return False
+
+    def remote_accesses(self):
+        """GET request to /api/v2/remote_accesses to get all servers"""
+        response = self._request("GET", [ROUTE_REMOTE_ACCESSES])
+        return CBWParser().parse_response(CBWRemoteAccess, response)

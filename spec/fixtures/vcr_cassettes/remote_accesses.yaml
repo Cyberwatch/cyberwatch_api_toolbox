@@ -1,0 +1,82 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:VMaQ0cR28N1p+ZRAVPwe8D1UCgJQ+xqQwSFoQZqhuck=
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 11 Apr 2019 08:27:31 GMT
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: http://localhost/api/v2/remote_accesses
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+2ZbW/iOBDHv0veHmVn/Gy/O90XWO1VukqnE3Ls8TYSIWwSWlWnfvdzCr0Fuo1Q
+        C6UvQCDF5D/jsf2b2I7//reoYuHEpOgfllS44o/y/puvnftGddPT7yFQ1zn3Z3fr3F9Vf/vVd919
+        08ZiUiyamA3W9piLvh7sa9/11ObbkbrQVsu+ahaFW6zm80mxaudZcdv3y859+YIwHb5TRMzyZv5Q
+        L2l2R233ZFHYqcx/h/J+1ixmy5bqqtu+zaZwFekuS8qm6Wd99VQ7A7RXIK4Qr8E6ZhwXUwD4DZgD
+        GNy15HuKM99vicFcIzrgTuKOeLWML8U/Pest8eOk8DG2ua+ydN0wNmXMZC/Lps32jE2Kqpvd+fnQ
+        XcnPO3olGoRrlA50DuiAaLJYOzROqh1xR23uqufRKaRKgZUsBl4yq7kgsDwlBCjBWA8iW9w2Xb8Z
+        wt3453lAZ6Gp69WiCn57OFt66vqWfqyqluLz3/47LfqfI/WsHXCaVcsX/p98DI1aCzMzfa5nXvUP
+        WbpVmtUUq1X9f090OajVIttBNrqjmV8scjlQnWvfuZe135t28LbplcfHybpf5IX641Hf55F6D+5M
+        Hob7WjyOO2oVwLKYLJGSgOBLT6X1JGVEpF3cN4Efn/ON4zMCri6AHxHw4fNmwhGchEMJH8Q4RriX
+        WpYpKeTKgg0Wymi4JWRM8FRa2CN8E/kJEN94PiPj+sL48Ri/ubmZbv3eSLsaAGYHLl+yGB0TY7Rz
+        8inkJUxC600gZmQKJG1poiYLOu3S/rINx+f+ZR1nzABzyYCTZIB4XwooJw5PgSw2oymggWP0KkVL
+        2mLyEkMIVuhSRymVfjUFxEfkgDh/EthLEpxqGnhzCnDlpD40BQbxaAqQsgyYEGjQWuWjlTZfRusl
+        5X0tmrFZ4AMmgfPij3Dh/5j8H2UVxI1jh/OfY7Jj/EemSAtmNAmrgqJSG4rMkFYmTwIa9vn/gEXQ
+        51kDIV74PzL/78ZfGCcOfKmTxdaJ0Zc6yWNIJFmgEgJXUpiEuSCJaR3U/pZ3vwUnov+TwM8u8J8E
+        /jeirx2I/fX8yOv7QTz65Lc2+qhQK2VJKJNKAiHztQZvEYC/iv6pwT8z9vyC/bFPrfAdp1baoXV4
+        MPZZzNgY9ug5V8kHUB7B2sR0yQX4pBjXUuq9Bf9u/Kc6tcLzn1rh5bD26Njzd2HP+P4DfAR7JhyD
+        0X0upJg3utyrpLVhZMpUCsOD8NYkFdKvsOcnxp5/Auwvp7VHx168FfunCiQ77EhrLeaOjR5pGRHL
+        QD7vagXPT/qACchKw1jJSwDtf4W9ODH24ozY//MfFzkiuZsjAAA=
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 11 Apr 2019 08:27:31 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Miniprofiler-Ids:
+      - '["tiw0qsfy5nfrnok0i1tg","v3i216qrf8h7uxw7a6of","kdr2405xrn7vrny8p5bt","zp3tpjk2g78qdm18xxig","cpckxhcrywbla1inx9ac","9nbf8hsuvbb87n30l4xc","ri8fff42j1r6urk4lxa0","2jj281k5rjeukht9z687","bsl61uybwq8yhh5bnlft","srt7r1zsh7oc1fmkd1aa","svka5httti9o0mw9usv3","kg700wjxz8tmav1i7u3w","cicxc7o3dd8ynl9jrnft","3jo194gwnuq4t8yvh99t","zqkfdx1ch2npiumqw84o","haa8rj79tkvuxvjzkekh","1eop6gq8kqyre5ckop3u","nz49l7lidn9uezkiqpfn","7ej6a5drlr9rjmhe35wl","tdouu32judzo09r9ot54"]'
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - b109b92e-3934-48dd-a511-a7938ab98c0a
+      X-Runtime:
+      - '0.049992'
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
