@@ -108,3 +108,30 @@ class TestCBWApi:
             assert isinstance(response, list) is True
             for remote in response:
                 assert isinstance(remote, CBWRemoteAccess) is True
+
+    @staticmethod
+    def test_create_remote_access():
+        """Tests for method remote_access"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {"type": "CbwRam::RemoteAccess::Ssh::WithPassword",
+                "address": "X.X.X.X",
+                "port": "22",
+                "login": "loginssh",
+                "password": "passwordssh",
+                "key": "",  # precises the key of the connection
+                "node": "master"  # precises the Cyberwatch source of the connection,
+                }
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_remote_access.yaml'):
+            response = client.create_remote_access(info)
+
+            assert response is True
+
+        info["address"] = ""
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_remote_access_failed_'
+                              'without_address.yaml'):
+            response = client.create_remote_access(info)
+
+            assert response is False

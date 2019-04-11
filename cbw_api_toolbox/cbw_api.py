@@ -110,3 +110,21 @@ class CBWApi:
         """GET request to /api/v2/remote_accesses to get all servers"""
         response = self._request("GET", [ROUTE_REMOTE_ACCESSES])
         return CBWParser().parse_response(CBWRemoteAccess, response)
+
+    def create_remote_access(self, info):
+        """"POST request to /api/v2/remote_accesses to create a specific remote access"""
+        if info:
+            response = self._request("POST", [ROUTE_REMOTE_ACCESSES], {
+                "type": info["type"],
+                "address": info["address"],
+                "port": info["port"],
+                "login": info["login"],
+                "password": info["password"],
+                "key": info["key"],
+                "node": info["node"]
+            })
+            print("Create connexion")
+            return self.verif_response(response)
+
+        print("Error create connection")
+        return False
