@@ -135,3 +135,16 @@ class TestCBWApi:
             response = client.create_remote_access(info)
 
             assert response is False
+
+    @staticmethod
+    def test_remote_access():
+        """Tests for method remote_access"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_access.yaml'):
+            response = client.remote_access('4')
+            assert isinstance(response, CBWRemoteAccess) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_access_wrong_id.yaml'):
+            response = client.remote_access('wrong_id')
+            assert isinstance(response, CBWRemoteAccess) is False
