@@ -75,8 +75,12 @@ class CBWApi:
         return CBWParser().parse_response(CBWServer, response)
 
     def server(self, server_id):
-        """GET request to /api/v2/servers to get all informations about a specific server"""
+        """GET request to /api/v2/server/{server_id} to get all informations
+        about a specific server"""
         response = self._request("GET", [ROUTE_SERVERS, server_id])
+        if response.status_code != 200:
+            print("Error server id")
+            return None
 
         return CBWParser().parse_response(CBWServer, response)
 
