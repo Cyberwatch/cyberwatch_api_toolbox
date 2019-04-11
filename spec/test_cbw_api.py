@@ -161,3 +161,36 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_remote_access_wrong_id.yaml'):
             response = client.delete_remote_access('wrong_id')
             assert response is False
+
+    @staticmethod
+    def test_update_remote_access():
+        """Tests for update remote method"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {"type": "CbwRam::RemoteAccess::Ssh::WithPassword",
+                "address": "10.10.10.228",
+                "port": "22",
+                "login": "loginssh",
+                "password": "passwordssh",
+                "key": "",
+                "node": "master"
+                }
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access.yaml'):
+            response = client.update_remote_access('4', info)
+
+            assert response is True
+
+        info["address"] = "10.10.11.228"
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access_id_none.yaml'):
+            response = client.update_remote_access(None, info)
+
+            assert response is False
+
+        info["type"] = ""
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access_without_type.yaml'):
+            response = client.update_remote_access('4', info)
+
+            assert response is False
