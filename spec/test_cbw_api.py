@@ -148,3 +148,16 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_access_wrong_id.yaml'):
             response = client.remote_access('wrong_id')
             assert isinstance(response, CBWRemoteAccess) is False
+
+    @staticmethod
+    def test_delete_remote_access():
+        """Tests for method delete_remote_access"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_remote_access.yaml'):
+            response = client.delete_remote_access('6')
+            assert response is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_remote_access_wrong_id.yaml'):
+            response = client.delete_remote_access('wrong_id')
+            assert response is False

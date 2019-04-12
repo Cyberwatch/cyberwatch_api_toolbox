@@ -1,0 +1,74 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:DRsFwJc+lBSKCgwLgiFFK3kScdD/Vlf2+/QA4Mrzb+A=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Date:
+      - Fri, 12 Apr 2019 07:50:39 GMT
+      User-Agent:
+      - python-requests/2.21.0
+    method: DELETE
+    uri: http://localhost/api/v2/remote_accesses/6
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA42SwW7bMAyG30XXOi7l1G6l27AXGNoAOwqyxTQCLMmT5ARBkXcf5SWdg2LADF8o
+        fj/5i9QHs4bJrmL5PCGT7Ht/etVOyld0IeO3YcCUpHxLByl/2nz4oVM6hWhYxXwwJPhY9JxC7Yre
+        6ZQxUtpgGqKdsg2eST+PY8XmOBJxyHlK8vGRQ13+mnNOeBjPbkJ1xJgWBRN1S8dDf1LBqymis2md
+        bmrYGDwS0oeQVbZL9wa42MDThjc7ELJpZStqAHiARgKUchF1RqN0XsHwsuNcwla2/A6eJ/MVvlbu
+        JHQr+FIxbUykWRGay0f6KURSNk3FbFJHPZZB7fWY8B8+OOx4KznIFv7Dxyd8bzphpCHd9sJ0+9z2
+        +33Ht50AMQjozctWIG+ap+2+F0VxCClfl3dzPtIS1RCcm70d9HqFEZdxR/w124jmdqzf0ee/27mx
+        5QkpO60qL+pykT8IvZBMHUabzwStIuXQ2Nl93j6RndmTDkh0RKW9p3hAR33vcsS+h1iqXSdxufwG
+        9nPkgeMCAAA=
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 12 Apr 2019 07:50:39 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Miniprofiler-Ids:
+      - '["9uik9tz81vcqr53s7cu6","11tnzlb4ihxk4xaapuu1","nayb8vwq6eh23uqabt9n","bwoj5968pltvgki49edu","z99g75n3jffa45ump4rj","3mgp7bkd18eygkkzvpof","22pu2omk5nyvhcjh0xhm","vx8f98gn3e8um1cg0bly","lsrgqi7e494v62dukapn","zgk4u4cymc3qtg86mugx","ap0cynvsevg691bbkhhq","uuqa6ll0zxz4rfafv3ct"]'
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 0aff3e86-bf70-4f44-a62b-abb3ed809bcc
+      X-Runtime:
+      - '0.031280'
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
