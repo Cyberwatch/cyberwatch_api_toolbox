@@ -139,3 +139,13 @@ class CBWApi:
             return None
 
         return CBWParser().parse_response(CBWRemoteAccess, response)
+
+    def delete_remote_access(self, remote_access_id):
+        """DELETE request to /api/v2/remote_access/{remote_id} to delete a specific remote access"""
+        if remote_access_id:
+            print("Deleting remote access {}".format(remote_access_id))
+            response = self._request("DELETE", [ROUTE_REMOTE_ACCESSES, remote_access_id])
+            return self.verif_response(response)
+
+        print("No remote_access_id")
+        return False
