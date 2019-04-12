@@ -1,4 +1,4 @@
-"""Get all the servers agentless"""
+"""Get all the remote accesses"""
 
 from cbw_api_toolbox.cbw_api import CBWApi
 
