@@ -128,7 +128,9 @@ class CBWApi:
                 "node": info["node"]
             })
             logging.debug("Create connexion remote access::{}".format(response.text))
-            return self.verif_response(response)
+            if self.verif_response(response):
+                logging.info('remote access successfully created {}'.format(info["address"]))
+                return CBWParser().parse_response(CBWRemoteAccess, response)
 
         logging.error("Error create connection remote access")
         return False
