@@ -126,7 +126,7 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_remote_access.yaml'):
             response = client.create_remote_access(info)
 
-            assert response is True
+            assert isinstance(response, CBWRemoteAccess) is True
 
         info["address"] = ""
 
