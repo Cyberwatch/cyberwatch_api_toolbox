@@ -58,14 +58,14 @@ If everything is ok, the `OK` message will appear
 
 ```bash
 $ python3 ping.py
-OK
+INFO:root:OK
 ```
 
 Otherwise, the `FAILED` message will appear
 
 ```
 $ python3 ping.py
-FAILED
+ERROR:root:FAILED
 ```
 
 In this case, please check that there are no typing errors in your `API_KEY`, `SECRET_KEY` or `API_URL` and that your Cyberwatch instance is up.

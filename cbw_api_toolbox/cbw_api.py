@@ -66,7 +66,11 @@ class CBWApi:
         """GET request to /api/v2/ping then check uuid value"""
         response = self._request("GET", [ROUTE_PING])
 
-        return self.verif_response(response)
+        if response.status_code == 200:
+            logging.info("OK")
+            return True
+        logging.error("FAILED")
+        return False
 
     def servers(self):
         """GET request to /api/v2/servers to get all servers"""
