@@ -1,5 +1,7 @@
 """Test file for cbw_files_xlsx.py"""
 
+import xlrd
+
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 from cbw_api_toolbox.cbw_file_xlsx import CBWXlsx
 
@@ -46,3 +48,29 @@ class TestCBWXlsx:
             assert isinstance(response[0], CBWRemoteAccess) is False
             assert isinstance(response[1], CBWRemoteAccess) is False
             assert isinstance(response[2], CBWRemoteAccess) is True
+
+    @staticmethod
+    def test_export_remote_accesses_xlsx():
+        """Tests for export remote accesses xlsx file method"""
+        client = CBWXlsx(API_URL, API_KEY, SECRET_KEY)
+
+        file_xlsx = "test.xlsx"
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/export_file_xlsx.yaml'):
+            response = client.export_remote_accesses_xlsx(file_xlsx)
+
+            workbook = xlrd.open_workbook(file_xlsx)
+            sheet = workbook.sheet_by_index(0)
+
+            for rownum in range(sheet.nrows):
+                result = sheet.row_values(rownum)
+                break
+
+            assert response is True and result == ['HOST', 'PORT', 'TYPE', 'NODE', 'GROUPS']
+
+            for rownum in range(1, sheet.nrows):
+                result = sheet.row_values(rownum)
+                break
+
+            assert result == ['server01.example.com', 22.0,
+                              'CbwRam::RemoteAccess::Ssh::WithPassword',
+                              'master', 'Production,test']

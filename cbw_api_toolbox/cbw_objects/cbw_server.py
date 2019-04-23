@@ -19,6 +19,7 @@ class CBWServer:
                  status=None,
                  os=None,
                  updates_count=0,
+                 updates=None,
                  groups=None,
                  cve_announcements_count=0,
                  cve_announcements=None,
@@ -28,7 +29,8 @@ class CBWServer:
                  agent_version="",
                  reboot_required=False,
                  last_communication="",
-                 state_sha2=""):
+                 state_sha2="",
+                 **kwargs): # pylint: disable=unused-argument
         self.id = id  # pylint: disable=invalid-name
         self.groups = [CBWParser().parse(CBWGroup, group) for group in groups] if groups else None
         self.hostname = hostname
@@ -40,6 +42,7 @@ class CBWServer:
         self.os = os  # pylint: disable=invalid-name
         self.state_sha2 = state_sha2
         self.updates_count = updates_count
+        self.updates = updates
         self.cve_announcements_count = cve_announcements_count
         self.cve_announcements = [CBWParser().parse(CBWCve, cve) for cve in
                                   cve_announcements] if cve_announcements else None
