@@ -16,7 +16,8 @@ class CBWRemoteAccess:
                  is_valid,
                  created_at,
                  updated_at,
-                 server):
+                 server,
+                 **kwargs): # pylint: disable=unused-argument
         self.id = id  # pylint: disable=invalid-name
         self.type = type
         self.node = CBWParser().parse(CBWNode, node) if node else None

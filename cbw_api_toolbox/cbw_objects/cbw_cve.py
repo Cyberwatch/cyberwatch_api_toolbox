@@ -11,7 +11,8 @@ class CBWCve:
                  cve_score="",
                  last_modified="",
                  published="",
-                 updated_at=""):
+                 updated_at="",
+                 **kwargs): # pylint: disable=unused-argument
         self.content = content
         self.created_at = created_at
         self.cve_code = cve_code

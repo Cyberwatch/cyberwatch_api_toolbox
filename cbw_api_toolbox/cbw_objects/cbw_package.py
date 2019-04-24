@@ -9,7 +9,8 @@ class CBWPackage:
                  product="",
                  type="",  # pylint: disable=redefined-builtin
                  vendor="",
-                 version=""):
+                 version="",
+                 **kwargs): # pylint: disable=unused-argument
         self.hash_index = hash_index
         self.product = product
         self.package_type = type
