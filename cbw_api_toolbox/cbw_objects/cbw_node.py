@@ -12,8 +12,9 @@ class CBWNode:
                  olympe_version="",
                  cbw_on_premise_version="",
                  boot_time="",
+                 updated_at="",
                  created_at="",
-                 updated_at=""):
+                 **kwargs):  # pylint: disable=unused-argument
         self.id = id  # pylint: disable=invalid-name
         self.name = name
         self.description = description

@@ -28,7 +28,8 @@ class CBWServer:
                  agent_version="",
                  reboot_required=False,
                  last_communication="",
-                 state_sha2=""):
+                 state_sha2="",
+                 **kwargs): # pylint: disable=unused-argument
         self.id = id  # pylint: disable=invalid-name
         self.groups = [CBWParser().parse(CBWGroup, group) for group in groups] if groups else None
         self.hostname = hostname
