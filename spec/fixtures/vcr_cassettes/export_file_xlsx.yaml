@@ -1,0 +1,277 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:tCOhEM37lhf1ywAERsDAis1o2t9PDdDkJvCM3G5KvpM=
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 24 Apr 2019 08:52:33 GMT
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: http://localhost/api/v2/remote_accesses
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+WUTYvbMBCG/4uu9YaRLDmybqX3UtLAHkoxijTeCPyRSnK2oeS/d9J0l2Rp0hay
+        p8UXy/POzDujB3/5wYJnRpQFy7sNMsM+rB4Xtjdmgf2Y8b1zmJIxn9PamPuQ159sSo9j9Kxg1vtI
+        QcpJGLcYgc/wu+03Hc7c2JNgM8ZMtUXBQmq2tjt0am2XsGAuos3oG0sCJoDXdyDvRLnk0oA2MJ8B
+        wDsQBoDqTBt/TazPxEcvzBwHYysrlWp165WGeSthrpWXvKywmvtSKEcZ6zHlwfZ4eZDOptzQaz8N
+        wdkcxoGZYeq6gkVcjWNuIn6bQkT/9Nk+4JAbKpXOtIeNNmFzudGvYocxjxkuhkwNu5B3lHNyanr0
+        Yeqfd5PI3TRQHlDSFhs7DHR22JONsxhpH8a4e3bA9gUbRo9P++J0PK6ip5kpfuGqQC85N1Aaxf/h
+        quSSgwFpRHUi3u+L3/DJW8Anbgaf/g/4OFyDT5faSVCt1BXqVjnAusS6lbXm3NWC/xG+l4O8Gnwv
+        G71N+NRf4LsPw6I/4veR7OdALc7444L+VvTwZ+hUrdXrYifqa9jVUPpyrmQtOW+Bq8phZdEKhy3X
+        q6o9x+7U/+1ZO63+tgD7+hNpQ1lSXAcAAA==
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 24 Apr 2019 08:52:33 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Miniprofiler-Ids:
+      - '["vftqy3xbkhdkmtsy8i8h","ak75v7y87oanw11vzjnx","e0hsh5vkjpsmu55q3k0h","aygcsezuiz43yedwdiig","istsuo6kqqxhwfx6p450","lpfbqru7p1mqa00pucpd","p9z2ori4zs4i558xan6"]'
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 8622d500-49ed-4fa4-a2ac-0a9a98232f8f
+      X-Runtime:
+      - '0.028567'
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:DzjpY9KB/4yVXDTUrHVznAS5LbekCLqNSEhJn68ZiCQ=
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 24 Apr 2019 08:52:33 GMT
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: http://localhost/api/v2/servers/ba455f8fd5807f40785d4136e67d325c
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA41Sy27CMBD8l702ICfEPPwVHLhVVWTshVqN7dSxURHKv3eThrRUoPa2j5md2bUv
+        YDQI2MuS88P6oPmarQ4lW625LvPFEpcrvSi4ggxefRudtEjoFsMJA8vn+CFtU+NceUuIWraxotAm
+        Z5SMxjsQLtV1BgH33scq4HsyAfW1LI/oYkWj2hus9REr0zwWGobJeGWoYCIJ1iaeifMjqyxqk3pG
+        arSM2JK75IjHiHTCSjpHuUJLNm56hD36cJ4cfE8A8fySQRtlTBRfoF8XexrMoMvAt5Op3/NHJqoU
+        emt3esfgU9PHl+FRCnIyHnwbvE5quGi/LpITPRwACpZvZqycsc0uzwXfiLKcM8aeWCEYm2z/C9xl
+        oy6fdGnh+EgxX+5yTiZFufhb8T64o6XpgE1tJF2imvanciPVG32PMZMNYb6+1FDpPgEZdMKTtwIA
+        AA==
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 24 Apr 2019 08:52:33 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Miniprofiler-Ids:
+      - '["neq33h8i2fw8taqwrxzk","ak75v7y87oanw11vzjnx","e0hsh5vkjpsmu55q3k0h","aygcsezuiz43yedwdiig","istsuo6kqqxhwfx6p450","lpfbqru7p1mqa00pucpd","p9z2ori4zs4i558xan6","vftqy3xbkhdkmtsy8i8h"]'
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 9a690040-c778-4ab8-8cd9-fa9494b4e5a6
+      X-Runtime:
+      - '0.048374'
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:F2NUnRxV9xU0I1djllb5TKqmZ9bn42HntOO/KHzvsaQ=
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 24 Apr 2019 08:52:33 GMT
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: http://localhost/api/v2/servers/838c405f486e8f5c0e93e9f49811c921
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA3WQ627CMAyF38W/O9RCmVpeZZoiL3W7aLmROGgI8e5zWWEwbf98Od/xSU5gBthB
+        t+l0W2/HtnumbtzqmvoN9WPbd02j+3UDFbyHzB4diTpTOlCq1yv6RBctrXRworCYWUnpijca2QQP
+        O1+srSDRWwisEu2LSTRcxziRZyVW+UHrApMy8f9DFzPkK6GTYTloDR+FueuUo8GUmShxQKYs6YoX
+        rhboQAq9l16TkxgPO9FOIR1vCX4cYPfyWkFm5CL1Cebn0ozBE5wrCPkW6rf/QpIuaY72x25KocSl
+        Ft9oDYpA3Y8j6g/5taXDKJrvn75Mzl+xyuRGzgEAAA==
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 24 Apr 2019 08:52:33 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Miniprofiler-Ids:
+      - '["76oon7cumu4jczj7p778","ak75v7y87oanw11vzjnx","e0hsh5vkjpsmu55q3k0h","aygcsezuiz43yedwdiig","istsuo6kqqxhwfx6p450","lpfbqru7p1mqa00pucpd","p9z2ori4zs4i558xan6","vftqy3xbkhdkmtsy8i8h","neq33h8i2fw8taqwrxzk"]'
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 90e5944d-9a85-4d16-a5db-1fb085aea0aa
+      X-Runtime:
+      - '0.038039'
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:DvoHuIHc66VZbGXBuhX+XhqQyx7oKjm16X4RjSut1aw=
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 24 Apr 2019 08:52:33 GMT
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: http://localhost/api/v2/servers/903d37549411f0156ce6aea2cef18b6f
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA41Ry07DMBD8l72SVus0TWm+gxtClmtvi0X8wI9KqOq/swltoYgD8mUfM7Oz6xNY
+        AwNscWVWm3W37YTYo1j3mnpFqtW0F4+7fg8NvIZcvHLEaNFulshPcHlUuUgdnKvealVs8DD4Oo4N
+        JNqFUGSi92oTmWtZHcgXeaSU77AuFJI2/lKfFVS5wnSyhaeMtnww8EcmHRlbHTNqNKpQZkvVMw+Z
+        dCSpvOdck+PZdz3GHkKa1DIlNvWtAMPzSwO5qFI5PsG0I000WMC5gZBvpn7rX5ika5qs/dE7pFDj
+        FJ/m87d9A5fTxkQxBVP1fMlpY2IzZr4BtCi2C+wWon8S66HFoeuWiPiA7YB4c/4v8Jld8EZxtIqt
+        yZshLkel3/iTLpmKjPn62Lly/gTCb0i9MgIAAA==
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 24 Apr 2019 08:52:34 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Miniprofiler-Ids:
+      - '["apvyegqqkcoloyk2sj5g","ak75v7y87oanw11vzjnx","e0hsh5vkjpsmu55q3k0h","aygcsezuiz43yedwdiig","istsuo6kqqxhwfx6p450","lpfbqru7p1mqa00pucpd","p9z2ori4zs4i558xan6","vftqy3xbkhdkmtsy8i8h","neq33h8i2fw8taqwrxzk","76oon7cumu4jczj7p778"]'
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 009b60a5-1eae-482e-b396-8585e75d92df
+      X-Runtime:
+      - '0.038488'
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
