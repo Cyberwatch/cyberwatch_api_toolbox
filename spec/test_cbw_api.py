@@ -83,19 +83,27 @@ class TestCBWApi:
         """Tests for server method"""
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
+        info = {
+            "groups": "production,Development",
+            "compliance_groups": "Anssi"
+        }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server.yaml'):
             response = client.update_server('7472cc6f37a6b5482193ca5184a88d44',
-                                            "production,Development")
+                                            info)
             assert response is True
 
-        response = client.update_server('', "production,Development")
+        response = client.update_server('', info)
         assert response is False
 
-        response = client.update_server(None, "Production,Development")
+        response = client.update_server(None, info)
         assert response is False
 
+        info = {
+            "groups": None,
+            "compliance_groups": None
+        }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_with_group_none.yaml'):
-            response = client.update_server('7472cc6f37a6b5482193ca5184a88d44', None)
+            response = client.update_server('7472cc6f37a6b5482193ca5184a88d44', info)
             assert response is True
 
     @staticmethod
@@ -177,7 +185,7 @@ class TestCBWApi:
                 }
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access.yaml'):
-            response = client.update_remote_access('4', info)
+            response = client.update_remote_access('38', info)
 
             assert response is True
 

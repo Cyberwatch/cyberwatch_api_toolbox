@@ -44,20 +44,27 @@ class CBWXlsx:
                     "key": text[titles.index("KEY")],
                     "node": text[titles.index("NODE")]
                 }
+
+                remote_access = self.client.create_remote_access(info)
+                response.append(remote_access)
+                logging.debug("Add groups for server")
+
+                groups_info = {
+                    "groups": text[titles.index("GROUPS")],
+                    "compliance_groups": text[titles.index("COMPLIANCE_GROUPS")]
+                }
+
+                if remote_access and remote_access.address == info["address"]:
+                    self.client.update_server(remote_access.server.id, groups_info)
+                    logging.debug("Groups successfully added")
+
+                logging.debug("Done")
+
             except ValueError:
                 logging.fatal("Error format file xlsx::"
-                              "HOST, PORT, TYPE, USERNAME, PASSWORD, KEY, NODE, GROUPS")
+                              "HOST, PORT, TYPE, USERNAME,"
+                              "PASSWORD, KEY, NODE, GROUPS, COMPLIANCE_GROUPS")
                 return None
-
-            remote_access = self.client.create_remote_access(info)
-            response.append(remote_access)
-            logging.debug("Add groups for server")
-
-            if (titles.index("GROUPS") and remote_access
-                    and remote_access.address == info["address"]):
-                self.client.update_server(remote_access.server.id, text[titles.index("GROUPS")])
-                logging.debug("Groups successfully added")
-            logging.debug("Done")
         return response
 
     def export_remote_accesses_xlsx(self,
