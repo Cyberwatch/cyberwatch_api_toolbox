@@ -88,12 +88,16 @@ class CBWApi:
 
         return CBWParser().parse_response(CBWServer, response)
 
-    def update_server(self, server_id, groups_name):
+    def update_server(self, server_id, info):
         """PATCH request to /api/v2/servers/SERVER_ID to update the groups of a server"""
         if server_id:
-            response = self._request("PATCH", [ROUTE_SERVERS, server_id], {'groups': groups_name})
+            params = {
+                'groups': info["groups"],
+                'compliance_groups': info["compliance_groups"]
+            }
+            response = self._request("PATCH", [ROUTE_SERVERS, server_id], params)
 
-            logging.debug("add group: {}".format(groups_name))
+            logging.debug("Update server with: {}".format(params))
 
             return self.verif_response(response)
 
