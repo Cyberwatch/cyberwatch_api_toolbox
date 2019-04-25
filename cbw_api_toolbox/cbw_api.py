@@ -163,15 +163,7 @@ class CBWApi:
     def update_remote_access(self, remote_access_id, info):
         """PATCH request to /api/v2/remote_accesses/{remote_id} to update a remote access"""
         if remote_access_id and info:
-            response = self._request("PATCH", [ROUTE_REMOTE_ACCESSES, remote_access_id], {
-                "type": info["type"],
-                "address": info["address"],
-                "port": info["port"],
-                "login": info["login"],
-                "password": info["password"],
-                "key": info["key"],
-                "node": info["node"]
-            })
+            response = self._request("PATCH", [ROUTE_REMOTE_ACCESSES, remote_access_id], info)
             logging.debug("Update remote access::{}".format(response.text))
             return self.verif_response(response)
 
