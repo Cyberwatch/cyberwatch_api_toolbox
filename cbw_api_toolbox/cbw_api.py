@@ -91,13 +91,9 @@ class CBWApi:
     def update_server(self, server_id, info):
         """PATCH request to /api/v2/servers/SERVER_ID to update the groups of a server"""
         if server_id:
-            params = {
-                'groups': info["groups"],
-                'compliance_groups': info["compliance_groups"]
-            }
-            response = self._request("PATCH", [ROUTE_SERVERS, server_id], params)
+            response = self._request("PATCH", [ROUTE_SERVERS, server_id], info)
 
-            logging.debug("Update server with: {}".format(params))
+            logging.debug("Update server with: {}".format(info))
 
             return self.verif_response(response)
 
