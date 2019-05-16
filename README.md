@@ -99,3 +99,7 @@ To find your API credentials:
 ```bash
 $ python3 your_example_script_file.py
 ```
+
+## Documentation
+
+See the full documentation [here](./documentation.md)
