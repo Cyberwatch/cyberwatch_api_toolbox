@@ -31,7 +31,6 @@ class CBWServer:
                  reboot_required=False,
                  remote_ip="",
                  security_announcements=None,
-                 state_sha2="",
                  status=None,
                  updates=None,
                  updates_count=0,
@@ -60,7 +59,6 @@ class CBWServer:
         self.reboot_required = reboot_required
         self.remote_ip = remote_ip
         self.security_announcements = security_announcements
-        self.state_sha2 = state_sha2
         self.status = status
         self.updates = updates
         self.updates_count = updates_count
