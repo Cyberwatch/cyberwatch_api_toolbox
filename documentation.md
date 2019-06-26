@@ -125,6 +125,7 @@ True
 | applications              | Object        | List of the computer's applications|                                                  |
 | boot_at                   | Date          | Date of the computer boot         | 2016-05-30T09:54:58.000+02:00                     |
 | category                  | String        | Computer's category               | server                                            |
+| created_at                | Date          | Date of the computer creation     | 2019-06-26T09:46:58.000+02:00
 | criticality               | String        | Computer's criticality            | criticality_medium                                |
 | cve_announcements         | Object        | List of CVEs affecting the computer| [Cve](#Cve)                                      |
 | cve_announcements_count   | Int           | Number of CVEs                    | 3                                                 |    
@@ -133,7 +134,7 @@ True
 | groups                    | Object        | Computer's groups                 | [Group](#Group)                                   |
 | hostname                  | String        | Computer's hostname               | "XXX.XXX.XXX.XXX"                                 |
 | ignoring_policy           | Object        | Computer's Ignoring policy        | [Ignoring Policy](#Ignoring-policy)               |
-| last_communication        | String        | Date of last communication with the computer| "2019-04-08T15:46:22.000+02:00"         |
+| last_communication        | Date          | Date of last communication with the computer| 2019-04-08T15:46:22.000+02:00           |
 | os                        | Object        | Computer's OS                     | [Os](#Os)                                         |
 | packages                  | Object        | List of the computer's packages   | [Package](#Package)                               |
 | reboot_required           | Bool          | The computer requires to be rebooted| false                                           |
@@ -148,9 +149,9 @@ True
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
 | id                        | Int           | id of the group                   | 140                                               |
-| created_at                | String (date) | Date of creation                   | "2018-07-23T09:41:31.000+02:00"                  |
+| created_at                | String (date) | Date of creation                  | "2018-07-23T09:41:31.000+02:00"                   |
 | name                      | String        | name of the group                 | "app_windows"                                     |
-| updated_at                | String (date) | Date of last update                   | "2018-07-23T09:41:31.000+02:00"               |
+| updated_at                | String (date) | Date of last update               | "2018-07-23T09:41:31.000+02:00"                   |
 
 ### Deploying period
 
