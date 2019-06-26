@@ -17,6 +17,7 @@ class CBWServer:
                  applications=None,
                  boot_at="",
                  category="",
+                 created_at="",
                  criticality="",
                  cve_announcements=None,
                  cve_announcements_count=0,
@@ -41,6 +42,7 @@ class CBWServer:
                              applications] if applications else None
         self.boot_at = boot_at
         self.category = category
+        self.created_at = created_at
         self.criticality = criticality
         self.cve_announcements = [CBWParser().parse(CBWCve, cve) for cve in
                                   cve_announcements] if cve_announcements else None
