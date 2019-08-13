@@ -4,3 +4,4 @@ __pycache__/
 .tox
 .pytest_cache
 /cbw_api_toolbox.egg-info/
+api.conf
