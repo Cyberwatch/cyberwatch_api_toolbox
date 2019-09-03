@@ -114,6 +114,17 @@ Send a DELETE request `/api/v2/remote_accesses/{REMOTE_ACCESS_ID}` to delete a r
 True
 ```
 
+#### CVE Announcement
+
+Send a GET request to `/api/v2/cve_announcements/{CVE_CODE}` to get all informations about a specific cve_announcement
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(API_URL, API_KEY, SECRET_KEY).cve_announcement(CVE_CODE)
+[<cbw_api_toolbox.cbw_objects.cbw_cve.CBWCve]
+```
+
 ## Available objects and their attributes
 
 ### Server

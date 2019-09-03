@@ -9,10 +9,14 @@ from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader,
 from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox import API_DEFAULT_URL
-from cbw_api_toolbox.__routes__ import ROUTE_SERVERS, ROUTE_PING, ROUTE_REMOTE_ACCESSES
+from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
+from cbw_api_toolbox.__routes__ import ROUTE_PING
+from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
+from cbw_api_toolbox.__routes__ import ROUTE_SERVERS
 from cbw_api_toolbox.cbw_auth import CBWAuth
-from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
+from cbw_api_toolbox.cbw_objects.cbw_cve import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
+from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_parser import CBWParser
 
 
@@ -165,3 +169,13 @@ class CBWApi:
 
         logging.error("Error update remote access")
         return False
+
+    def cve_announcement(self, cve_code):
+        """GET request to /api/v2/cve_announcements/{cve_code} to get all informations
+        about a specific cve_announcement"""
+        response = self._request("GET", [ROUTE_CVE_ANNOUNCEMENTS, cve_code])
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWCve, response)
