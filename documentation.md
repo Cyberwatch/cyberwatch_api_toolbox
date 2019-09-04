@@ -242,10 +242,15 @@ Send a GET request to `/api/v2/cve_announcements/{CVE_CODE}` to get all informat
 | content                   | String        | CVE description                   | "In systemd before v242-r…her than \"allow_any\"."|
 | created_at                | String (date) | Creation date of the CVE in Cyberwatch| "2019-04-08T22:17:34.000+02:00"               |
 | cve_code                  | String        | CVE code                          | "CVE-2019-5953"                                   |
+| level                     | String        | CVSS Score level                  | "level_medium"                                    |
 | cve_score                 | Float         | CVE score                         | 4.4                                               |
 | last_modified             | String        | Last modification date of the CVE by the authorities| "2019-04-26T16:45:22.000+02:00" |
 | published                 | String        | Publication date of the CVE by the authorities| "2019-04-09T23:29:03.000+02:00"       |
 | updated_at                | String (date) | Last modification date of the CVE in Cyberwatch| "2019-04-29T09:33:37.000+02:00"      |
+| exploitable               | Boolean       | Boolean checking whether an exploit was found for this specific CVE| True             |
+| servers                   | List          | List of affected servers and their attributes for this CVE|[{'active': True, 'comment': None, 'fixed_at': None, 'ignored': False, 'server': [Server](#Server)}] |
+
+> **Note:** not every attributes of the server object is sent back, for example, the "updates" attribute only contains updates fixing the current CVE and not every available fixes for the server.
 
 ### Node
 

@@ -1,12 +1,40 @@
-""""Model Server"""
+"""CVE Model & Server Model"""
 
-from cbw_api_toolbox.cbw_objects.cbw_cve import CBWCve
-from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
-from cbw_api_toolbox.cbw_objects.cbw_package import CBWPackage
 from cbw_api_toolbox.cbw_objects.cbw_deploying_period import CBWDeployingPeriod
+from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_ignoring_policy import CBWIgnoringPolicy
+from cbw_api_toolbox.cbw_objects.cbw_package import CBWPackage
 from cbw_api_toolbox.cbw_parser import CBWParser
 
+
+class CBWCve:
+    """CVE Model"""
+
+    def __init__(self,
+                 content="",
+                 created_at="",
+                 cve_code="",
+                 level="",
+                 cve_score="",
+                 last_modified="",
+                 published="",
+                 updated_at="",
+                 exploitable=False,
+                 servers=None,
+                 **kwargs): # pylint: disable=unused-argument
+        self.content = content
+        self.created_at = created_at
+        self.cve_code = cve_code
+        self.cve_score = cve_score
+        self.level = level
+        self.last_modified = last_modified
+        self.published = published
+        self.updated_at = updated_at
+        self.exploitable = exploitable
+        self.servers = [{"server": CBWParser().parse(CBWServer, server),
+                         "active": server["active"], "ignored": server["ignored"],
+                         "comment": server["comment"], "fixed_at": server["fixed_at"]}
+                        for server in servers] if servers else None
 
 class CBWServer:
     """Model Server"""

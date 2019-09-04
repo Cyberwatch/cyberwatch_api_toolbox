@@ -14,8 +14,8 @@ from cbw_api_toolbox.__routes__ import ROUTE_PING
 from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
 from cbw_api_toolbox.__routes__ import ROUTE_SERVERS
 from cbw_api_toolbox.cbw_auth import CBWAuth
-from cbw_api_toolbox.cbw_objects.cbw_cve import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
+from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_parser import CBWParser
 
