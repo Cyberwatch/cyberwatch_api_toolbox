@@ -10,12 +10,14 @@ from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox import API_DEFAULT_URL
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
+from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_PING
 from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
 from cbw_api_toolbox.__routes__ import ROUTE_SERVERS
 from cbw_api_toolbox.cbw_auth import CBWAuth
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
+from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_parser import CBWParser
 
@@ -179,3 +181,12 @@ class CBWApi:
             return None
 
         return CBWParser().parse_response(CBWCve, response)
+
+    def groups(self):
+        """GET request to /api/v2/groups to get a list of all groups"""
+        response = self._request("GET", [ROUTE_GROUPS])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWGroup, response)
