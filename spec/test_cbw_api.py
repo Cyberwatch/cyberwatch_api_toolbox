@@ -2,6 +2,7 @@
 
 from cbw_api_toolbox.cbw_api import CBWApi
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
+from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 
@@ -218,3 +219,12 @@ class TestCBWApi:
             response = client.cve_announcement('wrong_id')
 
             assert isinstance(response, CBWCve) is False
+
+    @staticmethod
+    def test_group():
+        """Tests for method groups"""
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/groups.yaml'):
+            response = CBWApi(API_URL, API_KEY, SECRET_KEY).groups()
+            for group in response:
+                assert isinstance(group, CBWGroup) is True

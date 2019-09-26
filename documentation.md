@@ -125,6 +125,17 @@ Send a GET request to `/api/v2/cve_announcements/{CVE_CODE}` to get all informat
 [<cbw_api_toolbox.cbw_objects.cbw_cve.CBWCve]
 ```
 
+#### Groups
+
+Send a GET request to `/api/v2/groups` to get informations about all groups
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(API_URL, API_KEY, SECRET_KEY).groups()
+[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+```
+
 ## Available objects and their attributes
 
 ### Server
