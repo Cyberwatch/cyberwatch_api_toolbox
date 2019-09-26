@@ -15,7 +15,7 @@ INFO = {"type": "", #mandatory, precises the type of the connection
         "password": "", #precises the password of the connection
         "key": "", #precises the key of the connection
         "node": "", #precises the Cyberwatch source of the connection
-        "server_group": "" #precise the group of the connection
+        "server_groups": "" #precise the group of the connection
         }
 
 CLIENT.create_remote_access(INFO)
