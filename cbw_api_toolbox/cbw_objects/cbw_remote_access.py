@@ -17,7 +17,7 @@ class CBWRemoteAccess:
                  created_at,
                  updated_at,
                  server,
-                 server_group,
+                 server_groups,
                  **kwargs): # pylint: disable=unused-argument
         self.id = id  # pylint: disable=invalid-name
         self.type = type
@@ -28,4 +28,4 @@ class CBWRemoteAccess:
         self.created_at = created_at
         self.updated_at = updated_at
         self.server = CBWParser().parse(CBWServer, server) if server else None
-        self.server_group = server_group
+        self.server_groups = server_groups
