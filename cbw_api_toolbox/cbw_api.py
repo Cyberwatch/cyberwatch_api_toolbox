@@ -129,7 +129,8 @@ class CBWApi:
                 "login": info["login"],
                 "password": info["password"],
                 "key": info["key"],
-                "node": info["node"]
+                "node": info["node"],
+                "server_groups" : info.get("server_groups", "")
             })
             logging.debug("Create connexion remote access::{}".format(response.text))
             if self.verif_response(response):
