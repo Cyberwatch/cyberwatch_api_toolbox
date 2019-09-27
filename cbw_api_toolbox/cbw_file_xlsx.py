@@ -101,9 +101,9 @@ class CBWXlsx:
             worksheet.write(i, 3, str(remote_access.node.name))
             server = self.client.server(remote_access.server.id)
 
-            if server.groups:
+            if server and server.groups:
                 group_name = ""
-                for group in server.groups: # pylint: disable=E1133
+                for group in server.groups:
                     group_name += group.name + ","
 
                 group_name = group_name[:-1]
