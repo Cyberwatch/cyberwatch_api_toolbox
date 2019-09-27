@@ -31,10 +31,10 @@ for server in SERVERS:
             concerned_group[server.category].append(server)
 
 for group in CATEGORY_BY_GROUPS:
-    print("--- SERVER BY GROUP: {0} ---".format(group))
+    print("--- GROUP : {0} ---".format(group))
 
     for category in CATEGORY_BY_GROUPS[group]:
-        print("** CATEGORY : {0} **".format(category))
+        print("{0}  : {1}".format(category, len(CATEGORY_BY_GROUPS[group][category])))
 
-        for computer in CATEGORY_BY_GROUPS[group][category]:
-            print("{0} with hostname : {1}".format(category, computer.hostname))
+        for server in CATEGORY_BY_GROUPS[group][category]:
+            print("{0} with hostname : {1}".format(category, server.hostname))

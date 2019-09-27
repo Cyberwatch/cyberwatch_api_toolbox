@@ -10,13 +10,13 @@ CLIENT = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
 SERVER_ID = ""  # add the server id
 
-server = CLIENT.server(SERVER_ID)
+SERVER = CLIENT.server(SERVER_ID)
 
-print("Server : {}".format(server.hostname))
-print("Update count : {}".format(server.updates_count))
+print("Server : {}".format(SERVER.hostname))
+print("Update count : {}".format(SERVER.updates_count))
 
 print("Updates :")
-for update in server.updates:
+for update in SERVER.updates:
     print("\t-Product : {}".format(update["current"]["product"]))
     print("\t\t- Corrective action : {0} -> {1}".format(update["current"]["version"],
                                                         update["target"]["version"]))
