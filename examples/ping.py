@@ -1,3 +1,5 @@
+"""Ping the API"""
+
 from cbw_api_toolbox.cbw_api import CBWApi
 
 API_KEY = ''
