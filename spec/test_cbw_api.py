@@ -1,6 +1,7 @@
 """Test file for cbw_api.py"""
 
 from cbw_api_toolbox.cbw_api import CBWApi
+from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 
@@ -202,3 +203,18 @@ class TestCBWApi:
             response = client.update_remote_access('4', info)
 
             assert response is False
+
+    @staticmethod
+    def test_cve_announcement():
+        """Tests for method cve_announcement"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/cve_announcement.yaml'):
+            response = client.cve_announcement('CVE-2017-0146')
+
+            assert isinstance(response, CBWCve) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/cve_announcement_failed.yaml'):
+            response = client.cve_announcement('wrong_id')
+
+            assert isinstance(response, CBWCve) is False
