@@ -103,7 +103,7 @@ class CBWXlsx:
 
             if server.groups:
                 group_name = ""
-                for group in server.groups: # pylint: disable=E1133
+                for group in server.groups:
                     group_name += group.name + ","
 
                 group_name = group_name[:-1]
