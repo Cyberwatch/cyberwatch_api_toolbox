@@ -228,3 +228,18 @@ class TestCBWApi:
             response = CBWApi(API_URL, API_KEY, SECRET_KEY).groups()
             for group in response:
                 assert isinstance(group, CBWGroup) is True
+
+    @staticmethod
+    def test_deploy():
+        """Tests for method test_deploy_remote_access"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/test_deploy.yaml'):
+            response = client.test_deploy_remote_access('1')
+
+            assert isinstance(response, CBWRemoteAccess) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/test_deploy_failed.yaml'):
+            response = client.test_deploy_remote_access('wrong_id')
+
+            assert isinstance(response, CBWRemoteAccess) is False

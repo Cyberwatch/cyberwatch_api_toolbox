@@ -190,3 +190,11 @@ class CBWApi:
             return None
 
         return CBWParser().parse_response(CBWGroup, response)
+
+    def test_deploy_remote_access(self, remote_access_id):
+        """POST request to /api/v2/remote_accesses/:id/test_deploy to test an agentless deployment"""
+        response = self._request("POST", [ROUTE_REMOTE_ACCESSES, remote_access_id, 'test_deploy'])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+        return CBWParser().parse_response(CBWRemoteAccess, response)
