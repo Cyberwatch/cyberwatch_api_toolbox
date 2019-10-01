@@ -114,6 +114,17 @@ Send a DELETE request `/api/v2/remote_accesses/{REMOTE_ACCESS_ID}` to delete a r
 True
 ```
 
+#### Test an agentless deployment
+
+Send a POST request `/api/v2/remote_accesses/{REMOTE_ACCESS_ID}/test_deploy` to test a remote access.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).test_deploy_remote_access(REMOTE_ACCESS_ID)
+<cbw_api_toolbox.cbw_objects.cbw_remote_access.CBWRemoteAccess>
+```
+
 #### CVE Announcement
 
 Send a GET request to `/api/v2/cve_announcements/{CVE_CODE}` to get all informations about a specific cve_announcement
