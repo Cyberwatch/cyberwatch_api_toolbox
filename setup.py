@@ -14,6 +14,8 @@ setup(
     packages=['cbw_api_toolbox', 'cbw_api_toolbox.cbw_objects'],
     package_dir={'cbw_api_toolbox': 'cbw_api_toolbox', 'cbw_objects': 'cbw_api_toolbox/cbw_objects'},
     install_requires=[
-        "requests>=2.20.1"
+        "requests>=2.20.1",
+        "XlsxWriter>=1.2.1",
+        "xlrd>=1.2.0"
     ]
 )
