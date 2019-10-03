@@ -184,6 +184,7 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 | id                        | Int           | id of the group                   | 140                                               |
 | created_at                | String (date) | Date of creation                  | "2018-07-23T09:41:31.000+02:00"                   |
 | name                      | String        | name of the group                 | "app_windows"                                     |
+| description               | String        | Description of the group          | "main servers"                                    |
 | updated_at                | String (date) | Date of last update               | "2018-07-23T09:41:31.000+02:00"                   |
 
 ### Deploying period
