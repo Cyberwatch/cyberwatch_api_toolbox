@@ -35,16 +35,18 @@ $ pip3 install git+https://github.com/Cyberwatch/cyberwatch_api_toolbox
 
 ```python
 # ping.py
+import os
+from configparser import ConfigParser
 from cbw_api_toolbox.cbw_api import CBWApi
 
-API_KEY = ''
-SECRET_KEY = ''
-API_URL = ''
+CONF = ConfigParser()
+CONF.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'api.conf'))
+CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key'), CONF.get('cyberwatch', 'secret_key'))
 
-CBWApi(API_URL, API_KEY, SECRET_KEY).ping()
+CLIENT.ping()
 ```
 
-**Configure the file with your credentials**
+**Configure an api.conf file with your credentials**
 
 See the [Configuration](#configuration) section
 
@@ -72,16 +74,19 @@ In this case, please check that there are no typing errors in your `API_KEY`, `S
 
 ## Configuration
 
-- `API_KEY`: your Cyberwatch user api key
-- `SECRET_KEY`: your Cyberwatch user secret key
-- `API_URL`: your Cyberwatch instance URL
+Create an `api.conf` file at the root of the project (see `example_api.conf`)
+
+- `api_key`: your Cyberwatch user api key
+- `api_key`: your Cyberwatch user secret key
+- `url`: your Cyberwatch instance URL
 
 **Example**
 
-```python
-API_KEY = 'PyXpxrcJ7rQ...'
-SECRET_KEY = '+bUx37WnB0qt...'
-API_URL = 'https://myinstance.local'
+```conf
+[cyberwatch]
+api_key = PyXpxrcJ7rQ...
+secret_key = +bUx37WnB0qt...
+url = https://myinstance.local
 ```
 
 To find your API credentials:
