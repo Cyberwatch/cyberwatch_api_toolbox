@@ -3,20 +3,20 @@ To use the script, please install python-dateutil : pip3 install python-dateutil
 
 import argparse
 import sys
+import os
 
+from configparser import ConfigParser
 from datetime import datetime
-from cbw_api_toolbox.cbw_api import CBWApi
 from dateutil.relativedelta import relativedelta  # pylint: disable=import-error
-
+from cbw_api_toolbox.cbw_api import CBWApi
 
 def connect_api():
     '''Connect ot the API'''
-    api_key = ''
-    secret_key = ''
-    api_url = ''
-
+    conf = ConfigParser()
+    conf.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'api.conf'))
     global API  # pylint: disable=global-variable-undefined
-    API = CBWApi(api_url, api_key, secret_key)
+    API = CBWApi(conf.get('cyberwatch', 'url'), conf.get('cyberwatch', 'api_key'), conf.get('cyberwatch', 'secret_key'))
+
 
     API.ping()
 
