@@ -15,7 +15,9 @@ class CBWCve:
                  created_at="",
                  cve_code="",
                  level="",
-                 cve_score="",
+                 score="",
+                 score_v2="",
+                 score_v3="",
                  last_modified="",
                  published="",
                  updated_at="",
@@ -25,7 +27,9 @@ class CBWCve:
         self.content = content
         self.created_at = created_at
         self.cve_code = cve_code
-        self.cve_score = cve_score
+        self.score = score
+        self.score_v2 = score_v2
+        self.score_v3 = score_v3
         self.level = level
         self.last_modified = last_modified
         self.published = published
