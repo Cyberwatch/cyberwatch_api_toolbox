@@ -1,0 +1,66 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 izw59vyZ3CwkTzMKb+xNQ3FAUrx2FuTqSNjwOgBCkY4=:TXph1JZVr8kIwoR+uYZSw+np5HMS0GFSlPnKQVpVbZs=
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 03 Oct 2019 11:30:44 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: http://localhost/api/v2/users
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA3WLwQqDMBAF/+WdQ8FrTv0PEVnjahc2G9nEllL8dz324nGGmf4HmRG7AC2rGCJm
+        MmF9pu/E/qGWXo/FEWCUGdF21YBFvLZ/wZlE718tifSKwXZRZX+zj6uXfauI/XAMJ8c64/aGAAAA
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 03 Oct 2019 11:30:44 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Miniprofiler-Ids:
+      - '["6y6lie3ptxuyh818d91a","vksi9ppd9k2geup7d1n1","2nk0azps2w6gaai217y2","tvgos3p5pbk3g6pv6fyr","hgl4sc0qcjkd38rmdlgl","ucupik6jdo1p5m1nlfgt","yn6hmj3erq96kb2htqel","rvodpaht1guv8u9eep23","d28tqqoebql1nogqzvu8","mvyr0h3nhen03um6wf9s","r6uh0y7bas0wbk1hompn","976vcnbrt0iy959xugr","zxv17tzxl6semdhze4lz","dm6vawx6yo466747tp9c"]'
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - e511a18b-f0e6-47e8-b7b7-d5ec5d37953b
+      X-Runtime:
+      - '0.267137'
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -14,11 +14,13 @@ from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_PING
 from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
 from cbw_api_toolbox.__routes__ import ROUTE_SERVERS
+from cbw_api_toolbox.__routes__ import ROUTE_USERS
 from cbw_api_toolbox.cbw_auth import CBWAuth
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
+from cbw_api_toolbox.cbw_objects.cbw_users import CBWUsers
 from cbw_api_toolbox.cbw_parser import CBWParser
 
 
@@ -198,3 +200,13 @@ class CBWApi:
             logging.error("Error::{}".format(response.text))
             return None
         return CBWParser().parse_response(CBWRemoteAccess, response)
+
+    def users(self):
+        """GET request to /api/v2/users ..."""
+        response = self._request("GET", [ROUTE_USERS])
+
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWUsers, response)

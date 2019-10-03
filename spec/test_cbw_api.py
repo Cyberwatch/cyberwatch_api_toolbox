@@ -4,6 +4,7 @@ from cbw_api_toolbox.cbw_api import CBWApi
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
+from cbw_api_toolbox.cbw_objects.cbw_users import CBWUsers
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 
 import vcr  # pylint: disable=import-error
@@ -243,3 +244,12 @@ class TestCBWApi:
             response = client.test_deploy_remote_access('wrong_id')
 
             assert isinstance(response, CBWRemoteAccess) is False
+
+    @staticmethod
+    def test_users():
+        """Tests for method users"""
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/users.yaml'):
+            response = CBWApi(API_URL, API_KEY, SECRET_KEY).users()
+            for user in response:
+                assert isinstance(user, CBWUsers) is True
