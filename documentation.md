@@ -290,3 +290,23 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 | name                      | String        | Node name                         | "master"                                          |
 | url                       | String        | Node Url                          | "https://cyberwatch.fr"                           |
 | updated_at                | String        | Last modification of the node     | "2019-04-08T02:00:00.000+02:00"                   |
+
+### Users
+
+| Attribute                 | Type          | Description                       | Example of possible value                         |
+|---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
+| email                     | String        | Email of user                     | "test@example.com"                                |
+| firstname                 | String        | First name of user                | "Cyberwatch"                                      |
+| id                        | Int           | User id                           | 25                                                |
+| locale                    | String        | Locale of user                    | "fr"                                              |
+| login                     | String        | Login email of user               | "test@example.com"                                |
+| name                      | String        | Name of user                      | "Cyberwatch"                                      |
+| server_groups             | Object        | Server Groups of user             | [server_groups](#Server-groups)                   |
+
+### Server groups
+
+| Attribute                 | Type          | Description                       | Example of possible value                         |
+|---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
+| id                        | Int           | Server group id                   | 25                                                |
+| name                      | String        | Name of group                     | "Cyberwatch"                                      |
+| role                      | String        | Role of server group              | "system_admin"                                    |
