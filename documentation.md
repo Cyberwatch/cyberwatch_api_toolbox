@@ -265,7 +265,9 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 | created_at                | String (date) | Creation date of the CVE in Cyberwatch| "2019-04-08T22:17:34.000+02:00"               |
 | cve_code                  | String        | CVE code                          | "CVE-2019-5953"                                   |
 | level                     | String        | CVSS Score level                  | "level_medium"                                    |
-| cve_score                 | Float         | CVE score                         | 4.4                                               |
+| score                     | Float         | CVE score (CVSS v2 or v3, depends on options) | 4.4                                   |
+| score_v2                  | Float         | CVE score from CVSS v2            | 4.4                                               |
+| score_v3                  | Float         | CVE score from CVSS v3            | 4.4                                               |
 | last_modified             | String        | Last modification date of the CVE by the authorities| "2019-04-26T16:45:22.000+02:00" |
 | published                 | String        | Publication date of the CVE by the authorities| "2019-04-09T23:29:03.000+02:00"       |
 | updated_at                | String (date) | Last modification date of the CVE in Cyberwatch| "2019-04-29T09:33:37.000+02:00"      |
