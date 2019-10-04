@@ -1,4 +1,4 @@
-"""Update server groups"""
+"""Update server attributes"""
 
 import os
 from configparser import ConfigParser
