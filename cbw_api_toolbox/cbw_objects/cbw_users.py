@@ -21,4 +21,4 @@ class CBWUsers:
         self.firstname = firstname
         self.email = email
         self.locale = locale
-        self.server_groups = CBWParser().parse(CBWUserServerGroups, server_groups[0]) if server_groups else None
+        self.server_groups = CBWParser().parse(CBWUserServerGroups, server_groups[0]) if server_groups else []

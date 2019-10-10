@@ -38,7 +38,7 @@ class CBWCve:
         self.servers = [{"server": CBWParser().parse(CBWServer, server),
                          "active": server["active"], "ignored": server["ignored"],
                          "comment": server["comment"], "fixed_at": server["fixed_at"]}
-                        for server in servers] if servers else None
+                        for server in servers] if servers else []
 
 class CBWServer:
     """Model Server"""
@@ -71,25 +71,25 @@ class CBWServer:
         self.id = id  # pylint: disable=invalid-name
         self.agent_version = agent_version
         self.applications = [CBWParser().parse(CBWPackage, application) for application in
-                             applications] if applications else None
+                             applications] if applications else []
         self.boot_at = boot_at
         self.category = category
         self.created_at = created_at
         self.criticality = criticality
         self.cve_announcements = [CBWParser().parse(CBWCve, cve) for cve in
-                                  cve_announcements] if cve_announcements else None
+                                  cve_announcements] if cve_announcements else []
         self.cve_announcements_count = cve_announcements_count
         self.deploying_period = (CBWParser().parse(CBWDeployingPeriod, deploying_period) if
                                  deploying_period else None)
         self.description = description
-        self.groups = [CBWParser().parse(CBWGroup, group) for group in groups] if groups else None
+        self.groups = [CBWParser().parse(CBWGroup, group) for group in groups] if groups else []
         self.hostname = hostname
         self.ignoring_policy = (CBWParser().parse(CBWIgnoringPolicy, ignoring_policy) if
                                 ignoring_policy else None)
         self.last_communication = last_communication
         self.os = os  # pylint: disable=invalid-name
         self.packages = [CBWParser().parse(CBWPackage, package) for package in
-                         packages] if packages else None
+                         packages] if packages else []
         self.reboot_required = reboot_required
         self.remote_ip = remote_ip
         self.security_announcements = security_announcements
