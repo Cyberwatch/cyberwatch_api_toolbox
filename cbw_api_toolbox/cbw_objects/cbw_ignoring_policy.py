@@ -14,5 +14,5 @@ class CBWIgnoringPolicy:
         self.ignoring_policy_items = ([CBWParser().parse(CBWIgnoringPolicyItems,
                                                          ignoring_policy_item) for
                                        ignoring_policy_item in ignoring_policy_items] if
-                                      ignoring_policy_items else None)
+                                      ignoring_policy_items else [])
         self.name = name
