@@ -282,13 +282,8 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
 | id                        | String        | Node Id                           | 1                                                 |
-| boot_time                 | String        | Node boot time                    | "06 mai 12h02"                                    |
-| cbw_on_premise_version    | String        | Cbw_on_premsise version           | "2.6"                                             |
 | created_at                | String        | Creation date of the node         | "2019-04-08T02:00:00.000+02:00"                   |
-| description               | String        | Node description                  | "Node master"                                     |
-| olympe_version            | String        | Version of Cyberwatch application installed on the node| "9.6.2"                      |
 | name                      | String        | Node name                         | "master"                                          |
-| url                       | String        | Node Url                          | "https://cyberwatch.fr"                           |
 | updated_at                | String        | Last modification of the node     | "2019-04-08T02:00:00.000+02:00"                   |
 
 ### Users
