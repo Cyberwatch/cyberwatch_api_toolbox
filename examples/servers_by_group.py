@@ -18,17 +18,16 @@ CATEGORY_BY_GROUPS = {}
 for server in SERVERS:
     server = CLIENT.server(server.id)
 
-    if server and server.groups:
-        for group in server.groups:
-            if group.name not in CATEGORY_BY_GROUPS:
-                CATEGORY_BY_GROUPS[group.name] = {}
+    for group in server.groups:
+        if group.name not in CATEGORY_BY_GROUPS:
+            CATEGORY_BY_GROUPS[group.name] = {}
 
-            concerned_group = CATEGORY_BY_GROUPS[group.name]
+        concerned_group = CATEGORY_BY_GROUPS[group.name]
 
-            if server.category not in concerned_group:
-                concerned_group[server.category] = []
+        if server.category not in concerned_group:
+            concerned_group[server.category] = []
 
-            concerned_group[server.category].append(server)
+        concerned_group[server.category].append(server)
 
 for group in CATEGORY_BY_GROUPS:
     print("--- GROUP : {0} ---".format(group))
