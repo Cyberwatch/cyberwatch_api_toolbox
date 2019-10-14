@@ -19,4 +19,4 @@ if RESPONSE:
         else:
             print("An error occurred, import_remote_accesses_xlsx failed")
 else:
-    print("Error format file xlsx::HOST, PORT, TYPE, USERNAME, PASSWORD, KEY, NODE, GROUPS,  COMPLIANCE_GROUPS")
+    print("Error format file xlsx::HOST, PORT, TYPE, USERNAME, PASSWORD, KEY, NODE, SERVER_GROUPS")
