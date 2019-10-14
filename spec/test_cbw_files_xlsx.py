@@ -65,12 +65,12 @@ class TestCBWXlsx:
                 result = sheet.row_values(rownum)
                 break
 
-            assert response is True and result == ['HOST', 'PORT', 'TYPE', 'NODE', 'GROUPS']
+            assert response is True and result == ['HOST', 'PORT', 'TYPE', 'NODE', 'SERVER_GROUPS']
 
             for rownum in range(1, sheet.nrows):
                 result = sheet.row_values(rownum)
                 break
-
-            assert result == ['server01.example.com', 22.0,
+            # The group is not assigned yet
+            assert result == ['10.0.2.15', 22,
                               'CbwRam::RemoteAccess::Ssh::WithPassword',
-                              'master', 'Production,test']
+                              'master', '']

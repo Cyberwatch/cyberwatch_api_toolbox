@@ -1,86 +1,25 @@
 interactions:
 - request:
-    body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "", "port":
-      22.0, "login": "admin", "password": "SuperPassword", "key": "", "node": "master"}'
+    body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "server01.example.com",
+      "port": 22.0, "login": "admin", "password": "SuperPassword", "key": "", "node":
+      "master", "server_groups": "production, test"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:kyEN7CJvrn0BdHG2VCPhQ7E5y+uDwEER0DoTeqml9LA=
+      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:iROXzEXkYBtG1OAEUtKNck4E0xSQSGyfFs6v0QqtQfc=
       Connection:
       - keep-alive
       Content-Length:
-      - '156'
+      - '213'
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Apr 2019 15:09:35 GMT
+      - Mon, 14 Oct 2019 13:25:40 GMT
       User-Agent:
-      - python-requests/2.21.0
-    method: POST
-    uri: http://localhost/api/v2/remote_accesses
-  response:
-    body:
-      string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
-        failed: Address can''t be blank"}}'
-    headers:
-      Cache-Control:
-      - no-cache
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '108'
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Wed, 24 Apr 2019 15:09:36 GMT
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - 3a03b451-7979-4b2e-b5a1-dc1305401c0f
-      X-Runtime:
-      - '0.383470'
-      X-Xss-Protection:
-      - 1; mode=block
-    status:
-      code: 422
-      message: Unprocessable Entity
-- request:
-    body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "server02.example.com",
-      "port": 22.0, "login": "user", "password": "", "key": "---- BEGIN SSH2 PUBLIC
-      KEY ----\nComment: example\nAAAAB3NzaC1kc3MAAACBAMXXH+SzAIPRN38GehSARboF873Ic5utBjMcXx1IuFNTvvBi2j\nfCyjCBqb66sgS8pdzUl+YyH4sMDp67Q9RKI9po3ePtV03rldPQjtqgmXt2B2eQ6SKXDO3g\n+nN9LLEVXp9MpS7g9VnyDWUQCAxu+Khp+uZDzwSy7IVxRm/HHU2dAAAAFQCl1FWQ7bTyoY\n7RtEvB6rhqGyY/8QAAAIEAxYgBAFfVKvSC3AZkwWuB4hPLlBeKhL4Yt87vblimHWlaOSFU\nllKnCGmdc7R2NL3JZFP210yjapZY25YTKpkO8pdavazVqbzBd1EEtZ93umDqWua2yqPOc8\n6MoZJbk7OTJjZRlpd1XZwSI3XgyxaDtf+tCh14ikG13k4A1iKd3/MAAACBALHyHX29XFe3\nVseZeG+CiYMfc3qXbMQgpWdZeopg/1Z3qw46Kx4iiNgtZcB7BdoYdIhDvTu+xkffbG22h9\nYQnxyM9Kz/cqjKdKHp2VBX/IJU4vEkIPF+kdFPToLvJc+qkIvd1kDqUUW+e6dD6PkpNDdh\ngOn/vcgro4IwufBActyG\n----
-      END SSH2 PUBLIC KEY ----", "node": "master"}'
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:5Z3+avojVfAMRqPtya6gxfvSa2S+zNDDkwK03EyNQ+E=
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '840'
-      Content-Type:
-      - application/json
-      Date:
-      - Wed, 24 Apr 2019 15:09:36 GMT
-      User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: POST
     uri: http://localhost/api/v2/remote_accesses
   response:
@@ -97,7 +36,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Apr 2019 15:09:36 GMT
+      - Mon, 14 Oct 2019 13:25:40 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -113,51 +52,113 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 1eb343a5-cf79-487c-8dcb-bd8933c3ff48
+      - 805a7142-15e7-4159-9492-db99a7880ea7
       X-Runtime:
-      - '0.264948'
+      - '0.561055'
       X-Xss-Protection:
       - 1; mode=block
     status:
       code: 422
       message: Unprocessable Entity
 - request:
-    body: '{"type": "CbwRam::RemoteAccess::WinRm::WithNegotiate", "address": "127.0.1.1",
-      "port": 5985.0, "login": "Administrator", "password": "Nu6K2WBX", "key": "",
-      "node": "slave1"}'
+    body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "server02.example.com",
+      "port": 22.0, "login": "user", "password": "", "key": "---- BEGIN SSH2 PUBLIC
+      KEY ----\nComment: example\nAAAAB3NzaC1kc3MAAACBAMXXH+SzAIPRN38GehSARboF873Ic5utBjMcXx1IuFNTvvBi2j\nfCyjCBqb66sgS8pdzUl+YyH4sMDp67Q9RKI9po3ePtV03rldPQjtqgmXt2B2eQ6SKXDO3g\n+nN9LLEVXp9MpS7g9VnyDWUQCAxu+Khp+uZDzwSy7IVxRm/HHU2dAAAAFQCl1FWQ7bTyoY\n7RtEvB6rhqGyY/8QAAAIEAxYgBAFfVKvSC3AZkwWuB4hPLlBeKhL4Yt87vblimHWlaOSFU\nllKnCGmdc7R2NL3JZFP210yjapZY25YTKpkO8pdavazVqbzBd1EEtZ93umDqWua2yqPOc8\n6MoZJbk7OTJjZRlpd1XZwSI3XgyxaDtf+tCh14ikG13k4A1iKd3/MAAACBALHyHX29XFe3\nVseZeG+CiYMfc3qXbMQgpWdZeopg/1Z3qw46Kx4iiNgtZcB7BdoYdIhDvTu+xkffbG22h9\nYQnxyM9Kz/cqjKdKHp2VBX/IJU4vEkIPF+kdFPToLvJc+qkIvd1kDqUUW+e6dD6PkpNDdh\ngOn/vcgro4IwufBActyG\n----
+      END SSH2 PUBLIC KEY ----", "node": "master", "server_groups": ""}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:5Z3+avojVfAMRqPtya6gxfvSa2S+zNDDkwK03EyNQ+E=
+      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:iROXzEXkYBtG1OAEUtKNck4E0xSQSGyfFs6v0QqtQfc=
       Connection:
       - keep-alive
       Content-Length:
-      - '173'
+      - '861'
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Apr 2019 15:09:36 GMT
+      - Mon, 14 Oct 2019 13:25:40 GMT
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: POST
     uri: http://localhost/api/v2/remote_accesses
   response:
     body:
-      string: '{"id":108,"type":"CbwRam::RemoteAccess::WinRm::WithNegotiate","address":"127.0.1.1","port":5985,"is_valid":null,"created_at":"2019-04-24T17:09:36.000+02:00","updated_at":"2019-04-24T17:09:36.000+02:00","server":{"id":"cf9f11a8084e1382f5e6946ac4a3fe83","hostname":"127.0.1.1","last_communication":null,"reboot_required":null,"agent_version":null,"remote_ip":"127.0.1.1","boot_at":null,"criticality":"criticality_medium","updates_count":0,"cve_announcements_count":0,"category":"server"},"node":{"id":1,"name":"master","created_at":"2019-04-08T11:03:51.000+02:00","updated_at":"2019-04-24T13:39:25.000+02:00"}}'
+      string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
+        failed: Address has already been taken"}}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '116'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 14 Oct 2019 13:25:41 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - ef785c17-0a77-4f62-b680-d5f59896b2e4
+      X-Runtime:
+      - '0.765861'
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 422
+      message: Unprocessable Entity
+- request:
+    body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "10.0.2.16",
+      "port": 22.0, "login": "cyberwatch", "password": "cyberwatch", "key": "", "node":
+      "master", "server_groups": "production, test"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:CKfKZv3ni6/rUumHsZhDbfnSELFM2CaEeFkhwiyGMnA=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '204'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 14 Oct 2019 13:25:41 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: POST
+    uri: http://localhost/api/v2/remote_accesses
+  response:
+    body:
+      string: '{"id":52,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.16","port":22,"is_valid":null,"created_at":"2019-10-14T15:25:44.000+02:00","updated_at":"2019-10-14T15:25:44.000+02:00","server":null,"node":{"id":2,"name":"master","created_at":"2019-10-11T16:19:12.000+02:00","updated_at":"2019-10-14T09:31:27.000+02:00"}}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '608'
+      - '332'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Apr 2019 15:09:36 GMT
+      - Mon, 14 Oct 2019 13:25:44 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -171,90 +172,18 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["3wje26n2voywykahhd87","i8igklanx83iswvdd3o9","cuw5wqvx8oc1z14e6z93","15jzqkc0esh8sv1z93or","vtoqqqhebn4p6is0gp53","85pisx4qb3gs5z9baogg","xlic9142hvoxmfsuphfh","86zz8ak6q14lkucfq5hy","q75xyheujna85peia5q6","rh9vdfs4oeqwbobqly3z","ds81bz9519hillifb1kv","4env403li1yge797rc0t","3z82jque37cc5ka8zbf7","c0u6fbllfr63g54adrih","fvoq0jsoqiv220rn7uwm","23kntawot5773517lzdw","kije82mb8zfci6qkzfci","ih8q0qf5p48lyb5wz02g","dn3nsq51bunf7lz7gmtg","7eyyisi36glweh3cgjbo"]'
+      - c981407ju41iyqm0s8hd,h3p2iyedjjv9m0eizo40,tqj6irix9npcgmbruo5e,vf41huh1a2tpbj2j69ym,p54totl7y1px4ioo3nny,7a8ypxb2cc94njgskhgq,3bee2zx4waono614u4xf
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - a4608b57-bf1b-47e1-92a6-34a2df2be279
+      - e2991983-8ab3-4d62-ac55-088b4c55b666
       X-Runtime:
-      - '0.533214'
+      - '2.360447'
       X-Xss-Protection:
       - 1; mode=block
     status:
       code: 201
       message: Created
-- request:
-    body: '{"groups": "preproduction", "compliance_groups": "anssi"}'
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:3C4HBUxrCxUg17TxzwGPiIj92wrfLwD5ZX9BaFvIO4A=
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '57'
-      Content-Type:
-      - application/json
-      Date:
-      - Wed, 24 Apr 2019 15:09:36 GMT
-      User-Agent:
-      - python-requests/2.21.0
-    method: PATCH
-    uri: http://localhost/api/v2/servers/cf9f11a8084e1382f5e6946ac4a3fe83
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAA42Sy27CMBBF/2W2DZEdQhqy4x/YVVXkOhNqNX7UD6QK8e8dpzwEohI7e3znzpkr
-        H0AN0IEc1yPnomVtjXzZVuMKm3XdCFmL5YjtEgr4tCEaoZHUvHotWclLTuVJhNhLq3UySoqorIHO
-        pGkqwOOHtbH3+J2Ux+FcFjs0sd+jDzdabSP2yt25zw4inmXSq0hTJhV/MvT11mscVNLUkdwgIgZC
-        Sob6GDXtsRfG0F2iptk3b6TdWZ/dAnqCujpA9/ZeQIgiJjofIO+IuQ0WcCzAhgvUvf+pE2XyGe3B
-        287b5PL5MMdfNQWconUenbdDknOSeWMkmGHOACrG1wtWL3iz5auuYl1dl4yxF1Z1jF3InxIfiYI2
-        cpMShNbfAV15NiYE9R8Ha7c8uz3F8VicOZyQX/QrTtkIR1B/P2muHH8BiMseLaMCAAA=
-    headers:
-      Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Wed, 24 Apr 2019 15:09:37 GMT
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - '["77h9nufwglj7khikrek0","3wje26n2voywykahhd87","i8igklanx83iswvdd3o9","cuw5wqvx8oc1z14e6z93","15jzqkc0esh8sv1z93or","vtoqqqhebn4p6is0gp53","85pisx4qb3gs5z9baogg","xlic9142hvoxmfsuphfh","86zz8ak6q14lkucfq5hy","q75xyheujna85peia5q6","rh9vdfs4oeqwbobqly3z","ds81bz9519hillifb1kv","4env403li1yge797rc0t","3z82jque37cc5ka8zbf7","c0u6fbllfr63g54adrih","fvoq0jsoqiv220rn7uwm","23kntawot5773517lzdw","kije82mb8zfci6qkzfci","ih8q0qf5p48lyb5wz02g","dn3nsq51bunf7lz7gmtg"]'
-      X-Miniprofiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - b2172f88-2160-49a5-9820-5fc0e1568720
-      X-Runtime:
-      - '0.134270'
-      X-Xss-Protection:
-      - 1; mode=block
-    status:
-      code: 200
-      message: OK
 version: 1
