@@ -2,40 +2,40 @@ interactions:
 - request:
     body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "X.X.X.X",
       "port": "22", "login": "loginssh", "password": "passwordssh", "key": "", "node":
-      "master"}'
+      "master", "server_groups": "test, production"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:LmMd/CY2dEoHzd9v6X288ZRRCQ7rkGeO74ZZs2IHp7A=
+      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:yb7PCcUBtbop7sncfO4gWuU+FhG/jd1dORb1Gi5wPys=
       Connection:
       - keep-alive
       Content-Length:
-      - '164'
+      - '201'
       Content-Type:
       - application/json
       Date:
-      - Thu, 11 Apr 2019 12:17:31 GMT
+      - Mon, 14 Oct 2019 13:57:07 GMT
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: POST
     uri: http://localhost/api/v2/remote_accesses
   response:
     body:
-      string: '{"id":18,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","node":{"id":1,"name":"master","description":null,"url":"https://10.10.1.111","olympe_version":"9.5","cbw_on_premise_version":"2.0-dev","boot_time":"2019-04-11T09:28:34.000+02:00","created_at":"2019-04-08T11:03:51.000+02:00","updated_at":"2019-04-11T09:28:37.000+02:00"},"address":"X.X.X.X","port":22,"is_valid":null,"created_at":"2019-04-11T14:17:32.000+02:00","updated_at":"2019-04-11T14:17:32.000+02:00","server":{"id":"b28af5ffe0283c720f306a545c00e27d","hostname":"X.X.X.X","last_communication":null,"reboot_required":null,"agent_version":null,"remote_ip":"X.X.X.X","boot_at":null,"criticality":"criticality_medium","updates_count":0,"cve_announcements_count":0,"category":"server"}}'
+      string: '{"id":57,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"X.X.X.X","port":22,"is_valid":null,"created_at":"2019-10-14T15:57:07.000+02:00","updated_at":"2019-10-14T15:57:07.000+02:00","server":null,"node":{"id":2,"name":"master","created_at":"2019-10-11T16:19:12.000+02:00","updated_at":"2019-10-14T09:31:27.000+02:00"}}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '745'
+      - '330'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 11 Apr 2019 12:17:32 GMT
+      - Mon, 14 Oct 2019 13:57:07 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -49,15 +49,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["yryh3ehgnlrusklzt6lm","me65q58o3t4b18rvtw4e","1n3xgwowpde6wvjs1t5r","cgsd7q5d87q7ee2c0klt","ao24tbwrhmds79gdfaeq","rzicml62bc2ki0y6b9zn","typp209thgjqwr3z4z2p","n7pf24lgfaox3ahw3vgs","fr0dejkfiagfhkbukvai","763pcdceeagkxfz7v24e","fp3nu1kdm9kqsiz5ceto","pyew4poy456zvgjf80yj","mg50hmfovupggksztx4h","gnq9rtow5gxo2qxg34wb","836y1g50wwi1mz0i0u1l","tt8df1ae8xiod4acte2x","7dwoomp6aq5es22o4amd","tjudtn9mbq5fhcsecjja","s5z911oqbjj9u0cw8b6i","l95g8et0yltr4qe81fr1"]'
+      - 1qcg47a0ng1o8yxf1uyg,zo9gh8sg7iksey3l36je
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 80f5a1e3-0b65-4d60-aff7-89a15942ee07
+      - 77091ad7-0fad-4519-8733-e000ddd1d216
       X-Runtime:
-      - '0.525055'
+      - '0.563061'
       X-Xss-Protection:
       - 1; mode=block
     status:

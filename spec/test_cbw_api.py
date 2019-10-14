@@ -131,7 +131,8 @@ class TestCBWApi:
                 "login": "loginssh",
                 "password": "passwordssh",
                 "key": "",  # precises the key of the connection
-                "node": "master"  # precises the Cyberwatch source of the connection,
+                "node": "master",  # precises the Cyberwatch source of the connection,
+                "server_groups": "test, production"
                 }
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_remote_access.yaml'):

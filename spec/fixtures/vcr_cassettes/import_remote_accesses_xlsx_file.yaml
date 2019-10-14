@@ -1,41 +1,41 @@
 interactions:
 - request:
-    body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "server01.example.com",
-      "port": 22.0, "login": "admin", "password": "SuperPassword", "key": "", "node":
-      "master"}'
+    body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "10.0.2.15",
+      "port": 22.0, "login": "cyberwatch", "password": "cyberwatch", "key": "", "node":
+      "master", "server_groups": "production, test"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:Mxan2VjEG89e4MMsJHusCIhY7FcV9jPKObUjVDouTH8=
+      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:48oKnqKbqoPXKHfLRE9CiFlfvXpT8fO08osRwWxOKsQ=
       Connection:
       - keep-alive
       Content-Length:
-      - '176'
+      - '204'
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Apr 2019 15:09:33 GMT
+      - Mon, 14 Oct 2019 13:25:38 GMT
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: POST
     uri: http://localhost/api/v2/remote_accesses
   response:
     body:
-      string: '{"id":105,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server01.example.com","port":22,"is_valid":null,"created_at":"2019-04-24T17:09:34.000+02:00","updated_at":"2019-04-24T17:09:34.000+02:00","server":{"id":"d48241efa628ed720618aaa04a98a363","hostname":"server01.example.com","last_communication":null,"reboot_required":null,"agent_version":null,"remote_ip":"server01.example.com","boot_at":null,"criticality":"criticality_medium","updates_count":0,"cve_announcements_count":0,"category":"server"},"node":{"id":1,"name":"master","created_at":"2019-04-08T11:03:51.000+02:00","updated_at":"2019-04-24T13:39:25.000+02:00"}}'
+      string: '{"id":49,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.15","port":22,"is_valid":null,"created_at":"2019-10-14T15:25:39.000+02:00","updated_at":"2019-10-14T15:25:39.000+02:00","server":null,"node":{"id":2,"name":"master","created_at":"2019-10-11T16:19:12.000+02:00","updated_at":"2019-10-14T09:31:27.000+02:00"}}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '636'
+      - '332'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Apr 2019 15:09:34 GMT
+      - Mon, 14 Oct 2019 13:25:39 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -49,131 +49,58 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["xlic9142hvoxmfsuphfh","86zz8ak6q14lkucfq5hy","q75xyheujna85peia5q6","rh9vdfs4oeqwbobqly3z","ds81bz9519hillifb1kv","4env403li1yge797rc0t","3z82jque37cc5ka8zbf7","c0u6fbllfr63g54adrih","fvoq0jsoqiv220rn7uwm","23kntawot5773517lzdw","kije82mb8zfci6qkzfci","ih8q0qf5p48lyb5wz02g","dn3nsq51bunf7lz7gmtg","7eyyisi36glweh3cgjbo","zlppmv17mw524cch4d4g","uqwo0rsxolag9ft09rr5","3e3eyoxn7n29zmx88u0w","4lc50tbyez0a5g0lxbb4","rbyzbc2moj2w5mja1tm8","qt2aobl7jjykgn1rambm"]'
+      - tqj6irix9npcgmbruo5e,h3p2iyedjjv9m0eizo40
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 95197d3a-c504-489d-b9c2-10606e08181e
+      - de46fa38-ecbf-436b-b0c1-7b5025794dec
       X-Runtime:
-      - '0.529083'
+      - '0.580821'
       X-Xss-Protection:
       - 1; mode=block
     status:
       code: 201
       message: Created
-- request:
-    body: '{"groups": "production, test", "compliance_groups": "anssi"}'
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:m9IIT3V1ZEH1ewmEHUCcxlyFeF67sbtBOkQLUAdy0+4=
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '60'
-      Content-Type:
-      - application/json
-      Date:
-      - Wed, 24 Apr 2019 15:09:34 GMT
-      User-Agent:
-      - python-requests/2.21.0
-    method: PATCH
-    uri: http://localhost/api/v2/servers/d48241efa628ed720618aaa04a98a363
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAA42Sy26DMBBF/8XbksgmhAK7/kEX2VUVmuJpagVs6kfUKOLfO6aENlGiZufHvTPn
-        jn1kSrKKyaxIM4HvkKcFyseU56IAAJ5BWcAqX7GEfRjnNXRIaod2j5aLJX5B17e4bExHihacr2nZ
-        Ba0a8MpoVunQtgmz+GaMry1+BmVRno5hi9rXVMqdaTvjsVb97UZjMfAnR2OVp4at8gfy/NnVHUoV
-        oiP0Ejw6oguafJxMe6xBa9o32BHG2R1pt8YeZoLfCqx6eU2Y8+ADrY8sxsVoYws2JMy4Geqy/uTE
-        JtiIduVua03o4/o4PkpKJNPAn62RoRknGuMikchxACzlolzwbMHLjRDVuqyybMk5f+BpxfmMfZd4
-        SKa+67kvBfa3Oop8I9YEWWWr/zteFw8UmgbYtwpoEvVF/nzGeNLOqZvJi42I1e5LflUcOXpodvQf
-        p6eAnqB+/vB4MnwDXXldFygDAAA=
-    headers:
-      Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Wed, 24 Apr 2019 15:09:34 GMT
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - '["85pisx4qb3gs5z9baogg","xlic9142hvoxmfsuphfh","86zz8ak6q14lkucfq5hy","q75xyheujna85peia5q6","rh9vdfs4oeqwbobqly3z","ds81bz9519hillifb1kv","4env403li1yge797rc0t","3z82jque37cc5ka8zbf7","c0u6fbllfr63g54adrih","fvoq0jsoqiv220rn7uwm","23kntawot5773517lzdw","kije82mb8zfci6qkzfci","ih8q0qf5p48lyb5wz02g","dn3nsq51bunf7lz7gmtg","7eyyisi36glweh3cgjbo","zlppmv17mw524cch4d4g","uqwo0rsxolag9ft09rr5","3e3eyoxn7n29zmx88u0w","4lc50tbyez0a5g0lxbb4","rbyzbc2moj2w5mja1tm8"]'
-      X-Miniprofiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - 90ebc3b0-4931-49e9-8875-2dbbcf5f4c3a
-      X-Runtime:
-      - '0.139058'
-      X-Xss-Protection:
-      - 1; mode=block
-    status:
-      code: 200
-      message: OK
 - request:
     body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "server02.example.com",
       "port": 22.0, "login": "user", "password": "", "key": "---- BEGIN SSH2 PUBLIC
       KEY ----\nComment: example\nAAAAB3NzaC1kc3MAAACBAMXXH+SzAIPRN38GehSARboF873Ic5utBjMcXx1IuFNTvvBi2j\nfCyjCBqb66sgS8pdzUl+YyH4sMDp67Q9RKI9po3ePtV03rldPQjtqgmXt2B2eQ6SKXDO3g\n+nN9LLEVXp9MpS7g9VnyDWUQCAxu+Khp+uZDzwSy7IVxRm/HHU2dAAAAFQCl1FWQ7bTyoY\n7RtEvB6rhqGyY/8QAAAIEAxYgBAFfVKvSC3AZkwWuB4hPLlBeKhL4Yt87vblimHWlaOSFU\nllKnCGmdc7R2NL3JZFP210yjapZY25YTKpkO8pdavazVqbzBd1EEtZ93umDqWua2yqPOc8\n6MoZJbk7OTJjZRlpd1XZwSI3XgyxaDtf+tCh14ikG13k4A1iKd3/MAAACBALHyHX29XFe3\nVseZeG+CiYMfc3qXbMQgpWdZeopg/1Z3qw46Kx4iiNgtZcB7BdoYdIhDvTu+xkffbG22h9\nYQnxyM9Kz/cqjKdKHp2VBX/IJU4vEkIPF+kdFPToLvJc+qkIvd1kDqUUW+e6dD6PkpNDdh\ngOn/vcgro4IwufBActyG\n----
-      END SSH2 PUBLIC KEY ----", "node": "master"}'
+      END SSH2 PUBLIC KEY ----", "node": "master", "server_groups": ""}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:R6OY6JbyNxbcCSJNnutDjBVSHTaPIqDIWeNtJAyWTfE=
+      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:9yfGbSGRIpkpT5xGyUAhNsUbRQbNzzUSje+KZGYTB0Q=
       Connection:
       - keep-alive
       Content-Length:
-      - '840'
+      - '861'
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Apr 2019 15:09:34 GMT
+      - Mon, 14 Oct 2019 13:25:39 GMT
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: POST
     uri: http://localhost/api/v2/remote_accesses
   response:
     body:
-      string: '{"id":106,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server02.example.com","port":22,"is_valid":null,"created_at":"2019-04-24T17:09:34.000+02:00","updated_at":"2019-04-24T17:09:34.000+02:00","server":{"id":"a41b8d53702b0d65ce13bd2e6704b6f4","hostname":"server02.example.com","last_communication":null,"reboot_required":null,"agent_version":null,"remote_ip":"server02.example.com","boot_at":null,"criticality":"criticality_medium","updates_count":0,"cve_announcements_count":0,"category":"server"},"node":{"id":1,"name":"master","created_at":"2019-04-08T11:03:51.000+02:00","updated_at":"2019-04-24T13:39:25.000+02:00"}}'
+      string: '{"id":50,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server02.example.com","port":22,"is_valid":null,"created_at":"2019-10-14T15:25:39.000+02:00","updated_at":"2019-10-14T15:25:39.000+02:00","server":null,"node":{"id":2,"name":"master","created_at":"2019-10-11T16:19:12.000+02:00","updated_at":"2019-10-14T09:31:27.000+02:00"}}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '636'
+      - '343'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Apr 2019 15:09:34 GMT
+      - Mon, 14 Oct 2019 13:25:39 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -187,128 +114,57 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["vtoqqqhebn4p6is0gp53","85pisx4qb3gs5z9baogg","xlic9142hvoxmfsuphfh","86zz8ak6q14lkucfq5hy","q75xyheujna85peia5q6","rh9vdfs4oeqwbobqly3z","ds81bz9519hillifb1kv","4env403li1yge797rc0t","3z82jque37cc5ka8zbf7","c0u6fbllfr63g54adrih","fvoq0jsoqiv220rn7uwm","23kntawot5773517lzdw","kije82mb8zfci6qkzfci","ih8q0qf5p48lyb5wz02g","dn3nsq51bunf7lz7gmtg","7eyyisi36glweh3cgjbo","zlppmv17mw524cch4d4g","uqwo0rsxolag9ft09rr5","3e3eyoxn7n29zmx88u0w","4lc50tbyez0a5g0lxbb4"]'
+      - vf41huh1a2tpbj2j69ym,h3p2iyedjjv9m0eizo40,tqj6irix9npcgmbruo5e
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - b7ef9890-1e57-417a-8bce-35debf257176
+      - 101cae48-1555-4190-b528-9ac7c0f09156
       X-Runtime:
-      - '0.374638'
+      - '0.542924'
       X-Xss-Protection:
       - 1; mode=block
     status:
       code: 201
       message: Created
 - request:
-    body: '{"groups": "", "compliance_groups": ""}'
+    body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "server01.example.com",
+      "port": 22.0, "login": "admin", "password": "SuperPassword", "key": "", "node":
+      "master", "server_groups": "production, test"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:HAao7U3hKJrK+bqconucMSBOslNen66A44SYm8PnNek=
+      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:9yfGbSGRIpkpT5xGyUAhNsUbRQbNzzUSje+KZGYTB0Q=
       Connection:
       - keep-alive
       Content-Length:
-      - '39'
+      - '213'
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Apr 2019 15:09:34 GMT
+      - Mon, 14 Oct 2019 13:25:39 GMT
       User-Agent:
-      - python-requests/2.21.0
-    method: PATCH
-    uri: http://localhost/api/v2/servers/a41b8d53702b0d65ce13bd2e6704b6f4
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAA3WQ627CMAyF38W/O1RKKVNfZZoiN/G6aM2FxEFDiHefywqDafvny/mOT3ICa6AH
-        bNfDs9ludnUz1KbbalpvBtNQt6vboXtroYL3kNmjI1FnSgdKdbOiT3RxopUOThQTZlZSuuKtRrbB
-        Q+/LNFWQaAiBVaJ9sYnMdYwjeVZilR+0LjApG/8/dDFDvhI6WZaDk+WjMHedcmRsmYkSDTJlSVe8
-        cLVAB1LovfSanMR42Il2DOl4S/DjAP3LawWZkYvUJ5ifSzMGT3CuIORbqN/+C0m6pDnaH7sxhRKX
-        WnzjZFEE6n4cUX/Iry0dRtF8//Rlcv4CTr09gs4BAAA=
-    headers:
-      Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Wed, 24 Apr 2019 15:09:35 GMT
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - '["15jzqkc0esh8sv1z93or","vtoqqqhebn4p6is0gp53","85pisx4qb3gs5z9baogg","xlic9142hvoxmfsuphfh","86zz8ak6q14lkucfq5hy","q75xyheujna85peia5q6","rh9vdfs4oeqwbobqly3z","ds81bz9519hillifb1kv","4env403li1yge797rc0t","3z82jque37cc5ka8zbf7","c0u6fbllfr63g54adrih","fvoq0jsoqiv220rn7uwm","23kntawot5773517lzdw","kije82mb8zfci6qkzfci","ih8q0qf5p48lyb5wz02g","dn3nsq51bunf7lz7gmtg","7eyyisi36glweh3cgjbo","zlppmv17mw524cch4d4g","uqwo0rsxolag9ft09rr5","3e3eyoxn7n29zmx88u0w"]'
-      X-Miniprofiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - 4e55cbce-467a-49ac-9db3-e81cecd4ccae
-      X-Runtime:
-      - '0.118316'
-      X-Xss-Protection:
-      - 1; mode=block
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"type": "CbwRam::RemoteAccess::WinRm::WithNegotiate", "address": "127.0.0.1",
-      "port": 5985.0, "login": "Administrator", "password": "Nu6K2WBX", "key": "",
-      "node": "slave1"}'
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:kyEN7CJvrn0BdHG2VCPhQ7E5y+uDwEER0DoTeqml9LA=
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '173'
-      Content-Type:
-      - application/json
-      Date:
-      - Wed, 24 Apr 2019 15:09:35 GMT
-      User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: POST
     uri: http://localhost/api/v2/remote_accesses
   response:
     body:
-      string: '{"id":107,"type":"CbwRam::RemoteAccess::WinRm::WithNegotiate","address":"127.0.0.1","port":5985,"is_valid":null,"created_at":"2019-04-24T17:09:35.000+02:00","updated_at":"2019-04-24T17:09:35.000+02:00","server":{"id":"c0e8eac82ba1f5d5494c51a7cb81addf","hostname":"127.0.0.1","last_communication":null,"reboot_required":null,"agent_version":null,"remote_ip":"127.0.0.1","boot_at":null,"criticality":"criticality_medium","updates_count":0,"cve_announcements_count":0,"category":"server"},"node":{"id":1,"name":"master","created_at":"2019-04-08T11:03:51.000+02:00","updated_at":"2019-04-24T13:39:25.000+02:00"}}'
+      string: '{"id":51,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server01.example.com","port":22,"is_valid":null,"created_at":"2019-10-14T15:25:40.000+02:00","updated_at":"2019-10-14T15:25:40.000+02:00","server":null,"node":{"id":2,"name":"master","created_at":"2019-10-11T16:19:12.000+02:00","updated_at":"2019-10-14T09:31:27.000+02:00"}}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '608'
+      - '343'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Apr 2019 15:09:35 GMT
+      - Mon, 14 Oct 2019 13:25:40 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -322,90 +178,18 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["cuw5wqvx8oc1z14e6z93","15jzqkc0esh8sv1z93or","vtoqqqhebn4p6is0gp53","85pisx4qb3gs5z9baogg","xlic9142hvoxmfsuphfh","86zz8ak6q14lkucfq5hy","q75xyheujna85peia5q6","rh9vdfs4oeqwbobqly3z","ds81bz9519hillifb1kv","4env403li1yge797rc0t","3z82jque37cc5ka8zbf7","c0u6fbllfr63g54adrih","fvoq0jsoqiv220rn7uwm","23kntawot5773517lzdw","kije82mb8zfci6qkzfci","ih8q0qf5p48lyb5wz02g","dn3nsq51bunf7lz7gmtg","7eyyisi36glweh3cgjbo","zlppmv17mw524cch4d4g","uqwo0rsxolag9ft09rr5"]'
+      - p54totl7y1px4ioo3nny,h3p2iyedjjv9m0eizo40,tqj6irix9npcgmbruo5e,vf41huh1a2tpbj2j69ym
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 871ff487-da3e-42d9-92f2-4ba80d7bcaca
+      - 42ed3325-72c4-408f-ab09-3e88738c16ad
       X-Runtime:
-      - '0.527814'
+      - '0.595033'
       X-Xss-Protection:
       - 1; mode=block
     status:
       code: 201
       message: Created
-- request:
-    body: '{"groups": "preproduction", "compliance_groups": ""}'
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:WD+aXQhAh/YaxwksxR51o9UKQ80+tedvP1ct6a5A/G8=
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '52'
-      Content-Type:
-      - application/json
-      Date:
-      - Wed, 24 Apr 2019 15:09:35 GMT
-      User-Agent:
-      - python-requests/2.21.0
-    method: PATCH
-    uri: http://localhost/api/v2/servers/c0e8eac82ba1f5d5494c51a7cb81addf
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAA42R227DIAyG38W3SyuIkh7yHLubJuSC26ElwDhUmqq++0zWg1rtYuIGm9+/P5sT
-        WAMDaEEbQr1pdyj3vem7bad7iWu920g0Zg8NfPiUHU7Eatmul4KP5PSIKSvtp6k4qzFb72BwZRwb
-        iLTzPqtIX8VGMtc0HshldaSYHrSTz6RseHKfHTBfZTrazF1Gm78r9D1SExlbJq4owWCmxEjFcZ3g
-        oiMpdI5jTRP3fnhj7cHH6pYoMtTdAYa39wZSxlz4foI6I9UyWMC5AZ9uUM/+l0rSJVa0P94O0ZdQ
-        76d5/e2qgctqQ6QQvSl63mSdmBjGzDuAVsjtQnQLuXqV/dCKoeuWQogX0Q5C3Mj/JT4zBU8URouM
-        pm5AnA6oP/mTLhEG1vx+7Jw5/wAziDbHMgIAAA==
-    headers:
-      Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Wed, 24 Apr 2019 15:09:35 GMT
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - '["i8igklanx83iswvdd3o9","cuw5wqvx8oc1z14e6z93","15jzqkc0esh8sv1z93or","vtoqqqhebn4p6is0gp53","85pisx4qb3gs5z9baogg","xlic9142hvoxmfsuphfh","86zz8ak6q14lkucfq5hy","q75xyheujna85peia5q6","rh9vdfs4oeqwbobqly3z","ds81bz9519hillifb1kv","4env403li1yge797rc0t","3z82jque37cc5ka8zbf7","c0u6fbllfr63g54adrih","fvoq0jsoqiv220rn7uwm","23kntawot5773517lzdw","kije82mb8zfci6qkzfci","ih8q0qf5p48lyb5wz02g","dn3nsq51bunf7lz7gmtg","7eyyisi36glweh3cgjbo","zlppmv17mw524cch4d4g"]'
-      X-Miniprofiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - 4094328e-7960-4eaa-9f04-69ada1d85d7f
-      X-Runtime:
-      - '0.124478'
-      X-Xss-Protection:
-      - 1; mode=block
-    status:
-      code: 200
-      message: OK
 version: 1
