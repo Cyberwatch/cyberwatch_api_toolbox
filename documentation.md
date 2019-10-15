@@ -147,6 +147,17 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 [<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
 ```
 
+#### Users
+
+Send a GET request to `/api/v2/users` to get informations about all users
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(API_URL, API_KEY, SECRET_KEY).users()
+[<cbw_api_toolbox.cbw_objects.cbw_group.CBWUsers]
+```
+
 ## Available objects and their attributes
 
 ### Server
@@ -286,7 +297,7 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 | name                      | String        | Node name                         | "master"                                          |
 | updated_at                | String        | Last modification of the node     | "2019-04-08T02:00:00.000+02:00"                   |
 
-### Users
+### User
 
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
