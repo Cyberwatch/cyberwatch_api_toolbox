@@ -305,3 +305,17 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 | id                        | Int           | Server group id                   | 25                                                |
 | name                      | String        | Name of group                     | "Cyberwatch"                                      |
 | role                      | String        | Role of server group              | "system_admin"                                    |
+
+### Remote Access
+
+| Attribute                 | Type          | Description                       | Example of possible value                         |
+|---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
+| address                   | String        | Address of remote access          | "XXX.XXX.XXX.XXX"                                 |
+| created_at                | String (date) | Date of the remote access creation| "2019-06-26T09:46:58.000+02:00"                   |
+| id                        | Int           | Remote access  id                 | 1                                                 |
+| is_valid                  | Boolean       | Boolean checking whether if the remote acess is valid or not| false                   |
+| node                      | Object        | Node of remote access             | [node](#Node)                                     |
+| port                      | Int           | Port of remote access             | 22                                                |
+| server                    | Object        | Server of remote access           | [server](#Server)                                 |
+| type                      | String        | Type of remote access             | "CbwRam::RemoteAccess::Ssh::WithPassword"         |
+| updated_at                | String (date) | Last modification date in Cyberwatch| "2019-10-26T09:00:00.000+06:00"                 |
