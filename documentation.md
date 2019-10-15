@@ -149,7 +149,7 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 
 ## Available objects and their attributes
 
-### Server
+### Server object
 
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
@@ -277,7 +277,7 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 
 > **Note:** not every attributes of the server object is sent back, for example, the "updates" attribute only contains updates fixing the current CVE and not every available fixes for the server.
 
-### Node
+### Node object
 
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
@@ -306,7 +306,7 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 | name                      | String        | Name of group                     | "Cyberwatch"                                      |
 | role                      | String        | Role of server group              | "system_admin"                                    |
 
-### Remote Access
+### Remote Access object
 
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
@@ -314,8 +314,8 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 | created_at                | String (date) | Date of the remote access creation| "2019-06-26T09:46:58.000+02:00"                   |
 | id                        | Int           | Remote access  id                 | 1                                                 |
 | is_valid                  | Boolean       | Boolean checking whether if the remote acess is valid or not| false                   |
-| node                      | Object        | Node of remote access             | [node](#Node)                                     |
+| node                      | Object        | Node of remote access             | [node](#Node-object)                                     |
 | port                      | Int           | Port of remote access             | 22                                                |
-| server                    | Object        | Server of remote access           | [server](#Server)                                 |
+| server                    | Object        | Server of remote access           | [server](#Server-object)                                 |
 | type                      | String        | Type of remote access             | "CbwRam::RemoteAccess::Ssh::WithPassword"         |
 | updated_at                | String (date) | Last modification date in Cyberwatch| "2019-10-26T09:00:00.000+06:00"                 |
