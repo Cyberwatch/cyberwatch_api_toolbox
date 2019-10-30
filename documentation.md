@@ -308,6 +308,7 @@ Send a GET request to `/api/v2/users` to get informations about all users
 | login                     | String        | Login email of user               | "test@example.com"                                |
 | name                      | String        | Name of user                      | "Cyberwatch"                                      |
 | server_groups             | Object        | Server Groups of user             | [server_groups](#Server-groups)                   |
+| auth_provider             | String        | Authentification provider of user | "ldap"                                            |
 
 ### Server groups
 

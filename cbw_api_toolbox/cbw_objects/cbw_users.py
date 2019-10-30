@@ -12,6 +12,7 @@ class CBWUsers:
                  name="",
                  firstname="",
                  email="",
+                 auth_provider="",
                  locale="",
                  server_groups=None,
                  **kwargs): # pylint: disable=unused-argument
@@ -20,5 +21,6 @@ class CBWUsers:
         self.name = name
         self.firstname = firstname
         self.email = email
+        self.auth_provider = auth_provider
         self.locale = locale
         self.server_groups = CBWParser().parse(CBWUserServerGroups, server_groups[0]) if server_groups else []
