@@ -254,3 +254,15 @@ class TestCBWApi:
             response = CBWApi(API_URL, API_KEY, SECRET_KEY).users()
             for user in response:
                 assert isinstance(user, CBWUsers) is True
+
+    @staticmethod
+    def test_cve_announcements():
+        """Tests for method cve_announcements()"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+        params = {
+            'page': '1'
+        }
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/cve_announcements.yaml'):
+            response = client.cve_announcements(params)
+        for cve in response:
+            assert isinstance(cve, CBWCve) is True

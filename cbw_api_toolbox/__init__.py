@@ -7,7 +7,6 @@ urllib3.disable_warnings()
 
 logging.basicConfig(level=logging.INFO)
 
-API_DEFAULT_URL = "/api/v2/"
 
 SIGNATURE_HEADER = 'CyberWatch APIAuth-HMAC-SHA256'
 SIGNATURE_HTTP_HEADER = 'Authorization'
