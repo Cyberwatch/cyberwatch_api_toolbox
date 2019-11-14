@@ -7,30 +7,28 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 VoIGnfE1i292EXJvKbum10CkIsK3q6F4jR7ZirleJoQ=:yRAXnBBStnb0F0RL8MQcps9/cCItRBHDIDyrnLkv/eA=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:8Awt3Iut/GVkJUGjdgQhl5X7HhlCMCq5mZDczqunXh8=
       Connection:
       - keep-alive
       Date:
-      - Mon, 01 Apr 2019 14:35:47 GMT
+      - Thu, 14 Nov 2019 10:28:52 GMT
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: GET
-    uri: http://localhost/api/v2/servers
+    uri: https://localhost/api/v2/servers
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA+1Su27cMBD8lUBt7g7LhyiSbT4gzaUKAoGklj4hJ/EiUoYNw/+epeTCB6RwlSII
-        wELamR3OLuf7SzMOjW1462Xgkus4oIIgGIseTIsctPBCxObQXFIus5uQ2IMEw6UegpJAyNXl0oc0
-        Tes8BlfGNFdFYOYI8gjszJiVrRXsBACfgVuoTQv6lEq/4K91XJA8RHfNeGjcA86lf8Ql7zritLOn
-        VLAfb1RhHT9xeYITI2ATceX+QtBW1nN3YVjGQvauY3km9ru/fsJhXCeirLfBFcw0yzqTJFDTI/Zu
-        nuk/4ETG7jDiPqSlqmVcyDEp5OLKmhv70tR9YGU2X9J0u46Ovl8PTdrAn1i7Vk9Sa880yF5J6n5b
-        77et/omR/1p1S7hQ9UmrnYXpuo3LRR2Xq/M2IZ27cfMlLaX/s2J5vtXq12ztjtTndfnSj/OAT4R0
-        2nltFBjP0angYytjCJwxhKgGgcopaJ1ERhQCwJtgRBeY1zIavsUlLEj7Gd6/jTjy9syUlcy2cjfL
-        drP74j9Efn09vGXWewcdYEDXRS5FFJ0zxgwiALmRFKm7zLbYIeroncDwwcwaC/pvZ7b7n9l/MbM/
-        fgNWcVDGaQUAAA==
+        H4sIAAAAAAAAA22RzU7DMBCEX6XylSaynZCmPsIViQOFC0KWm2xai9gO/qlaVX13NkkPFJB8iHdm
+        Z7+s389Et0SQQvFi3bX3baO6rq4qulWrVrG2Yx1K5Yosyd6FaJUBdHdgvQ599qZ9TKp/cEfUexWi
+        bJwxyepGRe0sOjll64yxjJUbxgQvBa9ySukdZYJSbPKwdS5KD19Je0CSTvUBlkTtwEZ5AB/mnCJn
+        k9u4CFIPWGErnrM6p5Mwhaj4ayAVtBac3gxsvI6I1+t4QvePmzTQ6mTQkoZWRQj4L8liJMWmA0hl
+        Ld4bMAh2o6F35/yYFsAj8TQEsNr+JZpWwIobohBVTIGIMxmXB2MseXRm6LXC78uSuEn8hHFE2uLc
+        JFlNS1mV2H19kdepvhgXUi6eNi+oKN/sUTnW1ewE1080vMhomfFqQzkC4Jlp+JVm73yU/6SiFk/D
+        WH0OQswKuVw+vgEYkHb+QgIAAA==
     headers:
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Encoding:
@@ -38,13 +36,13 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 01 Apr 2019 14:35:47 GMT
-      ETag:
-      - W/"f18be089eeb66ecf29e8eb885dac940e"
+      - Thu, 14 Nov 2019 10:28:52 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
@@ -55,13 +53,17 @@ interactions:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
+      X-Miniprofiler-Ids:
+      - z4p4cex43gndhoepi09g,xkeyq5g9afol82xozg8d,z432hw8wym5ahs84prua,cow8968jz674wcujyj0e,vnpwbj0q2ye2t41cx0dt,a1he2kivyzoxfusgc313,502bafytt3v7zbikh6mp,owpvnt1le1utgxt7cg57,18z3dkz3phr8738xkam6,su5i07s5zcat37fundl7,h74mrqq2eectwbn64u53,yqd3m4f6lt2imdhe6sne,4vlfgkr8yqxnxflz4yfc,qaqu394c2uen8yk0wes8
+      X-Miniprofiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 11d2243c-a989-49a2-ad11-d3d74cf88e2f
+      - 2e752701-1dbd-4770-9f0d-4d63cb568d56
       X-Runtime:
-      - '0.072549'
-      X-XSS-Protection:
+      - '0.287881'
+      X-Xss-Protection:
       - 1; mode=block
     status:
       code: 200

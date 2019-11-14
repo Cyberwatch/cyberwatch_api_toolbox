@@ -7,26 +7,22 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:lp3f/3hlz4mJu/BqyugZoSEbK/n1raXagbn2gTjVnRU=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:zH52Iq4lg9W9nlcn5m9MxxnY1oymdfP7y4mllVQNn6c=
       Connection:
       - keep-alive
       Date:
-      - Thu, 11 Apr 2019 11:17:29 GMT
+      - Thu, 14 Nov 2019 11:00:52 GMT
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: GET
-    uri: http://localhost/api/v2/remote_accesses/4
+    uri: https://localhost/api/v2/remote_accesses/7
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA42S0W7rIAyG34Xbk2aGJGvC3XReYNoqnUtEgrsihZADpFU19d3nZOuWapo0iRvj
-        77fNb16ZNUyWGUvnEZlkf9vTk3ZSPqHzCR+6DmOU8jkepPxn0+FRx3jywbCMDd6Q4HXRcwq1m/VO
-        x4SB0gZjF+yYrB+YHKa+z9gUeiIOKY1R3t1xyOeTc84J9/3ZjaiOGOKiYE1e0XXXnpQf1BjQ2bhO
-        ixw2Bo+EtN4nlezSXQBvNlBuON9BI0UtizIHgD8gJMBcLqBOaJROKxjqHecSClnxG3gazXf4q/J2
-        BV8ypo0J5BWh7w8TuRA1VRl9IL0QGbNRHXU/27XXfcQfpuGw45WELQ30i2kI3kpey+r+Bo4YyKrr
-        dlh1v+9EK0xXtKLZFiVCU+z3HKCFutFQkuLgY/pY4e38PS1Udd65abCdXq8z4GJ9wP+TDWiu1/oF
-        h/S1qSs7fydlx2/1lxrzo95B+jOJ+vQ2nQldRcqhsZP7dCLSUNNAOiDREZUeBoo7dNT9Jkfsiw9z
-        tQ9XLpc3+Z0lovUCAAA=
+        H4sIAAAAAAAAA43PQU4DMQwF0Lt4Szqy06GAdxUXQG0llpWZGHWkpBklaQuqendc2MACxNLKc/z/
+        GcYAfOegvU8KDI8vp5Uk5pWm3HQ5DFor87rumJ/HtnuSWk+5BHAgIRR7tJ2q5agFfadvkqao3ZCT
+        gSmXBuy9g7FujxKvh14lVnUwFJWmYSsGwCM9zIhm1G+IzDPNO0S8QWJE++cwhb9w/wN/ZQHeH2J0
+        sM/BSp0/O5KNkq4dk9Rm5pcYeL+hW8YFE/0vBrJfcP8dXy4ff4ZUOlcBAAA=
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -37,13 +33,13 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 11 Apr 2019 11:17:29 GMT
+      - Thu, 14 Nov 2019 11:00:52 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
@@ -55,15 +51,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["9fn2fjegpb52hy9hqwsh","hp2ibt4sy15zg79f45wm","1hgt8f8dw4tue72sqxq","16hybnb56r6k4ni0gz9w","vrdrxxrevarger8e7byh","p393vtd24x4g7dsb6mbu","sqxxqtczlwcb3wbg80fs","94aqneghveshw17yh7v1","wioaxsqcyl8phcaiui1f","9hxmyqtdxekm2tqk4crj","kd0z4ohl0djzbq0606lh","tiw0qsfy5nfrnok0i1tg","v3i216qrf8h7uxw7a6of","kdr2405xrn7vrny8p5bt","zp3tpjk2g78qdm18xxig","cpckxhcrywbla1inx9ac","9nbf8hsuvbb87n30l4xc","ri8fff42j1r6urk4lxa0","2jj281k5rjeukht9z687","bsl61uybwq8yhh5bnlft"]'
+      - f2dowlphj6oz6t72vidn,qeyzxgqu3ou7g8ysa6z2,4u2eqzya7a6yt7dul203,qnrqef3vgwa3tlnbxzbl,uxghijdyx3p9lsggwmbc
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 810bf75f-8ee8-4945-ae14-abeb271b25cc
+      - b7775ed4-7183-4f3f-a902-06a4fe773d26
       X-Runtime:
-      - '0.020233'
+      - '0.183957'
       X-Xss-Protection:
       - 1; mode=block
     status:

@@ -7,23 +7,23 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:zQ4jKy0ZBFUR3LOp5/Srujpdnn0eI8jTROO7x4HoDmM=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:HdkLuv5bdlS11BH+9XD/MdkB2+BkH6k3onIrt+wUPz0=
       Connection:
       - keep-alive
       Date:
-      - Mon, 14 Oct 2019 13:25:44 GMT
+      - Thu, 14 Nov 2019 10:22:16 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: http://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v2/remote_accesses
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA+WTwUoDMRCG32WupmEm3a3s3MQXkFrwIFLiJtKFZHdJsq0ifXdT9qJCa6U9FHrN
-        /Jn83wd5/oTGABeVgPTRW2C4f93MtWeeW98le1fXNkbmx7hifmrS6kHHuOmCAQHamJCH+Q6hRKkk
-        lfm070ICVkpAE5dr7XbrUxisgDpYnaxZ6jwHhVRNCCdULKhkVfK0koh4g4oR85qhNwfCBf4IRxvW
-        NgC3g3MC2s5kkBEs12i133F5HVPO7KtBC5oxVUzqqBpY8ZRY3X4Lb7difLPEk2SOMKikfde+d1bW
-        nd/j9U27eE1i6Rxi6QixI+9hr79U/eFVXbJXdZbfPztFZvEfmcUlynz5AmWVkpNMBQAA
+        H4sIAAAAAAAAA82TwUoDMRCG32WupmEm7sZ2buILSC14EClxE+lC0l2StFWk727KXrwUW1xkj8n8
+        mZnvg7x8QWuBtYD82TtgeHg7LE1gXrrQZXffNC4l5qe0YX5u8+bRpHToogUBxtpYiuUNoUSpJNXl
+        tu9iBlZKQJvWe+NP3d+NT05AE53Jzq5NCYBCWsyIZlStiEqe6VYi4g0SI5Y+u95eHk4u7l0E3u68
+        F7DtbCEZwKgcTTiBBZNyyZxZA+crqhk1E122BrLSXP0MH49imHn3J5kDCyrpPkzovZNNF/7PazVh
+        r/MxvNJoXqtrvNYT9roY5fPrMzIHxl9c6mtc6im6fP0GhcoICkoFAAA=
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -34,13 +34,13 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 14 Oct 2019 13:25:44 GMT
+      - Thu, 14 Nov 2019 10:22:16 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
@@ -52,15 +52,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - 3no4xebo8d8bt3hy8wtq,h3p2iyedjjv9m0eizo40,tqj6irix9npcgmbruo5e,vf41huh1a2tpbj2j69ym,p54totl7y1px4ioo3nny,7a8ypxb2cc94njgskhgq,3bee2zx4waono614u4xf,c981407ju41iyqm0s8hd
+      - phttp16sm1o4o1otq9is,lo11eukr7bcp11jtafe7,bidb0nw194k9jdxzsnji,juapavlc8fyeugyib1vj,1y0ylktzfdwc39perbq7,kzsi3kr7o7bhgiz3scze,irc9ussb829ae7afqwme
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 92627b04-2aea-4bed-b5bc-4406e8ce85d4
+      - 4e692654-ea56-4034-9edf-b99fa192496e
       X-Runtime:
-      - '0.070656'
+      - '0.186147'
       X-Xss-Protection:
       - 1; mode=block
     status:

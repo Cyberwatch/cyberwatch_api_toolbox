@@ -7,21 +7,21 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 izw59vyZ3CwkTzMKb+xNQ3FAUrx2FuTqSNjwOgBCkY4=:7NztQj1C/5VTCoydLrLQQML2vbpz3alBrWpMDaXrgN8=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:JYvqV7B41BjPsYkMUut//NATpXPVihzQj83N803sNbA=
       Connection:
       - keep-alive
       Date:
-      - Tue, 01 Oct 2019 09:19:41 GMT
+      - Thu, 14 Nov 2019 12:38:59 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: http://localhost/api/v2/groups
+    uri: https://localhost/api/v2/groups
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA43KMQoCMRBG4buMpVn5Jwiy06noBUwnIiFJEYjJErOVeHfnCMKrHt/9QzmSMBuq
-        /pVIyF1ujgzF9A49LyO3SlLXUgyFVlpXsWF7vJ5PikJPfqT49EO3Bc8TYwI7zKLtDzsAW1gBFK9L
-        /Bd/Hz89blYzmAAAAA==
+        H4sIAAAAAAAAA8XOuw4CIRCF4XcZS1kzw9o4nZfsE9gZYwhMQcICQbDZ+O4SY6ztLM/JV/yXBbwD
+        Jq0gmlmAIZfkmq0+RVDg5G6Lz+/FsYWgwKaQSncr0vvpeOjIFjFV3M3Ufmuk3UA00PZMxKNmTRtE
+        XCMxYsctu1/xU33ixm/cSR4SUp4l1r/XXV+lFwC3PAEAAA==
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -32,13 +32,13 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 01 Oct 2019 09:19:41 GMT
+      - Thu, 14 Nov 2019 12:39:00 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
@@ -50,15 +50,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["zid2d17fxpjhp1o4uedq","a2e70m44adiydcnz9m5u"]'
+      - 6pbu7bdiy32eqn7tl8xu,oxvp6wsz7ebtxe67jsus,l2ob3bb3olaoj9h140mf,vx6ruht1c40vmy5118e,f2qy2xqsk97xt7f2zus2,msb521u2f71qgzhcvwfl,pfmqala07v7on070pv91,ivx9rnwyzgwrm8ck6utx,q7pp11n17vs0trzceyaz
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - a814991e-7414-45b7-8a7c-6fe1ad7f39f7
+      - f5b09611-94e3-4007-aaa3-b08b2d01bc64
       X-Runtime:
-      - '0.195336'
+      - '0.181755'
       X-Xss-Protection:
       - 1; mode=block
     status:

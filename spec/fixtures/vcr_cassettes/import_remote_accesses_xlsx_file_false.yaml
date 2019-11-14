@@ -9,7 +9,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:iROXzEXkYBtG1OAEUtKNck4E0xSQSGyfFs6v0QqtQfc=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:uX6ZP5ktmxxsMFuRyOhOEFU7sgMzOwQggJz5ImJCyXA=
       Connection:
       - keep-alive
       Content-Length:
@@ -17,11 +17,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 14 Oct 2019 13:25:40 GMT
+      - Thu, 14 Nov 2019 10:22:14 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: http://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v2/remote_accesses
   response:
     body:
       string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
@@ -36,13 +36,13 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 14 Oct 2019 13:25:40 GMT
+      - Thu, 14 Nov 2019 10:22:15 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -52,9 +52,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 805a7142-15e7-4159-9492-db99a7880ea7
+      - 008268d5-bd37-46ec-afab-9bff46f28ec3
       X-Runtime:
-      - '0.561055'
+      - '0.714312'
       X-Xss-Protection:
       - 1; mode=block
     status:
@@ -71,7 +71,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:iROXzEXkYBtG1OAEUtKNck4E0xSQSGyfFs6v0QqtQfc=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:u0/Bl+40vxJSieGSh2ljdm/zZ67STm65Zt9m75kcdr0=
       Connection:
       - keep-alive
       Content-Length:
@@ -79,11 +79,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 14 Oct 2019 13:25:40 GMT
+      - Thu, 14 Nov 2019 10:22:15 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: http://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v2/remote_accesses
   response:
     body:
       string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
@@ -98,13 +98,13 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 14 Oct 2019 13:25:41 GMT
+      - Thu, 14 Nov 2019 10:22:15 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -114,9 +114,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - ef785c17-0a77-4f62-b680-d5f59896b2e4
+      - 7e15627e-8d86-46fa-ad3a-a9d5abcc894f
       X-Runtime:
-      - '0.765861'
+      - '0.583305'
       X-Xss-Protection:
       - 1; mode=block
     status:
@@ -132,7 +132,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:CKfKZv3ni6/rUumHsZhDbfnSELFM2CaEeFkhwiyGMnA=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:u0/Bl+40vxJSieGSh2ljdm/zZ67STm65Zt9m75kcdr0=
       Connection:
       - keep-alive
       Content-Length:
@@ -140,31 +140,31 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 14 Oct 2019 13:25:41 GMT
+      - Thu, 14 Nov 2019 10:22:15 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: http://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v2/remote_accesses
   response:
     body:
-      string: '{"id":52,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.16","port":22,"is_valid":null,"created_at":"2019-10-14T15:25:44.000+02:00","updated_at":"2019-10-14T15:25:44.000+02:00","server":null,"node":{"id":2,"name":"master","created_at":"2019-10-11T16:19:12.000+02:00","updated_at":"2019-10-14T09:31:27.000+02:00"}}'
+      string: '{"id":9,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.16","port":22,"is_valid":null,"created_at":"2019-11-14T11:22:16.000+01:00","updated_at":"2019-11-14T11:22:16.000+01:00","server":null,"node":{"id":1,"name":"master","created_at":"2019-11-08T15:06:11.000+01:00","updated_at":"2019-11-14T10:26:41.000+01:00"}}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '332'
+      - '331'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 14 Oct 2019 13:25:44 GMT
+      - Thu, 14 Nov 2019 10:22:16 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -172,15 +172,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - c981407ju41iyqm0s8hd,h3p2iyedjjv9m0eizo40,tqj6irix9npcgmbruo5e,vf41huh1a2tpbj2j69ym,p54totl7y1px4ioo3nny,7a8ypxb2cc94njgskhgq,3bee2zx4waono614u4xf
+      - irc9ussb829ae7afqwme,lo11eukr7bcp11jtafe7,bidb0nw194k9jdxzsnji,juapavlc8fyeugyib1vj,1y0ylktzfdwc39perbq7,kzsi3kr7o7bhgiz3scze
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - e2991983-8ab3-4d62-ac55-088b4c55b666
+      - 0a2387d1-8f76-47c7-901a-14b2d3d38987
       X-Runtime:
-      - '2.360447'
+      - '0.800134'
       X-Xss-Protection:
       - 1; mode=block
     status:
