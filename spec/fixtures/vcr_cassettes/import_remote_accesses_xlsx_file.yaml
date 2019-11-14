@@ -9,7 +9,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:48oKnqKbqoPXKHfLRE9CiFlfvXpT8fO08osRwWxOKsQ=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:WGCl3V8/BoiY+jnQZu3wkPO4cxmsv5Z1p+SIRhvblPM=
       Connection:
       - keep-alive
       Content-Length:
@@ -17,31 +17,31 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 14 Oct 2019 13:25:38 GMT
+      - Thu, 14 Nov 2019 10:22:12 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: http://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v2/remote_accesses
   response:
     body:
-      string: '{"id":49,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.15","port":22,"is_valid":null,"created_at":"2019-10-14T15:25:39.000+02:00","updated_at":"2019-10-14T15:25:39.000+02:00","server":null,"node":{"id":2,"name":"master","created_at":"2019-10-11T16:19:12.000+02:00","updated_at":"2019-10-14T09:31:27.000+02:00"}}'
+      string: '{"id":6,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.15","port":22,"is_valid":null,"created_at":"2019-11-14T11:22:13.000+01:00","updated_at":"2019-11-14T11:22:13.000+01:00","server":null,"node":{"id":1,"name":"master","created_at":"2019-11-08T15:06:11.000+01:00","updated_at":"2019-11-14T10:26:41.000+01:00"}}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '332'
+      - '331'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 14 Oct 2019 13:25:39 GMT
+      - Thu, 14 Nov 2019 10:22:13 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -49,15 +49,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - tqj6irix9npcgmbruo5e,h3p2iyedjjv9m0eizo40
+      - lo11eukr7bcp11jtafe7
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - de46fa38-ecbf-436b-b0c1-7b5025794dec
+      - 89135972-8d2b-469e-b54b-53482d9d70fd
       X-Runtime:
-      - '0.580821'
+      - '0.712114'
       X-Xss-Protection:
       - 1; mode=block
     status:
@@ -74,7 +74,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:9yfGbSGRIpkpT5xGyUAhNsUbRQbNzzUSje+KZGYTB0Q=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:ovb6HjAyhM2ln8MneNs66oG9EWEhH+WloAd5aJxwRkw=
       Connection:
       - keep-alive
       Content-Length:
@@ -82,31 +82,31 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 14 Oct 2019 13:25:39 GMT
+      - Thu, 14 Nov 2019 10:22:13 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: http://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v2/remote_accesses
   response:
     body:
-      string: '{"id":50,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server02.example.com","port":22,"is_valid":null,"created_at":"2019-10-14T15:25:39.000+02:00","updated_at":"2019-10-14T15:25:39.000+02:00","server":null,"node":{"id":2,"name":"master","created_at":"2019-10-11T16:19:12.000+02:00","updated_at":"2019-10-14T09:31:27.000+02:00"}}'
+      string: '{"id":7,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server02.example.com","port":22,"is_valid":null,"created_at":"2019-11-14T11:22:13.000+01:00","updated_at":"2019-11-14T11:22:13.000+01:00","server":null,"node":{"id":1,"name":"master","created_at":"2019-11-08T15:06:11.000+01:00","updated_at":"2019-11-14T10:26:41.000+01:00"}}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '343'
+      - '342'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 14 Oct 2019 13:25:39 GMT
+      - Thu, 14 Nov 2019 10:22:13 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -114,15 +114,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - vf41huh1a2tpbj2j69ym,h3p2iyedjjv9m0eizo40,tqj6irix9npcgmbruo5e
+      - bidb0nw194k9jdxzsnji,lo11eukr7bcp11jtafe7
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 101cae48-1555-4190-b528-9ac7c0f09156
+      - 15dbd489-8bd5-4dee-aba1-292fa83ce834
       X-Runtime:
-      - '0.542924'
+      - '0.566613'
       X-Xss-Protection:
       - 1; mode=block
     status:
@@ -138,7 +138,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 xToKNpos5FtMyhap8DFjPtQdaE+AzvaTHns7Q9PyBqU=:9yfGbSGRIpkpT5xGyUAhNsUbRQbNzzUSje+KZGYTB0Q=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:ovb6HjAyhM2ln8MneNs66oG9EWEhH+WloAd5aJxwRkw=
       Connection:
       - keep-alive
       Content-Length:
@@ -146,31 +146,31 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 14 Oct 2019 13:25:39 GMT
+      - Thu, 14 Nov 2019 10:22:13 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: http://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v2/remote_accesses
   response:
     body:
-      string: '{"id":51,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server01.example.com","port":22,"is_valid":null,"created_at":"2019-10-14T15:25:40.000+02:00","updated_at":"2019-10-14T15:25:40.000+02:00","server":null,"node":{"id":2,"name":"master","created_at":"2019-10-11T16:19:12.000+02:00","updated_at":"2019-10-14T09:31:27.000+02:00"}}'
+      string: '{"id":8,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server01.example.com","port":22,"is_valid":null,"created_at":"2019-11-14T11:22:14.000+01:00","updated_at":"2019-11-14T11:22:14.000+01:00","server":null,"node":{"id":1,"name":"master","created_at":"2019-11-08T15:06:11.000+01:00","updated_at":"2019-11-14T10:26:41.000+01:00"}}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '343'
+      - '342'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 14 Oct 2019 13:25:40 GMT
+      - Thu, 14 Nov 2019 10:22:14 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -178,15 +178,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - p54totl7y1px4ioo3nny,h3p2iyedjjv9m0eizo40,tqj6irix9npcgmbruo5e,vf41huh1a2tpbj2j69ym
+      - juapavlc8fyeugyib1vj,lo11eukr7bcp11jtafe7,bidb0nw194k9jdxzsnji
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 42ed3325-72c4-408f-ab09-3e88738c16ad
+      - 77e55253-cbc8-4965-8a24-93b1bdf23641
       X-Runtime:
-      - '0.595033'
+      - '0.699038'
       X-Xss-Protection:
       - 1; mode=block
     status:

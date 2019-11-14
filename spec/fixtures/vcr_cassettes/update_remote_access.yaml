@@ -9,7 +9,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:TIcZkuPuF4uMb90f9f/N63OvWhsADRF2IJcWze0KkBo=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:w+e8e47wLZCqVv3ZPynPOMpU3GgOBtbZV0gsHu8EjSQ=
       Connection:
       - keep-alive
       Content-Length:
@@ -17,20 +17,18 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Apr 2019 12:16:16 GMT
+      - Thu, 14 Nov 2019 11:07:52 GMT
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: PATCH
-    uri: http://localhost/api/v2/remote_accesses/38
+    uri: https://localhost/api/v2/remote_accesses/7
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA41RXWsCMRD8L3ntKfnQ9i5vpX+gWKGPIZesGrgk1ySniPjfu6fVVkQo7Msyszs7
-        swfiLJGirkjZ90AkeWt3C+2lXICPBV6NgZyl/MgbKT9d2bzrnHcxWVIRbW1CEGcYnZ6L8xqBPqZC
-        JOcVcVltdTcqhKHrKmIS6AJWacQJp6yZ0NmEz5ZsJhmTgk4ppU+US0pxzdDbh+RnrBtyhrSFROTh
-        5IcYbhrxUrNV07a15mDrumWiWWmhGW9WgBObmEvQHu7v73QuykTvh+CMLi6Gy/0J2hiLSvA1uARX
-        W3oNoSjUzzfcMUDl+nuB05LR1iUVV1Coc2U/nv7bKQ/WDf6aRcarhoBzFIe2oHQI2BvwKH+DIXcd
-        07jtJ5djRUK0cMmHYXu27tEr4g9eQ+sl/oUKOWf/e42QopF8/od8PH4DR0FEVmMCAAA=
+        H4sIAAAAAAAAA42PzQoCMQyE3yVXV0nq/9zEFxAVPErdFlzYP9qqiPjuRkVQUBByCfMlM3OhwhHG
+        GaVz6wk0352WtgKWvmqSn+W5jxFYxT2wKdJ+YWM8NcFRRta5oKLeCPeeY8xEhbYJiWBMRkXcHm15
+        N6gPZZlRHrxN3m2t6mRYpl2RrgzWIopD+j1m7rCAWd8cWvcdNuAxhp9w9OHow8unbpx2uTyqia62
+        ulerbEzK/IjBk7UMwSOI/BeDYUYYvMPX6w1XGoaRTgEAAA==
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -41,13 +39,13 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Apr 2019 12:16:17 GMT
+      - Thu, 14 Nov 2019 11:07:53 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
@@ -59,15 +57,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["u7otfitoyimyr8hkqzif","4v3norwryw4zrmqsxign","4jvo22u6s3gh1nkpe7kv","qlh9dzc2ryhhc8b8ls45","hkezrpl8guiyqmp2e9vz","wsofkkfz3rv650arefi6","t5tkdym6luncfq2j2do1","ho70rocab82qrmns38e1","wdasfxfijjwvl6sjd18i","wm2z21yhyvedleawu6o2","alhb7eqk2yedy2hj7gfy","zqu8maacx4ws4wgmyrla","s6dxgmaxuaiuf17233m4","v73gykvylyhedtkc0vmr","k2tr9q1gev8vcmehjpl8","jvlo2cl9m88q6xe0kxco","ayr6c441cpk0nrimnn37","47zjsel61bl4ogig5pvs","gg9pmb0uhcqolr73jxsc","q16na47pa7vfqm903k21"]'
+      - qkraoj47kccgpgpxn9cg,saui67r16abh2g5qlxa9,xmpn8opx2hodm1bv0wy2,fktahxrv7zdiqkqu8co0,w4qw5slzvya1eo19ajsz,kv7ll792lj917mllpz54,sxln826igdxrunxkpzhe,y3brqxv2pal9jh6qk9ke,y1d8zq4iclvk41gmutyu,ajspovsfvavna6g5vdxn,t06vi8weqcvriasvwvo1,pd5uslmo2qv6i2z7u3g8,4ovbjlz5bn7flk3vywdk,jdbsbvmzkdyid19ewawb,avhpp4tvye4jn4xdggqn,2s9oq4486cpassfuy8zg
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 7414a86a-9f56-4410-b358-48a47bb2f129
+      - 9c093f8e-e57b-48c7-b8fc-01c6b7d60e3e
       X-Runtime:
-      - '0.352125'
+      - '0.698649'
       X-Xss-Protection:
       - 1; mode=block
     status:

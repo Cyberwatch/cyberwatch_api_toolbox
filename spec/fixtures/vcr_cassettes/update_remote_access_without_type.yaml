@@ -8,7 +8,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 x1WJYbzCckw88DW7DQae31MAcsvikqzuWVjHjWO8njg=:yEc9xdBxYnI1h1L4w72oCOCwXIqYrjZU9PqCv1IEfRQ=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:cUVqYMmxN3F8N1Wag3Hv0oBgxgcxgxg66Ej6GaBWpGU=
       Connection:
       - keep-alive
       Content-Length:
@@ -16,38 +16,32 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Apr 2019 12:16:17 GMT
+      - Thu, 14 Nov 2019 12:38:29 GMT
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.22.0
     method: PATCH
-    uri: http://localhost/api/v2/remote_accesses/4
+    uri: https://localhost/api/v2/remote_accesses/14
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAAw3KMQrDMAwF0KuYv3jJ0MGToEMIdOyQG7iWmhpqC2yZDCF3T978Dkhr2kAHkrKA
-        wiNM6BZtdBDeau6lozImFOk9bnfBouPP1Zv75spu+exrLESrFDWZU7qf27P9nM/snwHneQG4Q8e6
-        ZgAAAA==
+      string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
+        failed: Address has already been taken"}}'
     headers:
       Cache-Control:
       - no-cache
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
+      Content-Length:
+      - '116'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 24 Apr 2019 12:16:17 GMT
+      - Thu, 14 Nov 2019 12:38:29 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -57,12 +51,12 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 9b6f5b1f-bd7b-4c12-9d10-e59c4483479c
+      - 9d643149-ffe7-42d8-a154-c35312f390ff
       X-Runtime:
-      - '0.014066'
+      - '0.683567'
       X-Xss-Protection:
       - 1; mode=block
     status:
-      code: 404
-      message: Not Found
+      code: 422
+      message: Unprocessable Entity
 version: 1

@@ -7,22 +7,29 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 izw59vyZ3CwkTzMKb+xNQ3FAUrx2FuTqSNjwOgBCkY4=:xU6zCMkkDqtUl6/ATJDhVJa5zKJaLasMmVtm6cVeP8Q=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:Ym7ntm48khzxSN9d6aziwiRSLiKGJQI1xoQHz8fTh7o=
       Connection:
       - keep-alive
       Date:
-      - Mon, 30 Sep 2019 15:01:21 GMT
+      - Thu, 14 Nov 2019 12:57:31 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: http://localhost/api/v2/cve_announcements/CVE-2017-0146
+    uri: https://localhost/api/v2/cve_announcements/CVE-2017-0146
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA42PQQrCMBBF75KtRqatVJqteANxIxLSZIrBMSlJGgXx7gahxaWr4cN7/PkvpjNK
-        7Q0ywfanA6+h2nGoti1bs6h9QJlrJtxEtORmzoQZqXjfKyd3c/7hijdOPdl4RTOD2ruELi2eikne
-        vbGD/WECqoRGqoKx8kXHoeMNHKtWQCOg3QDACmoBUBqm0fwP43Mkb5PqqYwcFEUsUzBkDJGJ8+X9
-        Afc7sD8EAQAA
+        H4sIAAAAAAAAA61UwU7jMBD9lVGu21Z2Cm3p3qjQnpBWUMFhQZbrTBurTty1nQBC/PuOk5Q0LAdW
+        2pM9z29mnDcvfk1UjULZDJNlsrq7GqeMz8eMn82SUeKVdYQvJrzbizpNlheT6Xs47U4N1mioQrOK
+        XO9ySj9UG6N9jhkdtGWnYz5fM748v1gyNmGMfaOAMeIqWwYsAzHXOcLt9WXNwaOr0YEu4VorZ73d
+        BrjXZWafPNxpHyTc/ky/v0O3LT1lbBEPQJYZ3KS05T1nPgzp7p/k8xR+WJN1BXrCzbpNiPgR46zh
+        joCfcz5qjviMzYekvvIMpDERcljYgCBDkGqPzkOwgM+oqgi6jQ5OuheIc4FaS1BObgNmcIjs4KnR
+        XsJD8t7g+hJu2oqrmHLVVNK2hLvKlOjkRhsdXiYPCaxz7aE+RYGATG+36GgAsHW2gJBbj5ChV05v
+        qC2N4NQb09EgPBuG560Mp9BiQiM20gdRWGqlj5ZYjNlsnPI1my7T3hJpawl8Phirg9wY8mBwFZLr
+        GiF9svz1SJapPe1eE6kUei9qVME6qjuIRYnhybo91etwZYuDwWf68J7bY6LATFdFpFchJ0G0klHI
+        yB0AorQltsbd6iziMoopdEEzij7+/KBrFWKqJsvv3CDpI3RKl7XUpptZn/EJ2ie9tSo1/+n/Fur4
+        kztda4M7FA5/V9o1o/0bPMpV0QhF/EpHF211/QgdqfTEHOKr1KyiKlUuyx2V/3fNu6t+Re+O+nWt
+        m4So8xNGjWkROkqwuo/2T97e/gBQzl16YgUAAA==
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -33,13 +40,13 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 30 Sep 2019 15:01:22 GMT
+      - Thu, 14 Nov 2019 12:57:31 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
-      - __profilin=p%3Dt; path=/; HttpOnly
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
@@ -51,15 +58,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - '["m5tdx5yibgvbq8ye8par","3bpi31iafgps95dhj95r","jr75wncm0awk8e12uu5z"]'
+      - i5tk97d8usx1ltwg4782,i98st1bs76x6spi97dvf,13w4ag4m93ym1lciju7b,mp94atcjo9w4yhn56vrb,9s7kdtrao1i2ozml93yy,f8f6bgd0cqq7f5kyvf0b,3mpc2n6c23jc0pcvmo86,1o05yxzqdiis1uhb9nav,pt30ihhpzhc6848jv160
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 9fdf9446-d453-479c-a30a-ce20672a203f
+      - 854ac7a7-678d-4c65-ba30-321b30fba430
       X-Runtime:
-      - '0.210447'
+      - '0.255903'
       X-Xss-Protection:
       - 1; mode=block
     status:

@@ -17,7 +17,7 @@ import vcr  # pylint: disable=import-error
 
 API_KEY = ''
 SECRET_KEY = ''
-API_URL = 'http://localhost'
+API_URL = 'https://localhost'
 
 
 class TestCBWXlsx:

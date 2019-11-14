@@ -20,7 +20,7 @@ import pytest  # pylint: disable=import-error
 
 API_KEY = ''
 SECRET_KEY = ''
-API_URL = 'http://localhost'
+API_URL = 'https://localhost'
 
 
 class TestCBWApi:
@@ -58,7 +58,7 @@ class TestCBWApi:
             response = CBWApi(
                 API_URL,
                 API_KEY,
-                SECRET_KEY).server('25b4c2428fde60c311fb095e2083b33f')
+                SECRET_KEY).server('3a239fd5dcaff8660ba7da1df1f3a247')
             assert isinstance(response, CBWServer) is True
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/server_failed.yaml'):
@@ -78,7 +78,7 @@ class TestCBWApi:
             assert response is False
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_server_with_server_id.yaml'):
-            response = client.delete_server('fd302ddb48d8634e948afdb84abd1db1')
+            response = client.delete_server('3a239fd5dcaff8660ba7da1df1f3a247')
             assert response is True
 
     @staticmethod
@@ -91,7 +91,7 @@ class TestCBWApi:
             "compliance_groups": "Anssi"
         }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server.yaml'):
-            response = client.update_server('7472cc6f37a6b5482193ca5184a88d44',
+            response = client.update_server('6b9648e93ae9207298be61de21e18a08',
                                             info)
             assert response is True
 
@@ -106,7 +106,7 @@ class TestCBWApi:
             "compliance_groups": None
         }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_with_group_none.yaml'):
-            response = client.update_server('7472cc6f37a6b5482193ca5184a88d44', info)
+            response = client.update_server('6b9648e93ae9207298be61de21e18a08', info)
             assert response is True
 
     @staticmethod
@@ -154,7 +154,7 @@ class TestCBWApi:
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_access.yaml'):
-            response = client.remote_access('4')
+            response = client.remote_access('7')
             assert isinstance(response, CBWRemoteAccess) is True
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_access_wrong_id.yaml'):
@@ -167,7 +167,7 @@ class TestCBWApi:
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_remote_access.yaml'):
-            response = client.delete_remote_access('6')
+            response = client.delete_remote_access('13')
             assert response is True
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_remote_access_wrong_id.yaml'):
@@ -189,7 +189,7 @@ class TestCBWApi:
                 }
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access.yaml'):
-            response = client.update_remote_access('38', info)
+            response = client.update_remote_access('7', info)
 
             assert response is True
 
@@ -203,7 +203,7 @@ class TestCBWApi:
         info["type"] = ""
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access_without_type.yaml'):
-            response = client.update_remote_access('4', info)
+            response = client.update_remote_access('14', info)
 
             assert response is False
 
@@ -237,7 +237,7 @@ class TestCBWApi:
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/test_deploy.yaml'):
-            response = client.test_deploy_remote_access('1')
+            response = client.test_deploy_remote_access('14')
 
             assert isinstance(response, CBWRemoteAccess) is True
 
