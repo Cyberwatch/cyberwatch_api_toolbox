@@ -7,15 +7,15 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:HUXyd9Ei3qCjfy1ebU2/SNrJxVZzZrmtch4ZEBsW728=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:XDz2xhK7tWp2O8uafZfwXWN8v3uvZIdiOLr2gEFIGnE=
       Connection:
       - keep-alive
       Date:
-      - Thu, 14 Nov 2019 12:57:54 GMT
+      - Thu, 14 Nov 2019 14:23:08 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v2/cve_announcements/wrong_id
+    uri: https://localhost/api/v3/cve_announcements/wrong_id
   response:
     body:
       string: !!binary |
@@ -31,7 +31,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 12:57:54 GMT
+      - Thu, 14 Nov 2019 14:23:08 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -51,9 +51,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 23532e0a-abe6-4bef-a019-f488d31ad3b2
+      - cd0b5f88-efbd-4b9a-b7c7-4a34a0844494
       X-Runtime:
-      - '0.044376'
+      - '0.036172'
       X-Xss-Protection:
       - 1; mode=block
     status:

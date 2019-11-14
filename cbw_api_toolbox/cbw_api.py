@@ -4,11 +4,12 @@ import json
 import logging
 import sys
 
+from urllib.parse import urlparse
+from urllib.parse import parse_qs
 import requests
 from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader, MissingSchema
 from urllib3.exceptions import NewConnectionError, MaxRetryError
 
-from cbw_api_toolbox import API_DEFAULT_URL
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
 from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_PING
@@ -28,7 +29,7 @@ class CBWApi:
     """Class used to communicate with the CBW API"""
 
     def __init__(self, api_url, api_key, secret_key, verify_ssl=False):
-        self.api_url = api_url + API_DEFAULT_URL
+        self.api_url = api_url
         self.api_key = api_key
         self.secret_key = secret_key
 
@@ -59,6 +60,28 @@ class CBWApi:
         except MissingSchema:
             self.logger.error("An error occurred, please check your API_URL.")
             sys.exit(-1)
+
+    def _get_pages(self, verb, route, params, model):
+        """ Get all the pages for a method using api v3 pagination """
+        response_list = []
+
+        if 'per_page' not in params:
+            params['per_page'] = 100
+
+        response = self._request(verb, route, params)
+
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        response_list.extend(CBWParser().parse_response(CBWCve, response))
+
+        while 'next' in response.links:
+            next_url = urlparse(response.links['next']['url'])
+            params['page'] = parse_qs(next_url .query)['page'][0]
+            response = self._request(verb, route, params)
+            response_list.extend(CBWParser().parse_response(model, response))
+        return response_list
 
     @staticmethod
     def verif_response(response):
@@ -176,7 +199,7 @@ class CBWApi:
         return False
 
     def cve_announcement(self, cve_code):
-        """GET request to /api/v2/cve_announcements/{cve_code} to get all informations
+        """GET request to /api/v3/cve_announcements/{cve_code} to get all informations
         about a specific cve_announcement"""
         response = self._request("GET", [ROUTE_CVE_ANNOUNCEMENTS, cve_code])
         if response.status_code != 200:
@@ -184,6 +207,21 @@ class CBWApi:
             return None
 
         return CBWParser().parse_response(CBWCve, response)
+
+    def cve_announcements(self, params):
+        """GET request to /api/v3/cve_announcements to get a list of cve_announcement"""
+
+        if 'page' in params:
+            response = self._request(
+                "GET", [ROUTE_CVE_ANNOUNCEMENTS], params)
+            if response.status_code != 200:
+                logging.error("Error::{}".format(response.text))
+                return None
+            return CBWParser().parse_response(CBWCve, response)
+
+        response = self._get_pages("GET", [ROUTE_CVE_ANNOUNCEMENTS], params, CBWCve)
+
+        return response
 
     def groups(self):
         """GET request to /api/v2/groups to get a list of all groups"""
