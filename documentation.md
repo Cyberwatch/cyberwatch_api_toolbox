@@ -276,6 +276,8 @@ Send a GET request to `/api/v2/users` to get informations about all users
 | content                   | String        | CVE description                   | "In systemd before v242-r…her than \"allow_any\"."|
 | created_at                | String (date) | Creation date of the CVE in Cyberwatch| "2019-04-08T22:17:34.000+02:00"               |
 | cve_code                  | String        | CVE code                          | "CVE-2019-5953"                                   |
+| cvss_v2                   | Object        | CVSS v2 metrics object               | [CVSS v2](#CVSS_v2)                            |
+| cvss_v3                   | Object        | CVSS v3 metrics object               | [CVSS v3](#CVSS_v3)                            |
 | level                     | String        | CVSS Score level                  | "level_medium"                                    |
 | score                     | Float         | CVE score (CVSS v2 or v3, depends on options) | 4.4                                   |
 | score_v2                  | Float         | CVE score from CVSS v2            | 4.4                                               |
@@ -331,3 +333,27 @@ Send a GET request to `/api/v2/users` to get informations about all users
 | server                    | Object        | Server of remote access           | [server](#Server-object)                                 |
 | type                      | String        | Type of remote access             | "CbwRam::RemoteAccess::Ssh::WithPassword"         |
 | updated_at                | String (date) | Last modification date in Cyberwatch| "2019-10-26T09:00:00.000+06:00"                 |
+
+### CVSS_v2 object
+
+| Attribute                 | Type          | Description                       | Example of possible value                         |
+|---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
+| access_complexity         | String        | Access complexity of CVE          | "access_complexity_low"                           |
+| access_vector             | String        | Access vector of CVE              | "access_vector_network"                           |
+| availability_impact       | String        | Impact on availability of CVE     | "availability_impact_none"                        |
+| confidentiality_impact    | String        | Impact on confidientiality of CVE | "confidentiality_impact_none"                     |
+| integrity_impact          | String        | Impact on integrity of CVE        | "integrity_impact_high"                           |
+| authentication            | String        | Authentication level required for CVE| "authentication_none"                          |
+
+### CVSS_v3 object
+
+| Attribute                 | Type          | Description                       | Example of possible value                         |
+|---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
+| access_complexity         | String        | Access complexity of CVE          | "access_complexity_low"                           |
+| access_vector             | String        | Access vector of CVE              | "access_vector_network"                           |
+| availability_impact       | String        | Impact on availability of CVE     | "availability_impact_none"                        |
+| confidentiality_impact    | String        | Impact on confidientiality of CVE | "confidentiality_impact_none"                     |
+| integrity_impact          | String        | Impact on integrity of CVE        | "integrity_impact_high"                           |
+| privilege_required        | String        | Privilege level required for CVE  | "privilege_required_none"                         |
+| scope                     | String        | Scope of the CVE                  | "scope_unchanged"                                 |
+| user_interaction          | String        | User interaction level for CVE    | "user_interaction_none"                           |
