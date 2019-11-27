@@ -4,7 +4,7 @@
 
 #### Ping
 
-Send a GET request to `/api/v2/ping` to validate that the API is working.
+Send a GET request to `/api/v3/ping` to validate that the API is working.
 
 ###### Usage example and expected result:
 
