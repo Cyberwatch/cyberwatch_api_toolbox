@@ -94,7 +94,7 @@ class CBWApi:
         return False
 
     def ping(self):
-        """GET request to /api/v2/ping then check uuid value"""
+        """GET request to /api/v3/ping then check uuid value"""
         response = self._request("GET", [ROUTE_PING])
 
         if response.status_code == 200:

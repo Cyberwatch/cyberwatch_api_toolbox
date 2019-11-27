@@ -7,20 +7,20 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:MC2RAToXJV+d3kmWRcQZlg9DTBD6MTsmKODXMmdOk/s=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:9eufjQsd47q+VfpUPQWi+ksvPWmGahDGYw9R6hTM+qw=
       Connection:
       - keep-alive
       Date:
-      - Thu, 14 Nov 2019 10:22:58 GMT
+      - Wed, 27 Nov 2019 16:27:03 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v2/ping
+    uri: https://localhost/api/v3/ping
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA6tWKi3NTFGyUkozSrI0NUxM1jVISjHXNUk2NNJNMkkz0k1MNTcxMDU3MDBMM1Gq
-        BQBnW8a4LwAAAA==
+        H4sIAAAAAAAAA6tWKi3NTFGyUjKxSDU0MDUw0jVMMjbQNbE0TdJNSjYHck3SUhJTLJMsLEyTlGoB
+        fNZuNC8AAAA=
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -31,7 +31,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 10:22:58 GMT
+      - Wed, 27 Nov 2019 16:27:03 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -49,15 +49,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - tgvsk8ik8r70rlbntykh,lo11eukr7bcp11jtafe7,bidb0nw194k9jdxzsnji,juapavlc8fyeugyib1vj,1y0ylktzfdwc39perbq7,kzsi3kr7o7bhgiz3scze,irc9ussb829ae7afqwme,phttp16sm1o4o1otq9is
+      - 7p1fs29q9sav8euvxlr4,clrj4q5qgpp6xt0iejqt,z5q1r5oflmou7887aoqn,m80r1s2f87ni6jfe7myg,l4elhfxzaibm527ytzem,7meltf6tnx6yyblrclxa,3vggg54riy9c1jcos16d,bh41lu4kpkddbg5xfugq,9jvsu9brsoy6e6no0bbl,l57w86e6stq5b0bu2075,pplgjwcrfu55d7nqpqg4,ia4nyat1wnzxcasvo0rg,xycj59r2cp4hzn9j0j0u,b4cca2zd52usany8eqho,lal4uw3ikf8tgntnkboi,8kx81baehjhahrh5kkm9,4pbnq8are7yrczz7xt5a,t07wrvgvn3m48a7q26hr,7thcbtwum0bdj3bhrg6u,a897vom81j9n1bhcaexv
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - f2b951ac-0bd7-4c12-b4f2-ae74057001f4
+      - 48e10502-1b30-495b-bc72-14fdad9b885b
       X-Runtime:
-      - '0.043423'
+      - '0.044002'
       X-Xss-Protection:
       - 1; mode=block
     status:
