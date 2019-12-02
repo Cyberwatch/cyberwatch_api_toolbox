@@ -10,7 +10,7 @@ CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key')
 INFO = {"type": "", #mandatory, precises the type of the connection
         "address": "", #mandatory, precises the IP address or the domain name of the targeted computer
         "port": "", #mandatory, precises the port of the connection
-        "login": "", #mandatory, precises the login of the connection
+        "login": "", #precises the login of the connection
         "password": "", #precises the password of the connection
         "key": "", #precises the key of the connection
         "node": "", #precises the Cyberwatch source of the connection
