@@ -16,7 +16,7 @@ True
 
 #### Servers
 
-Send a GET request to `/api/v2/servers` to retrieve the list of all servers.
+Send a GET request to `/api/v3/servers` to retrieve the list of all servers.
 
 ###### Usage example and expected result:
 
@@ -27,7 +27,7 @@ Send a GET request to `/api/v2/servers` to retrieve the list of all servers.
 
 #### Server
 
-Send a GET request to `/api/v2/servers/{SERVER_ID}` to retrieve the information of a server.
+Send a GET request to `/api/v3/servers/{SERVER_ID}` to retrieve the information of a server.
 
 ###### Usage example and expected result:
 
@@ -38,7 +38,7 @@ Send a GET request to `/api/v2/servers/{SERVER_ID}` to retrieve the information 
 
 #### Update server
 
-Send a PATCH request  `/api/v2/servers/{SERVER_ID}` to update the information of a server.
+Send a PATCH request  `/api/v3/servers/{SERVER_ID}` to update the information of a server.
 
 ###### Usage example and expected result:
 
@@ -49,7 +49,7 @@ True
 
 #### Delete server
 
-Send a DELETE request `/api/v2/servers/{SERVER_ID}` to delete a server.
+Send a DELETE request `/api/v3/servers/{SERVER_ID}` to delete a server.
 
 ###### Usage example and expected result:
 
@@ -187,6 +187,7 @@ Send a GET request to `/api/v2/users` to get informations about all users
 | status                    | List          | Computer's status                 | comment: "Communication failure"                  |
 | updates                   | Object        | Available updates for the computer| [Update](#Update)                                 |
 | updates_count             | Int           | Number of available updates for the computer| 3                                       |
+| compliance_groups         | Object        | Computer's compliance groups      | [Group](#Group)                                   |
 
 ### Group
 

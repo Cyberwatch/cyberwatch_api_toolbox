@@ -16,11 +16,11 @@ INFO = {
     "criticality": '',          #(ex: 'criticality_low, criticality_medium, etc')
     "deploying_period": "",
     "ignoring_policy": "",
-    "compliance_groups": '',    # The list of the compliance groups names you want to set on your
-                                # server split by ',' (ex: 'Anssi, CIS_Benchmark, etc')
+    "compliance_groups": [],    # An array of of the compliance groups IDs you want to set on your
+                                # server split by ',' (ex: [13, 20])
 
-    "groups": ''                # The list of the groups names you want to set on your
-                                # server split by ',' (ex: 'Production, Developement, etc')
+    "groups": []                # An array of groups IDs you want to set on your
+                                # server split by ',' (ex: [1, 2])
 
 }
 

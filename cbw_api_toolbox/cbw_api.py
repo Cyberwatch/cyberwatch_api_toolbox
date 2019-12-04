@@ -104,14 +104,22 @@ class CBWApi:
         logging.error("FAILED")
         return False
 
-    def servers(self):
-        """GET request to /api/v2/servers to get all servers"""
-        response = self._request("GET", [ROUTE_SERVERS])
+    def servers(self, params=defaultdict()):
+        """GET request to /api/v3/servers to get all servers"""
+        if 'page' in params:
+            response = self._request(
+                "GET", [ROUTE_SERVERS], params)
+            if response.status_code != 200:
+                logging.error("Error::{}".format(response.text))
+                return None
+            return CBWParser().parse_response(CBWServer, response)
 
-        return CBWParser().parse_response(CBWServer, response)
+        response = self._get_pages("GET", [ROUTE_SERVERS], params, CBWServer)
+
+        return response
 
     def server(self, server_id):
-        """GET request to /api/v2/server/{server_id} to get all informations
+        """GET request to /api/v3/server/{server_id} to get all informations
         about a specific server"""
         response = self._request("GET", [ROUTE_SERVERS, server_id])
         if response.status_code != 200:
@@ -121,7 +129,7 @@ class CBWApi:
         return CBWParser().parse_response(CBWServer, response)
 
     def update_server(self, server_id, info):
-        """PATCH request to /api/v2/servers/SERVER_ID to update the groups of a server"""
+        """PATCH request to /api/v3/servers/SERVER_ID to update the groups of a server"""
         if server_id:
             response = self._request("PATCH", [ROUTE_SERVERS, server_id], info)
 
@@ -133,7 +141,7 @@ class CBWApi:
         return False
 
     def delete_server(self, server_id):
-        """DELETE request to /api/v2/servers/SERVER_ID to delete a specific server"""
+        """DELETE request to /api/v3/servers/SERVER_ID to delete a specific server"""
         if server_id:
             logging.debug("Deleting {}".format(server_id))
             response = self._request("DELETE", [ROUTE_SERVERS, server_id])
