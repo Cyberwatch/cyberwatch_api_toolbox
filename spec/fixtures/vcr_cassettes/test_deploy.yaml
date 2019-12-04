@@ -7,27 +7,23 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:8jkf5oITpzLzD2DsX5k2ZxUoIzBK0w2iqhtvNbzF6To=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:fgsofkEDBY+QdBwOnQFIY4e58MH2zRvlkGVOD3KvUT4=
       Connection:
       - keep-alive
       Content-Length:
       - '0'
       Date:
-      - Thu, 14 Nov 2019 12:40:14 GMT
+      - Tue, 03 Dec 2019 15:47:22 GMT
       User-Agent:
       - python-requests/2.22.0
-    method: POST
-    uri: https://localhost/api/v2/remote_accesses/14/test_deploy
+    method: PUT
+    uri: https://localhost/api/v3/remote_accesses/15/test_deploy
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA42S0U7jMBBF/8WvG6px4rT1vCF+AAHSPkaOPaGWYrvYThFC/PtOyy6iW4F4tO/M
-        nTvHfhXeCZSqEfVlTwLFzfh8ZwLiHYVU6dpaKgXxvuwQf/u6uzWlPKfsRCOMc5lF7pGbdiW3K1jJ
-        ju/3KVeBbdsIX4aDmY8D4jLPjbCZTCU3GNZFC1JfSXkl1YPssFOouhUA/AKJAGyz7N1XxQpQ9mfF
-        hfKBssDX0zqi19Nm0jRpBUpZmLQ2btx2Sis9TW603LFLpUYTjiuP40bTWlnr1sTKbEodbAphid6a
-        6lO8TNujUmcBMo0p1SHT0+IzcYbJzIUY0iPFOnC2cvJ555BPbAe/v2B3MrnYGBC22MLZQJt95Xiz
-        ry9c/ek0BHJ+CR8EC++yRLbsNXcdaDAx8oWlwMk+RAnAKpc/pnw0/Av0+zdjCvJTqLdGxOTo3ytI
-        Pr4DDkz0azPYPsgeYY1S/uwDALbr/ya//QE1u+YryAIAAA==
+        H4sIAAAAAAAAA0WNwQrCMBBE/2XPodiAIHuTXjyJtILHEpuFBtKk7G5bRPx3Uy/CXIbhvXlD8ID1
+        0YC+ZgKE5rm1bkJsacpK52EgEcRORsRH0PHmRLbMHgw477mMhakP1Z66svZUhjmzAlprIEi/urg/
+        pCVGA9GJ9sScuVBX0iLuLohNTokGDTndw0R50SIR4pW4/7Mpe/rV+vMF7aqCibUAAAA=
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -38,7 +34,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 12:40:15 GMT
+      - Tue, 03 Dec 2019 15:47:22 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -56,15 +52,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - 13w4ag4m93ym1lciju7b,i98st1bs76x6spi97dvf
+      - are9hekp6prqiw0z224a,8tbuhzs1hj7nbe0ql8lw,i1nb4sc2ddgg266tm2f0,mphwre3jew8mqsr2dzrg,81pzvh60alfh2ezmii7f,q3lf2r2t0684b0xrjpac,abg17fzz1ta0oo3c6bue,trxrzi24jossflkw38l1
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - fba1af17-fd66-4b67-b98b-70862af1e4b2
+      - 7991e2a7-3870-4ff5-91c9-cf3724d5f216
       X-Runtime:
-      - '0.464782'
+      - '0.352532'
       X-Xss-Protection:
       - 1; mode=block
     status:

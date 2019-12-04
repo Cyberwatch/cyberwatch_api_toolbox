@@ -7,22 +7,21 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:zH52Iq4lg9W9nlcn5m9MxxnY1oymdfP7y4mllVQNn6c=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:4ViqsQysE3tv/EcdTeowWIyB6FrR5j8y4T3wtP8YyjI=
       Connection:
       - keep-alive
       Date:
-      - Thu, 14 Nov 2019 11:00:52 GMT
+      - Tue, 03 Dec 2019 15:37:11 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v2/remote_accesses/7
+    uri: https://localhost/api/v3/remote_accesses/15
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA43PQU4DMQwF0Lt4Szqy06GAdxUXQG0llpWZGHWkpBklaQuqendc2MACxNLKc/z/
-        GcYAfOegvU8KDI8vp5Uk5pWm3HQ5DFor87rumJ/HtnuSWk+5BHAgIRR7tJ2q5agFfadvkqao3ZCT
-        gSmXBuy9g7FujxKvh14lVnUwFJWmYSsGwCM9zIhm1G+IzDPNO0S8QWJE++cwhb9w/wN/ZQHeH2J0
-        sM/BSp0/O5KNkq4dk9Rm5pcYeL+hW8YFE/0vBrJfcP8dXy4ff4ZUOlcBAAA=
+        H4sIAAAAAAAAAx2MwQrCMBBEfyXsOQgVvOxNvIvUg95KbLY2mGbLbmwR8d9Nypxmhve+EDxgc7CQ
+        PzMBwumxtm5CbGniTMe+J1XEq46It5DHi1NdWTxYcN5LOQtz320p28ySAfd7C0G7xcUqH1xUshCd
+        5o5EWArxpFzxkAZGc3YTGRajJEvoySTO5pV4TUVYN5KuetI7RguJPW21+f0BsOdolrwAAAA=
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -33,7 +32,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 11:00:52 GMT
+      - Tue, 03 Dec 2019 15:37:11 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -51,15 +50,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - f2dowlphj6oz6t72vidn,qeyzxgqu3ou7g8ysa6z2,4u2eqzya7a6yt7dul203,qnrqef3vgwa3tlnbxzbl,uxghijdyx3p9lsggwmbc
+      - bvchke3wfev3vhqamljk,hq5uuyytckdih9nrk0bu,rcatua3gk3prd548w41y,yipzcglwf0k43dgnwbol
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - b7775ed4-7183-4f3f-a902-06a4fe773d26
+      - 99314e4c-64dd-4f18-b0da-2ca20147e4b0
       X-Runtime:
-      - '0.183957'
+      - '0.041715'
       X-Xss-Protection:
       - 1; mode=block
     status:

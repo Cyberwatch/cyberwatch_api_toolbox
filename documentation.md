@@ -60,7 +60,7 @@ True
 
 #### Remote accesses
 
-Send a GET request `/api/v2/remote_accesses` to retrieve the list of all remote accesses.
+Send a GET request `/api/v3/remote_accesses` to retrieve the list of all remote accesses.
 
 ###### Usage example and expected result:
 
@@ -71,7 +71,7 @@ Send a GET request `/api/v2/remote_accesses` to retrieve the list of all remote 
 
 #### Remote access
 
-Send a GET request `/api/v2/remote_accesses/{REMOTE_ACCESS_ID}` to retrieve the information of a particular remote access.
+Send a GET request `/api/v3/remote_accesses/{REMOTE_ACCESS_ID}` to retrieve the information of a particular remote access.
 
 ###### Usage example and expected result:
 
@@ -82,7 +82,7 @@ Send a GET request `/api/v2/remote_accesses/{REMOTE_ACCESS_ID}` to retrieve the 
 
 #### Create remote access
 
-Send a POST request `/api/v2/remote_accesses` to create a remote access.
+Send a POST request `/api/v3/remote_accesses` to create a remote access.
 
 ###### Usage example and expected result:
 
@@ -94,7 +94,7 @@ True
 
 #### Update remote access
 
-Send a PATCH request `/api/v2/remote_accesses/{REMOTE_ACCESS_ID}` to update the information of a particular remote access.
+Send a PATCH request `/api/v3/remote_accesses/{REMOTE_ACCESS_ID}` to update the information of a particular remote access.
 
 ###### Usage example and expected result:
 
@@ -105,7 +105,7 @@ True
 
 #### Delete remote access
 
-Send a DELETE request `/api/v2/remote_accesses/{REMOTE_ACCESS_ID}` to delete a remote access.
+Send a DELETE request `/api/v3/remote_accesses/{REMOTE_ACCESS_ID}` to delete a remote access.
 
 ###### Usage example and expected result:
 
@@ -116,7 +116,7 @@ True
 
 #### Test an agentless deployment
 
-Send a POST request `/api/v2/remote_accesses/{REMOTE_ACCESS_ID}/test_deploy` to test a remote access.
+Send a POST request `/api/v3/remote_accesses/{REMOTE_ACCESS_ID}/test_deploy` to test a remote access.
 
 ###### Usage example and expected result:
 
@@ -325,14 +325,13 @@ Send a GET request to `/api/v2/users` to get informations about all users
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
 | address                   | String        | Address of remote access          | "XXX.XXX.XXX.XXX"                                 |
-| created_at                | String (date) | Date of the remote access creation| "2019-06-26T09:46:58.000+02:00"                   |
 | id                        | Int           | Remote access  id                 | 1                                                 |
 | is_valid                  | Boolean       | Boolean checking whether if the remote acess is valid or not| false                   |
-| node                      | Object        | Node of remote access             | [node](#Node-object)                                     |
+| node_id                   | Int           | Id of node of remote access       | 1                                                 |
 | port                      | Int           | Port of remote access             | 22                                                |
-| server                    | Object        | Server of remote access           | [server](#Server-object)                                 |
 | type                      | String        | Type of remote access             | "CbwRam::RemoteAccess::Ssh::WithPassword"         |
-| updated_at                | String (date) | Last modification date in Cyberwatch| "2019-10-26T09:00:00.000+06:00"                 |
+| last_error                | String        | Last error of remote access       | "Net::SSH::ConnectionTimeout"                     |
+| server_id                 | Int           | Id of server linked to remote access| 73                                              |
 
 ### CVSS_v2 object
 

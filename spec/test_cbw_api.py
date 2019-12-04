@@ -22,7 +22,6 @@ API_KEY = ''
 SECRET_KEY = ''
 API_URL = 'https://localhost'
 
-
 class TestCBWApi:
     """Test for class CBWApi"""
 
@@ -115,7 +114,10 @@ class TestCBWApi:
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_accesses.yaml'):
-            response = client.remote_accesses()
+            params = {
+                'page': '1'
+            }
+            response = client.remote_accesses(params)
             assert isinstance(response, list) is True
             for remote in response:
                 assert isinstance(remote, CBWRemoteAccess) is True
@@ -131,8 +133,10 @@ class TestCBWApi:
                 "login": "loginssh",
                 "password": "passwordssh",
                 "key": "",  # precises the key of the connection
-                "node": "master",  # precises the Cyberwatch source of the connection,
-                "server_groups": "test, production"
+                "node_id": "1",  # precises the Cyberwatch source of the connection,
+                "server_groups": "test, production",
+                "priv_password": "",
+                "auth_password": ""
                 }
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_remote_access.yaml'):
@@ -154,7 +158,7 @@ class TestCBWApi:
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_access.yaml'):
-            response = client.remote_access('7')
+            response = client.remote_access('15')
             assert isinstance(response, CBWRemoteAccess) is True
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_access_wrong_id.yaml'):
@@ -167,7 +171,7 @@ class TestCBWApi:
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_remote_access.yaml'):
-            response = client.delete_remote_access('13')
+            response = client.delete_remote_access('15')
             assert response is True
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_remote_access_wrong_id.yaml'):
@@ -189,23 +193,24 @@ class TestCBWApi:
                 }
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access.yaml'):
-            response = client.update_remote_access('7', info)
+            response = client.update_remote_access('15', info)
 
-            assert response is True
+            assert isinstance(response, CBWRemoteAccess) is True
 
         info["address"] = "10.10.11.228"
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access_id_none.yaml'):
             response = client.update_remote_access(None, info)
 
-            assert response is False
+            assert isinstance(response, CBWRemoteAccess) is False
 
         info["type"] = ""
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access_without_type.yaml'):
-            response = client.update_remote_access('14', info)
+            response = client.update_remote_access('15', info)
 
-            assert response is False
+            assert response.type == "CbwRam::RemoteAccess::Ssh::WithPassword"
+
 
     @staticmethod
     def test_cve_announcement():
@@ -237,7 +242,7 @@ class TestCBWApi:
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/test_deploy.yaml'):
-            response = client.test_deploy_remote_access('14')
+            response = client.test_deploy_remote_access('15')
 
             assert isinstance(response, CBWRemoteAccess) is True
 

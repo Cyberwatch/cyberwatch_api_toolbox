@@ -75,7 +75,7 @@ class CBWApi:
             logging.error("Error::{}".format(response.text))
             return None
 
-        response_list.extend(CBWParser().parse_response(CBWCve, response))
+        response_list.extend(CBWParser().parse_response(model, response))
 
         while 'next' in response.links:
             next_url = urlparse(response.links['next']['url'])
@@ -142,34 +142,45 @@ class CBWApi:
         logging.error("No server id specific for delete")
         return False
 
-    def remote_accesses(self):
-        """GET request to /api/v2/remote_accesses to get all servers"""
-        response = self._request("GET", [ROUTE_REMOTE_ACCESSES])
-        return CBWParser().parse_response(CBWRemoteAccess, response)
+    def remote_accesses(self, params=defaultdict()):
+        """GET request to /api/v3/remote_accesses to get all servers"""
+
+        if 'page' in params:
+            response = self._request(
+                "GET", [ROUTE_REMOTE_ACCESSES], params)
+            if response.status_code != 200:
+                logging.error("Error::{}".format(response.text))
+                return None
+            return CBWParser().parse_response(CBWRemoteAccess, response)
+
+        response = self._get_pages("GET", [ROUTE_REMOTE_ACCESSES], params, CBWRemoteAccess)
+
+        return response
 
     def create_remote_access(self, info):
-        """"POST request to /api/v2/remote_accesses to create a specific remote access"""
+        """"POST request to /api/v3/remote_accesses to create a specific remote access"""
         if info:
             response = self._request("POST", [ROUTE_REMOTE_ACCESSES], {
                 "type": info["type"],
                 "address": info["address"],
                 "port": info["port"],
                 "login": info["login"],
-                "password": info["password"],
-                "key": info["key"],
-                "node": info["node"],
+                "password": info.get("auth_password") or info.get("password"),
+                "key": info.get("priv_password") or info.get("key"),
+                "node_id": info["node_id"],
                 "server_groups" : info.get("server_groups", "")
             })
             logging.debug("Create connexion remote access::{}".format(response.text))
-            if self.verif_response(response):
-                logging.info('remote access successfully created {}'.format(info["address"]))
-                return CBWParser().parse_response(CBWRemoteAccess, response)
+
+        if self.verif_response(response):
+            logging.info('remote access successfully created {}'.format(info["address"]))
+            return CBWParser().parse_response(CBWRemoteAccess, response)
 
         logging.error("Error create connection remote access")
         return False
 
     def remote_access(self, remote_access_id):
-        """GET request to /api/v2/remote_accesses/{remote_access_id} to get all informations
+        """GET request to /api/v3/remote_accesses/{remote_access_id} to get all informations
         about a specific remote access"""
         response = self._request("GET", [ROUTE_REMOTE_ACCESSES, remote_access_id])
 
@@ -180,7 +191,7 @@ class CBWApi:
         return CBWParser().parse_response(CBWRemoteAccess, response)
 
     def delete_remote_access(self, remote_access_id):
-        """DELETE request to /api/v2/remote_access/{remote_id} to delete a specific remote access"""
+        """DELETE request to /api/v3/remote_access/{remote_id} to delete a specific remote access"""
         if remote_access_id:
             logging.debug("Deleting remote access {}".format(remote_access_id))
             response = self._request("DELETE", [ROUTE_REMOTE_ACCESSES, remote_access_id])
@@ -190,11 +201,11 @@ class CBWApi:
         return False
 
     def update_remote_access(self, remote_access_id, info):
-        """PATCH request to /api/v2/remote_accesses/{remote_id} to update a remote access"""
+        """PATCH request to /api/v3/remote_accesses/{remote_id} to update a remote access"""
         if remote_access_id and info:
             response = self._request("PATCH", [ROUTE_REMOTE_ACCESSES, remote_access_id], info)
             logging.debug("Update remote access::{}".format(response.text))
-            return self.verif_response(response)
+            return CBWParser().parse_response(CBWRemoteAccess, response)
 
         logging.error("Error update remote access")
         return False
@@ -234,8 +245,8 @@ class CBWApi:
         return CBWParser().parse_response(CBWGroup, response)
 
     def test_deploy_remote_access(self, remote_access_id):
-        """POST request to /api/v2/remote_accesses/:id/test_deploy to test an agentless deployment"""
-        response = self._request("POST", [ROUTE_REMOTE_ACCESSES, remote_access_id, 'test_deploy'])
+        """POST request to /api/v3/remote_accesses/:id/test_deploy to test an agentless deployment"""
+        response = self._request("PUT", [ROUTE_REMOTE_ACCESSES, remote_access_id, 'test_deploy'])
         if response.status_code != 200:
             logging.error("Error::{}".format(response.text))
             return None

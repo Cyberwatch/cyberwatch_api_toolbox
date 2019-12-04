@@ -7,15 +7,15 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:Uo4CTcRgvRZJxbIOvosx7iKMS6oiRFtoysKf/IrzxlM=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:Xk0z8LES1j8NGhc7XCjSh+rD9ghFhZYSW5Afk/3NKtY=
       Connection:
       - keep-alive
       Date:
-      - Thu, 14 Nov 2019 11:00:52 GMT
+      - Tue, 03 Dec 2019 15:37:11 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v2/remote_accesses/wrong_id
+    uri: https://localhost/api/v3/remote_accesses/wrong_id
   response:
     body:
       string: !!binary |
@@ -32,7 +32,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 11:00:52 GMT
+      - Tue, 03 Dec 2019 15:37:11 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -52,9 +52,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 89b9c8c4-4d9c-4379-965b-24936df48bc0
+      - d9d49f4a-f9f5-439b-b3a5-b330c76fe6f2
       X-Runtime:
-      - '0.035800'
+      - '0.038221'
       X-Xss-Protection:
       - 1; mode=block
     status:

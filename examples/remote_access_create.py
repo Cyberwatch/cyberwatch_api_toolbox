@@ -13,8 +13,10 @@ INFO = {"type": "", #mandatory, precises the type of the connection
         "login": "", #precises the login of the connection
         "password": "", #precises the password of the connection
         "key": "", #precises the key of the connection
-        "node": "", #precises the Cyberwatch source of the connection
-        "server_groups": "" #precise the groups to be added to the computer ("group" or "groupA,groupB,groupC"...)
+        "node_id": "", # node_id to link the new agentless connection to
+        "server_groups": "", #precise the groups to be added to the computer ("group" or "groupA,groupB,groupC"...)
+        "priv_password": "", #for SNMP, encryption password allowing to connect to the computer.
+        "auth_password": "" #for SNMP, authentication password allowing to connect to the computer.
         }
 
 CLIENT.create_remote_access(INFO)
