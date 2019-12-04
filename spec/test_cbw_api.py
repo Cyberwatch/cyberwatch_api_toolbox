@@ -18,6 +18,7 @@ import pytest  # pylint: disable=import-error
 # - relaunch the test. everything should work.
 
 
+
 API_KEY = ''
 SECRET_KEY = ''
 API_URL = 'https://localhost'
@@ -43,10 +44,14 @@ class TestCBWApi:
             CBWApi('', API_KEY, SECRET_KEY).ping()
         assert exc.value.code == -1
 
-    def test_servers(self): # pylint: disable=no-self-use
+    def test_servers(self):  # pylint: disable=no-self-use
         """Tests for servers method"""
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/servers_ok.yaml'):
-            response = CBWApi(API_URL, API_KEY, SECRET_KEY).servers()
+            params = {
+                'page': '1',
+                'reboot_required' : 'false'
+            }
+            response = CBWApi(API_URL, API_KEY, SECRET_KEY).servers(params)
             assert isinstance(response, list) is True
             for server in response:
                 assert isinstance(server, CBWServer) is True
@@ -57,7 +62,7 @@ class TestCBWApi:
             response = CBWApi(
                 API_URL,
                 API_KEY,
-                SECRET_KEY).server('3a239fd5dcaff8660ba7da1df1f3a247')
+                SECRET_KEY).server("3")
             assert isinstance(response, CBWServer) is True
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/server_failed.yaml'):
@@ -77,7 +82,7 @@ class TestCBWApi:
             assert response is False
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_server_with_server_id.yaml'):
-            response = client.delete_server('3a239fd5dcaff8660ba7da1df1f3a247')
+            response = client.delete_server('6')
             assert response is True
 
     @staticmethod
@@ -86,11 +91,10 @@ class TestCBWApi:
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         info = {
-            "groups": "production,Development",
-            "compliance_groups": "Anssi"
+            "groups": [13, 12]
         }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server.yaml'):
-            response = client.update_server('6b9648e93ae9207298be61de21e18a08',
+            response = client.update_server('6',
                                             info)
             assert response is True
 
@@ -101,11 +105,11 @@ class TestCBWApi:
         assert response is False
 
         info = {
-            "groups": None,
-            "compliance_groups": None
+            "groups": [None],
+            "compliance_groups": [None]
         }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_with_group_none.yaml'):
-            response = client.update_server('6b9648e93ae9207298be61de21e18a08', info)
+            response = client.update_server('6', info)
             assert response is True
 
     @staticmethod

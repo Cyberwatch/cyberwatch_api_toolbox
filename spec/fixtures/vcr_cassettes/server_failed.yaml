@@ -7,20 +7,21 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:hbEjCh7J8mWctbDdSy3veF7Il9TfBNwnMRB5B1E9rw0=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:w6mmUBJYlhmWwcgCDYIuFK/TsNLS7GSFXBa1727Nt9M=
       Connection:
       - keep-alive
       Date:
-      - Thu, 14 Nov 2019 10:28:53 GMT
+      - Wed, 04 Dec 2019 15:39:43 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v2/servers/wrong_id
+    uri: https://localhost/api/v3/servers/wrong_id
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA6tWSi0qyi9SsqpWSs5PSVWyMjEw0VEqLkksKS1WslLyyy9RcMsvzUtR0lHKTS0u
-        TkwHKlFyzi/NSclTL1FIy8xLUQhOLSpLLVKqrQUADOy2JUwAAAA=
+        H4sIAAAAAAAAAx3KsQrCMBAA0F85bulSxKFToDhIxclBBweRJvRiPbA5yF3aofTfFd/8Vow5S0a3
+        4iAU0TX7pka1YEXR4UUMTlISYY1TVA3jr+BRyodSZfDiRHCLeY4ZFrY3VExVu2RJY88Ej/u5u3bg
+        9T/U7zxrHwbj2UMLhydu2xcyHIMDgAAAAA==
     headers:
       Cache-Control:
       - no-cache
@@ -31,7 +32,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 10:28:53 GMT
+      - Wed, 04 Dec 2019 15:39:43 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -51,9 +52,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - be94214f-f731-4051-8e0f-569714a546d7
+      - 222184b8-b549-43cc-8547-20c85574226e
       X-Runtime:
-      - '0.067102'
+      - '0.068142'
       X-Xss-Protection:
       - 1; mode=block
     status:

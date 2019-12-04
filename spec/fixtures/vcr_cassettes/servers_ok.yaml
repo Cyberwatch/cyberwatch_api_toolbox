@@ -1,31 +1,35 @@
 interactions:
 - request:
-    body: null
+    body: '{"page": "1", "reboot_required": "false"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:8Awt3Iut/GVkJUGjdgQhl5X7HhlCMCq5mZDczqunXh8=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:XGypqArO/98iIGI3hKPL9FE2v27qoFF4e3255AwAjjs=
       Connection:
       - keep-alive
+      Content-Length:
+      - '41'
+      Content-Type:
+      - application/json
       Date:
-      - Thu, 14 Nov 2019 10:28:52 GMT
+      - Fri, 06 Dec 2019 15:11:00 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v2/servers
+    uri: https://localhost/api/v3/servers
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA22RzU7DMBCEX6XylSaynZCmPsIViQOFC0KWm2xai9gO/qlaVX13NkkPFJB8iHdm
-        Z7+s389Et0SQQvFi3bX3baO6rq4qulWrVrG2Yx1K5Yosyd6FaJUBdHdgvQ599qZ9TKp/cEfUexWi
-        bJwxyepGRe0sOjll64yxjJUbxgQvBa9ySukdZYJSbPKwdS5KD19Je0CSTvUBlkTtwEZ5AB/mnCJn
-        k9u4CFIPWGErnrM6p5Mwhaj4ayAVtBac3gxsvI6I1+t4QvePmzTQ6mTQkoZWRQj4L8liJMWmA0hl
-        Ld4bMAh2o6F35/yYFsAj8TQEsNr+JZpWwIobohBVTIGIMxmXB2MseXRm6LXC78uSuEn8hHFE2uLc
-        JFlNS1mV2H19kdepvhgXUi6eNi+oKN/sUTnW1ewE1080vMhomfFqQzkC4Jlp+JVm73yU/6SiFk/D
-        WH0OQswKuVw+vgEYkHb+QgIAAA==
+        H4sIAAAAAAAAA22RS2/bMBCE/0qw10jCklYUh8ecA/RQt5fAIBhpYxOlSJWPIEHg/96VZOTZI2eW
+        M9+S969gB1DXFRxDyt6MBAoeyUebXP3bxlyMuw3PUMFAqY92yjZ4UL44V4EzKes+jGPxtjerAxLF
+        TS1kjd1OdAq3CkWDiJcoFCLnRHoIIetIf4uNxN2PxiWqwBzIZ/1EMa05m0Ys02PIpO3EiriWjcQG
+        F6NMg8mUuL74DAorWGJN/oKwUe2NklefEHiPzMDO5hee/nDSIw22jPPIE2njPYf3NDLYxyJelQ4h
+        zncTRSZeIonV4Xs/PwGqq82n/pRNLunt+vyEk7OG4ysIrL/CH5rTywNXFi222OquZfP8P78W/UJs
+        G2wv7nY/2TGxP7LzvO3WSQpuAZGbGttadjuUMwjiCiLPIMcQs/5PKnv5ZZrVH0mp1YFTBYcYysSE
+        93te+Uzdk36XT/t/ZL9UuVICAAA=
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -36,7 +40,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 10:28:52 GMT
+      - Fri, 06 Dec 2019 15:11:02 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -54,15 +58,21 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - z4p4cex43gndhoepi09g,xkeyq5g9afol82xozg8d,z432hw8wym5ahs84prua,cow8968jz674wcujyj0e,vnpwbj0q2ye2t41cx0dt,a1he2kivyzoxfusgc313,502bafytt3v7zbikh6mp,owpvnt1le1utgxt7cg57,18z3dkz3phr8738xkam6,su5i07s5zcat37fundl7,h74mrqq2eectwbn64u53,yqd3m4f6lt2imdhe6sne,4vlfgkr8yqxnxflz4yfc,qaqu394c2uen8yk0wes8
+      - ymh7q97ebc1ad6r41mw8,1j3le7cwg3herrm4b53d,yy85e24dr9s5h3bwzf1j,tum7jvnpfvl180rocjig,z2xxuni74hkgzmsjqyp5
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
+      X-Page:
+      - '1'
+      X-Per-Page:
+      - '25'
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 2e752701-1dbd-4770-9f0d-4d63cb568d56
+      - 73aa102a-d8d4-475a-b898-2bf66ab39e4b
       X-Runtime:
-      - '0.287881'
+      - '1.513547'
+      X-Total:
+      - '1'
       X-Xss-Protection:
       - 1; mode=block
     status:

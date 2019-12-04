@@ -53,6 +53,7 @@ class CBWServer:
                  applications=None,
                  boot_at="",
                  category="",
+                 compliance_groups=None,
                  created_at="",
                  criticality="",
                  cve_announcements=None,
@@ -78,6 +79,8 @@ class CBWServer:
                              applications] if applications else []
         self.boot_at = boot_at
         self.category = category
+        self.compliance_groups = [CBWParser().parse(CBWGroup, group) for group in
+                                  compliance_groups] if compliance_groups else []
         self.created_at = created_at
         self.criticality = criticality
         self.cve_announcements = [CBWParser().parse(CBWCve, cve) for cve in
