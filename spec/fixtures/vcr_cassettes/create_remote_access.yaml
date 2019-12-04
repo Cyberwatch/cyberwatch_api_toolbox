@@ -1,41 +1,41 @@
 interactions:
 - request:
     body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "X.X.X.X",
-      "port": "22", "login": "loginssh", "password": "passwordssh", "key": "", "node":
-      "master", "server_groups": "test, production"}'
+      "port": "22", "login": "loginssh", "password": "passwordssh", "key": "", "node_id":
+      "1", "server_groups": "test, production"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:M3Jpk30RIF8ZXKxPPn2jwySq6R4GPU2qvgNuFcghPM0=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:3K7otrjXZiz1ZWgqUnCGNzWoT2uPdjG1uMtgtVTDVhA=
       Connection:
       - keep-alive
       Content-Length:
-      - '201'
+      - '199'
       Content-Type:
       - application/json
       Date:
-      - Thu, 14 Nov 2019 10:35:41 GMT
+      - Thu, 05 Dec 2019 15:40:26 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v3/remote_accesses
   response:
     body:
-      string: '{"id":11,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"X.X.X.X","port":22,"is_valid":null,"created_at":"2019-11-14T11:35:42.000+01:00","updated_at":"2019-11-14T11:35:42.000+01:00","server":null,"node":{"id":1,"name":"master","created_at":"2019-11-08T15:06:11.000+01:00","updated_at":"2019-11-14T10:26:41.000+01:00"}}'
+      string: '{"id":29,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"X.X.X.X","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '330'
+      - '151'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 10:35:42 GMT
+      - Thu, 05 Dec 2019 15:40:26 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -49,15 +49,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - 8ogfsrlnp7xe6t26v337
+      - f179pofbcp4ee766h62v
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - d75a2349-00df-43f9-85bf-8802f24900bf
+      - 919ad029-20c7-4d0a-a37e-3236d03f474a
       X-Runtime:
-      - '0.751391'
+      - '0.739213'
       X-Xss-Protection:
       - 1; mode=block
     status:

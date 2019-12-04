@@ -1,27 +1,27 @@
 interactions:
 - request:
     body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "", "port":
-      "22", "login": "loginssh", "password": "passwordssh", "key": "", "node": "master",
-      "server_groups": "test, production"}'
+      "22", "login": "loginssh", "password": "passwordssh", "key": "", "node_id":
+      "1", "server_groups": "test, production"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:Q5cFJhAqoeRn4z947QAEoUP9YLpJ+l3dK1SG9wTA0t8=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:uBGF4pQWB/uKzq8+y3etUklildrEAqHLd/TG54E0nUk=
       Connection:
       - keep-alive
       Content-Length:
-      - '194'
+      - '192'
       Content-Type:
       - application/json
       Date:
-      - Thu, 14 Nov 2019 10:35:42 GMT
+      - Tue, 03 Dec 2019 15:29:19 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v3/remote_accesses
   response:
     body:
       string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
@@ -36,7 +36,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 10:35:42 GMT
+      - Tue, 03 Dec 2019 15:29:20 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -52,9 +52,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 853827f2-57b2-4aed-ba19-d45586f777f1
+      - c5c2ab82-ef7f-44f5-aa20-0a6ebedd6b65
       X-Runtime:
-      - '0.711836'
+      - '0.701530'
       X-Xss-Protection:
       - 1; mode=block
     status:
