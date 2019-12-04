@@ -1,27 +1,27 @@
 interactions:
 - request:
     body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "server01.example.com",
-      "port": 22.0, "login": "admin", "password": "SuperPassword", "key": "", "node":
-      "master", "server_groups": "production, test"}'
+      "port": 22.0, "login": "admin", "password": "SuperPassword", "key": "", "node_id":
+      1.0, "server_groups": "production, test"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:uX6ZP5ktmxxsMFuRyOhOEFU7sgMzOwQggJz5ImJCyXA=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:lVIppiQ3PtNJ+dFBjN7mu1aQ8lS48NAWkFGrqJ4i8CM=
       Connection:
       - keep-alive
       Content-Length:
-      - '213'
+      - '211'
       Content-Type:
       - application/json
       Date:
-      - Thu, 14 Nov 2019 10:22:14 GMT
+      - Fri, 06 Dec 2019 15:47:22 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v3/remote_accesses
   response:
     body:
       string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
@@ -36,7 +36,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 10:22:15 GMT
+      - Fri, 06 Dec 2019 15:47:23 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -52,9 +52,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 008268d5-bd37-46ec-afab-9bff46f28ec3
+      - 606dc8b9-331f-4ab2-9b0b-cc6128ed4ab5
       X-Runtime:
-      - '0.714312'
+      - '1.596453'
       X-Xss-Protection:
       - 1; mode=block
     status:
@@ -64,26 +64,26 @@ interactions:
     body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "server02.example.com",
       "port": 22.0, "login": "user", "password": "", "key": "---- BEGIN SSH2 PUBLIC
       KEY ----\nComment: example\nAAAAB3NzaC1kc3MAAACBAMXXH+SzAIPRN38GehSARboF873Ic5utBjMcXx1IuFNTvvBi2j\nfCyjCBqb66sgS8pdzUl+YyH4sMDp67Q9RKI9po3ePtV03rldPQjtqgmXt2B2eQ6SKXDO3g\n+nN9LLEVXp9MpS7g9VnyDWUQCAxu+Khp+uZDzwSy7IVxRm/HHU2dAAAAFQCl1FWQ7bTyoY\n7RtEvB6rhqGyY/8QAAAIEAxYgBAFfVKvSC3AZkwWuB4hPLlBeKhL4Yt87vblimHWlaOSFU\nllKnCGmdc7R2NL3JZFP210yjapZY25YTKpkO8pdavazVqbzBd1EEtZ93umDqWua2yqPOc8\n6MoZJbk7OTJjZRlpd1XZwSI3XgyxaDtf+tCh14ikG13k4A1iKd3/MAAACBALHyHX29XFe3\nVseZeG+CiYMfc3qXbMQgpWdZeopg/1Z3qw46Kx4iiNgtZcB7BdoYdIhDvTu+xkffbG22h9\nYQnxyM9Kz/cqjKdKHp2VBX/IJU4vEkIPF+kdFPToLvJc+qkIvd1kDqUUW+e6dD6PkpNDdh\ngOn/vcgro4IwufBActyG\n----
-      END SSH2 PUBLIC KEY ----", "node": "master", "server_groups": ""}'
+      END SSH2 PUBLIC KEY ----", "node_id": 1.0, "server_groups": ""}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:u0/Bl+40vxJSieGSh2ljdm/zZ67STm65Zt9m75kcdr0=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:KHR0BsuwQwFLk+CMY6rCrLvQTOw/fjJPRbkDfgYHS24=
       Connection:
       - keep-alive
       Content-Length:
-      - '861'
+      - '859'
       Content-Type:
       - application/json
       Date:
-      - Thu, 14 Nov 2019 10:22:15 GMT
+      - Fri, 06 Dec 2019 15:47:23 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v3/remote_accesses
   response:
     body:
       string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
@@ -98,7 +98,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 10:22:15 GMT
+      - Fri, 06 Dec 2019 15:47:25 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -114,9 +114,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 7e15627e-8d86-46fa-ad3a-a9d5abcc894f
+      - 99f8d907-b825-4d5d-ae10-ea3280b68d6b
       X-Runtime:
-      - '0.583305'
+      - '1.612044'
       X-Xss-Protection:
       - 1; mode=block
     status:
@@ -124,41 +124,41 @@ interactions:
       message: Unprocessable Entity
 - request:
     body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "10.0.2.16",
-      "port": 22.0, "login": "cyberwatch", "password": "cyberwatch", "key": "", "node":
-      "master", "server_groups": "production, test"}'
+      "port": 22.0, "login": "cyberwatch", "password": "cyberwatch", "key": "", "node_id":
+      1.0, "server_groups": "production, test"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:u0/Bl+40vxJSieGSh2ljdm/zZ67STm65Zt9m75kcdr0=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:8d0VI+lmo3a4rnAaQrE5wl26OEgdupjYBnS9VkUUb/s=
       Connection:
       - keep-alive
       Content-Length:
-      - '204'
+      - '202'
       Content-Type:
       - application/json
       Date:
-      - Thu, 14 Nov 2019 10:22:15 GMT
+      - Fri, 06 Dec 2019 15:47:25 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v2/remote_accesses
+    uri: https://localhost/api/v3/remote_accesses
   response:
     body:
-      string: '{"id":9,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.16","port":22,"is_valid":null,"created_at":"2019-11-14T11:22:16.000+01:00","updated_at":"2019-11-14T11:22:16.000+01:00","server":null,"node":{"id":1,"name":"master","created_at":"2019-11-08T15:06:11.000+01:00","updated_at":"2019-11-14T10:26:41.000+01:00"}}'
+      string: '{"id":36,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.16","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
       Content-Length:
-      - '331'
+      - '153'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 14 Nov 2019 10:22:16 GMT
+      - Fri, 06 Dec 2019 15:47:26 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -172,15 +172,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Miniprofiler-Ids:
-      - irc9ussb829ae7afqwme,lo11eukr7bcp11jtafe7,bidb0nw194k9jdxzsnji,juapavlc8fyeugyib1vj,1y0ylktzfdwc39perbq7,kzsi3kr7o7bhgiz3scze
+      - whw65qqrmz8ijomq6kgd,uq8tmzut9bfj2z8xi4ww,894js8ieng85fyrtmy7q,dkce64eh7kfxpu18ynga,yivixl1hfg3s4c1t2wry,jokpopde9r2e71kgajs7
       X-Miniprofiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 0a2387d1-8f76-47c7-901a-14b2d3d38987
+      - 025a24f4-8dc3-4ce2-8cd3-17544e5bc67f
       X-Runtime:
-      - '0.800134'
+      - '0.725049'
       X-Xss-Protection:
       - 1; mode=block
     status:

@@ -42,7 +42,7 @@ class CBWXlsx:
                     "login": text[titles.index("USERNAME")],
                     "password": text[titles.index("PASSWORD")],
                     "key": text[titles.index("KEY")],
-                    "node": text[titles.index("NODE")],
+                    "node_id": text[titles.index("NODE_ID")],
                     "server_groups" : text[titles.index("SERVER_GROUPS")]
                 }
 
@@ -53,7 +53,7 @@ class CBWXlsx:
             except ValueError:
                 logging.fatal("Error format file xlsx::"
                               "HOST, PORT, TYPE, USERNAME,"
-                              "PASSWORD, KEY, NODE, SERVER_GROUPS")
+                              "PASSWORD, KEY, NODE_ID, SERVER_GROUPS")
                 return None
         return response
 
@@ -78,7 +78,7 @@ class CBWXlsx:
         worksheet.write(0, 0, "HOST")
         worksheet.write(0, 1, "PORT")
         worksheet.write(0, 2, "TYPE")
-        worksheet.write(0, 3, "NODE")
+        worksheet.write(0, 3, "NODE_ID")
         worksheet.write(0, 4, "SERVER_GROUPS")
 
         logging.debug("Add remote accesses in file xlsx")
@@ -88,10 +88,10 @@ class CBWXlsx:
             worksheet.write(i, 0, remote_access.address)
             worksheet.write(i, 1, remote_access.port)
             worksheet.write(i, 2, remote_access.type)
-            worksheet.write(i, 3, str(remote_access.node.name))
+            worksheet.write(i, 3, remote_access.node_id)
 
-            if remote_access.server:
-                server = self.client.server(remote_access.server.id)
+            if remote_access.server_id:
+                server = self.client.server(remote_access.server_id)
                 if server.groups:
                     group_name = ""
                     for group in server.groups:

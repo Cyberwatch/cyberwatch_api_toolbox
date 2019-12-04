@@ -9,7 +9,6 @@ CONF.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'api.co
 CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key'), CONF.get('cyberwatch', 'secret_key'))
 
 INFO = {"address": "", #mandatory, precises the IP address or the domain name of the targeted computer
-        "key": "", #precises the key of the connection
         "node_id": "", #precises the Cyberwatch source of the connection
         "server_groups": "", #precise the groups to be changed to the computer ("group" or "groupA,groupB,groupC"...)
         "priv_password": "", #for SNMP, encryption password allowing to connect to the computer.

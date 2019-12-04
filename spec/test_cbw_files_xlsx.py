@@ -15,6 +15,7 @@ import vcr  # pylint: disable=import-error
 # - relaunch the test. everything should work.
 
 
+
 API_KEY = ''
 SECRET_KEY = ''
 API_URL = 'https://localhost'
@@ -65,7 +66,7 @@ class TestCBWXlsx:
                 result = sheet.row_values(rownum)
                 break
 
-            assert response is True and result == ['HOST', 'PORT', 'TYPE', 'NODE', 'SERVER_GROUPS']
+            assert response is True and result == ['HOST', 'PORT', 'TYPE', 'NODE_ID', 'SERVER_GROUPS']
 
             for rownum in range(1, sheet.nrows):
                 result = sheet.row_values(rownum)
@@ -73,4 +74,4 @@ class TestCBWXlsx:
             # The group is not assigned yet
             assert result == ['10.0.2.15', 22,
                               'CbwRam::RemoteAccess::Ssh::WithPassword',
-                              'master', '']
+                              1, '']
