@@ -6,6 +6,7 @@ import sys
 
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
+from collections import defaultdict
 import requests
 from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader, MissingSchema
 from urllib3.exceptions import NewConnectionError, MaxRetryError
@@ -208,7 +209,7 @@ class CBWApi:
 
         return CBWParser().parse_response(CBWCve, response)
 
-    def cve_announcements(self, params):
+    def cve_announcements(self, params=defaultdict()):
         """GET request to /api/v3/cve_announcements to get a list of cve_announcement"""
 
         if 'page' in params:
