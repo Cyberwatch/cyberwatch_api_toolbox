@@ -3,6 +3,7 @@
 from cbw_api_toolbox.cbw_api import CBWApi
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
+from cbw_api_toolbox.cbw_objects.cbw_node import CBWNode
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_objects.cbw_users import CBWUsers
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
@@ -275,3 +276,26 @@ class TestCBWApi:
             response = client.cve_announcements(params)
         for cve in response:
             assert isinstance(cve, CBWCve) is True
+
+    @staticmethod
+    def test_nodes():
+        """Tests for method nodes()"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/nodes.yaml'):
+            response = client.nodes()
+        for node in response:
+            assert isinstance(node, CBWNode) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/node.yaml'):
+            response = client.node('1')
+
+            assert isinstance(response, CBWNode) is True
+
+        params = {
+            "new_id": "1"
+        }
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_node.yaml'):
+            response = client.delete_node('2', params)
+
+            assert isinstance(response, CBWNode) is True
