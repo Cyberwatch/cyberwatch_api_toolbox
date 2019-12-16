@@ -259,10 +259,21 @@ class TestCBWApi:
     def test_users():
         """Tests for method users"""
 
+        params = {
+            "auth_provider": "local_password"
+        }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/users.yaml'):
-            response = CBWApi(API_URL, API_KEY, SECRET_KEY).users()
+            response = CBWApi(API_URL, API_KEY, SECRET_KEY).users(params)
             for user in response:
                 assert isinstance(user, CBWUsers) is True
+
+    @staticmethod
+    def test_user():
+        """Tests for method user"""
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/user.yaml'):
+            response = CBWApi(API_URL, API_KEY, SECRET_KEY).user('1')
+
+            assert isinstance(response, CBWUsers) is True
 
     @staticmethod
     def test_cve_announcements():

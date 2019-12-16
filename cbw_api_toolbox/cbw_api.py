@@ -260,9 +260,19 @@ class CBWApi:
             return None
         return CBWParser().parse_response(CBWRemoteAccess, response)
 
-    def users(self):
-        """GET request to /api/v2/users ..."""
-        response = self._request("GET", [ROUTE_USERS])
+    def users(self, params=defaultdict()):
+        """GET request to /api/v3/users to get a list of users"""
+        response = self._request("GET", [ROUTE_USERS], params)
+
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWUsers, response)
+
+    def user(self, user_id):
+        """GET request to /api/v3/users/<id> to get a specific user"""
+        response = self._request("GET", [ROUTE_USERS, user_id])
 
         if response.status_code != 200:
             logging.error("Error::{}".format(response.text))
