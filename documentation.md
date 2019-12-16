@@ -147,9 +147,20 @@ Send a GET request to `/api/v2/groups` to get informations about all groups
 [<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
 ```
 
+#### User
+
+Send a GET request to `/api/v3/users/<id>` to get informations about a specific user
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(API_URL, API_KEY, SECRET_KEY).users(USER_ID)
+[<cbw_api_toolbox.cbw_objects.cbw_group.CBWUsers]
+```
+
 #### Users
 
-Send a GET request to `/api/v2/users` to get informations about all users
+Send a GET request to `/api/v3/users` to get informations about all users
 
 ###### Usage example and expected result:
 
