@@ -158,6 +158,39 @@ Send a GET request to `/api/v2/users` to get informations about all users
 [<cbw_api_toolbox.cbw_objects.cbw_group.CBWUsers]
 ```
 
+#### Nodes
+
+Send a GET request to `/api/v3/nodes` to retrieve a list of all nodes.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).nodes()
+[<cbw_api_toolbox.cbw_objects.cbw_node.CBWNode ...]
+```
+
+#### Node
+
+Send a GET request to `/api/v3/nodes/{NODE_ID}` to retrieve the information of a node.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).node(NODE_ID)
+[<cbw_api_toolbox.cbw_objects.cbw_node.CBWNode]
+```
+
+#### Delete Node
+
+Send a DELETE request to `/api/v3/nodes/{NODE_ID}` to delete a node and transfer the data to another one.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).node(NODE_ID, NEW_NODE_ID)
+[<cbw_api_toolbox.cbw_objects.cbw_node.CBWNode]
+```
+
 ## Available objects and their attributes
 
 ### Server object
