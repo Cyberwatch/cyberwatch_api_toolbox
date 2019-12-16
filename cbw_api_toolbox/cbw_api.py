@@ -65,11 +65,18 @@ class CBWApi:
             sys.exit(-1)
 
     def _get_pages(self, verb, route, params, model):
-        """ Get all the pages for a method using api v3 pagination """
+        """ Get one or more pages for a method using api v3 pagination """
         response_list = []
 
         if 'per_page' not in params:
             params['per_page'] = 100
+
+        if 'page' in params:
+            response = self._request(verb, route, params)
+            if response.status_code != 200:
+                logging.error("Error::{}".format(response.text))
+                return None
+            return CBWParser().parse_response(model, response)
 
         response = self._request(verb, route, params)
 
@@ -108,14 +115,6 @@ class CBWApi:
 
     def servers(self, params=defaultdict()):
         """GET request to /api/v3/servers to get all servers"""
-        if 'page' in params:
-            response = self._request(
-                "GET", [ROUTE_SERVERS], params)
-            if response.status_code != 200:
-                logging.error("Error::{}".format(response.text))
-                return None
-            return CBWParser().parse_response(CBWServer, response)
-
         response = self._get_pages("GET", [ROUTE_SERVERS], params, CBWServer)
 
         return response
@@ -154,15 +153,6 @@ class CBWApi:
 
     def remote_accesses(self, params=defaultdict()):
         """GET request to /api/v3/remote_accesses to get all servers"""
-
-        if 'page' in params:
-            response = self._request(
-                "GET", [ROUTE_REMOTE_ACCESSES], params)
-            if response.status_code != 200:
-                logging.error("Error::{}".format(response.text))
-                return None
-            return CBWParser().parse_response(CBWRemoteAccess, response)
-
         response = self._get_pages("GET", [ROUTE_REMOTE_ACCESSES], params, CBWRemoteAccess)
 
         return response
@@ -232,15 +222,6 @@ class CBWApi:
 
     def cve_announcements(self, params=defaultdict()):
         """GET request to /api/v3/cve_announcements to get a list of cve_announcement"""
-
-        if 'page' in params:
-            response = self._request(
-                "GET", [ROUTE_CVE_ANNOUNCEMENTS], params)
-            if response.status_code != 200:
-                logging.error("Error::{}".format(response.text))
-                return None
-            return CBWParser().parse_response(CBWCve, response)
-
         response = self._get_pages("GET", [ROUTE_CVE_ANNOUNCEMENTS], params, CBWCve)
 
         return response
