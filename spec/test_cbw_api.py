@@ -236,11 +236,37 @@ class TestCBWApi:
     @staticmethod
     def test_group():
         """Tests for method groups"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/groups.yaml'):
-            response = CBWApi(API_URL, API_KEY, SECRET_KEY).groups()
-            for group in response:
-                assert isinstance(group, CBWGroup) is True
+            response = client.groups()
+        for group in response:
+            assert isinstance(group, CBWGroup) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/group.yaml'):
+            response = client.group('12')
+
+            assert isinstance(response, CBWGroup) is True
+
+        params = {
+            "name": "test", #Required, name of the group
+            "description": "test description", #Description of the created group
+        }
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_group.yaml'):
+            response = client.create_group(params)
+
+            assert isinstance(response, CBWGroup) is True
+
+        params["name"] = "test_change"
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_group.yaml'):
+            response = client.update_group('12', params)
+
+            assert isinstance(response, CBWGroup) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_group.yaml'):
+            response = client.delete_group('12')
+
+            assert isinstance(response, CBWGroup) is True
 
     @staticmethod
     def test_deploy():

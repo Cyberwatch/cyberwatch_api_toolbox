@@ -228,9 +228,42 @@ class CBWApi: # pylint: disable=R0904
 
         return response
 
-    def groups(self):
-        """GET request to /api/v2/groups to get a list of all groups"""
-        response = self._request("GET", [ROUTE_GROUPS])
+    def groups(self, params=defaultdict()):
+        """GET request to /api/v3/groups to get a list of groups"""
+        response = self._get_pages("GET", [ROUTE_GROUPS], params, CBWGroup)
+
+        return response
+
+    def group(self, group_id):
+        """GET request to /api/v3/groups/<group_id> to get a specific group"""
+        response = self._request("GET", [ROUTE_GROUPS, group_id])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWGroup, response)
+
+    def create_group(self, params):
+        """POST request to /api/v3/groups to create a group"""
+        response = self._request("POST", [ROUTE_GROUPS], params)
+        if response.status_code != 201:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWGroup, response)
+
+    def update_group(self, group_id, params=defaultdict()):
+        """PUT request to /api/v3/groups/<group_id> to update a group"""
+        response = self._request("PUT", [ROUTE_GROUPS, group_id], params)
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWGroup, response)
+
+    def delete_group(self, group_id):
+        """DELETE request to /api/v3/groups/<group_id> to delete a group"""
+        response = self._request("DELETE", [ROUTE_GROUPS, group_id])
         if response.status_code != 200:
             logging.error("Error::{}".format(response.text))
             return None
