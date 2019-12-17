@@ -1,31 +1,26 @@
 interactions:
 - request:
-    body: '{"per_page": 100}'
+    body: null
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:NmKKZzsreyJirvTrMvHWL5OowfKW7HMC2ZpopCtK1W4=
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:2y5Lpc/tPR1ybSicp3E5ps16WxfMc+lEEnCoRf5VJMg=
       Connection:
       - keep-alive
-      Content-Length:
-      - '17'
-      Content-Type:
-      - application/json
       Date:
-      - Tue, 17 Dec 2019 09:43:37 GMT
+      - Tue, 17 Dec 2019 09:46:05 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v3/groups
+    uri: https://localhost/api/v3/groups/12
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA4uuVspMUbIyNNJRykvMTVWyUiooyk8pTS7JzM9T0lFKSS1OLsosAPOs8kpzcnSU
-        kvNz8ouA6pQNjRzdnJ2UanWgRhjDjXBJLUvNyS/ITc0rIdEME7gZaSlpKcVp6NqVgKJpaSlKKEYk
-        piUnIYwwRTIiBdMAqCCG9lgAqQNI+QoBAAA=
+        H4sIAAAAAAAAA6tWykxRsjI00lHKS8xNVbJSKijKTylNLsnMz1PSUUpJLU4uyiwA86zySnNydJSS
+        83Pyi4DqlA2NHN2cnZRqAUnnTCdCAAAA
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -36,7 +31,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 17 Dec 2019 09:43:38 GMT
+      - Tue, 17 Dec 2019 09:46:06 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -54,21 +49,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-MiniProfiler-Ids:
-      - 6gv08sstem0x4cmsgon5
+      - qqddckov8xo7pxfmjubn,6gv08sstem0x4cmsgon5,88iccwmu5pw6cuw46b6f,vwr4l1ys3c1qqggb3zf0,vio5fsqhdjviuu9fsd8q,ioyct4ixbthcmnyyr88b
       X-MiniProfiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
-      X-Page:
-      - '1'
-      X-Per-Page:
-      - '100'
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 9257ed17-79e2-441b-8755-95f6559540fc
+      - 7f2aafe6-2c55-471b-bff5-ad75978cf380
       X-Runtime:
-      - '0.253433'
-      X-Total:
-      - '4'
+      - '0.217871'
       X-XSS-Protection:
       - 1; mode=block
     status:

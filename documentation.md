@@ -138,12 +138,54 @@ Send a GET request to `/api/v2/cve_announcements/{CVE_CODE}` to get all informat
 
 #### Groups
 
-Send a GET request to `/api/v2/groups` to get informations about all groups
+Send a GET request to `/api/v3/groups` to get informations about all groups
 
 ###### Usage example and expected result:
 
 ```python
 >>> CBWApi(API_URL, API_KEY, SECRET_KEY).groups()
+[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+```
+
+#### Group
+
+Send a GET request `/api/v3/groups/{GROUP_ID}` to retrieve the information of a particular group.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).group(GROUP_ID)
+[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+```
+
+#### Create group
+
+Send a POST request `/api/v3/groups` to create a group.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).create_group(INFO)
+[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+```
+
+#### Update group
+
+Send a PUT request `/api/v3/groups/{GROUP_ID}` to update the information of a particular group.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).update_group(GROUP_ID, INFO)
+[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+```
+
+#### Delete group
+
+Send a DELETE request `/api/v3/groups/{GROUP_ID}` to delete a group.
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).delete_group(GROUP_ID)
 [<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
 ```
 
@@ -291,10 +333,9 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
 | id                        | Int           | id of the group                   | 140                                               |
-| created_at                | String (date) | Date of creation                  | "2018-07-23T09:41:31.000+02:00"                   |
+| color                     | String (hex)  | Color to affect to the group      | "#12AFCB"                                         |
 | name                      | String        | name of the group                 | "app_windows"                                     |
 | description               | String        | Description of the group          | "main servers"                                    |
-| updated_at                | String (date) | Date of last update               | "2018-07-23T09:41:31.000+02:00"                   |
 
 ### Deploying period
 
