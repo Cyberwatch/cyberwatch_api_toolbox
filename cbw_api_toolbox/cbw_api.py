@@ -13,6 +13,7 @@ from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
 from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
+from cbw_api_toolbox.__routes__ import ROUTE_HOSTS
 from cbw_api_toolbox.__routes__ import ROUTE_NODES
 from cbw_api_toolbox.__routes__ import ROUTE_PING
 from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
@@ -21,6 +22,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_USERS
 from cbw_api_toolbox.cbw_auth import CBWAuth
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
+from cbw_api_toolbox.cbw_objects.cbw_host import CBWHost
 from cbw_api_toolbox.cbw_objects.cbw_node import CBWNode
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
@@ -28,7 +30,7 @@ from cbw_api_toolbox.cbw_objects.cbw_users import CBWUsers
 from cbw_api_toolbox.cbw_parser import CBWParser
 
 
-class CBWApi:
+class CBWApi: # pylint: disable=R0904
     """Class used to communicate with the CBW API"""
 
     def __init__(self, api_url, api_key, secret_key, verify_ssl=False):
@@ -289,3 +291,45 @@ class CBWApi:
             return None
 
         return CBWParser().parse_response(CBWNode, response)
+
+    def hosts(self, params=defaultdict()):
+        """GET request to /api/v3/hosts to get a list of all hosts"""
+        response = self._get_pages("GET", [ROUTE_HOSTS], params, CBWHost)
+
+        return response
+
+    def host(self, host_id):
+        """GET request to /api/v3/hosts/<host_id> to get a specific host"""
+        response = self._request("GET", [ROUTE_HOSTS, host_id])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWHost, response)
+
+    def create_host(self, params):
+        """POST request to /api/v3/hosts to create a host"""
+        response = self._request("POST", [ROUTE_HOSTS], params)
+        if response.status_code != 201:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWHost, response)
+
+    def update_host(self, host_id, params=defaultdict()):
+        """PUT request to /api/v3/hosts/<host_id> to update a host"""
+        response = self._request("PUT", [ROUTE_HOSTS, host_id], params)
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWHost, response)
+
+    def delete_host(self, host_id):
+        """DELETE request to /api/v3/hosts/<host_id> to delete a host"""
+        response = self._request("DELETE", [ROUTE_HOSTS, host_id])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWHost, response)

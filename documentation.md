@@ -202,6 +202,59 @@ Send a DELETE request to `/api/v3/nodes/{NODE_ID}` to delete a node and transfer
 [<cbw_api_toolbox.cbw_objects.cbw_node.CBWNode]
 ```
 
+#### Host
+
+Send a GET request `/api/v3/hosts/{HOST_ID}` to retrieve the information of a particular host.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).host(HOST_ID)
+[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]
+```
+
+#### Hosts
+
+Send a GET request `/api/v3/hosts` to retrieve all the hosts.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).hosts()
+[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]...]
+```
+
+#### Create host
+
+Send a POST request `/api/v3/hosts` to create a host.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).create_host(INFO)
+[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]
+```
+
+#### Update host
+
+Send a PUT request `/api/v3/hosts/{HOST_ID}` to update the information of a particular host.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).update_host(HOST_ID, INFO)
+[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]
+```
+
+#### Delete host
+
+Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).delete_host(HOST_ID)
+[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]
+```
+
 ## Available objects and their attributes
 
 ### Server object
@@ -401,3 +454,22 @@ Send a DELETE request to `/api/v3/nodes/{NODE_ID}` to delete a node and transfer
 | privilege_required        | String        | Privilege level required for CVE  | "privilege_required_none"                         |
 | scope                     | String        | Scope of the CVE                  | "scope_unchanged"                                 |
 | user_interaction          | String        | User interaction level for CVE    | "user_interaction_none"                           |
+
+### Host
+
+| Attribute                 | Type          | Description                       | Example of possible value                         |
+|---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
+| id                        | String (hash) | Unique id of the host             | 4a78524087574c12453dea248a91cadb                  |
+| technologies              | Object        | List of the host technologies     | [Technologies](#Package)                          |
+| category                  | String        | Host category                     | server                                            |
+| created_at                | Date          | Date of the host creation         | 2019-06-26T09:46:58.000+02:00                     |
+| cve_announcements         | Object        | List of CVEs affecting the host   | [Cve](#Cve)                                       |
+| cve_announcements_count   | Int           | Number of CVEs                    | 3                                                 |    
+| hostname                  | String        | Host hostname                     | "XXX.XXX.XXX.XXX"                                 |
+| target                    | String        | Host IP address                   | XXX.XXX.XXX.XXX                                   |
+| security_issues           | Object        | List of the host security issues  |                                                   |
+| status                    | List          | Host status                       | comment: "Communication failure"                  |
+| scans                     | Object        | Scans of host                     |                                                   |
+| server_id                 | Int           | Id of server linked to host       | 73                                                |
+| node_id                   | Int           | Id of node of host                | 1                                                 |
+| updated_at                | String        | Last modification of the host     | "2019-04-08T02:00:00.000+02:00"                   |
