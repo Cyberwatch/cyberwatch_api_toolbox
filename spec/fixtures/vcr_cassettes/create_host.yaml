@@ -1,0 +1,64 @@
+interactions:
+- request:
+    body: '{"target": "192.168.1.2", "node_id": "1"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:EEFBeSGV+iiy3iECGeVwBSJY87GyJpG5N1rI0k8vrAY=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '41'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 17 Dec 2019 13:29:13 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: POST
+    uri: https://localhost/api/v3/hosts
+  response:
+    body:
+      string: '{"id":13,"target":"192.168.1.2","category":"unknown","hostname":null,"cve_announcements_count":0,"created_at":"2019-12-17T14:29:13.000+01:00","updated_at":"2019-12-17T14:29:13.000+01:00","node_id":1,"server_id":null,"status":"server_update_init","technologies":[],"security_issues":[],"cve_announcements":[],"scans":[]}'
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 17 Dec 2019 13:29:13 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-MiniProfiler-Ids:
+      - sbha5gj1jxakyaca7w4u,rgfgd3bg7s73n39o6nsg,gcb3qzgu0tl6x6fcqnyn,f2bqttjenuizox3kj91k,corllayah9tfmm18ike9,jhxaxqwoxoyic9y6y6ks,kg9ln51um0k2i06k56qe,z4vc5et8lxbatf3xy601,fhcygqivmtudg03xdpdn,jbowibdb6gdwlf5oe7yw
+      X-MiniProfiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - ad0be2c4-436c-4544-831e-5cb3caa1c04d
+      X-Runtime:
+      - '0.253292'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+version: 1

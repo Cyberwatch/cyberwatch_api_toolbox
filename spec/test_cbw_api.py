@@ -3,6 +3,7 @@
 from cbw_api_toolbox.cbw_api import CBWApi
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
+from cbw_api_toolbox.cbw_objects.cbw_host import CBWHost
 from cbw_api_toolbox.cbw_objects.cbw_node import CBWNode
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_objects.cbw_users import CBWUsers
@@ -310,3 +311,38 @@ class TestCBWApi:
             response = client.delete_node('2', params)
 
             assert isinstance(response, CBWNode) is True
+
+    @staticmethod
+    def test_host():
+        """Tests for method hosts"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/hosts.yaml'):
+            response = client.hosts()
+        for host in response:
+            assert isinstance(host, CBWHost) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/host.yaml'):
+            response = client.host('12')
+
+            assert isinstance(response, CBWHost) is True
+
+        params = {
+            "target": "192.168.1.2",
+            "node_id": "1"
+            }
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_host.yaml'):
+            response = client.create_host(params)
+
+            assert isinstance(response, CBWHost) is True
+
+        params["target"] = "192.168.2.3"
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_host.yaml'):
+            response = client.update_host('12', params)
+
+        assert isinstance(response, CBWHost) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_host.yaml'):
+            response = client.delete_host('12')
+
+            assert isinstance(response, CBWHost) is True

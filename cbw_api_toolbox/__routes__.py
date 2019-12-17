@@ -2,6 +2,7 @@
 
 ROUTE_CVE_ANNOUNCEMENTS = "/api/v3/cve_announcements"
 ROUTE_GROUPS = "/api/v2/groups"
+ROUTE_HOSTS = "/api/v3/hosts"
 ROUTE_NODES = "/api/v3/nodes"
 ROUTE_PING = "/api/v3/ping"
 ROUTE_REMOTE_ACCESSES = "/api/v3/remote_accesses"
