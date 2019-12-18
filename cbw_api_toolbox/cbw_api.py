@@ -247,13 +247,9 @@ class CBWApi: # pylint: disable=R0904
 
     def users(self, params=defaultdict()):
         """GET request to /api/v3/users to get a list of users"""
-        response = self._request("GET", [ROUTE_USERS], params)
+        response = self._get_pages("GET", [ROUTE_USERS], params, CBWUsers)
 
-        if response.status_code != 200:
-            logging.error("Error::{}".format(response.text))
-            return None
-
-        return CBWParser().parse_response(CBWUsers, response)
+        return response
 
     def user(self, user_id):
         """GET request to /api/v3/users/<id> to get a specific user"""
@@ -265,14 +261,11 @@ class CBWApi: # pylint: disable=R0904
 
         return CBWParser().parse_response(CBWUsers, response)
 
-    def nodes(self):
+    def nodes(self, params=defaultdict()):
         """GET request to /api/v3/nodes to get a list of all nodes"""
-        response = self._request("GET", [ROUTE_NODES])
-        if response.status_code != 200:
-            logging.error("Error::{}".format(response.text))
-            return None
+        response = self._get_pages("GET", [ROUTE_NODES], params, CBWNode)
 
-        return CBWParser().parse_response(CBWNode, response)
+        return response
 
     def node(self, node_id):
         """GET request to /api/v3/nodes/<node_id> to get a list of all nodes"""

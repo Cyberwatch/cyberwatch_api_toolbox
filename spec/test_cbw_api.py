@@ -293,9 +293,11 @@ class TestCBWApi:
     def test_nodes():
         """Tests for method nodes()"""
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
-
+        params = {
+            'page': '1',
+        }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/nodes.yaml'):
-            response = client.nodes()
+            response = client.nodes(params)
         for node in response:
             assert isinstance(node, CBWNode) is True
 
