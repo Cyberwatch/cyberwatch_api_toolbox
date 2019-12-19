@@ -6,12 +6,15 @@ A simple interface for your Cyberwatch instance API.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Install the package](#install-the-package)
-  - [Test your installation](#test-your-installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
+- [Cyberwatch API toolbox](#cyberwatch-api-toolbox)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Install the package](#install-the-package)
+    - [Test your installation](#test-your-installation)
+  - [Configuration](#configuration)
+  - [Usage](#usage)
+  - [API Documentation](#api-documentation)
+  - [Library Documentation](#library-documentation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -105,6 +108,10 @@ To find your API credentials:
 $ python3 your_example_script_file.py
 ```
 
-## Documentation
+## API Documentation
 
-See the full documentation [here](./documentation.md)
+See the full API documentation [here](https://docs.cyberwatch.fr/)
+
+## Library Documentation
+
+See the library-specific documentation [here](./documentation.md)
