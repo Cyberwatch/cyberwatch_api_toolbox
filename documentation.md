@@ -322,7 +322,6 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | packages                  | Object        | List of the computer's packages   | [Package](#Package)                               |
 | reboot_required           | Bool          | The computer requires to be rebooted| false                                           |
 | remote_ip                 | String        | Computer's IP address             | XXX.XXX.XXX.XXX                                   |
-| security_announcements    | Object        | List of the computer's security announcements| [Security Announcement](#Security-announcement)|
 | status                    | List          | Computer's status                 | comment: "Communication failure"                  |
 | updates                   | Object        | Available updates for the computer| [Update](#Update)                                 |
 | updates_count             | Int           | Number of available updates for the computer| 3                                       |
