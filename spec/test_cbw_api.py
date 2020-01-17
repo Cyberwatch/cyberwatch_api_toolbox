@@ -374,3 +374,22 @@ class TestCBWApi:
             response = client.delete_host('12')
 
             assert isinstance(response, CBWHost) is True
+
+    @staticmethod
+    def test_update_server_cve():
+        """Tests for server method"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {
+            "comment": "test"
+        }
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_cve.yaml'):
+            response = client.update_server_cve('9', "CVE-2019-3028", info)
+            assert isinstance(response, CBWServer) is True
+
+        info = {
+            "ignored": "true"
+        }
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_cve_ignored.yaml'):
+            response = client.update_server_cve('9', "CVE-2019-3028", info)
+            assert isinstance(response, CBWServer) is True

@@ -153,6 +153,15 @@ class CBWApi: # pylint: disable=R0904
         logging.error("No server id specific for delete")
         return False
 
+    def update_server_cve(self, server_id, cve_code, params=defaultdict()):
+        """PUT request to /api/v3/server/<server_id>/cve_announcements/<cve_code> to update a server cve"""
+        response = self._request("PUT", [ROUTE_SERVERS, server_id, "cve_announcements", cve_code], params)
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWServer, response)
+
     def remote_accesses(self, params=defaultdict()):
         """GET request to /api/v3/remote_accesses to get all servers"""
         response = self._get_pages("GET", [ROUTE_REMOTE_ACCESSES], params, CBWRemoteAccess)
