@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: '{"comment": "test"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:IKTEHF3XaWrOjMvRXAgCZoT/0Tb9Hs0HZVmF0tn7QJI=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '19'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 20 Jan 2020 08:43:50 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: PUT
+    uri: https://localhost/api/v3/servers/9/cve_announcements/CVE-2019-3028
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA61Y227bOBD9FYFPLdY2SMqWbL31ug/bNCliuFgsCoGRGIeIJGopyk0a5N87lJzY
+        Fo3CaQcQDJgSzwznwnPIB6JykixG5EY3thKlJAl5/+Hyn+X5xfjyy+ry788fyYjkssmMqq3SFUmq
+        tihGpBCNTTNdlm2lMtG/IZxyOqZszOmSLpJpmPBoQin9i7KEUsAx8kprmxr5f6uMBMPXomikGy+1
+        lamqAYPRiXvgZw4z2joXVjZgqa0sSaYj0iEIu2eNxUtKk5AnfHZgDVy24Fuh7D18vfcvLWWu2tJ9
+        spGpqCoAz2QpK/tsKISQwLLkWhs3GQJwa3XdgUoYzg896NcbwnrjAw8aK2zbwIeNNBtp0k1bVNKI
+        q0Ies02S/x660UznLg/vVh8Amc3HEZtFMEGtK70fNRd96ZztM3Kt7rZ+uf+Po2NYizGbLWiIBsbi
+        WYwJtkAEiygmGMME45hgmNmMZmhgMaV4CQAwvAQAGGoCppgdgAqGt2tAzOZoYGHMMRMwxSxahpcA
+        iBnefgaeobYTaswwe5PhlQaA4W2Ocx7jdUBMo1/yJgHNY8lL4FB9Qytbvpij9VOIuG2HlKPVLF9M
+        EdfI0fbsELHJQ8rQdB6s8ZfF+rLaD2mImMnfiP6350NKp9/dcYpFoY9SC5vddNL/GffIAcAT/Z5w
+        98S3J6A9EewJWU+MeoLSE4WesPPEmSewPJHkCR1PrHiCwxMNHvF75O0RsEeiHhF6ZOYR0oBUIOlW
+        mLWEInggG1nl2kAhlfqHKgoBn9dG523mivkjHHSv9V0Ag/a+duV2IbJbsZZNknxV1ZvaHSrhbNj0
+        J+iYkUeojNaYruJ24H3t7XDPelvBE360mNDg1V00Da7N6xONuTnk0XVDX7XTP63aJ5o8Hp6NyqUu
+        RHUQn02RdcdxkdaFuJfmRNfDCZ3MTwzV6tO7oDMR/I6JXXhmCOHZEr9H3QP6PR7AurX2/iB6TyOn
+        rIdO4vDEiF20y+W/gZGFFI0MYCIPXkXT8ZWyp5aWmwPxOyiv6M/jt9UTQ00w5PUhNw/5dciRQ54b
+        ctWQbQ4Z43iytBFZd8+zV+tlulHGtqK40nen9ihEEba10/J23tkMVmfBqrfz1u0MDoG/xByHrMGi
+        dONs3Up3AfZdgcXvTcpoyoCH0m4/394Xfu3fBYwGrOcoYbIbePHm7H33HXT902UZ42M6d9d13XN4
+        WXajjU13mHt4W8/Pe5+dMReQtdFt7erjW8fRdaEEFE26G378CQfPhw/eFAAA
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' ''unsafe-inline'' ''unsafe-eval'';
+        style-src ''self'' ''unsafe-inline''; img-src ''self'' data:'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 20 Jan 2020 08:43:51 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-MiniProfiler-Ids:
+      - 4uq0t490rx7y42i2kub3,ge614no8jkpc5p8jc8n8,nteejdol4gbx67o36jby
+      X-MiniProfiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 29b679ae-88c5-407d-8947-eebf4d5a3b47
+      X-Runtime:
+      - '1.094984'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
