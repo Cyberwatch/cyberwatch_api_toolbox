@@ -47,7 +47,6 @@ def find_agents(servers, when):
     for server in sorted(servers, key=lambda x: (x.hostname is None, x.hostname)):
         if server.created_at is not None and server.created_at != '':
             if server.status['comment'].lower() == 'initialization' \
-                    and server.agent_version is not None \
                     and datetime.strptime(server.created_at[:10], '%Y-%m-%d') < agents_date:
                 agents.append(server)
         else:
@@ -64,7 +63,6 @@ def find_agentless(servers, when):
     for server in sorted(servers, key=lambda x: (x.hostname is None, x.hostname)):
         if server.created_at is not None and server.created_at != '':
             if server.status['comment'].lower() == 'initialization' \
-                    and server.agent_version is None \
                     and datetime.strptime(server.created_at[:10], '%Y-%m-%d') < agentless_date:
                 agentless.append(server)
         else:
@@ -95,14 +93,12 @@ def find_all(servers, agents_time, agentless_time):
             agentless_date = (datetime.today() - relativedelta(months=+agentless_time))
             # Find agentless in initialization for more than X months
             if server.status['comment'].lower() == 'initialization' \
-                    and server.agent_version is None \
                     and datetime.strptime(server.created_at[:10], '%Y-%m-%d') < agentless_date:
                 agentless.append(server)
 
             agents_date = (datetime.today() - relativedelta(months=+agents_time))
             # Find agents in initialization for more than X months
             if server.status['comment'].lower() == 'initialization'\
-                    and server.agent_version is not None \
                     and datetime.strptime(server.created_at[:10], '%Y-%m-%d') < agents_date:
                 agents.append(server)
 

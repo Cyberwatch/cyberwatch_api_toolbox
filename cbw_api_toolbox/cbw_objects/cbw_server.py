@@ -53,7 +53,6 @@ class CBWServer:
 
     def __init__(self,
                  id,  # pylint: disable=redefined-builtin
-                 agent_version="",
                  applications=None,
                  boot_at="",
                  category="",
@@ -78,7 +77,6 @@ class CBWServer:
                  updates_count=0,
                  **kwargs): # pylint: disable=unused-argument
         self.id = id  # pylint: disable=invalid-name
-        self.agent_version = agent_version
         self.applications = [CBWParser().parse(CBWPackage, application) for application in
                              applications] if applications else []
         self.boot_at = boot_at
