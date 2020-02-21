@@ -304,7 +304,6 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
 | id                        | String (hash) | Unique id of the computer         | 4a78524087574c12453dea248a91cadb                  |
-| agent_version             | String        | Agent version used for supervision in case of agent supervision. Empty for agentless connections| DESKTOP-AAA111                                    |
 | applications              | Object        | List of the computer's applications|                                                  |
 | boot_at                   | Date          | Date of the computer boot         | 2016-05-30T09:54:58.000+02:00                     |
 | category                  | String        | Computer's category               | server                                            |
