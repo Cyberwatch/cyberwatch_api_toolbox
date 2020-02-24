@@ -1,0 +1,85 @@
+interactions:
+- request:
+    body: '{"score_custom": "7", "access_complexity": "access_complexity_low", "access_vector":
+      "access_vector_adjacent_network", "availability_impact": "availability_impact_none",
+      "confidentiality_impact": "confidentiality_impact_low", "integrity_impact":
+      "integrity_impact_low", "privilege_required": "privilege_required_none", "scope":
+      "scope_changed", "user_interaction": "user_interaction_required"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:EyMlKuGzJPi2Bt/sPv6JXFdfxivBncEc3dP2HR9UWYc=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '393'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 24 Feb 2020 13:47:47 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: PUT
+    uri: https://localhost/api/v3/cve_announcements/CVE-2019-16768
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA21TTW+cMBD9KyNOrZqs2K2StNyiKIeek/ZSKjSYAdw1NrUNLIry3zsGdskme7Ln
+        zfObT79EwmhP2kdJ9HgQ1HppNDTkHFbkoLSmAckEq1EBHQkOPim5JyjQY46OVs9nQEswWGxbKiAf
+        IU2fxqY0ekzTB9O0RnMsxkh0VvoJtJSmp9Bpet/5mjlSYLCfyPZS0Joa6gJaa1qs0HMEX1vTVTWf
+        BG50nhrwBn7+2MBzTZZKVr8CZxpaq1hoUrOzwbleHEER7if1nKCXTuaKglQQFp3zLGE3cA89Klng
+        2y7BIP2cwKkLUJBHqRy7lAqCrSXHRYWEZ8nOkYWBCwXuyEzzdgxeZaqQ60xztWk30VUkesqEKYin
+        9PDr8XoXb79fb2/vbr+xT6HzWWMKWUoqmDA7d9fxzfNul2xvkjjexHH8Jd7yLfCpJ8W86cxqWdUM
+        tl2upKs/CGwvCDjBXY2Su0283LN+FyW6U+pkfz235wYuT+jQKiN5cRSLlKgcMY3HTNZFye8/4Q1q
+        feYWvXNHxXB/E2Ayj/ovEQpBwU/CG8u1nNkZFn9R8BwyTX4wds/FLATBu6nowCu5PlqxTJkhNMnK
+        XiqqKLP0r5N26tZHMNM8U6aHGWfT2qEIW8Hk99AqNLWqDQOezkzUqKsJ5w9ayiJ8CV49zkU2LT9m
+        4mXHkmsIUtkz/ntoYWLPq4q5PBe/gM51vXJGA83tf/0PBw9Vlz8EAAA=
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' ''unsafe-inline'' ''unsafe-eval'';
+        style-src ''self'' ''unsafe-inline''; img-src ''self'' data:'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 24 Feb 2020 13:47:48 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-MiniProfiler-Ids:
+      - egiov7weuohvhg7ljl01,t0mge3ezo1ngjzxq34oo,pt5bvee2t1vx3wb1rb9o,wypnnhra7l5y6bk9hhg3,sylmbbtx382c4gaxghfz
+      X-MiniProfiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 7fbdd7df-30e6-4313-8dc3-1748cc85275b
+      X-Runtime:
+      - '1.872296'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
