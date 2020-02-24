@@ -316,6 +316,15 @@ class TestCBWApi:
             assert isinstance(cve, CBWCve) is True
 
     @staticmethod
+    def test_delete_cve_announcement():
+        """Tests for method delete_cve_announcement()"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+        cve_code = 'CVE-2019-16768'
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_cve_announcement.yaml'):
+            response = client.delete_cve_announcement(cve_code)
+        assert isinstance(response, CBWCve) is True
+
+    @staticmethod
     def test_nodes():
         """Tests for method nodes()"""
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)

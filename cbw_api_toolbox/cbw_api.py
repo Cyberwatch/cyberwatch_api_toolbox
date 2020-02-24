@@ -237,6 +237,16 @@ class CBWApi: # pylint: disable=R0904
 
         return response
 
+    def delete_cve_announcement(self, cve_code):
+        """DELETE request to /api/v3/cve_announcements/{cve_code} to delete
+         a cvss_custom/score_custom fields of a cve_announcement"""
+        response = self._request("DELETE", [ROUTE_CVE_ANNOUNCEMENTS, cve_code])
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWCve, response)
+
     def groups(self, params=defaultdict()):
         """GET request to /api/v3/groups to get a list of groups"""
         response = self._get_pages("GET", [ROUTE_GROUPS], params, CBWGroup)
