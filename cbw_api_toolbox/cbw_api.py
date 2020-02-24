@@ -237,6 +237,16 @@ class CBWApi: # pylint: disable=R0904
 
         return response
 
+    def update_cve_announcement(self, cve_code, params=defaultdict()):
+        """PUT request to /api/v3/cve_announcements/{cve_code} to update cvss_custom/score_custom informations
+        about a specific cve_announcement"""
+        response = self._request("PUT", [ROUTE_CVE_ANNOUNCEMENTS, cve_code], params)
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWCve, response)
+
     def delete_cve_announcement(self, cve_code):
         """DELETE request to /api/v3/cve_announcements/{cve_code} to delete
          a cvss_custom/score_custom fields of a cve_announcement"""
