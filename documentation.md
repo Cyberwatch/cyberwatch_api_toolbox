@@ -58,6 +58,39 @@ Send a DELETE request `/api/v3/servers/{SERVER_ID}` to delete a server.
 True
 ```
 
+#### Agents
+
+Send a GET request `/api/v3/agents` to retrieve the list of all agents.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).agent()
+[<cbw_api_toolbox.cbw_objects.cbw_agent.CBWAgent...]
+```
+
+#### Agents
+
+Send a GET request `/api/v3/agents/{AGENT_ID}` to retrieve the information of a particular agent.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).agent(AGENT_ID)
+[<cbw_api_toolbox.cbw_objects.cbw_agent.CBWAgent]
+```
+
+#### Delete agent
+
+Send a DELETE request `/api/v3/agents/{AGENT_ID}` to delete an agent.
+
+###### Usage example and expected result:
+
+```python
+>>> CBWApi(URL, API_KEY, SECRET_KEY).delete_agent(AGENT_ID)
+True
+```
+
 #### Remote accesses
 
 Send a GET request `/api/v3/remote_accesses` to retrieve the list of all remote accesses.
@@ -456,6 +489,17 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | id                        | Int           | Server group id                   | 25                                                |
 | name                      | String        | Name of group                     | "Cyberwatch"                                      |
 | role                      | String        | Role of server group              | "system_admin"                                    |
+
+### Agent object
+
+| Attribute                 | Type          | Description                       | Example of possible value                         |
+|---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
+| id                        | Int           | Agent id                          | 1                                                 |
+| last_communication        | String        | Date of last communication with the computer| "2018-08-09T16:20:02.000+02:00"         |
+| node_id                   | Int           | Id of node of agent               | 1                                                 |
+| remote_ip                 | String        | Computer's IP address             | "XXX.XXX.XXX.XXX"                                 |
+| server_id                 | Int           | Id of server linked to agent      | 679                                               |
+| version                   | String        | Version of the agent              | "3.2"                                             |
 
 ### Remote Access object
 

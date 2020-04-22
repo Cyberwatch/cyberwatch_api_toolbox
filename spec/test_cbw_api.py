@@ -1,6 +1,7 @@
 """Test file for cbw_api.py"""
 
 from cbw_api_toolbox.cbw_api import CBWApi
+from cbw_api_toolbox.cbw_objects.cbw_agent import CBWAgent
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_host import CBWHost
@@ -114,6 +115,46 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_with_group_none.yaml'):
             response = client.update_server('6', info)
             assert response is True
+
+    @staticmethod
+    def test_agents():
+        """Tests for method agents"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/agents.yaml'):
+            params = {
+                'page': '1'
+            }
+            response = client.agents(params)
+            assert isinstance(response, list) is True
+            for agent in response:
+                assert isinstance(agent, CBWAgent) is True
+
+    @staticmethod
+    def test_agent():
+        """Tests for method agent"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/agent.yaml'):
+            response = client.agent('4')
+            assert isinstance(response, CBWAgent) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/agent_wrong_id.yaml'):
+            response = client.agent('wrong_id')
+            assert isinstance(response, CBWAgent) is False
+
+    @staticmethod
+    def test_delete_agent():
+        """Tests for method delete_agent"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_agent.yaml'):
+            response = client.delete_agent('5')
+            assert response is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_agent_wrong_id.yaml'):
+            response = client.delete_agent('wrong_id')
+            assert response is False
 
     @staticmethod
     def test_remote_accesses():

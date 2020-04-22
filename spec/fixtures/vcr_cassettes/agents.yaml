@@ -1,0 +1,77 @@
+interactions:
+- request:
+    body: '{"page": "1", "per_page": 100}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 PfeKHglrTELWglMYmgRc4iVxygymwwi7hUt1bR11rp8=:74CbqXd7SFXaFYqwx5ZrXZWsHC+DYDUto4n7wdFTCWw=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '30'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 07 May 2020 13:50:36 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: https://localhost/api/v3/agents
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA4uuVspMUbIy0VEqTi0qSy2KB/GMdZTy8lNSwWxDHSWgcHFmfp6SVV5pTo6OUlFq
+        bn4JULIAJpCTWFwSn5yfm1ual5mcWAJXWqsDMdwUxXBDAyTTjZBMV7JUQjFcydBIz9hEz9RMz9xC
+        ibAtZqheoJEt5jgDCsUSc/IsiQUAaqiErY8BAAA=
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 07 May 2020 13:50:36 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-MiniProfiler-Ids:
+      - pats611zk10aevxzsq1p,4u0n4zhaz0f9pzvab6da,tp1580xflybzm6yzi80y,zgzt7wksdnlnjkrsvt53,h5ejg3zc8uo704dipgvf,fw8eu7r39mwq0tqfkq2t,qlwyj6ebwjyucrxj0pqv,5jclghdmdsjxjtkokwtp,a3o46rsoiuzfcgrcpgaf,d6vka79btgtr7sd7bwm2,hy88mqqgn33q2f3fkg5r
+      X-MiniProfiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Page:
+      - '1'
+      X-Per-Page:
+      - '100'
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - cb854225-83f7-4ec5-a704-d14979345540
+      X-Runtime:
+      - '0.190653'
+      X-Total:
+      - '4'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,5 +1,6 @@
 """API routes"""
 
+ROUTE_AGENTS = "/api/v3/agents"
 ROUTE_CVE_ANNOUNCEMENTS = "/api/v3/cve_announcements"
 ROUTE_GROUPS = "/api/v3/groups"
 ROUTE_HOSTS = "/api/v3/hosts"
