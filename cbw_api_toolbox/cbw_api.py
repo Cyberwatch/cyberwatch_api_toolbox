@@ -11,6 +11,7 @@ import requests
 from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader, MissingSchema
 from urllib3.exceptions import NewConnectionError, MaxRetryError
 
+from cbw_api_toolbox.__routes__ import ROUTE_AGENTS
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
 from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_HOSTS
@@ -20,6 +21,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
 from cbw_api_toolbox.__routes__ import ROUTE_SERVERS
 from cbw_api_toolbox.__routes__ import ROUTE_USERS
 from cbw_api_toolbox.cbw_auth import CBWAuth
+from cbw_api_toolbox.cbw_objects.cbw_agent import CBWAgent
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_host import CBWHost
@@ -161,6 +163,30 @@ class CBWApi: # pylint: disable=R0904
             return None
 
         return CBWParser().parse_response(CBWServer, response)
+
+    def agents(self, params=defaultdict()):
+        """GET request to /api/v3/agents to get all agents"""
+        response = self._get_pages("GET", [ROUTE_AGENTS], params, CBWAgent)
+        return response
+
+    def agent(self, agent_id):
+        """GET request to /api/v3/agents/{agent_id} to get all informations
+        about a specific agent"""
+        response = self._request("GET", [ROUTE_AGENTS, agent_id])
+        if response.status_code != 200:
+            logging.error("Error agent id::{}".format(response.text))
+            return None
+        return CBWParser().parse_response(CBWAgent, response)
+
+    def delete_agent(self, agent_id):
+        """DELETE request to /api/v3/agents/{agent_id} to delete a specific agent"""
+        if agent_id:
+            logging.debug("Deleting {}".format(agent_id))
+            response = self._request("DELETE", [ROUTE_AGENTS, agent_id])
+            return self.verif_response(response)
+
+        logging.error("No agent id specific for delete")
+        return False
 
     def remote_accesses(self, params=defaultdict()):
         """GET request to /api/v3/remote_accesses to get all servers"""

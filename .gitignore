@@ -5,3 +5,7 @@ __pycache__/
 .pytest_cache
 /cbw_api_toolbox.egg-info/
 api.conf
+.vscode
+.venv
+build/
+dist/
