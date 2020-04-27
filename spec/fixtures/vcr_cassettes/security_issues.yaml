@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"page": "1", "per_page": 100}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 O/pAkZcvlyERCdyg837gLPHHFoDkj1Iyjjmx4kANIJw=:mvJbk2WEJG4SA1vyhUDSN9foZKLpMkw5svxKfh5PBBI=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '30'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 27 Apr 2020 08:00:59 GMT
+      User-Agent:
+      - python-requests/2.23.0
+    method: GET
+    uri: https://localhost/api/v3/security_issues
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA4uuVspMUbIy1FEqqSxIVbLKK83J0VEqBokpKeko5aSWpeYAmWA6PjMvLR8oWJJZ
+        kgNXmpJanFyUWVCSmZ8HEarVgRhpRH0jjaloZCwArIXwCvoAAAA=
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 27 Apr 2020 08:01:00 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-MiniProfiler-Ids:
+      - yl4uypv6soy3s7cr1391
+      X-MiniProfiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Page:
+      - '1'
+      X-Per-Page:
+      - '100'
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - cee67057-7a59-49b0-add7-be3b2444f8e0
+      X-Runtime:
+      - '0.829662'
+      X-Total:
+      - '3'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
