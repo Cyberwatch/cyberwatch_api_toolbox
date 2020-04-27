@@ -5,6 +5,7 @@ from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_host import CBWHost
 from cbw_api_toolbox.cbw_objects.cbw_node import CBWNode
+from cbw_api_toolbox.cbw_objects.cbw_security_issue import CBWSecurityIssue
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_objects.cbw_users import CBWUsers
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
@@ -422,3 +423,70 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_cve_ignored.yaml'):
             response = client.update_server_cve('9', "CVE-2019-3028", info)
             assert isinstance(response, CBWServer) is True
+
+    @staticmethod
+    def test_security_issues():
+        """Tests for method security_issues"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/security_issues.yaml'):
+            params = {
+                'page': '1'
+            }
+            response = client.security_issues(params)
+            assert isinstance(response, list) is True
+            for issue in response:
+                assert isinstance(issue, CBWSecurityIssue) is True
+
+    @staticmethod
+    def test_create_security_issue():
+        """Tests for method security_issue"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {
+            "description": "Test",
+            "level": "level_critical",
+            "score": "5",
+        }
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_security_issue.yaml'):
+            response = client.create_security_issue(info)
+
+            assert isinstance(response, CBWSecurityIssue) is True
+
+    @staticmethod
+    def test_update_security_issue():
+        """Tests for update remote method"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {
+            "description": "Test update",
+            "level": "level_critical",
+            "score": "5",
+        }
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_security_issue.yaml'):
+            response = client.update_security_issue('2', info)
+
+            assert isinstance(response, CBWSecurityIssue) is True
+
+        info["level"] = "level_test"
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_security_issue_wrong_level.yaml'):
+            response = client.update_security_issue("2", info)
+
+            assert isinstance(response, CBWSecurityIssue) is False
+
+
+    @staticmethod
+    def test_delete_security_issue():
+        """Tests for method delete_security_issue"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_security_issue.yaml'):
+            response = client.delete_security_issue('1')
+            assert isinstance(response, CBWSecurityIssue) is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_security_issue_wrong_id.yaml'):
+            response = client.delete_security_issue('wrong_id')
+            assert isinstance(response, CBWSecurityIssue) is False

@@ -17,6 +17,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_HOSTS
 from cbw_api_toolbox.__routes__ import ROUTE_NODES
 from cbw_api_toolbox.__routes__ import ROUTE_PING
 from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
+from cbw_api_toolbox.__routes__ import ROUTE_SECURITY_ISSUES
 from cbw_api_toolbox.__routes__ import ROUTE_SERVERS
 from cbw_api_toolbox.__routes__ import ROUTE_USERS
 from cbw_api_toolbox.cbw_auth import CBWAuth
@@ -25,6 +26,7 @@ from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_host import CBWHost
 from cbw_api_toolbox.cbw_objects.cbw_node import CBWNode
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
+from cbw_api_toolbox.cbw_objects.cbw_security_issue import CBWSecurityIssue
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
 from cbw_api_toolbox.cbw_objects.cbw_users import CBWUsers
 from cbw_api_toolbox.cbw_parser import CBWParser
@@ -388,3 +390,45 @@ class CBWApi: # pylint: disable=R0904
             return None
 
         return CBWParser().parse_response(CBWHost, response)
+
+    def security_issues(self, params=defaultdict()):
+        """GET request to /api/v3/security_issues to get a list of all security_issues"""
+        response = self._get_pages("GET", [ROUTE_SECURITY_ISSUES], params, CBWSecurityIssue)
+
+        return response
+
+    def security_issue(self, security_issue_id):
+        """GET request to /api/v3/security_issues/<security_issue_id> to get a specific security_issue"""
+        response = self._request("GET", [ROUTE_SECURITY_ISSUES, security_issue_id])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWSecurityIssue, response)
+
+    def create_security_issue(self, params=defaultdict()):
+        """POST request to /api/v3/security_issues to create a security_issue"""
+        response = self._request("POST", [ROUTE_SECURITY_ISSUES], params)
+        if response.status_code != 201:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWSecurityIssue, response)
+
+    def update_security_issue(self, security_issue_id, params=defaultdict()):
+        """PUT request to /api/v3/security_issues/<security_issue_id> to update a security_issue"""
+        response = self._request("PUT", [ROUTE_SECURITY_ISSUES, security_issue_id], params)
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWSecurityIssue, response)
+
+    def delete_security_issue(self, security_issue_id):
+        """DELETE request to /api/v3/security_issues/<security_issue_id> to delete a security_issue"""
+        response = self._request("DELETE", [ROUTE_SECURITY_ISSUES, security_issue_id])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWSecurityIssue, response)

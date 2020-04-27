@@ -512,3 +512,17 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | server_id                 | Int           | Id of server linked to host       | 73                                                |
 | node_id                   | Int           | Id of node of host                | 1                                                 |
 | updated_at                | String        | Last modification of the host     | "2019-04-08T02:00:00.000+02:00"                   |
+
+### Security issue
+
+| Attribute                 | Type          | Description                       | Example of possible value                         |
+|---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
+| id                        | String (hash) | Unique id of the security issue   | 4a78524087574c12453dea248a91cadb                  |
+| sid                       | String        | SID of the security issue         | Security_Issue_1                                  |
+| description               | String        | Description of the security issue |  "security issue description"                     |
+| level                     | String        | Severity of the security issue    | level_critical                                    |
+| cve_announcements         | Object        | List of CVEs related to the SI    | [Cve](#Cve)                                       |
+| servers                   | Object        |  List of servers related to the SI| [Server](#Server-object)                          |    
+| score                     | Int           | Score of the security issue       | 8                                                 |
+| title                     | String        | Title of the security issue       | "SEC_ISSUE 01"                                    |
+| type                      | String        | Type of the security issue        | "SecurityIssues::Custom"                          |
