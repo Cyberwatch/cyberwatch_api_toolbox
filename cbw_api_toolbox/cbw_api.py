@@ -6,7 +6,6 @@ import sys
 
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
-from collections import defaultdict
 import requests
 from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader, MissingSchema
 from urllib3.exceptions import NewConnectionError, MaxRetryError
@@ -70,6 +69,10 @@ class CBWApi: # pylint: disable=R0904
         """ Get one or more pages for a method using api v3 pagination """
         response_list = []
 
+        if params is None:
+            params = {}
+            params['per_page'] = 100
+
         if 'per_page' not in params:
             params['per_page'] = 100
 
@@ -115,7 +118,7 @@ class CBWApi: # pylint: disable=R0904
         logging.error("FAILED")
         return False
 
-    def servers(self, params=defaultdict()):
+    def servers(self, params=None):
         """GET request to /api/v3/servers to get all servers"""
         response = self._get_pages("GET", [ROUTE_SERVERS], params, CBWServer)
 
@@ -153,7 +156,7 @@ class CBWApi: # pylint: disable=R0904
         logging.error("No server id specific for delete")
         return False
 
-    def update_server_cve(self, server_id, cve_code, params=defaultdict()):
+    def update_server_cve(self, server_id, cve_code, params=None):
         """PUT request to /api/v3/server/<server_id>/cve_announcements/<cve_code> to update a server cve"""
         response = self._request("PUT", [ROUTE_SERVERS, server_id, "cve_announcements", cve_code], params)
         if response.status_code != 200:
@@ -162,7 +165,7 @@ class CBWApi: # pylint: disable=R0904
 
         return CBWParser().parse_response(CBWServer, response)
 
-    def remote_accesses(self, params=defaultdict()):
+    def remote_accesses(self, params=None):
         """GET request to /api/v3/remote_accesses to get all servers"""
         response = self._get_pages("GET", [ROUTE_REMOTE_ACCESSES], params, CBWRemoteAccess)
 
@@ -231,13 +234,13 @@ class CBWApi: # pylint: disable=R0904
 
         return CBWParser().parse_response(CBWCve, response)
 
-    def cve_announcements(self, params=defaultdict()):
+    def cve_announcements(self, params=None):
         """GET request to /api/v3/cve_announcements to get a list of cve_announcement"""
         response = self._get_pages("GET", [ROUTE_CVE_ANNOUNCEMENTS], params, CBWCve)
 
         return response
 
-    def update_cve_announcement(self, cve_code, params=defaultdict()):
+    def update_cve_announcement(self, cve_code, params=None):
         """PUT request to /api/v3/cve_announcements/{cve_code} to update cvss_custom/score_custom informations
         about a specific cve_announcement"""
         response = self._request("PUT", [ROUTE_CVE_ANNOUNCEMENTS, cve_code], params)
@@ -257,7 +260,7 @@ class CBWApi: # pylint: disable=R0904
 
         return CBWParser().parse_response(CBWCve, response)
 
-    def groups(self, params=defaultdict()):
+    def groups(self, params=None):
         """GET request to /api/v3/groups to get a list of groups"""
         response = self._get_pages("GET", [ROUTE_GROUPS], params, CBWGroup)
 
@@ -281,7 +284,7 @@ class CBWApi: # pylint: disable=R0904
 
         return CBWParser().parse_response(CBWGroup, response)
 
-    def update_group(self, group_id, params=defaultdict()):
+    def update_group(self, group_id, params=None):
         """PUT request to /api/v3/groups/<group_id> to update a group"""
         response = self._request("PUT", [ROUTE_GROUPS, group_id], params)
         if response.status_code != 200:
@@ -307,7 +310,7 @@ class CBWApi: # pylint: disable=R0904
             return None
         return CBWParser().parse_response(CBWRemoteAccess, response)
 
-    def users(self, params=defaultdict()):
+    def users(self, params=None):
         """GET request to /api/v3/users to get a list of users"""
         response = self._get_pages("GET", [ROUTE_USERS], params, CBWUsers)
 
@@ -323,7 +326,7 @@ class CBWApi: # pylint: disable=R0904
 
         return CBWParser().parse_response(CBWUsers, response)
 
-    def nodes(self, params=defaultdict()):
+    def nodes(self, params=None):
         """GET request to /api/v3/nodes to get a list of all nodes"""
         response = self._get_pages("GET", [ROUTE_NODES], params, CBWNode)
 
@@ -347,7 +350,7 @@ class CBWApi: # pylint: disable=R0904
 
         return CBWParser().parse_response(CBWNode, response)
 
-    def hosts(self, params=defaultdict()):
+    def hosts(self, params=None):
         """GET request to /api/v3/hosts to get a list of all hosts"""
         response = self._get_pages("GET", [ROUTE_HOSTS], params, CBWHost)
 
@@ -371,7 +374,7 @@ class CBWApi: # pylint: disable=R0904
 
         return CBWParser().parse_response(CBWHost, response)
 
-    def update_host(self, host_id, params=defaultdict()):
+    def update_host(self, host_id, params=None):
         """PUT request to /api/v3/hosts/<host_id> to update a host"""
         response = self._request("PUT", [ROUTE_HOSTS, host_id], params)
         if response.status_code != 200:
