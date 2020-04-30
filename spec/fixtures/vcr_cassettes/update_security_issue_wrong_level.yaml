@@ -1,0 +1,61 @@
+interactions:
+- request:
+    body: '{"description": "Test update", "level": "level_test", "score": "5"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 O/pAkZcvlyERCdyg837gLPHHFoDkj1Iyjjmx4kANIJw=:1Kc9B70a8CQ1MubbDAfCkkjc+sWudZvXtFY8L5JaO4M=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '67'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 27 Apr 2020 08:10:48 GMT
+      User-Agent:
+      - python-requests/2.23.0
+    method: PUT
+    uri: https://localhost/api/v3/security_issues/2
+  response:
+    body:
+      string: '{"error":{"code":400,"status":"Bad Request","message":"''level_test''
+        is not a valid level"}}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 27 Apr 2020 08:10:49 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - a834b49b-5339-43ec-a7f6-8d65e518ceca
+      X-Runtime:
+      - '0.095105'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 400
+      message: Bad Request
+version: 1

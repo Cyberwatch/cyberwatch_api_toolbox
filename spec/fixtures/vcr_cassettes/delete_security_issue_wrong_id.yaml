@@ -1,0 +1,65 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 O/pAkZcvlyERCdyg837gLPHHFoDkj1Iyjjmx4kANIJw=:dhxin22DUAxdgYgCpf75sBZ4r3X6DL6+iHf+D9l8Krw=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Date:
+      - Mon, 27 Apr 2020 08:06:04 GMT
+      User-Agent:
+      - python-requests/2.23.0
+    method: DELETE
+    uri: https://localhost/api/v3/security_issues/wrong_id
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAw3KPQrCQBAG0KssX7NNCotUC1aCYGPjASRkxjigOzA/hBByd33128Fmamg7ZiVG
+        G0/jAI8p0tFw1yhXzU4Y8GX3afkXXDQ/1GuUl3QqD57TJLabe3JZJd6lCtXzatqXpxCO4weIw/TL
+        ZgAAAA==
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 27 Apr 2020 08:06:04 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 038f029a-2613-4638-8af8-82731d7e7ad8
+      X-Runtime:
+      - '0.074672'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
+version: 1
