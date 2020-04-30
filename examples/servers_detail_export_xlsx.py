@@ -39,11 +39,11 @@ for server in SERVERS_LIST:
 
     COMPUTER.write(ROW, COL + 2, "Groups")
     if server.groups:
-        group_name = ""
+        GROUPE_NAME = ""
         for group in server.groups:
-            group_name += group.name + ", "
-        group_name = group_name[:-1]
-        COMPUTER.write(ROW + 1, COL + 2, group_name)
+            GROUPE_NAME += group.name + ", "
+        GROUPE_NAME = GROUPE_NAME[:-1]
+        COMPUTER.write(ROW + 1, COL + 2, GROUPE_NAME)
 
     COMPUTER.write(ROW, COL + 3, "Status")
     COMPUTER.write(ROW + 1, COL + 3, server.status["comment"])
@@ -132,11 +132,10 @@ for server in SERVERS_LIST:
         SECURITY.write(ROW + 1, COL + 3, security_announcement["created_at"])
         SECURITY.write(ROW + 1, COL + 4, security_announcement["updated_at"])
 
-        cve_code_list = ""
         for cve in security_announcement["cve_announcements"]:
-            cve_code_list += cve["cve_code"] + ", "
-        cve_code_list = cve_code_list[:-1]
-        SECURITY.write(ROW + 1, COL + 1, cve_code_list)
+            CVE_CODE_LIST += cve["cve_code"] + ", "
+        CVE_CODE_LIST = CVE_CODE_LIST[:-1]
+        SECURITY.write(ROW + 1, COL + 1, CVE_CODE_LIST)
 
         ROW += 1
     ROW += 2
@@ -155,12 +154,11 @@ for server in SERVERS_LIST:
     RECOMMENDED.write(ROW, COL + 4, "Target version")
 
     for update in server.updates:
-        cve_code_list = ""
         for cve in update["cve_announcements"]:
-            cve_code_list += cve["cve_code"] + ", "
-        cve_code_list = cve_code_list[:-1]
+            CVE_CODE_LIST += cve["cve_code"] + ", "
+        CVE_CODE_LIST = CVE_CODE_LIST[:-1]
         RECOMMENDED.write(ROW + 1, COL, update["current"]["product"])
-        RECOMMENDED.write(ROW + 1, COL + 1, cve_code_list)
+        RECOMMENDED.write(ROW + 1, COL + 1, CVE_CODE_LIST)
         RECOMMENDED.write(ROW + 1, COL + 2, update["patchable"])
         RECOMMENDED.write(ROW + 1, COL + 3, update["current"]["version"])
         RECOMMENDED.write(ROW + 1, COL + 4, update["target"]["version"])

@@ -26,12 +26,12 @@ for server in SERVERS:
         worksheet.write(0, 0, "Application")
         worksheet.write(0, 1, "Version")
 
-        row = 1
-        col = 0
+        ROW = 1
+        COL = 0
 
         for application in server.applications:
-            worksheet.write(row, col, application.product)
-            worksheet.write(row, col + 1, application.version)
-            row += 1
+            worksheet.write(ROW, COL, application.product)
+            worksheet.write(ROW, COL + 1, application.version)
+            Row += 1
 
 EXPORTED.close()
