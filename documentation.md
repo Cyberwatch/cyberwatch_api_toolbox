@@ -65,7 +65,7 @@ Send a GET request `/api/v3/agents` to retrieve the list of all agents.
 ###### Usage example and expected result:
 
 ```python
->>> CBWApi(URL, API_KEY, SECRET_KEY).agent()
+>>> CBWApi(URL, API_KEY, SECRET_KEY).agents()
 [<cbw_api_toolbox.cbw_objects.cbw_agent.CBWAgent...]
 ```
 
