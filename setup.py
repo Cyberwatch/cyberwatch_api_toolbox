@@ -4,7 +4,7 @@ setup(
     name='cbw-api-toolbox',
     description='CyberWatch Api Tools.',
     long_description=open('README.md').read().strip(),
-    version='1.1.0',
+    version='1.1.1',
     author='CyberWatch SAS',
     author_email='support-it+api@cyberwatch.fr',
     license='MIT',
