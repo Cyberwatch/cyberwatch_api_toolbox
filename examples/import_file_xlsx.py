@@ -8,7 +8,7 @@ CONF = ConfigParser()
 CONF.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'api.conf'))
 XLSX = CBWXlsx(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key'), CONF.get('cyberwatch', 'secret_key'))
 
-FILE_XLSX = 'examples/import_file.xlsx'
+FILE_XLSX = 'import_file.xlsx'
 
 RESPONSE = XLSX.import_remote_accesses_xlsx(FILE_XLSX)
 
