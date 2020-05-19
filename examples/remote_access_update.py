@@ -10,14 +10,12 @@ CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key')
 
 INFO = {"address": "", #mandatory, precises the IP address or the domain name of the targeted computer
         "node_id": "", #precises the Cyberwatch source of the connection
-        "server_groups": "", #precise the groups to be changed to the computer ("group" or "groupA,groupB,groupC"...)
         "priv_password": "", #for SNMP, encryption password allowing to connect to the computer.
         "auth_password": "", #for SNMP, authentication password allowing to connect to the computer.
         "port": "", #mandatory, precises the port of the connection
         "login": "", #precises the login of the connection
         "password": "", #precises the password of the connection
         "key": "", #precises the key of the connection
-        "node": "" #precises the Cyberwatch source of the connection
         }
 
 REMOTE_ACCESS_ID = ''

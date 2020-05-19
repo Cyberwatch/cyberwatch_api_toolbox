@@ -14,8 +14,6 @@ INFO = {
     "category": '',
     "description": "",
     "criticality": '',          #(ex: 'criticality_low, criticality_medium, etc')
-    "deploying_period": "",
-    "ignoring_policy": "",
     "compliance_groups": [],    # An array of of the compliance groups IDs you want to set on your
                                 # server split by ',' (ex: [13, 20])
 
