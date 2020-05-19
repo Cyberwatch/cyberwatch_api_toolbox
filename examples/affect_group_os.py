@@ -16,7 +16,7 @@ MAC_OS = ['Macos']
 
 def build_groups_list(server_id, system_os):
     """Create list with system_os + other groups of server"""
-    server = CLIENT.server(server_id)
+    server = CLIENT.server(str(server_id))
     server_groups = [system_os]
     if server.groups:
         for group in server.groups:
@@ -34,4 +34,4 @@ for server_item in CLIENT.servers():
         else:
             OS = "Other"
     groups_list = build_groups_list(server_item.id, OS)
-    CLIENT.update_server(server_item.id, {'groups': ",".join(groups_list)})
+    CLIENT.update_server(str(server_item.id), {'groups': ",".join(groups_list)})

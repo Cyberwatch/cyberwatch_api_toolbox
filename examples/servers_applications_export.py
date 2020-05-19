@@ -16,7 +16,7 @@ SERVERS = CLIENT.servers()
 EXPORTED = xlsxwriter.Workbook('cbw_export_servers_applications.xlsx')
 
 for server in SERVERS:
-    server = CLIENT.server(server.id)
+    server = CLIENT.server(str(server.id))
 
     if server and server.applications:
         print("Export applications for {0}".format(server.hostname))

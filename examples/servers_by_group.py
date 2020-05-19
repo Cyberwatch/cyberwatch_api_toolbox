@@ -16,7 +16,7 @@ CATEGORY_BY_GROUPS = {}
 
 # append each server to a group by category dict
 for server in SERVERS:
-    server = CLIENT.server(server.id)
+    server = CLIENT.server(str(server.id))
 
     for group in server.groups:
         if group.name not in CATEGORY_BY_GROUPS:
