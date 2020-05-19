@@ -340,8 +340,8 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | applications              | Object        | List of the computer's applications|                                                  |
 | boot_at                   | Date          | Date of the computer boot         | 2016-05-30T09:54:58.000+02:00                     |
 | category                  | String        | Computer's category               | server                                            |
-| created_at                | Date          | Date of the computer creation     | 2019-06-26T09:46:58.000+02:00
-| criticality               | String        | Computer's criticality            | criticality_medium                                |
+| created_at                | Date          | Date of the computer creation     | 2019-06-26T09:46:58.000+02:00                     |
+| environment               | String        | Computer's environment            | [Environment](#Environment)                       |
 | cve_announcements         | Object        | List of CVEs affecting the computer| [Cve](#Cve)                                      |
 | cve_announcements_count   | Int           | Number of CVEs                    | 3                                                 |    
 | deploying_period          | Object        | Computer's deploying period       | [Deploying Period](#Deploying-period)             |
@@ -570,3 +570,12 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | score                     | Int           | Score of the security issue       | 8                                                 |
 | title                     | String        | Title of the security issue       | "SEC_ISSUE 01"                                    |
 | type                      | String        | Type of the security issue        | "SecurityIssues::Custom"                          |
+
+### Environment
+
+| Attribute                 | Type          | Description                       | Example of possible value                         |
+|---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
+| id                        | Int           | Environment id                    | 1                                                 |
+| confidentiality_requirement| String       | Level of confidentiality requirement| "confidentiality_requirement_medium"            |
+| integrity_requirement     | String        | Level of integrity requirement    | "integrity_requirement_medium"                    |
+| availability_requirement  | String        | Level of availability_requirement | "availability_requirement_medium"                 |

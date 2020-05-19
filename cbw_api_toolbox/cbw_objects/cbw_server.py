@@ -58,7 +58,7 @@ class CBWServer:
                  category="",
                  compliance_groups=None,
                  created_at="",
-                 criticality="",
+                 environment=None,
                  cve_announcements=None,
                  cve_announcements_count=0,
                  deploying_period=None,
@@ -84,7 +84,7 @@ class CBWServer:
         self.compliance_groups = [CBWParser().parse(CBWGroup, group) for group in
                                   compliance_groups] if compliance_groups else []
         self.created_at = created_at
-        self.criticality = criticality
+        self.environment = environment
         self.cve_announcements = [CBWParser().parse(CBWCve, cve) for cve in
                                   cve_announcements] if cve_announcements else []
         self.cve_announcements_count = cve_announcements_count
