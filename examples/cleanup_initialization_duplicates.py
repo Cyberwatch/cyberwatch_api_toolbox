@@ -46,7 +46,7 @@ def find_agents(servers, when):
     agents_date = (datetime.today() - relativedelta(months=+when))
     for server in sorted(servers, key=lambda x: (x.hostname is None, x.hostname)):
         if server.created_at is not None and server.created_at != '':
-            if server.status.lower() == 'initialization' \
+            if server.status.lower() == 'server_update_init' \
                     and datetime.strptime(server.created_at[:10], '%Y-%m-%d') < agents_date:
                 agents.append(server)
         else:
@@ -62,7 +62,7 @@ def find_agentless(servers, when):
     agentless_date = (datetime.today() - relativedelta(months=+when))
     for server in sorted(servers, key=lambda x: (x.hostname is None, x.hostname)):
         if server.created_at is not None and server.created_at != '':
-            if server.status['comment'].lower() == 'initialization' \
+            if server.status.lower() == 'server_update_init' \
                     and datetime.strptime(server.created_at[:10], '%Y-%m-%d') < agentless_date:
                 agentless.append(server)
         else:
@@ -91,13 +91,13 @@ def find_all(servers, agents_time, agentless_time):
         if server.created_at is not None and server.created_at != '':
             agentless_date = (datetime.today() - relativedelta(months=+agentless_time))
             # Find agentless in initialization for more than X months
-            if server.status.lower() == 'initialization' \
+            if server.status.lower() == 'server_update_init' \
                     and datetime.strptime(server.created_at[:10], '%Y-%m-%d') < agentless_date:
                 agentless.append(server)
 
             agents_date = (datetime.today() - relativedelta(months=+agents_time))
             # Find agents in initialization for more than X months
-            if server.status.lower() == 'initialization'\
+            if server.status.lower() == 'server_update_init'\
                     and datetime.strptime(server.created_at[:10], '%Y-%m-%d') < agents_date:
                 agents.append(server)
 
@@ -112,8 +112,9 @@ def display_and_delete(delete_list, what, delete=False):
                                                                                                 what,
                                                                                                 delete))
     for delete_server in delete_list:
-        print('{} --- {} --- {} --- {}'.format(delete_server.id, delete_server.hostname,
-                                               delete_server.cve_announcements_count, delete_server.created_at))
+        print('{} --- {} --- {} --- {}'.format(delete_server.id, delete_server.hostname, \
+                    delete_server.cve_announcements_count, delete_server.created_at))
+
         if delete is True:
             API.delete_server(delete_server.id)
 
