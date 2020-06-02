@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 RPOaKLnkOfqnz1gSaZnnmapjU3dcTJoJyDrDWUI2y8Y=:DIszz0HYXkPJ4PQzc0oF1cGMaZw/or3rbCh4fV8btD0=
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 02 Jun 2020 14:43:47 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: https://localhost/api/v2/cbw_scans/scripts/1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7VV207bQBD9lZWLVKISK3EgwEp9SIIpViG2fCFC3Spa25PiytlN7TEUIf6949ih
+        lJuQUJ+8Hu/MOXN8dvbWyFKD93cMvFmBwY0gKbIVlpzPMpXqa1o4aqGbqLFjJFohKCxp5wc28hyW
+        SgTGmdWzet3esNuzWH/Idwd8d599olhPKKFmRYbQdStcVciE4RzZ09A5dmx/Hkx8xwt5Xxiv7Tpx
+        g3A6OrP51va34KZEWJpTQPNIld85/wJ4okucyiVsdzqvF2rg5ue2HzjulDgmB4PhPvSTQyvd6y1k
+        enBwuDsYWou9pHcIh/EChnuw37ekjK3UGiwWcTzsw2BvF6z9XprWYB9Yw+gJ7PtIj/zJCWVu2dNz
+        7vnuxA4C15/XUSe0J2Hk2+usGt/T11CUl5Dn7IoWmX6qeHARbHqmml553uwLZZyD6QXtq3kmf+ri
+        vu4sGr1YkL79LbhN3XQdatAr9AoKvGFdT+IlbSMwUFf8mqyUUWHR6DCwhLiuZAXqh5nmuTA6Zsug
+        tppJVdIqwTZ0T8cNmFcAUvVaNaG2dDlXtGKfGRY37JatacyWmRv/hAQZ+XdgzV0iJDFTPxrojjmR
+        K6Sy7I4lEpNLyvs41ciOdaXSj+zuSaduMPd8Owwv2n+5gX3Ia1xleUqM4vo5V9UyhoJoPacM+eLr
+        6RknKdzjcDbybSHOsqTQpV6gEO2ZY9NQiElVFHTSWhlqkdrIGq1DcFX8P1Cisd95ToVx5Jwe8X96
+        NGsKD3Q4f8EtlP2aW97D1occZAlOev8/fIi1RpKnWC/mBfyqsgJSkiqEEjfWfAPkE7zNh2hVTz0h
+        RhVqtnlpcP0W7Zkj7dtj1w1rCz1idk89Imu21ia2b/IzbV5PYPKBLs2JVnRiMdRHFAupVm1X81Qn
+        Mt9E6owa/fUMWeKYNkWrNuVRK5EXOs1kcxR+324odNm6cMcMNco8ALoq0rLt7fE8iib1ROPNtcIS
+        vVzlgI1qQsHvDBldHHTdSESZXMKSfoLBVZXnO0Y7kugCeu/4Nu7+AAJo63n9BgAA
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 02 Jun 2020 14:43:48 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-MiniProfiler-Ids:
+      - lnvv56puaiuu7hegnkg2,y38h0q9tsba0q9u2bz04
+      X-MiniProfiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 0d58d974-bc80-40d5-9784-69bcd303ca54
+      X-Runtime:
+      - '0.153151'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
