@@ -14,6 +14,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_AGENTS
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
 from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_HOSTS
+from cbw_api_toolbox.__routes__ import ROUTE_IMPORTER
 from cbw_api_toolbox.__routes__ import ROUTE_NODES
 from cbw_api_toolbox.__routes__ import ROUTE_PING
 from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
@@ -25,6 +26,7 @@ from cbw_api_toolbox.cbw_objects.cbw_agent import CBWAgent
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_host import CBWHost
+from cbw_api_toolbox.cbw_objects.cbw_importer import CBWImporter
 from cbw_api_toolbox.cbw_objects.cbw_node import CBWNode
 from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
 from cbw_api_toolbox.cbw_objects.cbw_security_issue import CBWSecurityIssue
@@ -461,3 +463,21 @@ class CBWApi: # pylint: disable=R0904
             return None
 
         return CBWParser().parse_response(CBWSecurityIssue, response)
+
+    def fetch_importer_scripts(self, params=None):
+        """GET request to /api/v2/cbw_scans/scripts to get a list of all Importer scanning scripts"""
+        response = self._request("GET", [ROUTE_IMPORTER], params)
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWImporter, response)
+
+    def fetch_importer_script(self, script_id):
+        """GET request to /api/v2/cbw_scans/scripts/{SCRIPT_ID} to get a specific Importer scanning script"""
+        response = self._request("GET", [ROUTE_IMPORTER, script_id])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWImporter, response)

@@ -5,6 +5,7 @@ from cbw_api_toolbox.cbw_objects.cbw_agent import CBWAgent
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
 from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
 from cbw_api_toolbox.cbw_objects.cbw_host import CBWHost
+from cbw_api_toolbox.cbw_objects.cbw_importer import CBWImporter
 from cbw_api_toolbox.cbw_objects.cbw_node import CBWNode
 from cbw_api_toolbox.cbw_objects.cbw_security_issue import CBWSecurityIssue
 from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
@@ -531,3 +532,12 @@ class TestCBWApi:
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_security_issue_wrong_id.yaml'):
             response = client.delete_security_issue('wrong_id')
             assert isinstance(response, CBWSecurityIssue) is False
+
+    @staticmethod
+    def test_fetch_importer_scripts():
+        """Tests for method importer"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/fetch_importer_script.yaml'):
+            response = client.fetch_importer_script('1')
+            assert isinstance(response, CBWImporter) is True
