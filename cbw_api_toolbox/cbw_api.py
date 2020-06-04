@@ -481,3 +481,12 @@ class CBWApi: # pylint: disable=R0904
             return None
 
         return CBWParser().parse_response(CBWImporter, response)
+
+    def upload_importer_results(self, content):
+        """POST request to /api/v2/cbw_scans/scripts to upload scanning script result"""
+        response = self._request("POST", [ROUTE_IMPORTER], content)
+        if response.status_code != 204:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return response
