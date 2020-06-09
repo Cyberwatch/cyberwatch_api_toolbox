@@ -27,11 +27,6 @@ def clean_directory():
             shutil.rmtree(os.path.dirname(__file__) + '/Scripts')
         except OSError as error:
             print("Error: %s - %s." % (error.filename, error.strerror))
-    if os.path.exists(os.path.dirname(__file__) + '/Uploads'):
-        try:
-            shutil.rmtree(os.path.dirname(__file__) + '/Uploads')
-        except OSError as error:
-            print("Error: %s - %s." % (error.filename, error.strerror))
 
 
 def make_directory(scripts):
