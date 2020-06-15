@@ -1,8 +1,5 @@
 """Security issues Model"""
 
-from cbw_api_toolbox.cbw_parser import CBWParser
-from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
-
 class CBWSecurityIssue:
     """Security issues Model"""
 
@@ -19,8 +16,7 @@ class CBWSecurityIssue:
                  **kwargs): # pylint: disable=unused-argument
         self.id = id # pylint: disable=redefined-builtin, C0103
         self.sid = sid
-        self.cve_announcements = [CBWParser().parse(CBWCve, cve) for cve in
-                                  cve_announcements] if cve_announcements else []
+        self.cve_announcements = cve_announcements if cve_announcements else []
         self.level = level
         self.description = description
         self.title = title

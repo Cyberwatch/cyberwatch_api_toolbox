@@ -565,7 +565,7 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | sid                       | String        | SID of the security issue         | Security_Issue_1                                  |
 | description               | String        | Description of the security issue |  "security issue description"                     |
 | level                     | String        | Severity of the security issue    | level_critical                                    |
-| cve_announcements         | Object        | List of CVEs related to the SI    | [Cve](#Cve)                                       |
+| cve_announcements         | Object        | List of CVEs related to the SI    | [CVE-2018-20976, CVE-2019-3400]                   |
 | servers                   | Object        |  List of servers related to the SI| [Server](#Server-object)                          |    
 | score                     | Int           | Score of the security issue       | 8                                                 |
 | title                     | String        | Title of the security issue       | "SEC_ISSUE 01"                                    |
