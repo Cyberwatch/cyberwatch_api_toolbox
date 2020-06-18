@@ -455,7 +455,7 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | last_modified             | String        | Last modification date of the CVE by the authorities| "2019-04-26T16:45:22.000+02:00" |
 | published                 | String        | Publication date of the CVE by the authorities| "2019-04-09T23:29:03.000+02:00"       |
 | updated_at                | String (date) | Last modification date of the CVE in Cyberwatch| "2019-04-29T09:33:37.000+02:00"      |
-| exploitable               | Boolean       | Boolean checking whether an exploit was found for this specific CVE| True             |
+| exploit_code_maturity     | String        | String about whether an exploit was found for this specific CVE| Unproven             |
 | servers                   | List          | List of affected servers and their attributes for this CVE|[{'active': True, 'comment': None, 'fixed_at': None, 'ignored': False, 'server': [Server](#Server)}] |
 
 > **Note:** not every attributes of the server object is sent back, for example, the "updates" attribute only contains updates fixing the current CVE and not every available fixes for the server.
