@@ -136,6 +136,16 @@ class CBWApi: # pylint: disable=R0904
 
         return CBWParser().parse_response(CBWServer, response)
 
+    def server_refresh(self, server_id):
+        """PUT request to /api/v3/server/{server_id}/refresh to relaunch analysis
+        script on a specific server"""
+        response = self._request("PUT", [ROUTE_SERVERS, server_id, 'refresh'])
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWServer, response)
+
     def update_server(self, server_id, info):
         """PATCH request to /api/v3/servers/SERVER_ID to update the groups of a server"""
         if server_id:
