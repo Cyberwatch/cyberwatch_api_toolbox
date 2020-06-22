@@ -162,6 +162,15 @@ class CBWApi: # pylint: disable=R0904
         logging.error("No server id for update")
         return False
 
+    def server_schedule_updates(self, server_id, params=None):
+        """POST request to /api/v3/server/<server_id>/updates to install fixes"""
+        response = self._request("POST", [ROUTE_SERVERS, server_id, "updates"], params)
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return CBWParser().parse_response(CBWServer, response)
+
     def delete_server(self, server_id):
         """DELETE request to /api/v3/servers/SERVER_ID to delete a specific server"""
         if server_id:
