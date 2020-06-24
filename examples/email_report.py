@@ -34,10 +34,11 @@ def retrieve_api_informations():
     all_cves_filter = {"active": "true"}
     all_cves = client.cve_announcements(all_cves_filter)
 
-    critical_with_exploit_filter = {"exploitable": "true", "active": "true", "level": "level_critical"}
+    critical_with_exploit_filter = {"exploit_code_maturity": ["proof_of_concept"],
+                                    "active": "true", "level": "level_critical"}
     critical_cves = client.cve_announcements(critical_with_exploit_filter)
 
-    high_with_exploit_filter = {"exploitable": "true", "active": "true", "level": "level_high"}
+    high_with_exploit_filter = {"exploit_code_maturity": ["high"], "active": "true", "level": "level_high"}
     high_cves = client.cve_announcements(high_with_exploit_filter)
 
     mail_content = """

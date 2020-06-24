@@ -89,7 +89,7 @@ for server in SERVERS_LIST:
         VULNERABILITIES.write(ROW + 1, COL, cve.cve_code)
         VULNERABILITIES.write(ROW + 1, COL + 1, cve.score_v3)
         VULNERABILITIES.write(ROW + 1, COL + 2, cve.score_v2)
-        VULNERABILITIES.write(ROW + 1, COL + 3, cve.exploitable)
+        VULNERABILITIES.write(ROW + 1, COL + 3, cve.exploit_code_maturity)
         VULNERABILITIES.write(ROW + 1, COL + 4, cve.content)
 
         if cve.cvss_v2 is not None:
