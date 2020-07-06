@@ -43,6 +43,8 @@ class CBWCve:
         self.published = published
         self.updated_at = updated_at
         self.exploit_code_maturity = exploit_code_maturity
+        self.fixed_at = kwargs.get("fixed_at", "")
+        self.ignored = kwargs.get("ignored", "")
         self.servers = [{"server": CBWParser().parse(CBWServer, server),
                          "active": server["active"], "ignored": server["ignored"],
                          "comment": server["comment"], "fixed_at": server["fixed_at"]}
