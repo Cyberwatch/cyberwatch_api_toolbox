@@ -1,7 +1,9 @@
 """
 Example of sending data to qradar.
-Documentation related to the script is available in Cyberwatch:
-https://[CYBERWATCH_URL]/help/en/5_connect_cyberwatch_third_party/import_data_siem.md
+Please provide a qradar url in your api.conf file using this format: 
+
+[qradar]
+url = http://[QRADAR_URL]:[HTTP_RECEIVER_PORT]
 """
 
 import os
