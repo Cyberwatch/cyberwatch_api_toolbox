@@ -421,12 +421,10 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 
 | Attribute                 | Type          | Description                       | Example of possible value                         |
 |---------------------------|:-------------:|:---------------------------------:|---------------------------------------------------|
-| created_at                | String (date) | Creation date in Cyberwatch       | "2019-04-08T02:00:00.000+02:00"                   |
-| cve_code                  | String        | CVE Code                          | "CVE-2019-3842"                                   |
+| level                     | String        | Severity of the security announcement| "level_critical"                               |
 | link                      | String        | URL of the security announcement  | "https://usn.ubuntu.com/3938-1"                   |
 | sa_code                   | String        | Security announcement code        | "USN-3938-1"                                      |
 | type                      | String        | Security announcement type in Cyberwatch| "SecurityAnnouncements::Ubuntu"             |
-| updated_at                | String (date) | Last modification date in Cyberwatch| "2019-04-10T09:20:07.000+02:00"                 |
 
 #### Update
 
@@ -450,6 +448,7 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | cvss_v2                   | Object        | CVSS v2 metrics object               | [CVSS v2](#CVSS_v2)                            |
 | cvss_v3                   | Object        | CVSS v3 metrics object               | [CVSS v3](#CVSS_v3)                            |
 | level                     | String        | CVSS Score level                  | "level_medium"                                    |
+| security_announcements    | Object        |  List of security announcements   | [Security Announcement](#security-announcement)   |    
 | score                     | Float         | CVE score (CVSS v2 or v3, depends on options) | 4.4                                   |
 | score_v2                  | Float         | CVE score from CVSS v2            | 4.4                                               |
 | score_v3                  | Float         | CVE score from CVSS v3            | 4.4                                               |
