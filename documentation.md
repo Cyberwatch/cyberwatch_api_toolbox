@@ -343,7 +343,8 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | created_at                | Date          | Date of the computer creation     | 2019-06-26T09:46:58.000+02:00                     |
 | environment               | String        | Computer's environment            | [Environment](#Environment)                       |
 | cve_announcements         | Object        | List of CVEs affecting the computer| [Cve](#Cve)                                      |
-| cve_announcements_count   | Int           | Number of CVEs                    | 3                                                 |    
+| cve_announcements_count   | Int           | Number of CVEs                    | 3                                                 |
+| prioritized_cve_announcements_count | Int | Number prioritized of CVEs        | 4                                                 |
 | deploying_period          | Object        | Computer's deploying period       | [Deploying Period](#Deploying-period)             |
 | description               | String        | Computer's description            | "production machine"                              |
 | groups                    | Object        | Computer's groups                 | [Group](#Group)                                   |
@@ -456,7 +457,7 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | published                 | String        | Publication date of the CVE by the authorities| "2019-04-09T23:29:03.000+02:00"       |
 | updated_at                | String (date) | Last modification date of the CVE in Cyberwatch| "2019-04-29T09:33:37.000+02:00"      |
 | exploit_code_maturity     | String        | String about whether an exploit was found for this specific CVE| Unproven             |
-| servers                   | List          | List of affected servers and their attributes for this CVE|[{'active': True, 'comment': None, 'fixed_at': None, 'ignored': False, 'server': [Server](#Server)}] |
+| servers                   | List          | List of affected servers and their attributes for this CVE|[{'active': True, 'comment': None, 'fixed_at': None, 'ignored': False, 'prioritized': True, 'server': [Server](#Server-object)}] |
 
 > **Note:** not every attributes of the server object is sent back, for example, the "updates" attribute only contains updates fixing the current CVE and not every available fixes for the server.
 
