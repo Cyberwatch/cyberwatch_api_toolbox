@@ -5,7 +5,7 @@ setup(
     description='CyberWatch Api Tools.',
     long_description=open('README.md').read().strip(),
     long_description_content_type="text/markdown",
-    version='1.1.2',
+    version='2.0.0',
     author='CyberWatch SAS',
     author_email='support-it+api@cyberwatch.fr',
     license='MIT',

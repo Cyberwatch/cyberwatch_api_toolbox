@@ -24,7 +24,7 @@ RECOMMENDED = EXPORTED.add_worksheet("Recommended Actions")
 # Build a list with each server and it's details
 SERVERS_LIST = []
 for server in SERVERS:
-    server = CLIENT.server(server.id)
+    server = CLIENT.server(str(server.id))
     SERVERS_LIST.append(server)
 
 ROW = 0
@@ -35,7 +35,7 @@ for server in SERVERS_LIST:
     COMPUTER.write(ROW + 1, COL, server.hostname)
 
     COMPUTER.write(ROW, COL + 1, "OS")
-    COMPUTER.write(ROW + 1, COL + 1, server.os["name"])
+    COMPUTER.write(ROW + 1, COL + 1, server.os.name)
 
     COMPUTER.write(ROW, COL + 2, "Groups")
     if server.groups:
@@ -46,10 +46,10 @@ for server in SERVERS_LIST:
         COMPUTER.write(ROW + 1, COL + 2, GROUPE_NAME)
 
     COMPUTER.write(ROW, COL + 3, "Status")
-    COMPUTER.write(ROW + 1, COL + 3, server.status["comment"])
+    COMPUTER.write(ROW + 1, COL + 3, server.status)
 
-    COMPUTER.write(ROW, COL + 4, "Criticality")
-    COMPUTER.write(ROW + 1, COL + 4, server.criticality)
+    COMPUTER.write(ROW, COL + 4, "Environment")
+    COMPUTER.write(ROW + 1, COL + 4, server.environment.name)
 
     COMPUTER.write(ROW, COL + 5, "Category")
     COMPUTER.write(ROW + 1, COL + 5, server.category)
@@ -91,24 +91,23 @@ for server in SERVERS_LIST:
         VULNERABILITIES.write(ROW + 1, COL + 2, cve.score_v2)
         VULNERABILITIES.write(ROW + 1, COL + 3, cve.exploit_code_maturity)
         VULNERABILITIES.write(ROW + 1, COL + 4, cve.content)
-
-        if cve.cvss_v2 is not None:
-            VULNERABILITIES.write(ROW + 1, COL + 5, cve.cvss_v2["access_vector"])
-            VULNERABILITIES.write(ROW + 1, COL + 6, cve.cvss_v2["access_complexity"])
-            VULNERABILITIES.write(ROW + 1, COL + 7, cve.cvss_v2["authentication"])
-            VULNERABILITIES.write(ROW + 1, COL + 8, cve.cvss_v2["availability_impact"])
-            VULNERABILITIES.write(ROW + 1, COL + 9, cve.cvss_v2["confidentiality_impact"])
-            VULNERABILITIES.write(ROW + 1, COL + 10, cve.cvss_v2["integrity_impact"])
+        if cve.cvss is not None:
+            VULNERABILITIES.write(ROW + 1, COL + 5, cve.cvss.access_vector)
+            VULNERABILITIES.write(ROW + 1, COL + 6, cve.cvss.access_complexity)
+            VULNERABILITIES.write(ROW + 1, COL + 7, cve.cvss.authentication)
+            VULNERABILITIES.write(ROW + 1, COL + 8, cve.cvss.availability_impact)
+            VULNERABILITIES.write(ROW + 1, COL + 9, cve.cvss.confidentiality_impact)
+            VULNERABILITIES.write(ROW + 1, COL + 10, cve.cvss.integrity_impact)
 
         if cve.cvss_v3 is not None:
-            VULNERABILITIES.write(ROW + 1, COL + 11, cve.cvss_v3["access_vector"])
-            VULNERABILITIES.write(ROW + 1, COL + 12, cve.cvss_v3["access_complexity"])
-            VULNERABILITIES.write(ROW + 1, COL + 13, cve.cvss_v3["privilege_required"])
-            VULNERABILITIES.write(ROW + 1, COL + 14, cve.cvss_v3["user_interaction"])
-            VULNERABILITIES.write(ROW + 1, COL + 15, cve.cvss_v3["integrity_impact"])
-            VULNERABILITIES.write(ROW + 1, COL + 16, cve.cvss_v3["availability_impact"])
-            VULNERABILITIES.write(ROW + 1, COL + 17, cve.cvss_v3["confidentiality_impact"])
-            VULNERABILITIES.write(ROW + 1, COL + 18, cve.cvss_v3["scope"])
+            VULNERABILITIES.write(ROW + 1, COL + 11, cve.cvss_v3.access_vector)
+            VULNERABILITIES.write(ROW + 1, COL + 12, cve.cvss_v3.access_complexity)
+            VULNERABILITIES.write(ROW + 1, COL + 13, cve.cvss_v3.privileges_required)
+            VULNERABILITIES.write(ROW + 1, COL + 14, cve.cvss_v3.user_interaction)
+            VULNERABILITIES.write(ROW + 1, COL + 15, cve.cvss_v3.integrity_impact)
+            VULNERABILITIES.write(ROW + 1, COL + 16, cve.cvss_v3.availability_impact)
+            VULNERABILITIES.write(ROW + 1, COL + 17, cve.cvss_v3.confidentiality_impact)
+            VULNERABILITIES.write(ROW + 1, COL + 18, cve.cvss_v3.scope)
 
         ROW += 1
     ROW += 2
@@ -127,13 +126,13 @@ for server in SERVERS_LIST:
     SECURITY.write(ROW, COL + 4, "Updated date")
 
     for security_announcement in server.security_announcements:
-        SECURITY.write(ROW + 1, COL, security_announcement["sa_code"])
-        SECURITY.write(ROW + 1, COL + 2, security_announcement["link"])
-        SECURITY.write(ROW + 1, COL + 3, security_announcement["created_at"])
-        SECURITY.write(ROW + 1, COL + 4, security_announcement["updated_at"])
+        SECURITY.write(ROW + 1, COL, security_announcement.sa_code)
+        SECURITY.write(ROW + 1, COL + 2, security_announcement.link)
+        SECURITY.write(ROW + 1, COL + 3, security_announcement.created_at)
+        SECURITY.write(ROW + 1, COL + 4, security_announcement.updated_at)
 
-        for cve in security_announcement["cve_announcements"]:
-            CVE_CODE_LIST += cve["cve_code"] + ", "
+        for cve in security_announcement.cve_announcements:
+            CVE_CODE_LIST += cve.cve_code + ", "
         CVE_CODE_LIST = CVE_CODE_LIST[:-1]
         SECURITY.write(ROW + 1, COL + 1, CVE_CODE_LIST)
 
@@ -154,14 +153,14 @@ for server in SERVERS_LIST:
     RECOMMENDED.write(ROW, COL + 4, "Target version")
 
     for update in server.updates:
-        for cve in update["cve_announcements"]:
-            CVE_CODE_LIST += cve["cve_code"] + ", "
+        for cve in update.cve_announcements:
+            CVE_CODE_LIST += cve.cve_code + ", "
         CVE_CODE_LIST = CVE_CODE_LIST[:-1]
-        RECOMMENDED.write(ROW + 1, COL, update["current"]["product"])
+        RECOMMENDED.write(ROW + 1, COL, update.current.product)
         RECOMMENDED.write(ROW + 1, COL + 1, CVE_CODE_LIST)
-        RECOMMENDED.write(ROW + 1, COL + 2, update["patchable"])
-        RECOMMENDED.write(ROW + 1, COL + 3, update["current"]["version"])
-        RECOMMENDED.write(ROW + 1, COL + 4, update["target"]["version"])
+        RECOMMENDED.write(ROW + 1, COL + 2, update.patchable)
+        RECOMMENDED.write(ROW + 1, COL + 3, update.current.version)
+        RECOMMENDED.write(ROW + 1, COL + 4, update.target.version)
 
         ROW += 1
     ROW += 2

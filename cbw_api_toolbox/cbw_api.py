@@ -4,6 +4,7 @@ import json
 import logging
 import sys
 
+from collections import namedtuple
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
 import requests
@@ -22,18 +23,6 @@ from cbw_api_toolbox.__routes__ import ROUTE_SECURITY_ISSUES
 from cbw_api_toolbox.__routes__ import ROUTE_SERVERS
 from cbw_api_toolbox.__routes__ import ROUTE_USERS
 from cbw_api_toolbox.cbw_auth import CBWAuth
-from cbw_api_toolbox.cbw_objects.cbw_agent import CBWAgent
-from cbw_api_toolbox.cbw_objects.cbw_server import CBWCve
-from cbw_api_toolbox.cbw_objects.cbw_group import CBWGroup
-from cbw_api_toolbox.cbw_objects.cbw_host import CBWHost
-from cbw_api_toolbox.cbw_objects.cbw_importer import CBWImporter
-from cbw_api_toolbox.cbw_objects.cbw_node import CBWNode
-from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
-from cbw_api_toolbox.cbw_objects.cbw_security_issue import CBWSecurityIssue
-from cbw_api_toolbox.cbw_objects.cbw_server import CBWServer
-from cbw_api_toolbox.cbw_objects.cbw_users import CBWUsers
-from cbw_api_toolbox.cbw_parser import CBWParser
-
 
 class CBWApi: # pylint: disable=R0904
     """Class used to communicate with the CBW API"""
@@ -48,6 +37,14 @@ class CBWApi: # pylint: disable=R0904
 
     def _build_route(self, params):
         return "{0}{1}".format(self.api_url, '/'.join(params))
+
+    def _cbw_parser(self, response):
+        """Parse the response text of an API request"""
+        try:
+            result = json.loads(response.text, object_hook=lambda d: namedtuple('cbw_object', d.keys())(*d.values()))
+        except TypeError:
+            self.logger.error("An error occurred while parsing response")
+        return result
 
     def _request(self, verb, payloads, body_params=None):
         route = self._build_route(payloads)
@@ -71,7 +68,7 @@ class CBWApi: # pylint: disable=R0904
             self.logger.error("An error occurred, please check your API_URL.")
             sys.exit(-1)
 
-    def _get_pages(self, verb, route, params, model):
+    def _get_pages(self, verb, route, params):
         """ Get one or more pages for a method using api v3 pagination """
         response_list = []
 
@@ -87,7 +84,7 @@ class CBWApi: # pylint: disable=R0904
             if response.status_code != 200:
                 logging.error("Error::{}".format(response.text))
                 return None
-            return CBWParser().parse_response(model, response)
+            return self._cbw_parser(response)
 
         response = self._request(verb, route, params)
 
@@ -95,13 +92,13 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        response_list.extend(CBWParser().parse_response(model, response))
+        response_list.extend(self._cbw_parser(response))
 
         while 'next' in response.links:
             next_url = urlparse(response.links['next']['url'])
             params['page'] = parse_qs(next_url .query)['page'][0]
             response = self._request(verb, route, params)
-            response_list.extend(CBWParser().parse_response(model, response))
+            response_list.extend(self._cbw_parser(response))
         return response_list
 
     @staticmethod
@@ -126,7 +123,7 @@ class CBWApi: # pylint: disable=R0904
 
     def servers(self, params=None):
         """GET request to /api/v3/servers to get all servers"""
-        response = self._get_pages("GET", [ROUTE_SERVERS], params, CBWServer)
+        response = self._get_pages("GET", [ROUTE_SERVERS], params)
 
         return response
 
@@ -137,8 +134,7 @@ class CBWApi: # pylint: disable=R0904
         if response.status_code != 200:
             logging.error("Error server id::{}".format(response.text))
             return None
-
-        return CBWParser().parse_response(CBWServer, response)
+        return self._cbw_parser(response)
 
     def server_refresh(self, server_id):
         """PUT request to /api/v3/server/{server_id}/refresh to relaunch analysis
@@ -148,7 +144,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error server id::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWServer, response)
+        return self._cbw_parser(response)
 
     def update_server(self, server_id, info):
         """PATCH request to /api/v3/servers/SERVER_ID to update the groups of a server"""
@@ -169,7 +165,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWServer, response)
+        return self._cbw_parser(response)
 
     def delete_server(self, server_id):
         """DELETE request to /api/v3/servers/SERVER_ID to delete a specific server"""
@@ -188,11 +184,11 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWServer, response)
+        return self._cbw_parser(response)
 
     def agents(self, params=None):
         """GET request to /api/v3/agents to get all agents"""
-        response = self._get_pages("GET", [ROUTE_AGENTS], params, CBWAgent)
+        response = self._get_pages("GET", [ROUTE_AGENTS], params)
         return response
 
     def agent(self, agent_id):
@@ -202,7 +198,7 @@ class CBWApi: # pylint: disable=R0904
         if response.status_code != 200:
             logging.error("Error agent id::{}".format(response.text))
             return None
-        return CBWParser().parse_response(CBWAgent, response)
+        return self._cbw_parser(response)
 
     def delete_agent(self, agent_id):
         """DELETE request to /api/v3/agents/{agent_id} to delete a specific agent"""
@@ -216,7 +212,7 @@ class CBWApi: # pylint: disable=R0904
 
     def remote_accesses(self, params=None):
         """GET request to /api/v3/remote_accesses to get all servers"""
-        response = self._get_pages("GET", [ROUTE_REMOTE_ACCESSES], params, CBWRemoteAccess)
+        response = self._get_pages("GET", [ROUTE_REMOTE_ACCESSES], params)
 
         return response
 
@@ -237,7 +233,7 @@ class CBWApi: # pylint: disable=R0904
 
         if self.verif_response(response):
             logging.info('remote access successfully created {}'.format(info["address"]))
-            return CBWParser().parse_response(CBWRemoteAccess, response)
+            return self._cbw_parser(response)
 
         logging.error("Error create connection remote access")
         return False
@@ -251,7 +247,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("error remote_access_id::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWRemoteAccess, response)
+        return self._cbw_parser(response)
 
     def delete_remote_access(self, remote_access_id):
         """DELETE request to /api/v3/remote_access/{remote_id} to delete a specific remote access"""
@@ -268,7 +264,7 @@ class CBWApi: # pylint: disable=R0904
         if remote_access_id and info:
             response = self._request("PATCH", [ROUTE_REMOTE_ACCESSES, remote_access_id], info)
             logging.debug("Update remote access::{}".format(response.text))
-            return CBWParser().parse_response(CBWRemoteAccess, response)
+            return self._cbw_parser(response)
 
         logging.error("Error update remote access")
         return False
@@ -281,11 +277,11 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error server id::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWCve, response)
+        return self._cbw_parser(response)
 
     def cve_announcements(self, params=None):
         """GET request to /api/v3/cve_announcements to get a list of cve_announcement"""
-        response = self._get_pages("GET", [ROUTE_CVE_ANNOUNCEMENTS], params, CBWCve)
+        response = self._get_pages("GET", [ROUTE_CVE_ANNOUNCEMENTS], params)
 
         return response
 
@@ -297,7 +293,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error server id::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWCve, response)
+        return self._cbw_parser(response)
 
     def delete_cve_announcement(self, cve_code):
         """DELETE request to /api/v3/cve_announcements/{cve_code} to delete
@@ -307,11 +303,11 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error server id::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWCve, response)
+        return self._cbw_parser(response)
 
     def groups(self, params=None):
         """GET request to /api/v3/groups to get a list of groups"""
-        response = self._get_pages("GET", [ROUTE_GROUPS], params, CBWGroup)
+        response = self._get_pages("GET", [ROUTE_GROUPS], params)
 
         return response
 
@@ -322,7 +318,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWGroup, response)
+        return self._cbw_parser(response)
 
     def create_group(self, params):
         """POST request to /api/v3/groups to create a group"""
@@ -331,7 +327,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWGroup, response)
+        return self._cbw_parser(response)
 
     def update_group(self, group_id, params=None):
         """PUT request to /api/v3/groups/<group_id> to update a group"""
@@ -340,7 +336,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWGroup, response)
+        return self._cbw_parser(response)
 
     def delete_group(self, group_id):
         """DELETE request to /api/v3/groups/<group_id> to delete a group"""
@@ -349,7 +345,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWGroup, response)
+        return self._cbw_parser(response)
 
     def test_deploy_remote_access(self, remote_access_id):
         """POST request to /api/v3/remote_accesses/:id/test_deploy to test an agentless deployment"""
@@ -357,11 +353,11 @@ class CBWApi: # pylint: disable=R0904
         if response.status_code != 200:
             logging.error("Error::{}".format(response.text))
             return None
-        return CBWParser().parse_response(CBWRemoteAccess, response)
+        return self._cbw_parser(response)
 
     def users(self, params=None):
         """GET request to /api/v3/users to get a list of users"""
-        response = self._get_pages("GET", [ROUTE_USERS], params, CBWUsers)
+        response = self._get_pages("GET", [ROUTE_USERS], params)
 
         return response
 
@@ -373,11 +369,11 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWUsers, response)
+        return self._cbw_parser(response)
 
     def nodes(self, params=None):
         """GET request to /api/v3/nodes to get a list of all nodes"""
-        response = self._get_pages("GET", [ROUTE_NODES], params, CBWNode)
+        response = self._get_pages("GET", [ROUTE_NODES], params)
 
         return response
 
@@ -388,7 +384,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWNode, response)
+        return self._cbw_parser(response)
 
     def delete_node(self, node_id, new_node_id):
         """DELETE request to /api/v3/nodes/<node_id> to delete a node and transfer the data to another one"""
@@ -397,11 +393,11 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWNode, response)
+        return self._cbw_parser(response)
 
     def hosts(self, params=None):
         """GET request to /api/v3/hosts to get a list of all hosts"""
-        response = self._get_pages("GET", [ROUTE_HOSTS], params, CBWHost)
+        response = self._get_pages("GET", [ROUTE_HOSTS], params)
 
         return response
 
@@ -412,7 +408,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWHost, response)
+        return self._cbw_parser(response)
 
     def create_host(self, params):
         """POST request to /api/v3/hosts to create a host"""
@@ -421,7 +417,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWHost, response)
+        return self._cbw_parser(response)
 
     def update_host(self, host_id, params=None):
         """PUT request to /api/v3/hosts/<host_id> to update a host"""
@@ -430,7 +426,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWHost, response)
+        return self._cbw_parser(response)
 
     def delete_host(self, host_id):
         """DELETE request to /api/v3/hosts/<host_id> to delete a host"""
@@ -439,11 +435,11 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWHost, response)
+        return self._cbw_parser(response)
 
     def security_issues(self, params=None):
         """GET request to /api/v3/security_issues to get a list of all security_issues"""
-        response = self._get_pages("GET", [ROUTE_SECURITY_ISSUES], params, CBWSecurityIssue)
+        response = self._get_pages("GET", [ROUTE_SECURITY_ISSUES], params)
 
         return response
 
@@ -454,7 +450,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWSecurityIssue, response)
+        return self._cbw_parser(response)
 
     def create_security_issue(self, params=None):
         """POST request to /api/v3/security_issues to create a security_issue"""
@@ -463,7 +459,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWSecurityIssue, response)
+        return self._cbw_parser(response)
 
     def update_security_issue(self, security_issue_id, params=None):
         """PUT request to /api/v3/security_issues/<security_issue_id> to update a security_issue"""
@@ -472,7 +468,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWSecurityIssue, response)
+        return self._cbw_parser(response)
 
     def delete_security_issue(self, security_issue_id):
         """DELETE request to /api/v3/security_issues/<security_issue_id> to delete a security_issue"""
@@ -481,7 +477,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWSecurityIssue, response)
+        return self._cbw_parser(response)
 
     def fetch_importer_scripts(self, params=None):
         """GET request to /api/v2/cbw_scans/scripts to get a list of all Importer scanning scripts"""
@@ -490,7 +486,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWImporter, response)
+        return self._cbw_parser(response)
 
     def fetch_importer_script(self, script_id):
         """GET request to /api/v2/cbw_scans/scripts/{SCRIPT_ID} to get a specific Importer scanning script"""
@@ -499,7 +495,7 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
 
-        return CBWParser().parse_response(CBWImporter, response)
+        return self._cbw_parser(response)
 
     def upload_importer_results(self, content):
         """POST request to /api/v2/cbw_scans/scripts to upload scanning script result"""

@@ -23,12 +23,12 @@ def cve_lists(server_list):
     for server in servers:
         server_show = CLIENT.server(str(server.id))
         for cve in server_show.cve_announcements:
-            if not(cve['ignored']) and cve['fixed_at'] is None:
+            if not(cve.ignored) and cve.fixed_at is None:
                 cve_details = next((cve_exploitable for cve_exploitable in
-                                    cves if cve_exploitable.cve_code == cve['cve_code']), None)
+                                    cves if cve_exploitable.cve_code == cve.cve_code), None)
 
                 if cve_details is not None and cve_details.cvss_v3 is not None:
-                    server_cves[cve_details.cvss_v3['access_vector']] += 1
+                    server_cves[cve_details.cvss_v3.access_vector] += 1
     return server_cves
 
 def server_outdated_system(servers):

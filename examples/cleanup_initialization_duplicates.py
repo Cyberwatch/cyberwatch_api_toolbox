@@ -116,7 +116,7 @@ def display_and_delete(delete_list, what, delete=False):
                     delete_server.cve_announcements_count, delete_server.created_at))
 
         if delete is True:
-            API.delete_server(delete_server.id)
+            API.delete_server(str(delete_server.id))
 
 def launch_script(parsed_args):
     '''Launch script'''

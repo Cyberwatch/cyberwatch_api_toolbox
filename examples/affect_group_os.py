@@ -13,6 +13,11 @@ LINUX_OS = ['Amazon', 'ArchLinux', 'Centos', 'Debian', 'Manjaro', 'Oracle', 'Ubu
 WINDOWS_OS = ['Windows']
 MAC_OS = ['Macos']
 
+LINUX_GROUP_ID = ''
+MAC_GROUP_ID = ''
+WINDOWS_GROUP_ID = ''
+OTHER_GROUP_ID = ''
+
 
 def build_groups_list(server_id, system_os):
     """Create list with system_os + other groups of server"""
@@ -25,13 +30,13 @@ def build_groups_list(server_id, system_os):
 
 for server_item in CLIENT.servers():
     if server_item.os is not None:
-        if server_item.os["type"][4:] in LINUX_OS:
-            OS = "LINUX"
-        elif server_item.os["type"][4:] in WINDOWS_OS:
-            OS = "WIN"
-        elif server_item.os["type"][4:] in MAC_OS:
-            OS = "MAC_OS"
+        if server_item.os.type[4:] in LINUX_OS:
+            GROUP_ID = LINUX_GROUP_ID
+        elif server_item.os.type[4:] in WINDOWS_OS:
+            GROUP_ID = WINDOWS_GROUP_ID
+        elif server_item.os.type[4:] in MAC_OS:
+            GROUP_ID = MAC_GROUP_ID
         else:
-            OS = "Other"
-    groups_list = build_groups_list(server_item.id, OS)
-    CLIENT.update_server(str(server_item.id), {'groups': ",".join(groups_list)})
+            GROUP_ID = OTHER_GROUP_ID
+
+    CLIENT.update_server(str(server_item.id), {'groups': [GROUP_ID]})
