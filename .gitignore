@@ -12,3 +12,4 @@ dist/
 examples/importer/Scripts/
 examples/importer/Uploads/
 test.xlsx
+.pypirc
