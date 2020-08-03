@@ -29,7 +29,7 @@ A simple interface for your Cyberwatch instance API.
 To install Cyberwatch API toolbox, simply use python 3 with:
 
 ```bash
-$ pip3 install git+https://github.com/Cyberwatch/cyberwatch_api_toolbox
+$ pip3 install cbw-api-toolbox
 ```
 
 ### Test your installation
