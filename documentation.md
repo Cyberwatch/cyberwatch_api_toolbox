@@ -22,7 +22,7 @@ Send a GET request to `/api/v3/servers` to retrieve the list of all servers.
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).servers()
-[<cbw_api_toolbox.cbw_objects.cbw_server.CBWServer ...]
+[cbw_object(...), ...]
 ```
 
 #### Server
@@ -33,7 +33,7 @@ Send a GET request to `/api/v3/servers/{SERVER_ID}` to retrieve the information 
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).server(SERVER_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_server.CBWServer]
+[cbw_object(...), ...]
 ```
 
 #### Update server
@@ -66,7 +66,7 @@ Send a GET request `/api/v3/agents` to retrieve the list of all agents.
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).agents()
-[<cbw_api_toolbox.cbw_objects.cbw_agent.CBWAgent...]
+[cbw_object(...), ...]
 ```
 
 #### Agents
@@ -77,7 +77,7 @@ Send a GET request `/api/v3/agents/{AGENT_ID}` to retrieve the information of a 
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).agent(AGENT_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_agent.CBWAgent]
+[cbw_object(...), ...]
 ```
 
 #### Delete agent
@@ -99,7 +99,7 @@ Send a GET request `/api/v3/remote_accesses` to retrieve the list of all remote 
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).remote_accesses()
-[<cbw_api_toolbox.cbw_objects.cbw_remote_access.CBWRemoteAccess...]
+[cbw_object(...), ...]
 ```
 
 #### Remote access
@@ -110,7 +110,7 @@ Send a GET request `/api/v3/remote_accesses/{REMOTE_ACCESS_ID}` to retrieve the 
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).remote_access(REMOTE_ACCESS_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_remote_access.CBWRemoteAccess]
+[cbw_object(...), ...]
 ```
 
 #### Create remote access
@@ -155,7 +155,7 @@ Send a POST request `/api/v3/remote_accesses/{REMOTE_ACCESS_ID}/test_deploy` to 
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).test_deploy_remote_access(REMOTE_ACCESS_ID)
-<cbw_api_toolbox.cbw_objects.cbw_remote_access.CBWRemoteAccess>
+<cbw_object(...)>
 ```
 
 #### CVE Announcement
@@ -166,7 +166,7 @@ Send a GET request to `/api/v2/cve_announcements/{CVE_CODE}` to get all informat
 
 ```python
 >>> CBWApi(API_URL, API_KEY, SECRET_KEY).cve_announcement(CVE_CODE)
-[<cbw_api_toolbox.cbw_objects.cbw_cve.CBWCve]
+[cbw_object(...), ...]
 ```
 
 #### Groups
@@ -177,7 +177,7 @@ Send a GET request to `/api/v3/groups` to get informations about all groups
 
 ```python
 >>> CBWApi(API_URL, API_KEY, SECRET_KEY).groups()
-[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+[cbw_object(...), ...]
 ```
 
 #### Group
@@ -188,7 +188,7 @@ Send a GET request `/api/v3/groups/{GROUP_ID}` to retrieve the information of a 
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).group(GROUP_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+[cbw_object(...), ...]
 ```
 
 #### Create group
@@ -199,7 +199,7 @@ Send a POST request `/api/v3/groups` to create a group.
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).create_group(INFO)
-[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+[cbw_object(...), ...]
 ```
 
 #### Update group
@@ -210,7 +210,7 @@ Send a PUT request `/api/v3/groups/{GROUP_ID}` to update the information of a pa
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).update_group(GROUP_ID, INFO)
-[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+[cbw_object(...), ...]
 ```
 
 #### Delete group
@@ -219,7 +219,7 @@ Send a DELETE request `/api/v3/groups/{GROUP_ID}` to delete a group.
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).delete_group(GROUP_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_group.CBWGroup]
+[cbw_object(...), ...]
 ```
 
 #### User
@@ -230,7 +230,7 @@ Send a GET request to `/api/v3/users/<id>` to get informations about a specific 
 
 ```python
 >>> CBWApi(API_URL, API_KEY, SECRET_KEY).users(USER_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_group.CBWUsers]
+[cbw_object(...), ...]
 ```
 
 #### Users
@@ -241,7 +241,7 @@ Send a GET request to `/api/v3/users` to get informations about all users
 
 ```python
 >>> CBWApi(API_URL, API_KEY, SECRET_KEY).users()
-[<cbw_api_toolbox.cbw_objects.cbw_group.CBWUsers]
+[cbw_object(...), ...]
 ```
 
 #### Nodes
@@ -252,7 +252,7 @@ Send a GET request to `/api/v3/nodes` to retrieve a list of all nodes.
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).nodes()
-[<cbw_api_toolbox.cbw_objects.cbw_node.CBWNode ...]
+[cbw_object(...), ...]
 ```
 
 #### Node
@@ -263,7 +263,7 @@ Send a GET request to `/api/v3/nodes/{NODE_ID}` to retrieve the information of a
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).node(NODE_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_node.CBWNode]
+[cbw_object(...), ...]
 ```
 
 #### Delete Node
@@ -274,7 +274,7 @@ Send a DELETE request to `/api/v3/nodes/{NODE_ID}` to delete a node and transfer
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).node(NODE_ID, NEW_NODE_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_node.CBWNode]
+[cbw_object(...), ...]
 ```
 
 #### Host
@@ -285,7 +285,7 @@ Send a GET request `/api/v3/hosts/{HOST_ID}` to retrieve the information of a pa
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).host(HOST_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]
+[cbw_object(...), ...]
 ```
 
 #### Hosts
@@ -296,7 +296,7 @@ Send a GET request `/api/v3/hosts` to retrieve all the hosts.
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).hosts()
-[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]...]
+[cbw_object(...), ...]
 ```
 
 #### Create host
@@ -307,7 +307,7 @@ Send a POST request `/api/v3/hosts` to create a host.
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).create_host(INFO)
-[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]
+[cbw_object(...), ...]
 ```
 
 #### Update host
@@ -318,7 +318,7 @@ Send a PUT request `/api/v3/hosts/{HOST_ID}` to update the information of a part
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).update_host(HOST_ID, INFO)
-[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]
+[cbw_object(...), ...]
 ```
 
 #### Delete host
@@ -327,7 +327,7 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 
 ```python
 >>> CBWApi(URL, API_KEY, SECRET_KEY).delete_host(HOST_ID)
-[<cbw_api_toolbox.cbw_objects.cbw_host.CBWHost]
+[cbw_object(...), ...]
 ```
 
 ## Available objects and their attributes
@@ -534,7 +534,7 @@ Send a DELETE request `/api/v3/hosts/{HOST_ID}` to delete a host.
 | availability_impact       | String        | Impact on availability of CVE     | "availability_impact_none"                        |
 | confidentiality_impact    | String        | Impact on confidientiality of CVE | "confidentiality_impact_none"                     |
 | integrity_impact          | String        | Impact on integrity of CVE        | "integrity_impact_high"                           |
-| privilege_required        | String        | Privilege level required for CVE  | "privilege_required_none"                         |
+| privileges_required       | String        | Privilege level required for CVE  | "privileges_required_none"                         |
 | scope                     | String        | Scope of the CVE                  | "scope_unchanged"                                 |
 | user_interaction          | String        | User interaction level for CVE    | "user_interaction_none"                           |
 

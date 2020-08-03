@@ -36,11 +36,11 @@ def get_updates(server):
     targeted_technology = ""
     targeted_version = ""
 
-    for update in server["server"].updates:
-        if(update["target"] is not None and update["target"]["product"] is not None
-           and update["target"]["version"] is not None):
-            targeted_technology = update["target"]["product"]
-            targeted_version = update["target"]["version"]
+    for update in server.updates:
+        if(update.target is not None and update.target.product is not None
+           and update.target.version is not None):
+            targeted_technology = update.target.product
+            targeted_version = update.target.version
             break
     return targeted_technology, targeted_version
 
@@ -88,7 +88,7 @@ def export_xls(cve_list, xls_export):
 
             for server in cve.servers:
                 # Skip if the CVE is not active on the server
-                if server["active"] is not True:
+                if server.active is not True:
                     count_fixed_computers += 1
                     continue
                 count_affected_computers += 1
@@ -98,7 +98,7 @@ def export_xls(cve_list, xls_export):
                 tab_computer_cve.write(row_computer_cve, 1, cve.score_v3)
                 tab_computer_cve.write(row_computer_cve, 2, cve.score_v2)
                 tab_computer_cve.write(row_computer_cve, 3, cve.exploit_code_maturity)
-                tab_computer_cve.write(row_computer_cve, 4, server["server"].hostname)
+                tab_computer_cve.write(row_computer_cve, 4, server.hostname)
                 tab_computer_cve.write(row_computer_cve, 5, targeted_technology)
                 tab_computer_cve.write(row_computer_cve, 6, targeted_version)
                 tab_computer_cve.write(row_computer_cve, 7, cve.published)

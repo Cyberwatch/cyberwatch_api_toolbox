@@ -1,11 +1,8 @@
 """Test file for cbw_files_xlsx.py"""
 
-import xlrd
-
-from cbw_api_toolbox.cbw_objects.cbw_remote_access import CBWRemoteAccess
+import xlrd # pylint: disable=import-error
+import vcr # pylint: disable=import-error
 from cbw_api_toolbox.cbw_file_xlsx import CBWXlsx
-
-import vcr  # pylint: disable=import-error
 
 # To generate a new vcr cassette:
 # - DO NOT CHANGE THE API_URL
@@ -13,7 +10,6 @@ import vcr  # pylint: disable=import-error
 # - Execute the test a first time, it should generate the cassette
 # - Remove your credentials
 # - relaunch the test. everything should work.
-
 
 
 API_KEY = ''
@@ -30,14 +26,23 @@ class TestCBWXlsx:
         client = CBWXlsx(API_URL, API_KEY, SECRET_KEY)
         file_xlsx = "spec/fixtures/xlsx_files/batch_import_model.xlsx"
 
+        remote_accesses_validate = [
+            "cbw_object(id=33, type='CbwRam::RemoteAccess::Ssh::WithPassword', \
+address='10.0.2.15', port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
+            "cbw_object(id=34, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server02.example.com', \
+port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
+            "cbw_object(id=35, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server01.example.com', port=22\
+, is_valid=None, last_error=None, server_id=None, node_id=1)"]
+
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/'
                               'import_remote_accesses_xlsx_file.yaml'):
             response = client.import_remote_accesses_xlsx(file_xlsx)
 
             assert len(response) == 3
-            assert isinstance(response[0], CBWRemoteAccess) is True
-            assert isinstance(response[1], CBWRemoteAccess) is True
-            assert isinstance(response[2], CBWRemoteAccess) is True
+
+            assert str(response[0]) == remote_accesses_validate[0]
+            assert str(response[1]) == remote_accesses_validate[1]
+            assert str(response[2]) == remote_accesses_validate[2]
 
         file_xlsx = "spec/fixtures/xlsx_files/batch_import_model_false.xlsx"
 
@@ -46,9 +51,9 @@ class TestCBWXlsx:
             response = client.import_remote_accesses_xlsx(file_xlsx)
 
             assert len(response) == 3
-            assert isinstance(response[0], CBWRemoteAccess) is False
-            assert isinstance(response[1], CBWRemoteAccess) is False
-            assert isinstance(response[2], CBWRemoteAccess) is True
+            assert response[0] is False
+            assert response[1] is False
+            assert str(response[2]), remote_accesses_validate[2]
 
     @staticmethod
     def test_export_remote_accesses_xlsx():
@@ -66,12 +71,11 @@ class TestCBWXlsx:
                 result = sheet.row_values(rownum)
                 break
 
-            assert response is True and result == ['HOST', 'PORT', 'TYPE', 'NODE_ID', 'SERVER_GROUPS']
+            assert response is True and result == [
+                'HOST', 'PORT', 'TYPE', 'NODE_ID', 'SERVER_GROUPS']
 
             for rownum in range(1, sheet.nrows):
                 result = sheet.row_values(rownum)
                 break
             # The group is not assigned yet
-            assert result == ['10.0.2.15', 22,
-                              'CbwRam::RemoteAccess::Ssh::WithPassword',
-                              1, '']
+            assert result == ['10.0.2.15', 22, 'CbwRam::RemoteAccess::Ssh::WithPassword', 1, '']

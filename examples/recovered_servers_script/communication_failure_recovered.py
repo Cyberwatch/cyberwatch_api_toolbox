@@ -87,7 +87,7 @@ def build_server_list(client, diff):
     print("INFO: Fetching each server not in 'Communication failure' anymore...")
     servers = []
     for server in diff:
-        servers.append(client.server(str(server["id"])))
+        servers.append(client.server(str(server.id)))
     return servers
 
 

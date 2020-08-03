@@ -1,32 +1,31 @@
 interactions:
 - request:
-    body: '{"target": "192.168.2.3", "node_id": "1"}'
+    body: '{"target": "192.168.1.2", "node_id": "1", "category": "other"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:5ogpITJLXjb7XLUHvM69Vu6B538wsUTbwhKc71u2jUE=
+      - CyberWatch APIAuth-HMAC-SHA256 Um7C1MMU5g3tMHjh4INdxbyihUTqpTtoUshlme3lJZU=:2/OLSXoVMDSrVHiA1R0NnDlBdGH6VppLGd0oTqF36so=
       Connection:
       - keep-alive
       Content-Length:
-      - '41'
+      - '62'
       Content-Type:
       - application/json
       Date:
-      - Tue, 17 Dec 2019 13:29:13 GMT
+      - Thu, 06 Aug 2020 09:49:20 GMT
       User-Agent:
       - python-requests/2.22.0
     method: PUT
-    uri: https://localhost/api/v3/hosts/12
+    uri: https://localhost/api/v3/hosts/1
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA42PwQrCMAyG3yVXN2mHovY5vImU0oZZmKm06XCI726c8+RFcvnz589H8oAYwOiu
-        AXa5RwYD2/Vc0IB3jH3Kk5hDpHoX65IKk7siGKrDIJERrSNKlTxekbhYL1owSmYZBRCse1M7pQ+t
-        7lq9O+qN6fZGqbVSaqW0KAHXW/g/TCmgnQ9voGAeMc/dTjp2XIsgFvuDtZEiyx6jv1AaUh9RMqfz
-        e9vXHHmysZT6NX+eWrLe0SyfL5w0mZs2AQAA
+        H4sIAAAAAAAAA12OwQrCMBBE/2WvNmF3LbXud/QmUkKztEJNJE0FEf/dVLwozGVm3sA84eJBqILs
+        0qgZBAjtJkttAxUMLusY06MUMU+aSjTFJQd3VZCwznNBkhbI925bMzIaPBhuO6ql3guxRcQdsiCW
+        8Xrz/3BrsOmIpD4K4w8cotf++2/RdNf0cVzc4MICcjq/3iCg/l7BAAAA
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -37,7 +36,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 17 Dec 2019 13:29:13 GMT
+      - Thu, 06 Aug 2020 09:49:20 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -55,15 +54,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-MiniProfiler-Ids:
-      - vogedmmo77ml3wkm3jez,rgfgd3bg7s73n39o6nsg,gcb3qzgu0tl6x6fcqnyn,f2bqttjenuizox3kj91k,corllayah9tfmm18ike9,jhxaxqwoxoyic9y6y6ks,kg9ln51um0k2i06k56qe,z4vc5et8lxbatf3xy601,fhcygqivmtudg03xdpdn,jbowibdb6gdwlf5oe7yw,sbha5gj1jxakyaca7w4u
+      - wmzz72g7fpu8un06v814,kogiwk4l7a56h1fzfek5
       X-MiniProfiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - ef0d7595-ed49-43b3-a020-58f9cceb6bca
+      - 4ea64153-833b-4b89-9df8-e1e3d8e6a45a
       X-Runtime:
-      - '0.393925'
+      - '0.030272'
       X-XSS-Protection:
       - 1; mode=block
     status:

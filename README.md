@@ -24,12 +24,20 @@ A simple interface for your Cyberwatch instance API.
 - [ ] [Python 3](https://www.python.org/)
 - [ ] Python [PIP](https://pypi.org/project/pip/)
 
-### Install the package
+### Install the latest package
 
 To install Cyberwatch API toolbox, simply use python 3 with:
 
 ```bash
 $ pip3 install cbw-api-toolbox
+```
+
+### Install an older package version
+
+Some scripts from version 1.X may not work in version 2.X of `cbw-api-toolbox`, to install an older version, simply do:
+
+```bash
+pip3 install cbw-api-toolbox==1.1.2
 ```
 
 ### Test your installation

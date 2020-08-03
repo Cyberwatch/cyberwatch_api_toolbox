@@ -1,45 +1,47 @@
 interactions:
 - request:
-    body: '{"ignored": "true"}'
+    body: '{"ignored": "true", "comment": "test-ignore"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:2PTeC7OxtsqWNfUGZ5ZzkqAluOTpYK1IpsbTg30aIdw=
+      - CyberWatch APIAuth-HMAC-SHA256 Um7C1MMU5g3tMHjh4INdxbyihUTqpTtoUshlme3lJZU=:LnneLRfN19iosyc8ttYY1ZcHuA5qEF+sxj8ftMT8ghA=
       Connection:
       - keep-alive
       Content-Length:
-      - '19'
+      - '45'
       Content-Type:
       - application/json
       Date:
-      - Mon, 20 Jan 2020 08:46:14 GMT
+      - Tue, 11 Aug 2020 08:57:36 GMT
       User-Agent:
       - python-requests/2.22.0
     method: PUT
-    uri: https://localhost/api/v3/servers/9/cve_announcements/CVE-2019-3028
+    uri: https://localhost/api/v3/servers/8/cve_announcements/CVE-2020-3962
   response:
     body:
       string: !!binary |
-        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
+        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
+        ENXp4WsjYGO1ukpjGtEXpv8DgDku/KIXAAA=
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -47,13 +49,10 @@ interactions:
       - keep-alive
       Content-Encoding:
       - gzip
-      Content-Security-Policy:
-      - 'default-src ''self''; script-src ''self'' ''unsafe-inline'' ''unsafe-eval'';
-        style-src ''self'' ''unsafe-inline''; img-src ''self'' data:'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 20 Jan 2020 08:46:16 GMT
+      - Tue, 11 Aug 2020 08:57:37 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -71,15 +70,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-MiniProfiler-Ids:
-      - 6ylopvdf2ckd1vs9opkd,ge614no8jkpc5p8jc8n8,nteejdol4gbx67o36jby,4uq0t490rx7y42i2kub3
+      - z1kvth88f2jr28652ol1
       X-MiniProfiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - a0927ed3-9d3b-43ec-b5e0-76ed95cd76a1
+      - ded25fc4-7e26-46c3-aeec-6f56680dca63
       X-Runtime:
-      - '1.130292'
+      - '0.372552'
       X-XSS-Protection:
       - 1; mode=block
     status:

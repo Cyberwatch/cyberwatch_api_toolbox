@@ -7,24 +7,23 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:4RnY7rNjFWo0m7FEDnb+nsY+TiQNByjfE5P52fSP5Sk=
+      - CyberWatch APIAuth-HMAC-SHA256 Um7C1MMU5g3tMHjh4INdxbyihUTqpTtoUshlme3lJZU=:VmRopDRVQXucHBdg4DWAwOm9A0PowdVVs1uYyI8iaNs=
       Connection:
       - keep-alive
       Content-Length:
       - '0'
       Date:
-      - Tue, 17 Dec 2019 13:29:13 GMT
+      - Thu, 06 Aug 2020 12:01:03 GMT
       User-Agent:
       - python-requests/2.22.0
     method: DELETE
-    uri: https://localhost/api/v3/hosts/12
+    uri: https://localhost/api/v3/hosts/1
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA42PwQrCMAyG3yVXN2mHovY5vImU0oZZmKm06XCI726c8+RFcvnz589H8oAYwOiu
-        AXa5RwYD2/Vc0IB3jH3Kk5hDpHoX65IKk7siGKrDIJERrSNKlTxekbhYL1owSmYZBRCse1M7pQ+t
-        7lq9O+qN6fZGqbVSaqW0KAHXW/g/TCmgnQ9voGAeMc/dTjp2XIsgFvuDtZEiyx6jv1AaUh9RMqfz
-        e9vXHHmysZT6NX+eWrLe0SyfL5w0mZs2AQAA
+        H4sIAAAAAAAAA12OwQrCMBBE/2WvNmF3LbXud/QmUkKztEJNJE0FEf/dVLwozGVm3sA84eJBqILs
+        0qgZBAjtJkttAxUMLusY06MUMU+aSjTFJQd3VZCwznNBkhbI925bMzIaPBhuO6ql3guxRcQdsiCW
+        8Xrz/3BrsOmIpD4K4w8cotf++2/RdNf0cVzc4MICcjq/3iCg/l7BAAAA
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
@@ -35,7 +34,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 17 Dec 2019 13:29:14 GMT
+      - Thu, 06 Aug 2020 12:01:03 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -53,15 +52,15 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-MiniProfiler-Ids:
-      - x0l7vgegatu29y8s6f8d,rgfgd3bg7s73n39o6nsg,gcb3qzgu0tl6x6fcqnyn,f2bqttjenuizox3kj91k,corllayah9tfmm18ike9,jhxaxqwoxoyic9y6y6ks,kg9ln51um0k2i06k56qe,z4vc5et8lxbatf3xy601,fhcygqivmtudg03xdpdn,jbowibdb6gdwlf5oe7yw,sbha5gj1jxakyaca7w4u,vogedmmo77ml3wkm3jez
+      - lyz06rrgew0c013jz64r,nrxa71otbne4pd7upnnl
       X-MiniProfiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - e5c1cc4b-d3ed-43ef-a7ff-e08f31e90075
+      - 9849757d-1285-4349-b967-768d5c8686d3
       X-Runtime:
-      - '0.365497'
+      - '0.049375'
       X-XSS-Protection:
       - 1; mode=block
     status:

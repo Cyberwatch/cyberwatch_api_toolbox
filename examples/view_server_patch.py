@@ -10,19 +10,19 @@ CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key')
 
 SERVER_ID = ""  # add the server id
 
-SERVER = CLIENT.server(SERVER_ID)
+SERVER = CLIENT.server(str(SERVER_ID))
 
 print("Server : {}".format(SERVER.hostname))
 print("Update count : {}".format(SERVER.updates_count))
 
 print("Updates :")
 for update in SERVER.updates:
-    print("\t-Product : {}".format(update["current"]["product"]))
-    print("\t\t- Corrective action : {0} -> {1}".format(update["current"]["version"],
-                                                        update["target"]["version"]))
+    print("\t-Product : {}".format(update.current.product))
+    print("\t\t- Corrective action : {0} -> {1}".format(update.current.version,
+                                                        update.target.version))
 
     cve_list = []
-    for cve in update["cve_announcements"]:
-        cve_list.append(cve["cve_code"])
+    for cve in update.cve_announcements:
+        cve_list.append(cve)
 
     print("\t\t- Cve List : {}".format(", ".join(cve_list)))
