@@ -10,10 +10,13 @@ setup(
     author_email='support-it+api@cyberwatch.fr',
     license='MIT',
     url='https://github.com/Cyberwatch/cyberwatch_api_toolbox',
+    project_urls={
+        "Documentation": "https://docs.cyberwatch.fr/",
+    },
     py_modules=['cbw-api-toolbox'],
     zip_safe=False,
-    packages=['cbw_api_toolbox', 'cbw_api_toolbox.cbw_objects'],
-    package_dir={'cbw_api_toolbox': 'cbw_api_toolbox', 'cbw_objects': 'cbw_api_toolbox/cbw_objects'},
+    packages=['cbw_api_toolbox'],
+    package_dir={'cbw_api_toolbox': 'cbw_api_toolbox'},
     install_requires=[
         "requests>=2.20.1",
         "XlsxWriter>=1.2.1",
