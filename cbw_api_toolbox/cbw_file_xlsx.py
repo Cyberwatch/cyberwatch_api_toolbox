@@ -14,6 +14,44 @@ class CBWXlsx:
     def __init__(self, api_url, api_key, secret_key):
         self.client = CBWApi(api_url, api_key, secret_key)
 
+    @classmethod
+    def __address_already_taken(cls, address, remote_accesses):
+        """method to check if a remote access already exists with the same IP address"""
+        for remote_access in remote_accesses:
+            if remote_access.address == address:
+                logging.info("Address {} already taken, affecting groups to existing server".format(address))
+                return remote_access
+        return False
+
+    def __find_group_by_name(self, group_name):
+        """method to find a group id by its name, create and return the new group"""
+        groups = self.client.groups()
+        for group in groups:
+            if group.name == group_name:
+                return group.id
+        # If the group is not found, create it
+        parameters = {"name": group_name}
+        group = self.client.create_group(parameters)
+        return group.id
+
+    def __affect_group_remote_access_server(self, remote_access, groups):
+        """method to affect groups to a remote_access' server"""
+        if not remote_access or not remote_access.server_id:
+            return
+
+        server = self.client.server(str(remote_access.server_id))
+
+        group_ids = []
+        for group in server.groups:
+            group_ids.append(group.id)
+
+        for group_name in groups.split(','):
+            if group_name.strip() != '':
+                group_ids.append(self.__find_group_by_name(group_name.strip()))
+
+        parameters = {"groups": group_ids}
+        self.client.update_server(str(server.id), parameters)
+
     def import_remote_accesses_xlsx(self, file_xlsx):
         """method to import remote accesses from an xlsx file"""
         if not file_xlsx:
@@ -28,6 +66,7 @@ class CBWXlsx:
         lines = imported.sheet_by_index(0)
         response = []
         titles = lines.row_values(0)
+        remote_accesses = self.client.remote_accesses()
 
         for line in range(1, lines.nrows):
             text = lines.row_values(line)
@@ -46,7 +85,14 @@ class CBWXlsx:
                     "server_groups" : text[titles.index("SERVER_GROUPS")]
                 }
 
+                # Get the list of remote accesses once to reuse
                 remote_access = self.client.create_remote_access(info)
+
+                # Check if the remote access already exists and add groups to the corresponding server
+                if remote_access is False:
+                    remote_access = self.__address_already_taken(address, remote_accesses)
+                    self.__affect_group_remote_access_server(remote_access, text[titles.index("SERVER_GROUPS")])
+
                 response.append(remote_access)
                 logging.debug("Done")
 

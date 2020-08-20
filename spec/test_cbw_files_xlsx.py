@@ -11,7 +11,6 @@ from cbw_api_toolbox.cbw_file_xlsx import CBWXlsx
 # - Remove your credentials
 # - relaunch the test. everything should work.
 
-
 API_KEY = ''
 SECRET_KEY = ''
 API_URL = 'https://localhost'
@@ -27,11 +26,13 @@ class TestCBWXlsx:
         file_xlsx = "spec/fixtures/xlsx_files/batch_import_model.xlsx"
 
         remote_accesses_validate = [
-            "cbw_object(id=33, type='CbwRam::RemoteAccess::Ssh::WithPassword', \
+            "cbw_object(id=16, type='CbwRam::RemoteAccess::Ssh::WithPassword', \
 address='10.0.2.15', port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
-            "cbw_object(id=34, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server02.example.com', \
+            "cbw_object(id=17, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server02.example.com', \
 port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
-            "cbw_object(id=35, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server01.example.com', port=22\
+            "cbw_object(id=18, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server01.example.com', port=22\
+, is_valid=None, last_error=None, server_id=None, node_id=1)",
+            "cbw_object(id=19, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='10.0.2.16', port=22\
 , is_valid=None, last_error=None, server_id=None, node_id=1)"]
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/'
@@ -51,9 +52,9 @@ port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
             response = client.import_remote_accesses_xlsx(file_xlsx)
 
             assert len(response) == 3
-            assert response[0] is False
-            assert response[1] is False
-            assert str(response[2]), remote_accesses_validate[2]
+            assert str(response[0]) == remote_accesses_validate[2]
+            assert str(response[1]) == remote_accesses_validate[1]
+            assert str(response[2]) == remote_accesses_validate[3]
 
     @staticmethod
     def test_export_remote_accesses_xlsx():

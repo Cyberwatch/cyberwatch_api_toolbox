@@ -1,5 +1,81 @@
 interactions:
 - request:
+    body: '{"per_page": 100}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:RYVb7GzzjVgNNxIiI150BmGjYkgaFydB56u6HeBZsks=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 10 Sep 2020 08:49:49 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: https://localhost/api/v3/remote_accesses
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7XOzQ6CMAwH8HfpeVmAiB+9GV/A4MGDMWSyJpAMRroBGuO7C+JRvSBJL/03bX+n
+        OxQaMBTgbzUBwu7SJapETKi0nrZZRs4hHlyOeCx8vlfOdZY1CFBacz/sd8JADiU3iz6uLXvAKBJQ
+        uLRVZjjvuSEBRjmfErNlwKoxRoAjbonTlyAWUFlNY/MQb9dyKiyQkQzjL65R8dM1Bh9kq0my8UMQ
+        SbqqsjYkM1vOgFz/AxnOhDw/AXh+ZVN9AgAA
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 10 Sep 2020 08:49:49 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-MiniProfiler-Ids:
+      - ba250bxwz4g9u9wksoaz,h9b69ud8suh7mzrw22an,wpg4j925ptp4dzrfbgqx,c0g9wybzamw2i953ssn1,jwrmbcmvmsu4935h0tg6,x31s1vzads34ta9363st,1pcyiredopqxahakmanf,tfocv2ui5y9bab7ol4oz,uqawfv17f5mg8bpzbcky,eqt44kv5t3tqgevtnlaz,lid16bds6t9g23x75c6f,uchq06s5xdym2w170dv6,386anoneg8p3lt0a0lel,xsclcztyzf8tq56drf2f,gzzuujolfovzwmf105t3,izdve56kcti0f8otf14,p9xut2vy1a5w23yfarrd,3btq7e6g6w2twfuzskkv,s3zdlnpso8z4k7ki58pw,sc7e6rqcpwo7384x0pcg
+      X-MiniProfiler-Original-Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Page:
+      - '1'
+      X-Per-Page:
+      - '100'
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 96f641d3-f315-4ae6-9c4a-db59713664a4
+      X-Runtime:
+      - '0.028394'
+      X-Total:
+      - '4'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
     body: '{"type": "CbwRam::RemoteAccess::Ssh::WithPassword", "address": "server01.example.com",
       "port": 22.0, "login": "admin", "password": "SuperPassword", "key": "", "node_id":
       1.0, "server_groups": "production, test"}'
@@ -9,7 +85,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:lVIppiQ3PtNJ+dFBjN7mu1aQ8lS48NAWkFGrqJ4i8CM=
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:AuvPukzVhqxTx+jWl2mgAYBcknhpPbjHXkY7AKStA00=
       Connection:
       - keep-alive
       Content-Length:
@@ -17,7 +93,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 06 Dec 2019 15:47:22 GMT
+      - Thu, 10 Sep 2020 08:49:49 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
@@ -31,18 +107,18 @@ interactions:
       - no-cache
       Connection:
       - keep-alive
-      Content-Length:
-      - '116'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 06 Dec 2019 15:47:23 GMT
+      - Thu, 10 Sep 2020 08:49:50 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
       - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -52,10 +128,10 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 606dc8b9-331f-4ab2-9b0b-cc6128ed4ab5
+      - f69090eb-53da-4ff3-a32b-bbcf03ca6d3c
       X-Runtime:
-      - '1.596453'
-      X-Xss-Protection:
+      - '0.332361'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 422
@@ -71,7 +147,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:KHR0BsuwQwFLk+CMY6rCrLvQTOw/fjJPRbkDfgYHS24=
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:zQlQnwfeHs7qZWrtXNnQM+RQFyN5afc6+QPcCEosKRU=
       Connection:
       - keep-alive
       Content-Length:
@@ -79,7 +155,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 06 Dec 2019 15:47:23 GMT
+      - Thu, 10 Sep 2020 08:49:50 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
@@ -93,18 +169,18 @@ interactions:
       - no-cache
       Connection:
       - keep-alive
-      Content-Length:
-      - '116'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 06 Dec 2019 15:47:25 GMT
+      - Thu, 10 Sep 2020 08:49:50 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
       - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -114,10 +190,10 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 99f8d907-b825-4d5d-ae10-ea3280b68d6b
+      - 1cfaec37-34dd-4f8e-814e-0d243c90ea5e
       X-Runtime:
-      - '1.612044'
-      X-Xss-Protection:
+      - '0.182587'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 422
@@ -132,7 +208,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:8d0VI+lmo3a4rnAaQrE5wl26OEgdupjYBnS9VkUUb/s=
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:zQlQnwfeHs7qZWrtXNnQM+RQFyN5afc6+QPcCEosKRU=
       Connection:
       - keep-alive
       Content-Length:
@@ -140,48 +216,48 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 06 Dec 2019 15:47:25 GMT
+      - Thu, 10 Sep 2020 08:49:50 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
     uri: https://localhost/api/v3/remote_accesses
   response:
     body:
-      string: '{"id":36,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.16","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
+      string: '{"id":19,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.16","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
     headers:
       Cache-Control:
       - no-store, must-revalidate, private, max-age=0
       Connection:
       - keep-alive
-      Content-Length:
-      - '153'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 06 Dec 2019 15:47:26 GMT
+      - Thu, 10 Sep 2020 08:49:50 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
       Set-Cookie:
       - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - whw65qqrmz8ijomq6kgd,uq8tmzut9bfj2z8xi4ww,894js8ieng85fyrtmy7q,dkce64eh7kfxpu18ynga,yivixl1hfg3s4c1t2wry,jokpopde9r2e71kgajs7
-      X-Miniprofiler-Original-Cache-Control:
+      X-MiniProfiler-Ids:
+      - h1bpw6272d34f8yqwrwe,ba250bxwz4g9u9wksoaz,h9b69ud8suh7mzrw22an,wpg4j925ptp4dzrfbgqx,c0g9wybzamw2i953ssn1,jwrmbcmvmsu4935h0tg6,x31s1vzads34ta9363st,1pcyiredopqxahakmanf,tfocv2ui5y9bab7ol4oz,uqawfv17f5mg8bpzbcky,eqt44kv5t3tqgevtnlaz,lid16bds6t9g23x75c6f,uchq06s5xdym2w170dv6,386anoneg8p3lt0a0lel,xsclcztyzf8tq56drf2f,gzzuujolfovzwmf105t3,izdve56kcti0f8otf14,p9xut2vy1a5w23yfarrd,3btq7e6g6w2twfuzskkv,s3zdlnpso8z4k7ki58pw
+      X-MiniProfiler-Original-Cache-Control:
       - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 025a24f4-8dc3-4ce2-8cd3-17544e5bc67f
+      - cffb16af-8c96-40e4-9cdb-5da03989a02a
       X-Runtime:
-      - '0.725049'
-      X-Xss-Protection:
+      - '0.292194'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 201

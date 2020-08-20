@@ -15,7 +15,7 @@ RESPONSE = XLSX.import_remote_accesses_xlsx(FILE_XLSX)
 if RESPONSE:
     for remote_access in RESPONSE:
         if remote_access:
-            print("remote access created, id=>>>>>{}".format(remote_access.id))
+            print("remote access created or updated, remote_access=>>>>>{}".format(remote_access))
         else:
             print("An error occurred, import_remote_accesses_xlsx failed")
 else:
