@@ -63,7 +63,7 @@ def download_scripts(parsed_args, scripts, client):
 
 def download_attachment(path, url):
     """Download attachment if the script has one"""
-    attachment = requests.get(url, allow_redirects=True)
+    attachment = requests.get(url, allow_redirects=True, verify=False)
     location = os.path.join(os.path.dirname(
         __file__) + '/' + "/".join(path[:-1]))
     name = url.split("/")[-1]
