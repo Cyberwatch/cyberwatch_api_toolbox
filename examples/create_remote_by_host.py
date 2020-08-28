@@ -104,9 +104,9 @@ def launch_script(parsed_args):
         try:
             for subnet in parsed_args.subnet:
                 ipaddress.ip_network(subnet, strict=False)
-        except ValueError:
-            print("Please provide valid subnet")
-            raise
+        except ValueError as v_error:
+            raise ValueError("Please provide valid subnet") from v_error
+
     client = connect_api()
     if parsed_args.subnet == []:
         add_hosts_all_subnets(client, parsed_args)
