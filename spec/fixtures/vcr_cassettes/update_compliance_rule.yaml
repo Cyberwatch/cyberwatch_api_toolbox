@@ -1,0 +1,138 @@
+interactions:
+- request:
+    body: '{"audit": "New audit for this rule", "description": "new description"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:Ud2mXIfDkCKwTqokVSeMaWaIVEHIANOVyZYatuyULag=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '70'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Sep 2020 11:44:27 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: PUT
+    uri: https://localhost/api/v3/compliance/rules/6891
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA21RTY/UMAz9K1ZOINpV2h0GJkdGXBECJA6AqjTxbMPmo+Rjh2q1/x2nnZVmJS6t
+        Y79nv2c/MqOZ2L8/dA2TRZvMBPuEZ1hjOIUIeTIJYrHIGqaCRgJ8/fC5PZaUg2s571oVg6eixqSi
+        mbOhl2CemlxnGualq+SPPpWIUEmgJTr60QD0crSoCRZlxUtbsd8nY5EUIBGcXMCHDCNCSRjhdxgT
+        lWQGj6ghh1qJxQM1JAakJWV0zVUMOmCCST7UZsZnmukVXjWqI4xXtmiioCrR5AVIoMkhGn+3gVY+
+        TaNRDUivNydkgVStMvAvUfMq291UQ+hQG3nZyyZFZQtt68P5YhwuO7T4gJZQznjjpF3Zf4qJOKSi
+        AxO+WNuwvMx1O8fxfAxutqbaEOIL3SgJsR2mHiuizKgHWW/a8563/NDe8m/8IN52ot/fcM7f8F5w
+        TuAy6/+Cu1ux24n+3QvwXEZr0nSBb5qsTHlwQZuTeZGPeKLrkcDnBPl53sWrDn4Wzvv99oX+NTUP
+        iYkfj+weF0KUsfhchp7z3bDfsadf1JBsDncxlLkCKaEmVPdr/PQPD3Pt3s4CAAA=
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Sep 2020 11:44:27 GMT
+      ETag:
+      - W/"6011382fa46cd8042023361a8fe78a84"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - a61ba583-4761-4458-86fe-4d564118adc7
+      X-Runtime:
+      - '0.036716'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:L8AB270sPFwVl5ADL4/ZxwZzrfoB0vMpUF/yJfVec7M=
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 30 Sep 2020 11:44:27 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: https://localhost/api/v3/compliance/rules/6891
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA21STW/UMBD9KyOfQCSVky4L62NXXBECJA6AIieebdz6I/hjl6jqf2ecpNJW4hLb
+        M+/NvDeTJ6YVE/uPh6ZiMiudmGCf8QLLHU4+QBp1hJANsooNXiEBvt19qY85Jm9rzpt6CN5RUmEc
+        gp6SppdgjopcRyrmpC3kTy7mgFBIoCRaOqgBOtkbVAQLsuClKdgfozZICpAIVs7gfIIeIUcM8OD7
+        SCmZwCEqSL5kQnZABYkBcY4JbXV1B+UxwijPpZh2iXq6Aa8KlRbaDSYrouCQg04zkECdfNDufgUt
+        fOpGrSqQTq1OyAKpWmTgX6KmRba9KYbQotJym8sqZUgG6tr5y2YcthkaPKMhlNVOW2kW9p+sA3Yx
+        K8+Ey8ZULM1Tmc6xvxy9nYwuNoT4SjuKQqyLKcsKKBOqTpadtrzlNT/Ut/w7P4j3jWj3N5zzd7wV
+        nBM4T+q/4OZW7Hai/fAKPOXe6Dhu8FWTkTF11it90q/iAU+0PRL4EiA/L7N408CvzHm7X7/QvqXi
+        PjLx84k94kyI3GeXctdyvuv2O/b8u2K0+zOGAqJH+S+7++DztAWGEYfH5f78D4hWgW/bAgAA
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Sep 2020 11:44:27 GMT
+      ETag:
+      - W/"ef5e8c95cd5fed797cdcf94017a42826"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - f2426186-4ba5-46f5-94b9-3c8e7ec60cb1
+      X-Runtime:
+      - '0.024724'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

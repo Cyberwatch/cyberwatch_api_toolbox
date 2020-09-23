@@ -1,6 +1,8 @@
 """API routes"""
 
 ROUTE_AGENTS = "/api/v3/agents"
+ROUTE_COMPLIANCE_ASSETS = "/api/v3/compliance/servers"
+ROUTE_COMPLIANCE_RULES = "/api/v3/compliance/rules"
 ROUTE_CVE_ANNOUNCEMENTS = "/api/v3/cve_announcements"
 ROUTE_GROUPS = "/api/v3/groups"
 ROUTE_HOSTS = "/api/v3/hosts"

@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:fLy//W1aJWYH1j3ygbxSSPz95IKqb96IuJ7f+V8Yha8=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Date:
+      - Wed, 30 Sep 2020 10:02:04 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: PUT
+    uri: https://localhost/api/v3/compliance/servers/2/recheck_rules
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6VU0YrbMBD8lUN9rBMkxYpdvbWFPrX0oS4USjCKvU5EZSuVpdAQ8u9dxYnTUN/1
+        ykHAsDs7mllNdCS6JpInZGt736kWiCRNxVIuWFOJdUYSUkNfOb3z2nZEdsGYhBjV+7KybRs6Xamh
+        QzjldEbzGRUFfSNFJimfU0pfUy4pRR4Ha2t96eBn0A7w1EaZHhJyrio/MmQznhdMSMalWN4x4FGw
+        se6A0B7cHlysOcBq/ScBSkgLRqVIpcjvCWy7M1p1FZQuGOjRQ+hwkE60GqUN8j6B6ENVwR2k98qH
+        HoVsoCt1bSDajlgiv68SYvF7JD8gGghrHAolpzQtlyniLsv/eq4/cDqn6cPH4gt2lKu22PmVLwck
+        WDN4FWh0Rllxtoe/O6/91jpfTrBizx92sfq5l3LokBPSdnvtbNdCNHO85uJC8AlqHdpzGhoVDCK8
+        CxCX0jW6xhGtjPaH6+0OJE91y/bKqDu8Vff38GT9Nqb2eEFqrSeOfax1G/ZbB7gggx6zuXgsRYuC
+        ZTI9B5kvsnGzYVc/F4xr3TgbdjEAw0rZbacxUMGDi1mrPOa6TL9N/98qa6zDiVeMv/3w/t3/xn5a
+        8CT4lFxkpqPMGlT9MlmiYEymuRTsGbImwaOsfJSlNvGyX6KLLeIzgw9VKv6taxp8Wt29C+Ndr06/
+        ATOXd8hZBQAA
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Sep 2020 10:02:04 GMT
+      ETag:
+      - W/"c91f340626163acb3766e1d5772180cd"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 315c034a-ff15-4853-83a4-eaab4611fd49
+      X-Runtime:
+      - '0.065129'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

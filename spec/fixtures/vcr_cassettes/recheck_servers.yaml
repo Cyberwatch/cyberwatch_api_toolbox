@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:kI0azjFnkJQ3lwO1Kna/U8AM737A5AziYBqBcZAcD3w=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Date:
+      - Wed, 30 Sep 2020 10:02:37 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: PUT
+    uri: https://localhost/api/v3/compliance/rules/6885/recheck_servers
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7VWTW/jNhD9K4T2WDulZFmxdWuCHgoUiwUSdA/NQqDIUcRdilT54cRd5L93SMm7
+        tutFc0gPBuzhzHvz8Tj010yKrK42m/UiY0FIn9XZDXMgiNFkb4Ilbu88DIQb3cnHYJmXRi+IDZr4
+        HggbR2tGK5kHjMBPl8ydUco8Sf2IccPAtHDEG7IDK7s94RaxpSOgWatA1A/6IVC64qOF9AUe9LuZ
+        lnuFnsvZM0Wit55/HwJ/Por8Y+Kw4ILykeUhO3hnV9ki40YA1nh382H5+2/vlzRfUvxEYDwU4LiV
+        YywRfe6xkJSrYDBMKYfYGawEnoEHLLllnvfks2ld7FesfMo7Mmk2RKZftQv2X0BzTug2dZSp6Pux
+        lwoiDAYMbE+08aSFyGonEt8zTzRMSeBJHMMJ8eLoOxEGHOnZLoJJ7ZFTczgCihRScxUEhmBBVvo9
+        wQSlNzbOLjmleGRDqgXBSX4b33kvkDjVbWEAIdncxP9NTFMHUzb/paDlUpun44BLwnlvPDhE+kXg
+        LUgTIQP43iAb5pGCYwoMO2V3EvsIz9L5K3JrdJJaqk+gyco2RABsPw8DaJ+qxCrsSYEzeOyYgh0o
+        7NUgtRyYSj38K0gLjQvCZHXHlINF5vcjikQHpVDGFhBENCxe2IIWdEm3y7y6z2mdr+p1fkUp/YkW
+        NaWIFkbxeucxYKGuf627Ys43gxGyk68NsdChwFGKh2Kw2INccjw3Lqv//Jp9gT0aQhu0D01e0bKp
+        yuxlcX6w+cFBQc8PBLSS6WZz0bq9aM3pqZkN7G+jG1RCeD49MZZxBefgs/X6orW6aF2fWh1esya/
+        aCzOcrO8v5QZ3pjPzJpk/LTIonzBTi2Ou78oF1lvnJ/X1SjBWljuBhyEQ+kG9MweQTdS4Iqa550W
+        ueSHoR0GvqL3eV6vyzrfHA08ZpKI1idEnK7KvKV5V+bi7bmqE67r7bZocWsWeV6+Pdf1CRcrq2Ij
+        OsbKNXt7ru0JV3G9LYrtmvH1evV2XCgSG1CJj9aE8btQym9P2t38VjQ3gOAfULceF6I7f0DnTWWU
+        sRj0brWqqu02wfMe+JcJeVpq2W37dGuGUcn4RNX1bXKo64/S93cJMe4FKwCR8ogZX7O4a374NyG2
+        I3DMKvbj+2vbManwOY43XLrJ+PLp5R80Sgx9BgkAAA==
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Sep 2020 10:02:37 GMT
+      ETag:
+      - W/"e90bcece16e4440041c136e8abc01c30"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 98de2a35-3c5e-4a5d-973b-3612255a024a
+      X-Runtime:
+      - '0.090603'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

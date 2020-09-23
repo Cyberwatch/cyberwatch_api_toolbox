@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:gcVMUOE3WXhS/Ah4d3jV+fOjIFXU9xZ0NU+7tzGOkaQ=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Date:
+      - Wed, 30 Sep 2020 11:44:27 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: DELETE
+    uri: https://localhost/api/v3/compliance/rules/6891
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA21RTY/UMAz9K1ZOINpV2l1mmRwZcUUIkDgAGqWNZ2vIR8nHDiPEf8dpu9KsxKV1
+        7Pfs9+w/goxQuzf7rhG6GMpCifd4hiWGU4iQJ0oQi0XRiDEYZMCntx/aQ0k5uFbKrh1j8Fw0mMZI
+        cyZ+KeG5yXWmEV67Sn7nU4kIlQRGo+MfD0CvB4uGYVFXvLYV+2Uii6wAmeD0BXzIMCCUhBF+hCFx
+        SWfwiAZyqJVYPHBDZkC6pIyuuYrBBEww6cfajHzmmX7Eq0Z1BPnRFsMUHEukfAEWSDlE8g8raOHz
+        NB7VgPZmdcIWWNUiA38zNS+y3U01hA4N6W0vq5QxW2hbH86bcdh2aPERLaMceXLaLuxfhSIeUzFB
+        KF+sbUS+zHU7h+F8CG62VG0o9ZFvlJRaD1OPFVFnNEddb9rLXrZy397Kz3KvXneq391IKV/JXknJ
+        4DKb/4K7W3V3p/r7Z+C5DJbStMFXTVanfHTB0Ime5SOe+Hos8CnBfp528aKDb0XKfrd+oX/JzUMS
+        6ut3JrKd40MMZd4S44TjzyX++w/l35pMtgIAAA==
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Sep 2020 11:44:27 GMT
+      ETag:
+      - W/"7911565e324b2f0f53259dc78504ea1c"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 9c008d98-5a1e-4552-8875-e8765b2bb51f
+      X-Runtime:
+      - '0.040797'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
