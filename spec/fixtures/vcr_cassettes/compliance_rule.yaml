@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:qQVmG4Le7fTSXCs/wb9GRtXXmQ37eI004fs2TqaJb/8=
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 30 Sep 2020 11:38:13 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: https://localhost/api/v3/compliance/rules/6891
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA41TTW/UMBD9K5ZPIJLKG8qKtdQLK+4IKjg0KHLs2cbUsYM/tkSr/nfGiUvZghCX
+        yJ55897M8+REtaJ8+3a3qahISkfK6Wfw+jAT6Z0lOhCwojeg5ADyLvCrm1NLnVfgW0quyKZqqXQ2
+        go3LvaVhDhFGGQ3W1qV24WopYkOSEkIo2JJeMgehTfJQMkqHknqozgSbPwXBH7WEtd8QRUzhL1JC
+        Rn2Efyt9pRVyK0APPr37UO9TiG6sGdvUmRuTCoL0eooab5xeD0VUCRhXr1LAYaMj8ANkikB6EeVA
+        vrk+EARELFjtuUAyK8as9N4GbOY5UXEGYV5kOWEy9sugDWQaLBjFTKyLpIes6leROIhILKxNYMYn
+        ey5c/XYmykEggzhmMp0tFRZ9fCLKEtpKkxSW4EBex5lggzo6r+3tClrqUQ2lKiKs+rU3z71A4WVu
+        DyMoLYqJT+tS19bdl8FJMdzAEQyiRm31KMxS/T1pD11IylFukzEVjfOU3dn393s3TkbnMTj/mAwE
+        ztdXzC/rQURQncg73rCG1WxXv2bXbMffbHizvWCMvWINZwzBaVL/D55Sb3QYCnztyYgQu9EpfdBn
+        cQ8HfD1s8DGA8zx68WJD2sRYs12/pHmJ5C5QfnOidzAjIvXJxtQ1jF1220vc2GpZf/AZhBePM3e3
+        3qWpBNa/Np8ffgLvgrU26wMAAA==
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Sep 2020 11:38:13 GMT
+      ETag:
+      - W/"c44e00ee8bedd81ac74cd0249cbd3f48"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 95e6b618-e2cb-43b8-b5b1-c480f924f1f8
+      X-Runtime:
+      - '0.025476'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

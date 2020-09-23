@@ -12,6 +12,8 @@ from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader,
 from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox.__routes__ import ROUTE_AGENTS
+from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_RULES
+from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_ASSETS
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
 from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_HOSTS
@@ -505,3 +507,77 @@ class CBWApi: # pylint: disable=R0904
             return None
 
         return response
+
+    def compliance_servers(self, params=None):
+        """GET request to /api/v3/compliance/servers to get all assets from compliance"""
+        response = self._get_pages("GET", [ROUTE_COMPLIANCE_ASSETS], params)
+        return response
+
+    def compliance_server(self, server_id):
+        """GET request to /api/v3/compliance/servers/{server_id} to get all informations
+        about a specific compliance asset"""
+        response = self._request("GET", [ROUTE_COMPLIANCE_ASSETS, server_id])
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
+    def recheck_rules(self, server_id):
+        """PUT request to /api/v3/compliance/servers/{server_id}/recheck_rules to recheck
+        the rules of a specific compliance asset"""
+        response = self._request("PUT", [ROUTE_COMPLIANCE_ASSETS, server_id, 'recheck_rules'])
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
+    def compliance_rules(self, params=None):
+        """GET request to /api/v3/compliance/rules to get all rules from compliance"""
+        response = self._get_pages("GET", [ROUTE_COMPLIANCE_RULES], params)
+        return response
+
+    def compliance_rule(self, server_id):
+        """GET request to /api/v3/compliance/rules/{server_id} to get all rules
+        tested on a specific asset"""
+        response = self._request("GET", [ROUTE_COMPLIANCE_RULES, server_id])
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
+    def create_compliance_rule(self, params):
+        """POST request to /api/v3/compliance/rules to create a compliance rule"""
+        response = self._request("POST", [ROUTE_COMPLIANCE_RULES], params)
+        if response.status_code != 201:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return self._cbw_parser(response)
+
+    def update_compliance_rule(self, rule_id, info):
+        """PUT request to /api/v3/compliance/rules/{rule_id} to update the groups of a server"""
+        if rule_id:
+            response = self._request("PUT", [ROUTE_COMPLIANCE_RULES, rule_id], info)
+            logging.info("Update compliance rule with: {}".format(info))
+            return self.verif_response(response)
+
+        logging.error("Error: No rule_id was specified for update")
+        return False
+
+    def delete_compliance_rule(self, rule_id):
+        """DELETE request to /api/v3/compliance/rules/{rule_id} to delete a compliance rule"""
+        if rule_id:
+            logging.debug("Deleting {}".format(rule_id))
+            response = self._request("DELETE", [ROUTE_COMPLIANCE_RULES, rule_id])
+            return self.verif_response(response)
+
+        logging.error("Error: no rule_id was specified for deletion")
+        return False
+
+    def recheck_servers(self, rule_id):
+        """PUT request to /api/v3/compliance/rules/{rule_id}/recheck_servers to recheck a rule on all servers"""
+        response = self._request("PUT", [ROUTE_COMPLIANCE_RULES, rule_id, 'recheck_servers'])
+        if response.status_code != 200:
+            logging.error("Error rule id::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)

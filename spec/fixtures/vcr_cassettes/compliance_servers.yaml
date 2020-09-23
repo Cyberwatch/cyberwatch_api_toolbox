@@ -1,0 +1,104 @@
+interactions:
+- request:
+    body: '{"environment_id": "2", "per_page": 100}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:Uy8AtL15J6hiVESBBhkz6Tp9FqrwPu6ukIRrGBtY4E0=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '40'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Sep 2020 10:02:04 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: https://localhost/api/v3/compliance/servers
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Sep 2020 10:02:04 GMT
+      ETag:
+      - W/"449e68e768bac346fec46ebc8288d93a"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Page:
+      - '1'
+      X-Per-Page:
+      - '100'
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - c24f9853-91e0-48f7-9810-4cbac88e4244
+      X-Runtime:
+      - '0.320057'
+      X-Total:
+      - '27'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

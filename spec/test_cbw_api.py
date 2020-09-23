@@ -601,3 +601,182 @@ title=None, description=None, servers=[], cve_announcements=[])"
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/fetch_importer_script.yaml'):
             response = client.fetch_importer_script('1')
             assert response.version == '47c8367e1c92d50fad8894362f5c09e9bfe65e712aab2d23ffbb61e354e270dd'
+
+    @staticmethod
+    def test_compliance_servers():
+        """Tests for method compliance_servers"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        validate_compliance_asset = "cbw_object(id=2, hostname='fc14251fc5b7', description=None, \
+last_communication='2020-08-05T09:57:02.000+02:00', reboot_required=False, boot_at='2020-07-28T15:12:56.000+02:00', \
+category='server', created_at='2020-08-04T10:54:58.000+02:00', compliance_rules_count=0, compliance_rules_failed_count=0, \
+compliance_rules_succeed_count=0, status='gen_idle', os=cbw_object(key='ubuntu_2004_64', name='Ubuntu 20.04 LTS', \
+arch='x86_64', eol='2025-04-01T02:00:00.000+02:00', short_name='Ubuntu 20.04', type='Os::Ubuntu'), \
+environment=cbw_object(id=2, name='Medium', default=True, confidentiality_requirement='confidentiality_requirement_medium', \
+integrity_requirement='integrity_requirement_medium', availability_requirement='availability_requirement_medium', \
+threshold=7.5, created_at='2020-08-03T17:47:02.237+02:00', updated_at='2020-08-03T17:47:02.237+02:00'), \
+groups=[cbw_object(id=12, name='computers_factory_4X', description=None, color='#12AFCB', \
+created_at='2020-08-04T10:54:58.000+02:00', updated_at='2020-08-04T10:54:58.000+02:00'), \
+cbw_object(id=14, name='dead', description=None, color='#12AFCB', created_at='2020-08-05T11:48:51.000+02:00', \
+updated_at='2020-08-05T11:48:51.000+02:00'), cbw_object(id=18, name='agent', description=None, color='#12AFCB', \
+created_at='2020-08-13T15:57:45.000+02:00', updated_at='2020-08-13T15:57:45.000+02:00')], compliance_groups=[])"
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/compliance_servers.yaml'):
+            param = {"environment_id":"2"}
+            response = client.compliance_servers(param)
+            assert len(response) == 27
+            assert isinstance(response, list) is True
+            assert str(response[0]) == validate_compliance_asset
+
+    @staticmethod
+    def test_compliance_server():
+        """Tests for method compliance_server"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        validate_compliance_asset = "cbw_object(id=2, hostname='fc14251fc5b7', description=None, \
+last_communication='2020-08-05T09:57:02.000+02:00', reboot_required=False, boot_at='2020-07-28T15:12:56.000+02:00', \
+category='server', created_at='2020-08-04T10:54:58.000+02:00', compliance_rules_count=0, \
+compliance_rules_failed_count=0, compliance_rules_succeed_count=0, status='gen_idle', rules=[], \
+os=cbw_object(key='ubuntu_2004_64', name='Ubuntu 20.04 LTS', arch='x86_64', eol='2025-04-01T02:00:00.000+02:00', \
+short_name='Ubuntu 20.04', type='Os::Ubuntu'), environment=cbw_object(id=2, name='Medium', default=True, \
+confidentiality_requirement='confidentiality_requirement_medium', integrity_requirement='integrity_requirement_medium', \
+availability_requirement='availability_requirement_medium', threshold=7.5, created_at='2020-08-03T17:47:02.237+02:00', \
+updated_at='2020-08-03T17:47:02.237+02:00'), groups=[cbw_object(id=12, name='computers_factory_4X', description=None, \
+color='#12AFCB', created_at='2020-08-04T10:54:58.000+02:00', updated_at='2020-08-04T10:54:58.000+02:00'), \
+cbw_object(id=14, name='dead', description=None, color='#12AFCB', created_at='2020-08-05T11:48:51.000+02:00', \
+updated_at='2020-08-05T11:48:51.000+02:00'), cbw_object(id=18, name='agent', description=None, color='#12AFCB', \
+created_at='2020-08-13T15:57:45.000+02:00', updated_at='2020-08-13T15:57:45.000+02:00')], compliance_groups=[])"
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/compliance_server.yaml'):
+            response = client.compliance_server("2")
+            assert str(response) == validate_compliance_asset
+
+    @staticmethod
+    def test_recheck_rules():
+        """Tests for method recheck_rules"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        validate_recheck_rules = "cbw_object(id=2, hostname='fc14251fc5b7', description=None, \
+last_communication='2020-08-05T09:57:02.000+02:00', reboot_required=False, boot_at='2020-07-28T15:12:56.000+02:00', \
+category='server', created_at='2020-08-04T10:54:58.000+02:00', compliance_rules_count=0, compliance_rules_failed_count=0, \
+compliance_rules_succeed_count=0, status='gen_idle', rules=[], os=cbw_object(key='ubuntu_2004_64', name='Ubuntu 20.04 LTS', \
+arch='x86_64', eol='2025-04-01T02:00:00.000+02:00', short_name='Ubuntu 20.04', type='Os::Ubuntu'), \
+environment=cbw_object(id=2, name='Medium', default=True, confidentiality_requirement='confidentiality_requirement_medium', \
+integrity_requirement='integrity_requirement_medium', availability_requirement='availability_requirement_medium', threshold=7.5, \
+created_at='2020-08-03T17:47:02.237+02:00', updated_at='2020-08-03T17:47:02.237+02:00'), groups=[cbw_object(id=12, \
+name='computers_factory_4X', description=None, color='#12AFCB', created_at='2020-08-04T10:54:58.000+02:00', \
+updated_at='2020-08-04T10:54:58.000+02:00'), cbw_object(id=14, name='dead', description=None, color='#12AFCB', \
+created_at='2020-08-05T11:48:51.000+02:00', updated_at='2020-08-05T11:48:51.000+02:00'), cbw_object(id=18, name='agent', \
+description=None, color='#12AFCB', created_at='2020-08-13T15:57:45.000+02:00', updated_at='2020-08-13T15:57:45.000+02:00')], \
+compliance_groups=[])"
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/recheck_rules.yaml'):
+            response = client.recheck_rules("2")
+            assert str(response) == validate_recheck_rules
+
+    @staticmethod
+    def test_compliance_rules():
+        """Tests for method compliance_rules"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/compliance_rules.yaml'):
+            response = client.compliance_rules()
+            assert(len(response)) == 4646
+            assert(response[0].id) == 1
+            assert isinstance(response, list) is True
+
+    @staticmethod
+    def test_compliance_rule():
+        """Tests for method compliance_rule"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        validate_compliance_rule = """cbw_object(id=6891, audit='Verify cron is enabledchecks:=[{"order" = 1,\
+"content" = "systemctl is-enabled cron","success" = "enabled","failure" = "disabled"},{"order" = 2,\
+"content" = "service cron status","success" = "active","failure" = "disabled"}]', code='SBP-Custom-001-cron', \
+description='The cron daemon is used to execute batch jobs on the system.', name='Ensure cron daemon is enabled', \
+rationale='While there may not be user jobs that need to be run on the system, the system does have maintenance jobs \
+that may include security monitoring that have to run, and cron is used to execute them.', \
+remediation='systemctl --now enable cron', level='minimal', require_sudo=None, type='CbwCompliance::Rules::Custom', \
+created_at='2020-09-30T09:51:26.000+02:00', updated_at='2020-09-30T09:51:26.000+02:00', published_at=None, \
+last_modified_at=None, reference=None, equation='(1 && 2)', os=[cbw_object(key='ubuntu_2004_64')], servers=[], \
+rule_groups=[], checks=[])"""
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/compliance_rule.yaml'):
+            response = client.compliance_rule("6891")
+            assert str(response) == validate_compliance_rule
+
+    @staticmethod
+    def test_create_compliance_rule():
+        """Tests for method create_compliance_rule"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {
+        "audit": "rule audit",
+        "code": "SBP-Custom-001",
+        "description": "rule description",
+        "equation": "(1 && 2)",
+        "name": "rule name",
+        "rationale": "rule rationale",
+        "remediation": "rule remediation",
+        "checks": [
+                {
+                    "order": 1,
+                    "content": "check content",
+                    "success": "regex success",
+                    "failure": "regex failure"
+                },
+                {
+                    "order": 2,
+                    "content": "check content",
+                    "success": "regex success",
+                    "failure": "regex failure"
+                }
+            ],
+            "os": ["ubuntu_2004_64"]
+        }
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_compliance_rule.yaml'):
+            response = client.create_compliance_rule(info)
+            assert response.code == "SBP-Custom-001"
+            assert response.description == "rule description"
+
+    @staticmethod
+    def test_update_compliance_rule():
+        """Tests for method update_compliance_rule"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {"audit": "New audit for this rule", "description": "new description"}
+        rule_id = "6891"
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_compliance_rule.yaml'):
+            response = client.update_compliance_rule(rule_id, info)
+            assert response is True
+
+            rule_updated = client.compliance_rule(rule_id)
+            assert rule_updated.audit == "New audit for this rule"
+            assert rule_updated.description == "new description"
+
+    @staticmethod
+    def test_delete_compliance_rule():
+        """Tests for method delete_compliance_rule"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_compliance_rule_OK.yaml'):
+            response = client.delete_compliance_rule("6891")
+            assert response is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_compliance_rule_KO.yaml'):
+            response = client.delete_compliance_rule("6890")
+            assert response is False
+
+    @staticmethod
+    def test_recheck_servers():
+        """Tests for method recheck_servers"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+        rule_id = "6885"
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/recheck_servers.yaml'):
+            response = client.recheck_servers(rule_id)
+            assert str(response.id) == rule_id
+            assert isinstance(response.servers, list) is True
+            assert len(response.servers) == 5

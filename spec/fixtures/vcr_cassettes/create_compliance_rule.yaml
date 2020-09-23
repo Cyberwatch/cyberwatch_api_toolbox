@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: '{"audit": "rule audit", "code": "SBP-Custom-001", "description": "rule
+      description", "equation": "(1 && 2)", "name": "rule name", "rationale": "rule
+      rationale", "remediation": "rule remediation", "checks": [{"order": 1, "content":
+      "check content", "success": "regex success", "failure": "regex failure"}, {"order":
+      2, "content": "check content", "success": "regex success", "failure": "regex
+      failure"}], "os": ["ubuntu_2004_64"]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 VweplWveBN4inTC5zbVjwSR6PxP/+WqFt8FGIODQ9Tw=:KBPvCbNVpvw5YXCi2pbMKj4BmC92NgflylHbRnRQ3qI=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '429'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 30 Sep 2020 10:02:37 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: POST
+    uri: https://localhost/api/v3/compliance/rules
+  response:
+    body:
+      string: '{"id":6894,"audit":"rule audit","code":"SBP-Custom-001","description":"rule
+        description","name":"rule name","rationale":"rule rationale","remediation":"rule
+        remediation","level":"minimal","require_sudo":null,"type":"CbwCompliance::Rules::Custom","created_at":"2020-09-30T12:02:37.000+02:00","updated_at":"2020-09-30T12:02:37.000+02:00","published_at":null,"last_modified_at":null,"reference":null,"equation":"(1
+        \u0026\u0026 2)","os":[{"key":"ubuntu_2004_64"}],"rule_groups":[],"checks":[{"type":"CbwCompliance::Checks::WithScript","order":1,"content":"check
+        content","success":"regex success","failure":"regex failure"},{"type":"CbwCompliance::Checks::WithScript","order":2,"content":"check
+        content","success":"regex success","failure":"regex failure"}]}'
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 30 Sep 2020 10:02:37 GMT
+      ETag:
+      - W/"192b3c2b91598aeacad3b4746ecffd71"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - f6a2361c-bcee-4962-82fc-07abcf0c7b33
+      X-Runtime:
+      - '0.085953'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+version: 1
