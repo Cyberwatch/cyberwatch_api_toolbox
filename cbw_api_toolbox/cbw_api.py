@@ -221,16 +221,20 @@ class CBWApi: # pylint: disable=R0904
     def create_remote_access(self, info):
         """"POST request to /api/v3/remote_accesses to create a specific remote access"""
         if info:
-            response = self._request("POST", [ROUTE_REMOTE_ACCESSES], {
-                "type": info["type"],
-                "address": info["address"],
-                "port": info["port"],
-                "login": info["login"],
-                "password": info.get("auth_password") or info.get("password"),
-                "key": info.get("priv_password") or info.get("key"),
-                "node_id": info["node_id"],
-                "server_groups" : info.get("server_groups", "")
-            })
+            if info.get("credential_id"):
+                response = self._request("POST", [ROUTE_REMOTE_ACCESSES], info)
+            else:
+                response = self._request("POST", [ROUTE_REMOTE_ACCESSES], {
+                    "type": info["type"],
+                    "address": info["address"],
+                    "port": info["port"],
+                    "login": info["login"],
+                    "password": info.get("auth_password") or info.get("password"),
+                    "key": info.get("priv_password") or info.get("key"),
+                    "node_id": info["node_id"],
+                    "server_groups" : info.get("server_groups", "")
+                })
+
             logging.debug("Create connexion remote access::{}".format(response.text))
 
         if self.verif_response(response):
