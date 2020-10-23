@@ -88,7 +88,7 @@ In this case, please check that there are no typing errors in your `API_KEY`, `S
 Create an `api.conf` file at the root of the project (see `example_api.conf`)
 
 - `api_key`: your Cyberwatch user api key
-- `api_key`: your Cyberwatch user secret key
+- `secret_key`: your Cyberwatch user secret key
 - `url`: your Cyberwatch instance URL
 
 **Example**
