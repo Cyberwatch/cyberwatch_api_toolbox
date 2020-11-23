@@ -118,7 +118,7 @@ $ python3 your_example_script_file.py
 
 ## API Documentation
 
-See the full API documentation [here](https://docs.cyberwatch.fr/)
+See the full API documentation [here](https://docs.cyberwatch.fr/api/#introduction)
 
 ## Library Documentation
 
