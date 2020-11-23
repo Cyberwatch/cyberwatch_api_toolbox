@@ -11,7 +11,7 @@ setup(
     license='MIT',
     url='https://github.com/Cyberwatch/cyberwatch_api_toolbox',
     project_urls={
-        "Documentation": "https://docs.cyberwatch.fr/",
+        "Documentation": "https://docs.cyberwatch.fr/api/#introduction",
     },
     py_modules=['cbw-api-toolbox'],
     zip_safe=False,
