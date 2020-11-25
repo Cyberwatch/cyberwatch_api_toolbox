@@ -23,6 +23,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_PING
 from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
 from cbw_api_toolbox.__routes__ import ROUTE_SECURITY_ISSUES
 from cbw_api_toolbox.__routes__ import ROUTE_SERVERS
+from cbw_api_toolbox.__routes__ import ROUTE_STORED_CREDENTIALS
 from cbw_api_toolbox.__routes__ import ROUTE_USERS
 from cbw_api_toolbox.cbw_auth import CBWAuth
 
@@ -585,3 +586,45 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error rule id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
+
+    def stored_credentials(self, params=None):
+        """GET request to /api/v3/assets/credentials to get all stored credentials"""
+        response = self._get_pages("GET", [ROUTE_STORED_CREDENTIALS], params)
+        return response
+
+    def stored_credential(self, credential_id):
+        """GET request to /api/v3/assets/credentials/{credential_id} to retrieve a set of stored credentials"""
+        response = self._request("GET", [ROUTE_STORED_CREDENTIALS, credential_id])
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
+    def create_stored_credential(self, params):
+        """POST request to /api/v3/credentials to create a stored credentials"""
+        response = self._request("POST", [ROUTE_STORED_CREDENTIALS], params)
+        if response.status_code != 201:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return self._cbw_parser(response)
+
+    def update_stored_credential(self, credential_id, params):
+        """PATCH request to /api/v3/credentials/<id> to update a stored credentials"""
+        if  credential_id:
+            response = self._request("PATCH", [ROUTE_STORED_CREDENTIALS, credential_id], params)
+            logging.info("Update stored credential with: {}".format(params))
+            return self.verif_response(response)
+
+        logging.error("Error: No stored crecential id was specified for update")
+        return False
+
+    def delete_stored_credential(self, stored_credentials_id):
+        """DELETE request to /api/v3/assets/credentials/<id> to delete a stored credentials"""
+        if stored_credentials_id:
+            logging.info("Deleting {}".format(stored_credentials_id))
+            response = self._request("DELETE", [ROUTE_STORED_CREDENTIALS, stored_credentials_id])
+            return self.verif_response(response)
+
+        logging.error("Error: no stored_credentials_id was specified for deletion")
+        return False
