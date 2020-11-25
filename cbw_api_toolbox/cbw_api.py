@@ -526,6 +526,14 @@ class CBWApi: # pylint: disable=R0904
             return None
         return self._cbw_parser(response)
 
+    def update_compliance_server(self, server_id, params):
+        """PUT request to /api/v3/compliance/servers/{server_id} to update a compliance asset"""
+        response = self._request("PUT", [ROUTE_COMPLIANCE_ASSETS, server_id], params)
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
     def recheck_rules(self, server_id):
         """PUT request to /api/v3/compliance/servers/{server_id}/recheck_rules to recheck
         the rules of a specific compliance asset"""
