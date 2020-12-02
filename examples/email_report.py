@@ -11,16 +11,16 @@ CONF.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'api.co
 
 def send_email(subject, sender, receiver, content, login, password, smtp, port):
     """Sends an email using smtp specified in the file api.conf"""
-    msg = EmailMessage()
-    msg['Subject'] = subject
-    msg['From'] = sender
-    msg['To'] = receiver
-    msg.set_content(content)
+    email = EmailMessage()
+    email['Subject'] = subject
+    email['From'] = sender
+    email['To'] = receiver
+    email.set_content(content)
 
     server = smtplib.SMTP(smtp, port)
     server.starttls()
     server.login(login, password)
-    server.send_message(msg)
+    server.send_message(email)
     server.quit()
 
     print("Successfully sent email message to {}".format(receiver))
