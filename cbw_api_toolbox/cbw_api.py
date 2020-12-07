@@ -158,7 +158,7 @@ class CBWApi: # pylint: disable=R0904
 
             return self.verif_response(response)
 
-        logging.error("No server id for update")
+        logging.error("Error: no server id specified")
         return False
 
     def server_schedule_updates(self, server_id, params=None):
@@ -177,7 +177,7 @@ class CBWApi: # pylint: disable=R0904
             response = self._request("DELETE", [ROUTE_SERVERS, server_id])
             return self.verif_response(response)
 
-        logging.error("No server id specific for delete")
+        logging.error("Error: no server id specified for deletion")
         return False
 
     def update_server_cve(self, server_id, cve_code, params=None):
@@ -210,7 +210,7 @@ class CBWApi: # pylint: disable=R0904
             response = self._request("DELETE", [ROUTE_AGENTS, agent_id])
             return self.verif_response(response)
 
-        logging.error("No agent id specific for delete")
+        logging.error("Error: no agent id specified for deletion")
         return False
 
     def remote_accesses(self, params=None):
@@ -242,7 +242,7 @@ class CBWApi: # pylint: disable=R0904
             logging.info('remote access successfully created {}'.format(info["address"]))
             return self._cbw_parser(response)
 
-        logging.error("Error create connection remote access")
+        logging.error("Error: remote access connection could not be created")
         return False
 
     def remote_access(self, remote_access_id):
@@ -263,7 +263,7 @@ class CBWApi: # pylint: disable=R0904
             response = self._request("DELETE", [ROUTE_REMOTE_ACCESSES, remote_access_id])
             return self.verif_response(response)
 
-        logging.error("No remote_access_id for delete")
+        logging.error("Eror: no remote_access id specified for deletion")
         return False
 
     def update_remote_access(self, remote_access_id, info):
@@ -273,7 +273,7 @@ class CBWApi: # pylint: disable=R0904
             logging.debug("Update remote access::{}".format(response.text))
             return self._cbw_parser(response)
 
-        logging.error("Error update remote access")
+        logging.error("Error: the remote access could not be updated")
         return False
 
     def cve_announcement(self, cve_code):
