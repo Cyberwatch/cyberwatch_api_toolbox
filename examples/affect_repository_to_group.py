@@ -32,7 +32,7 @@ def affect_repository_to_servers(group_name, repository_id, client):
     for server in servers:
         for group in server.groups:
             if group.name == group_name:
-                client.update_server(str(server.id), {"compliance_groups": [str(repository_id)]})
+                client.update_compliance_server(str(server.id), {"compliance_groups": [str(repository_id)]})
 
 def launch_script():
     '''Launch script'''
