@@ -2,6 +2,7 @@
 
 ROUTE_AGENTS = "/api/v3/assets/agents"
 ROUTE_ASSETS = "/api/v3/assets/servers"
+ROUTE_APPLICATIVE_SCANS = "/api/v3/assets/applicative_scans"
 ROUTE_COMPLIANCE_ASSETS = "/api/v3/compliance/servers"
 ROUTE_COMPLIANCE_RULES = "/api/v3/compliance/rules"
 ROUTE_CVE_ANNOUNCEMENTS = "/api/v3/vulnerabilities/cve_announcements"

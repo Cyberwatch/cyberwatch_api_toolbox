@@ -1,4 +1,4 @@
-'''Delete an Asset'''
+"""Create applicative scan for network target or website"""
 
 import os
 from configparser import ConfigParser
@@ -8,6 +8,9 @@ CONF = ConfigParser()
 CONF.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'api.conf'))
 CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key'), CONF.get('cyberwatch', 'secret_key'))
 
-ASSET_ID = '' #Id of the asset you which to delete
+INFO = {
+    "target": "",  # Mandatory address of the network target or the website..
+    "node_id": "", # Mandatory node that will perform the scans to the network target or website.
+}
 
-CLIENT.delete_asset(ASSET_ID)
+CLIENT.create_applicative_scan(INFO)

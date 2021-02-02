@@ -896,3 +896,67 @@ version='80.0.1+build1-0ubuntu0.20.04.1')], applications=[])"""
             response = client.delete_asset('3')
 
             assert response.hostname == 'Linux'
+
+    @staticmethod
+    def test_applicative_scans():
+        """Tests for method applicative_scans"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        applicative_scans_validate = ["cbw_object(id=1, node_id=1, target='fenrisl.com', server_id=1)"]
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/applicative_scans.yaml'):
+            params = {
+                'page': '1'
+            }
+            response = client.applicative_scans(params)
+            assert isinstance(response, list) is True
+            assert str(response[0]) == applicative_scans_validate[0], str(response[0]) == applicative_scans_validate[0]
+
+    @staticmethod
+    def test_create_applicative_scan():
+        """Tests for method applicative_scan"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {
+            "target": "127.0.0.1",
+            "node_id": "1"
+        }
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_applicative_scan.yaml'):
+            response = client.create_applicative_scan(info)
+
+            assert str(response) == "cbw_object(id=2, node_id=1, target='127.0.0.1', server_id=2)"
+
+    @staticmethod
+    def test_update_applicative_scan():
+        """Tests for update remote method"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {
+            "target": "localhost",
+        }
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_applicative_scan.yaml'):
+            response = client.update_applicative_scan('2', info)
+
+            assert response is True
+
+        info["target"] = "invalid@target"
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_applicative_scan_wrong_target.yaml'):
+            response = client.update_applicative_scan("2", info)
+
+            assert response is False
+
+    @staticmethod
+    def test_delete_applicative_scan():
+        """Tests for method delete_applicative_scan"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_applicative_scan.yaml'):
+            response = client.delete_applicative_scan('1')
+            assert response is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_applicative_scan_wrong_id.yaml'):
+            response = client.delete_applicative_scan('wrong_id')
+            assert response is False
