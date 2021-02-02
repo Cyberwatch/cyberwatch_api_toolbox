@@ -14,6 +14,7 @@ from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox.__routes__ import ROUTE_AGENTS
 from cbw_api_toolbox.__routes__ import ROUTE_ASSETS
+from cbw_api_toolbox.__routes__ import ROUTE_APPLICATIVE_SCANS
 from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_RULES
 from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_ASSETS
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
@@ -646,7 +647,7 @@ class CBWApi: # pylint: disable=R0904
             logging.info("Update stored credential with: {}".format(params))
             return self.verif_response(response)
 
-        logging.error("Error: No stored crecential id was specified for update")
+        logging.error("Error: No stored credential id was specified for update")
         return False
 
     def delete_stored_credential(self, stored_credentials_id):
@@ -700,6 +701,7 @@ class CBWApi: # pylint: disable=R0904
 
         logging.error("Error: no docker_image_id was specified for deletion")
         return False
+
     def assets(self, params=None):
         """GET request to /api/v3/assets/servers to get a list of all assets"""
         response = self._get_pages("GET", [ROUTE_ASSETS], params)
@@ -723,3 +725,44 @@ class CBWApi: # pylint: disable=R0904
             return None
 
         return self._cbw_parser(response)
+
+    def applicative_scans(self, params=None):
+        """GET request to /api/v3/assets/applicative_scans to list all applicative scans"""
+        response = self._get_pages("GET", [ROUTE_APPLICATIVE_SCANS], params)
+        return response
+
+    def applicative_scan(self, applicative_scan_id):
+        """GET request to /api/v3/assets/applicative_scans/{id} to retrieve an applicative scan"""
+        response = self._request("GET", [ROUTE_APPLICATIVE_SCANS, applicative_scan_id])
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
+    def create_applicative_scan(self, params):
+        """POST request to /api/v3/applicative_scans to launch an applicative scan"""
+        response = self._request("POST", [ROUTE_APPLICATIVE_SCANS], params)
+        if response.status_code != 201:
+            logging.error("Error::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
+    def update_applicative_scan(self, applicative_scan_id, params):
+        """PATCH request to /api/v3/applicative_scans/<id> to update an applicative scan"""
+        if  applicative_scan_id:
+            response = self._request("PATCH", [ROUTE_APPLICATIVE_SCANS, applicative_scan_id], params)
+            logging.info("Update applicative scan with: {}".format(params))
+            return self.verif_response(response)
+
+        logging.error("Error: No stored credential id was specified for update")
+        return False
+
+    def delete_applicative_scan(self, applicative_scan_id):
+        """DELETE request to /api/v3/applicative_scans/<id> to delete an applicative scan"""
+        if applicative_scan_id:
+            logging.info("Deleting applicative scan with ID {}".format(applicative_scan_id))
+            response = self._request("DELETE", [ROUTE_APPLICATIVE_SCANS, applicative_scan_id])
+            return self.verif_response(response)
+
+        logging.error("Error: no applicative_scan_id was specified for deletion")
+        return False

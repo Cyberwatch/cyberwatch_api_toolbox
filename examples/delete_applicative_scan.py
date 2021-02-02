@@ -1,4 +1,4 @@
-'''Delete an Asset'''
+"""Delete applicative scan"""
 
 import os
 from configparser import ConfigParser
@@ -8,6 +8,6 @@ CONF = ConfigParser()
 CONF.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'api.conf'))
 CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key'), CONF.get('cyberwatch', 'secret_key'))
 
-ASSET_ID = '' #Id of the asset you which to delete
+APPLICATIVE_SCAN_ID = '' # ID of the applicative scan.
 
-CLIENT.delete_asset(ASSET_ID)
+CLIENT.delete_applicative_scan(APPLICATIVE_SCAN_ID)

@@ -1,0 +1,62 @@
+interactions:
+- request:
+    body: '{"target": "127.0.0.1", "node_id": "1"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:8uN71SRCBHHlfh85WI/z0WGodkuWmtjlCFp2NJsklO0=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '39'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 02 Feb 2021 15:31:39 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: POST
+    uri: https://localhost/api/v3/assets/applicative_scans
+  response:
+    body:
+      string: '{"id":2,"node_id":1,"target":"127.0.0.1","server_id":2}'
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 02 Feb 2021 15:31:39 GMT
+      ETag:
+      - W/"f8bbf88ab8c077e9861fae2515e0aa20"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - ea4c6530-1330-435d-bc70-ca2017774283
+      X-Runtime:
+      - '0.083589'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+version: 1

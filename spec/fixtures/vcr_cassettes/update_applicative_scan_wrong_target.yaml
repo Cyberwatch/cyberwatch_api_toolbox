@@ -1,0 +1,62 @@
+interactions:
+- request:
+    body: '{"target": "invalid@target"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:i7v6G9MA5410i4GxBYsQRGFOoHFXWeQhv6j5drT3JSA=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '28'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 02 Feb 2021 15:33:44 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: PATCH
+    uri: https://localhost/api/v3/assets/applicative_scans/2
+  response:
+    body:
+      string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
+        failed: Target must be an IP, an HTTP URL or a successfully resolved domain
+        name"}}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 02 Feb 2021 15:33:44 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 5a9cfbfe-9089-490f-a9e4-7820ca038dd7
+      X-Runtime:
+      - '0.015942'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 422
+      message: Unprocessable Entity
+version: 1
