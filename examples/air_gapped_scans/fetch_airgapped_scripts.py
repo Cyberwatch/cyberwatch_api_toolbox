@@ -1,14 +1,13 @@
-"""Fetch a list of all importer scanning scripts"""
+"""Fetch a list of all air gapped scanning scripts"""
 
 import os
 from configparser import ConfigParser
 from cbw_api_toolbox.cbw_api import CBWApi
 
 CONF = ConfigParser()
-CONF.read(os.path.join(os.path.abspath(
-    os.path.dirname(__file__)), '.', 'api.conf'))
+CONF.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'api.conf'))
 CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get(
     'cyberwatch', 'api_key'), CONF.get('cyberwatch', 'secret_key'))
 
 
-CLIENT.fetch_importer_scripts()
+CLIENT.fetch_airgapped_scripts()

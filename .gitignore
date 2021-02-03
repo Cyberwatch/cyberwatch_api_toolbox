@@ -9,7 +9,7 @@ api.conf
 .venv
 build/
 dist/
-examples/importer/Scripts/
-examples/importer/Uploads/
+examples/air_gapped_scans/Scripts/
+examples/air_gapped_scans/Uploads/
 test.xlsx
 .pypirc

@@ -1,4 +1,4 @@
-"""Upload script result to Cyberwatch for Importer"""
+"""Upload script result to Cyberwatch for air gapped scans"""
 
 import os
 import argparse
@@ -9,8 +9,7 @@ from cbw_api_toolbox.cbw_api import CBWApi
 def connect_api():
     '''Connect to the API and test connection'''
     conf = ConfigParser()
-    conf.read(os.path.join(os.path.abspath(
-        os.path.dirname(__file__)), '../..', 'api.conf'))
+    conf.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', '..', 'api.conf'))
     client = CBWApi(conf.get('cyberwatch', 'url'), conf.get(
         'cyberwatch', 'api_key'), conf.get('cyberwatch', 'secret_key'))
 
@@ -21,13 +20,15 @@ def connect_api():
 def upload(client):
     """Upload results from the folder 'Uploads' to Cyberwatch"""
     print("INFO: Searching for available results...")
-    for file in os.listdir(os.path.dirname(__file__) + '/Uploads'):
-        file_path = os.path.dirname(__file__) + '/Uploads/' + file
-        with open(file_path, 'r') as filehandle:
-            filecontent = filehandle.read()
-            content = {"output": filecontent}
-            print("INFO: Sending {} content to the API...".format(file))
-            client.upload_importer_results(content)
+    files = ( file for file in sorted(os.listdir(os.path.join(os.path.dirname(__file__), 'Uploads'))) )
+    for file in files:
+        file_path = os.path.join(os.path.dirname(__file__), 'Uploads', file)
+        if os.path.isfile(file_path):
+            with open(file_path, 'r') as filehandle:
+                filecontent = filehandle.read()
+                content = {'output': filecontent , 'groups': 'my_group_1, my_group_2'}
+                print('INFO: Sending {} content to the API...'.format(file))
+                client.upload_airgapped_results(content)
 
 
 def launch_script():

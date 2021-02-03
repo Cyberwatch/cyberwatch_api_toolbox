@@ -594,12 +594,12 @@ title=None, description=None, servers=[], cve_announcements=[])"
             assert response is None
 
     @staticmethod
-    def test_fetch_importer_scripts():
-        """Tests for method importer"""
+    def test_fetch_airgapped_scripts():
+        """Tests for method to fetch air gapped scanning scripts"""
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
-        with vcr.use_cassette('spec/fixtures/vcr_cassettes/fetch_importer_script.yaml'):
-            response = client.fetch_importer_script('1')
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/fetch_airgapped_script.yaml'):
+            response = client.fetch_airgapped_script('1')
             assert response.version == '47c8367e1c92d50fad8894362f5c09e9bfe65e712aab2d23ffbb61e354e270dd'
 
     @staticmethod

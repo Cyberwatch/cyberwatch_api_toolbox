@@ -17,7 +17,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_ASSETS
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
 from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_HOSTS
-from cbw_api_toolbox.__routes__ import ROUTE_IMPORTER
+from cbw_api_toolbox.__routes__ import ROUTE_AIRGAPPED_SCRIPTS
 from cbw_api_toolbox.__routes__ import ROUTE_NODES
 from cbw_api_toolbox.__routes__ import ROUTE_PING
 from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
@@ -486,27 +486,27 @@ class CBWApi: # pylint: disable=R0904
 
         return self._cbw_parser(response)
 
-    def fetch_importer_scripts(self, params=None):
-        """GET request to /api/v2/cbw_scans/scripts to get a list of all Importer scanning scripts"""
-        response = self._request("GET", [ROUTE_IMPORTER], params)
+    def fetch_airgapped_scripts(self, params=None):
+        """GET request to /api/v2/cbw_scans/scripts to get a list of all air gapped scanning scripts"""
+        response = self._request("GET", [ROUTE_AIRGAPPED_SCRIPTS], params)
         if response.status_code != 200:
             logging.error("Error::{}".format(response.text))
             return None
 
         return self._cbw_parser(response)
 
-    def fetch_importer_script(self, script_id):
-        """GET request to /api/v2/cbw_scans/scripts/{SCRIPT_ID} to get a specific Importer scanning script"""
-        response = self._request("GET", [ROUTE_IMPORTER, script_id])
+    def fetch_airgapped_script(self, script_id):
+        """GET request to /api/v2/cbw_scans/scripts/{SCRIPT_ID} to get a specific air gapped scanning script"""
+        response = self._request("GET", [ROUTE_AIRGAPPED_SCRIPTS, script_id])
         if response.status_code != 200:
-            logging.error("Error::{}".format(response.text))
+            logging.error("Error for script with id {} :: {}".format(script_id, response.text))
             return None
 
         return self._cbw_parser(response)
 
-    def upload_importer_results(self, content):
-        """POST request to /api/v2/cbw_scans/scripts to upload scanning script result"""
-        response = self._request("POST", [ROUTE_IMPORTER], content)
+    def upload_airgapped_results(self, content):
+        """POST request to /api/v2/cbw_scans/scripts to upload air gapped scanning script result"""
+        response = self._request("POST", [ROUTE_AIRGAPPED_SCRIPTS], content)
         if response.status_code != 204:
             logging.error("Error::{}".format(response.text))
             return None
