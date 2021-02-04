@@ -20,6 +20,6 @@ setup(
     install_requires=[
         "requests>=2.20.1",
         "XlsxWriter>=1.2.1",
-        "xlrd>=1.2.0"
+        "openpyxl>=3.0.6"
     ]
 )
