@@ -1,7 +1,7 @@
 """Test file for cbw_files_xlsx.py"""
 
-import xlrd # pylint: disable=import-error
-import vcr # pylint: disable=import-error
+import openpyxl  # pylint: disable=import-error
+import vcr  # pylint: disable=import-error
 from cbw_api_toolbox.cbw_file_xlsx import CBWXlsx
 
 # To generate a new vcr cassette:
@@ -27,11 +27,11 @@ class TestCBWXlsx:
         file_xlsx = "spec/fixtures/xlsx_files/batch_import_model.xlsx"
 
         remote_accesses_validate = [
-            "cbw_object(id=33, type='CbwRam::RemoteAccess::Ssh::WithPassword', \
+            "cbw_object(id=10, type='CbwRam::RemoteAccess::Ssh::WithPassword', \
 address='10.0.2.15', port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
-            "cbw_object(id=34, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server02.example.com', \
+            "cbw_object(id=11, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server02.example.com', \
 port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
-            "cbw_object(id=35, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server01.example.com', port=22\
+            "cbw_object(id=12, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server01.example.com', port=22\
 , is_valid=None, last_error=None, server_id=None, node_id=1)"]
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/'
@@ -64,18 +64,19 @@ port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/export_file_xlsx.yaml'):
             response = client.export_remote_accesses_xlsx(file_xlsx)
 
-            workbook = xlrd.open_workbook(file_xlsx)
-            sheet = workbook.sheet_by_index(0)
+            workbook = openpyxl.load_workbook(file_xlsx)
+            worksheet = workbook.active
+            result = []
 
-            for rownum in range(sheet.nrows):
-                result = sheet.row_values(rownum)
-                break
-
+            for cell in worksheet[1]:
+                result.append(cell.value)
             assert response is True and result == [
                 'HOST', 'PORT', 'TYPE', 'NODE_ID', 'SERVER_GROUPS']
 
-            for rownum in range(1, sheet.nrows):
-                result = sheet.row_values(rownum)
-                break
+            result = []
+            for cell in worksheet[2]:
+                result.append(cell.value)
+
             # The group is not assigned yet
-            assert result == ['10.0.2.15', 22, 'CbwRam::RemoteAccess::Ssh::WithPassword', 1, '']
+            assert result == ['10.0.2.15', 22,
+                              'CbwRam::RemoteAccess::Ssh::WithPassword', 1, None]

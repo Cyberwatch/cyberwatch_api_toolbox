@@ -2,7 +2,7 @@
 
 import datetime
 import logging
-import xlrd
+import openpyxl
 import xlsxwriter
 
 from cbw_api_toolbox.cbw_api import CBWApi
@@ -24,28 +24,29 @@ class CBWXlsx:
             logging.fatal("Extension not valid")
             return None
 
-        imported = xlrd.open_workbook(file_xlsx)
-        lines = imported.sheet_by_index(0)
         response = []
-        titles = lines.row_values(0)
 
-        for line in range(1, lines.nrows):
-            text = lines.row_values(line)
-            address = lines.row_values(line)[0]
-            logging.debug("Creating remote access {}".format(address))
+        workbook = openpyxl.load_workbook(file_xlsx)
+        worksheet = workbook.active
+        titles = {}
 
+        for idx, cell in enumerate(worksheet[1]):
+            titles[cell.value] = idx
+
+        for row in worksheet.iter_rows(min_row=2):
             try:
+                address = row[0].value
+                logging.debug("Creating remote access {}".format(address))
                 info = {
-                    "address": text[titles.index("HOST")],
-                    "port": text[titles.index("PORT")],
-                    "type": text[titles.index("TYPE")],
-                    "login": text[titles.index("USERNAME")],
-                    "password": text[titles.index("PASSWORD")],
-                    "key": text[titles.index("KEY")],
-                    "node_id": text[titles.index("NODE_ID")],
-                    "server_groups" : text[titles.index("SERVER_GROUPS")]
+                    "address": row[titles["HOST"]].value,
+                    "port": row[titles["PORT"]].value,
+                    "type": row[titles["TYPE"]].value,
+                    "login": row[titles["USERNAME"]].value,
+                    "password": row[titles["PASSWORD"]].value,
+                    "key": row[titles["KEY"]].value,
+                    "node_id": row[titles["NODE_ID"]].value,
+                    "server_groups": row[titles["SERVER_GROUPS"]].value
                 }
-
                 remote_access = self.client.create_remote_access(info)
                 response.append(remote_access)
                 logging.debug("Done")
