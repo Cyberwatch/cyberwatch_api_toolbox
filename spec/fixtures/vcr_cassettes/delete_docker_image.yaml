@@ -1,0 +1,65 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:B/TWOxCGrjk4fISHv5WWmIBF5OINvnLWAwJKPpRr79Y=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Date:
+      - Fri, 12 Feb 2021 10:43:53 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: DELETE
+    uri: https://localhost/api/v3/assets/docker_images/3
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAz2MwQqAIBAF/2XPQUQdwp8Ry4csqdFqgUT/ngV1fDPDO4ktqb4hDsZBRxNAijxP
+        YqS0oaTN0yezcdVNu/cJBRXbdV4gWuA4ZSn6uep+jOg44oVDQ3G1+IIEOWrwrPG6AfQhu3KCAAAA
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 12 Feb 2021 10:43:53 GMT
+      ETag:
+      - W/"68791ff4d40312a0d1d4779f391a17b7"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - bb29b65e-5a07-4911-a4f4-ae9da4c0bee7
+      X-Runtime:
+      - '0.056594'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

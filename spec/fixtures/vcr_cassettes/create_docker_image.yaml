@@ -1,0 +1,63 @@
+interactions:
+- request:
+    body: '{"image_name": "library/debian", "image_tag": "latest", "docker_registry_id":
+      "1", "docker_engine_id": "4", "node_id": "1"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:6JBenM9R4FBWFrgXgDKMGxA6YGxkikjTtaXnVfPbN5c=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '123'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 12 Feb 2021 10:42:49 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: POST
+    uri: https://localhost/api/v3/assets/docker_images
+  response:
+    body:
+      string: '{"id":6,"image_name":"library/debian","image_tag":"latest","docker_registry_id":1,"docker_engine_id":4,"node_id":1,"server_id":null}'
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 12 Feb 2021 10:42:49 GMT
+      ETag:
+      - W/"1b24e7d0c6ff5b41353c93a21974cf69"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 8a9730a1-f23f-483c-b228-64b6929794d3
+      X-Runtime:
+      - '0.023964'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+version: 1

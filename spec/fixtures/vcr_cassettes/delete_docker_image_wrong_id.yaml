@@ -1,0 +1,64 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:7CuVz8XwiRa7HcPZOzdszNWZdolJXBU9x4mZ29CFFy0=
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Date:
+      - Fri, 12 Feb 2021 10:16:00 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: DELETE
+    uri: https://localhost/api/v3/assets/docker_images/wrong_id
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAw3KsQrCMBAG4Fc5/iVLB4dOAacWwcXBF5DYi23Q5OByIUPpu9tv/nZEVVH4HYtw
+        hB8v44BqwVqFx0OMbtIKY0COtYb1LJik/bg4o08qTNO7P0P2fpblG/Wez0M92UYusbt2lbK+EuM4
+        /rUrRiBsAAAA
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 12 Feb 2021 10:16:00 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 60d64704-1ef7-46ee-8d9e-2d6df49e30f9
+      X-Runtime:
+      - '0.009834'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
+version: 1
