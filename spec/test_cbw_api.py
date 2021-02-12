@@ -780,3 +780,67 @@ rule_groups=[], checks=[])"""
             assert str(response.id) == rule_id
             assert isinstance(response.servers, list) is True
             assert len(response.servers) == 5
+
+    @staticmethod
+    def test_docker_images():
+        """Tests for method docker_images"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        docker_images_validate = [
+            "cbw_object(id=1, image_name='library/alpine', image_tag='latest', \
+docker_registry_id=1, docker_engine_id=4, node_id=1, server_id=6)"]
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/docker_images.yaml'):
+            params = {
+                'page': '1'
+            }
+            response = client.docker_images(params)
+            assert isinstance(response, list) is True
+            assert str(response[0]) == docker_images_validate[0], str(
+                response[0]) == docker_images_validate[0]
+
+    @staticmethod
+    def test_create_docker_image():
+        """Tests for method docker_image"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {
+            "image_name": "library/debian",
+            "image_tag": "latest",
+            "docker_registry_id": "1",
+            "docker_engine_id": "4",
+            "node_id": "1",
+        }
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_docker_image.yaml'):
+            response = client.create_docker_image(info)
+
+            assert str(response) == "cbw_object(id=6, image_name='library/debian', image_tag='latest', \
+docker_registry_id=1, docker_engine_id=4, node_id=1, server_id=None)"
+
+    @staticmethod
+    def test_update_docker_image():
+        """Tests for update remote method"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        info = {
+            "image_tag": "bullseye",
+        }
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_docker_image.yaml'):
+            response = client.update_docker_image('3', info)
+
+            assert response is True
+
+    @staticmethod
+    def test_delete_docker_image():
+        """Tests for method delete_docker_image"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_docker_image.yaml'):
+            response = client.delete_docker_image('3')
+            assert response is True
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_docker_image_wrong_id.yaml'):
+            response = client.delete_docker_image('wrong_id')
+            assert response is False

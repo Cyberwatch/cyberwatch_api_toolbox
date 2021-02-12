@@ -16,6 +16,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_AGENTS
 from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_RULES
 from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_ASSETS
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
+from cbw_api_toolbox.__routes__ import ROUTE_DOCKER_IMAGES
 from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_HOSTS
 from cbw_api_toolbox.__routes__ import ROUTE_AIRGAPPED_SCRIPTS
@@ -84,6 +85,7 @@ class CBWApi: # pylint: disable=R0904
         except (ConnectionError, ProxyError, SSLError, NewConnectionError, RetryError,
                 InvalidHeader, MaxRetryError):
             self.logger.exception("An error occurred when requesting {}".format(route))
+            sys.exit(-1)
 
         except MissingSchema:
             self.logger.error("An error occurred, please check your API_URL.")
@@ -654,4 +656,46 @@ class CBWApi: # pylint: disable=R0904
             return self.verif_response(response)
 
         logging.error("Error: no stored_credentials_id was specified for deletion")
+        return False
+
+    def docker_images(self, params=None):
+        """GET request to /api/v3/assets/docker_images to list all docker images"""
+        response = self._get_pages("GET", [ROUTE_DOCKER_IMAGES], params)
+        return response
+
+    def docker_image(self, docker_image_id):
+        """GET request to /api/v3/assets/docker_images/{id} to retrieve an docker image"""
+        response = self._request("GET", [ROUTE_DOCKER_IMAGES, docker_image_id])
+        if response.status_code != 200:
+            logging.error("Error server id::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
+    def create_docker_image(self, params):
+        """POST request to /api/v3/docker_images to launch an docker image"""
+        logging.error(params)
+        response = self._request("POST", [ROUTE_DOCKER_IMAGES], params)
+        if response.status_code != 201:
+            logging.error("Error::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
+    def update_docker_image(self, docker_image_id, params):
+        """PATCH request to /api/v3/docker_images/<id> to update an docker image"""
+        if  docker_image_id:
+            response = self._request("PATCH", [ROUTE_DOCKER_IMAGES, docker_image_id], params)
+            logging.info("Update docker image with: {}".format(params))
+            return self.verif_response(response)
+
+        logging.error("Error: No docker_image_id was specified for update")
+        return False
+
+    def delete_docker_image(self, docker_image_id):
+        """DELETE request to /api/v3/docker_images/<id> to delete an docker image"""
+        if docker_image_id:
+            logging.info("Deleting docker image with ID {}".format(docker_image_id))
+            response = self._request("DELETE", [ROUTE_DOCKER_IMAGES, docker_image_id])
+            return self.verif_response(response)
+
+        logging.error("Error: no docker_image_id was specified for deletion")
         return False
