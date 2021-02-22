@@ -7,23 +7,23 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:2y5Lpc/tPR1ybSicp3E5ps16WxfMc+lEEnCoRf5VJMg=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:dQvzmtwOLfwk0buOVj/KyeVfiwrg0OZjGefce53zAC4=
       Connection:
       - keep-alive
       Date:
-      - Tue, 17 Dec 2019 09:46:05 GMT
+      - Mon, 22 Feb 2021 08:51:07 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v3/groups/12
+    uri: https://localhost/api/v3/assets/groups/13
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA6tWykxRsjI00lHKS8xNVbJSKijKTylNLsnMz1PSUUpJLU4uyiwA86zySnNydJSS
-        83Pyi4DqlA2NHN2cnZRqAUnnTCdCAAAA
+        H4sIAAAAAAAAA6tWykxRsjI01lHKS8xNVbJSKijKTylNLsnMz1PSUUpJLU4uyiwA86yUgALJ+Tn5
+        RUCmsqFRYlpyklItAGGE069AAAAA
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -31,33 +31,30 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 17 Dec 2019 09:46:06 GMT
+      - Mon, 22 Feb 2021 08:51:07 GMT
+      ETag:
+      - W/"7a8c4d4b762036b7834f3f17e549bb61"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-MiniProfiler-Ids:
-      - qqddckov8xo7pxfmjubn,6gv08sstem0x4cmsgon5,88iccwmu5pw6cuw46b6f,vwr4l1ys3c1qqggb3zf0,vio5fsqhdjviuu9fsd8q,ioyct4ixbthcmnyyr88b
-      X-MiniProfiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 7f2aafe6-2c55-471b-bff5-ad75978cf380
+      - 2f9e8e4b-d567-43e7-a5b1-0889bf0026d4
       X-Runtime:
-      - '0.217871'
+      - '0.021582'
       X-XSS-Protection:
       - 1; mode=block
     status:

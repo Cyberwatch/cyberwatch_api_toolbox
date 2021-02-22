@@ -9,7 +9,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:3K7otrjXZiz1ZWgqUnCGNzWoT2uPdjG1uMtgtVTDVhA=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:nOotZzFHadJXHp3JpExp56H4OowphiWdvAw6iHrTRGc=
       Connection:
       - keep-alive
       Content-Length:
@@ -17,48 +17,46 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2019 15:40:26 GMT
+      - Mon, 22 Feb 2021 08:43:55 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v3/remote_accesses
+    uri: https://localhost/api/v3/assets/remote_accesses
   response:
     body:
-      string: '{"id":29,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"X.X.X.X","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
+      string: '{"id":16,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"X.X.X.X","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
-      Content-Length:
-      - '151'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 05 Dec 2019 15:40:26 GMT
+      - Mon, 22 Feb 2021 08:43:55 GMT
+      ETag:
+      - W/"afd15f9ef48bc8a6b73a5e1a134bde82"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - f179pofbcp4ee766h62v
-      X-Miniprofiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 919ad029-20c7-4d0a-a37e-3236d03f474a
+      - 41b0b2b5-7dc3-466e-93a5-a904bed53129
       X-Runtime:
-      - '0.739213'
-      X-Xss-Protection:
+      - '0.242804'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 201

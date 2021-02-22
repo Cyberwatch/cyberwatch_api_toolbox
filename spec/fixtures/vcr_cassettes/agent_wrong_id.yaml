@@ -7,15 +7,15 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 PfeKHglrTELWglMYmgRc4iVxygymwwi7hUt1bR11rp8=:WzoMFFK/aZNZwcCMad1eEbltH5OJwb2mZnTsygFOYWQ=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:JcyLQmp+wpa4rXYGDTTWcfnLJNTTasBMWaoxa25Sq6Y=
       Connection:
       - keep-alive
       Date:
-      - Thu, 07 May 2020 13:50:37 GMT
+      - Mon, 22 Feb 2021 09:44:36 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v3/agents/wrong_id
+    uri: https://localhost/api/v3/assets/agents/wrong_id
   response:
     body:
       string: !!binary |
@@ -31,17 +31,16 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 07 May 2020 13:50:37 GMT
+      - Mon, 22 Feb 2021 09:44:36 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -51,9 +50,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - c68e136e-4b3e-4db3-90fd-dcd970cd95cd
+      - 1e2d9260-2c47-4db0-9040-4f90f99e0ce0
       X-Runtime:
-      - '0.053706'
+      - '0.012340'
       X-XSS-Protection:
       - 1; mode=block
     status:

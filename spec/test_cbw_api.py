@@ -45,13 +45,13 @@ class TestCBWApi:
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/servers_ok.yaml'):
 
-            validate_server = "cbw_object(id=2, hostname='cyberwatch-esxi.localdomain', description=None, \
-last_communication='2020-07-28T15:02:08.000+02:00', reboot_required=None, updates_count=0, boot_at=None, category='hypervisor', \
-created_at='2020-07-28T15:02:05.000+02:00', cve_announcements_count=0, prioritized_cve_announcements_count=0, \
-status='server_update_comm_fail', os=cbw_object(key='vmware_esxi_7_0', name='VMware ESXi 7.0', arch='x86_64', \
-eol='2025-04-02T02:00:00.000+02:00', short_name='ESXi 7.0', type='Os::Vmware'), environment=cbw_object(id=2, name='Medium', \
-confidentiality_requirement='confidentiality_requirement_medium', integrity_requirement='integrity_requirement_medium', \
-availability_requirement='availability_requirement_medium'), groups=[], compliance_groups=[])"
+            validate_server = """cbw_object(id=2, hostname='localhost', description=None, last_communication=None, \
+reboot_required=None, addresses=[], updates_count=0, boot_at=None, category='network_target_or_website', \
+created_at='2021-02-02T16:31:39.000+01:00', cve_announcements_count=0, analyzed_at='2021-02-02T20:06:05.000+01:00', \
+prioritized_cve_announcements_count=0, status='server_awaiting_analysis', os=None, \
+environment=cbw_object(id=2, name='Medium', confidentiality_requirement='confidentiality_requirement_medium', \
+integrity_requirement='integrity_requirement_medium', availability_requirement='availability_requirement_medium'), \
+groups=[], compliance_groups=[])"""
 
             params = {'page': '1'}
             response = CBWApi(API_URL, API_KEY, SECRET_KEY).servers(params)
@@ -63,9 +63,9 @@ availability_requirement='availability_requirement_medium'), groups=[], complian
         """Tests for server method"""
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/server_ok.yaml'):
-            response = CBWApi(API_URL, API_KEY, SECRET_KEY).server('3')
+            response = CBWApi(API_URL, API_KEY, SECRET_KEY).server('4')
             assert response.category == 'server'
-            assert response.cve_announcements[0].cve_code == 'CVE-2019-14869'
+            assert response.cve_announcements[0].cve_code == 'CVE-2020-16044'
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/server_failed.yaml'):
             response = CBWApi(API_URL, API_KEY, SECRET_KEY).server('wrong_id')
@@ -85,7 +85,7 @@ availability_requirement='availability_requirement_medium'), groups=[], complian
             assert response is False
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_server_with_server_id.yaml'):
-            response = client.delete_server('6')
+            response = client.delete_server('4')
             assert response is True
 
     @staticmethod
@@ -94,9 +94,9 @@ availability_requirement='availability_requirement_medium'), groups=[], complian
 
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
-        info = {'groups': [13, 12]}
+        info = {'groups': [11, 12]}
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server.yaml'):
-            response = client.update_server('6', info)
+            response = client.update_server('2', info)
             assert response is True
 
             response = client.update_server('', info)
@@ -107,7 +107,7 @@ availability_requirement='availability_requirement_medium'), groups=[], complian
 
             info = {'groups': [None], 'compliance_groups': [None]}
             with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_with_group_none.yaml'):
-                response = client.update_server('6', info)
+                response = client.update_server('2', info)
                 assert response is True
 
     @staticmethod
@@ -120,21 +120,16 @@ availability_requirement='availability_requirement_medium'), groups=[], complian
             params = {'page': '1'}
 
             servers_validate = [
-                'cbw_object(id=4, server_id=3, node_id=1, version=None, \
-remote_ip=None, last_communication=None)',
-                "cbw_object(id=5, server_id=10, node_id=2, version='9', \
-remote_ip='12.34.56.78', last_communication=None)",
-                "cbw_object(id=6, server_id=30, node_id=2, version='9', \
-remote_ip='12.34.56.78', last_communication=None)",
-                "cbw_object(id=7, server_id=3, node_id=2, version='7', \
-remote_ip='12.34.56.78', last_communication=None)"]
+                "cbw_object(id=1, server_id=14, node_id=1, version='4.2', remote_ip='10.10.1.162', \
+last_communication='2021-02-22T10:39:02.000+01:00')",
+                "cbw_object(id=2, server_id=15, node_id=1, version='4.2', remote_ip='10.10.1.103', \
+last_communication='2021-02-22T10:41:01.000+01:00')"
+                ]
 
             response = client.agents(params)
             assert isinstance(response, list) is True
             assert str(response[0]) == servers_validate[0]
             assert str(response[1]) == servers_validate[1]
-            assert str(response[2]) == servers_validate[2]
-            assert str(response[3]) == servers_validate[3]
 
     @staticmethod
     def test_agent():
@@ -142,10 +137,10 @@ remote_ip='12.34.56.78', last_communication=None)"]
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/agent.yaml'):
-            response = client.agent('4')
+            response = client.agent('2')
 
-            assert str(response) == "cbw_object(id=4, server_id=3, node_id=1, \
-version=None, remote_ip=None, last_communication=None)"
+            assert str(response) == "cbw_object(id=2, server_id=15, node_id=1, version='4.2', remote_ip='10.10.1.103', \
+last_communication='2021-02-22T10:41:01.000+01:00')"
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/agent_wrong_id.yaml'):
             response = client.agent('wrong_id')
@@ -159,7 +154,7 @@ version=None, remote_ip=None, last_communication=None)"
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_agent.yaml'):
-            response = client.delete_agent('5')
+            response = client.delete_agent('2')
 
             assert response is True
 
@@ -175,19 +170,15 @@ version=None, remote_ip=None, last_communication=None)"
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         remote_accesses_validate = [
-            "cbw_object(id=22, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='10.0.2.15', \
-port=22, is_valid=False, last_error='Connection refused - connect(2) for 10.0.2.15:22', server_id=None, node_id=1)",
-            "cbw_object(id=23, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server02.example.com', \
-port=22, is_valid=False, last_error='getaddrinfo: Name or service not known', server_id=None, node_id=1)",
-            "cbw_object(id=25, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='10.0.2.16', \
-port=22, is_valid=False, last_error='No route to host - connect(2) for 10.0.2.16:22', server_id=None, node_id=1)"]
+            "cbw_object(id=10, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='10.0.2.15', port=22, \
+is_valid=False, last_error='Net::SSH::ConnectionTimeout', server_id=None, node_id=1)"]
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_accesses.yaml'):
             params = {'page': '1'}
             response = client.remote_accesses(params)
 
             assert isinstance(response, list) is True
-            assert str(response[0]) == remote_accesses_validate[0], str(response[1]) == remote_accesses_validate[2]
+            assert str(response[0]) == remote_accesses_validate[0]
             assert response[2].type == 'CbwRam::RemoteAccess::Ssh::WithPassword'
 
     @staticmethod
@@ -213,7 +204,8 @@ port=22, is_valid=False, last_error='No route to host - connect(2) for 10.0.2.16
             response = client.create_remote_access(info)
 
             assert response.address == 'X.X.X.X', response.server_groups == ['test', 'production']
-            assert response.type == 'CbwRam::RemoteAccess::Ssh::WithPassword', response.login == 'loginssh'
+            assert response.type == 'CbwRam::RemoteAccess::Ssh::WithPassword'
+            assert response.is_valid is None
 
         info['address'] = ''
 
@@ -229,10 +221,10 @@ port=22, is_valid=False, last_error='No route to host - connect(2) for 10.0.2.16
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_access.yaml'):
-            response = client.remote_access('15')
+            response = client.remote_access('16')
 
-            assert response.address == 'X.X.X.X', response.server_groups == ['test', 'production']
-            assert response.type == 'CbwRam::RemoteAccess::Ssh::WithPassword', response.login == 'loginssh'
+            assert response.address == 'X.X.X.X'
+            assert response.type == 'CbwRam::RemoteAccess::Ssh::WithPassword'
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/remote_access_wrong_id.yaml'):
             response = client.remote_access('wrong_id')
@@ -246,7 +238,7 @@ port=22, is_valid=False, last_error='No route to host - connect(2) for 10.0.2.16
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_remote_access.yaml'):
-            response = client.delete_remote_access('15')
+            response = client.delete_remote_access('16')
 
             assert response is True
 
@@ -272,7 +264,7 @@ port=22, is_valid=False, last_error='No route to host - connect(2) for 10.0.2.16
         }
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access.yaml'):
-            response = client.update_remote_access('15', info)
+            response = client.update_remote_access('10', info)
 
             assert response.address == '10.10.10.228', response.type == 'CbwRam::RemoteAccess::Ssh::WithPassword'
 
@@ -286,7 +278,7 @@ port=22, is_valid=False, last_error='No route to host - connect(2) for 10.0.2.16
         info['type'] = ''
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_remote_access_without_type.yaml'):
-            response = client.update_remote_access('15', info)
+            response = client.update_remote_access('10', info)
 
             assert response.type == 'CbwRam::RemoteAccess::Ssh::WithPassword'
 
@@ -311,16 +303,17 @@ port=22, is_valid=False, last_error='No route to host - connect(2) for 10.0.2.16
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         groups_validate = [
-            "cbw_object(id=12, name='production', description=None, color='#12AFCB')",
-            "cbw_object(id=13, name='Development', description=None, color='#12AFCB)"]
+            "cbw_object(id=13, name='production', description='', color='#12afcb')",
+            "cbw_object(id=14, name='Development', description='', color='#12afcb')"]
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/groups.yaml'):
             response = client.groups()
 
-            assert str(response[0]) == groups_validate[0], str(response[1]) == groups_validate[1]
+            assert str(response[2]) == groups_validate[0]
+            assert str(response[3]) == groups_validate[1]
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/group.yaml'):
-            response = client.group('12')
+            response = client.group('13')
 
             assert str(response) == groups_validate[0]
 
@@ -354,9 +347,8 @@ port=22, is_valid=False, last_error='No route to host - connect(2) for 10.0.2.16
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/test_deploy.yaml'):
             response = client.test_deploy_remote_access('15')
-
             assert str(response) == "cbw_object(id=15, type='CbwRam::RemoteAccess::Ssh::WithPassword', \
-address='10.10.11.228', port=22, is_valid=None, last_error='Net::SSH::ConnectionTimeout', server_id=None, node_id=1)"
+address='10.10.1.103', port=22, is_valid=None, last_error=None, server_id=13, node_id=1)"
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/test_deploy_failed.yaml'):
             response = client.test_deploy_remote_access('wrong_id')
@@ -394,7 +386,7 @@ name='', firstname='', locale='fr', auth_provider='local_password', description=
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/cve_announcements.yaml'):
             response = client.cve_announcements(params)
 
-        assert response[0].cve_code == 'CVE-2015-8158', response[10].cve_code == 'CVE-2015-8139'
+        assert response[0].cve_code == 'CVE-2012-1182'
 
     @staticmethod
     def test_update_cve_announcement():
@@ -405,7 +397,7 @@ name='', firstname='', locale='fr', auth_provider='local_password', description=
         params = {
             'score_custom': '7',
             'access_complexity': 'access_complexity_low',
-            'access_vector': 'access_vector_adjacent_network',
+            'access_vector': 'access_vector_network',
             'availability_impact': 'availability_impact_none',
             'confidentiality_impact': 'confidentiality_impact_low',
             'integrity_impact': 'integrity_impact_low',
@@ -511,16 +503,17 @@ server_id=7, status='server_update_init', technologies=[], security_issues=[], c
             "comment": "test"
         }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_cve.yaml'):
-            response = client.update_server_cve('9', "CVE-2019-3028", info)
-            assert response.cve_announcements[36].comment == 'test'
+            response = client.update_server_cve('9', "CVE-2020-28928", info)
+            assert response.cve_announcements[1].comment == 'test'
 
         info = {
             "ignored": "true",
             "comment": "test-ignore"
         }
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_server_cve_ignored.yaml'):
-            response = client.update_server_cve('8', "CVE-2020-3962", info)
-            assert len(response.cve_announcements) == 12
+            response = client.update_server_cve('9', "CVE-2020-28928", info)
+            assert len(response.cve_announcements) == 1
+
 
     @staticmethod
     def test_security_issues():
@@ -528,9 +521,10 @@ server_id=7, status='server_update_init', technologies=[], security_issues=[], c
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         security_issues_validate = [
-            "cbw_object(id=1, type=None, sid='', level='level_info', title=None, description=None)",
-            "cbw_object(id=2, type=None, sid='', level='level_info', title=None, description=None)",
-            "cbw_object(id=3, type=None, sid='', level='level_info', title=None, description=None)"]
+            "cbw_object(id=28, type='SecurityIssues::Custom', sid='test', level='level_info', \
+title='test', description='test')",
+            "cbw_object(id=29, type='SecurityIssues::Custom', sid='test2', level='level_low', \
+title='test2', description='test2')"]
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/security_issues.yaml'):
             params = {
@@ -538,7 +532,8 @@ server_id=7, status='server_update_init', technologies=[], security_issues=[], c
             }
             response = client.security_issues(params)
             assert isinstance(response, list) is True
-            assert str(response[0]) == security_issues_validate[0], str(response[1]) == security_issues_validate[1]
+            assert str(response[0]) == security_issues_validate[0]
+            assert str(response[1]) == security_issues_validate[1]
 
     @staticmethod
     def test_create_security_issue():
@@ -549,12 +544,15 @@ server_id=7, status='server_update_init', technologies=[], security_issues=[], c
             "description": "Test",
             "level": "level_critical",
             "score": "5",
+            "type": "SecurityIssues::Custom",
+            "sid": "test3"
         }
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/create_security_issue.yaml'):
             response = client.create_security_issue(info)
 
-            assert response.level == "level_critical", response.description == "Test"
+            assert response.level == "level_critical"
+            assert response.description == "Test"
 
     @staticmethod
     def test_update_security_issue():
@@ -563,19 +561,19 @@ server_id=7, status='server_update_init', technologies=[], security_issues=[], c
 
         info = {
             "description": "Test update",
-            "level": "level_critical",
-            "score": "5",
+            "level": "level_low",
+            "score": "6",
         }
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_security_issue.yaml'):
-            response = client.update_security_issue('2', info)
+            response = client.update_security_issue('30', info)
 
             assert response.description == "Test update"
 
         info["level"] = "level_test"
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/update_security_issue_wrong_level.yaml'):
-            response = client.update_security_issue("2", info)
+            response = client.update_security_issue("30", info)
 
             assert response is None
 
@@ -585,9 +583,9 @@ server_id=7, status='server_update_init', technologies=[], security_issues=[], c
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_security_issue.yaml'):
-            response = client.delete_security_issue('1')
-            assert str(response) == "cbw_object(id=1, type=None, sid='', level='level_info', \
-title=None, description=None, servers=[], cve_announcements=[])"
+            response = client.delete_security_issue('30')
+            assert str(response) == "cbw_object(id=30, type='SecurityIssues::Custom', sid='test3', level='level_low', \
+title=None, description='Test update', servers=[], cve_announcements=[])"
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_security_issue_wrong_id.yaml'):
             response = client.delete_security_issue('wrong_id')
@@ -844,3 +842,57 @@ docker_registry_id=1, docker_engine_id=4, node_id=1, server_id=None)"
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_docker_image_wrong_id.yaml'):
             response = client.delete_docker_image('wrong_id')
             assert response is False
+
+    @staticmethod
+    def test_assets():
+        """Tests for method assets"""
+        client = CBWApi(API_URL, API_KEY, SECRET_KEY)
+
+        assets_validate = ["cbw_object(id=2, hostname='localhost', description=None, last_communication=None, \
+reboot_required=None, boot_at=None, category='network_target_or_website', created_at='2021-02-02T16:31:39.000+01:00', \
+environment=cbw_object(id=2, name='Medium', confidentiality_requirement='confidentiality_requirement_medium', \
+integrity_requirement='integrity_requirement_medium', availability_requirement='availability_requirement_medium'), os=None, \
+groups=[])", "cbw_object(id=3, hostname='Linux', description=None, last_communication=None, reboot_required=None, \
+boot_at=None, category='server', created_at='2021-02-03T11:49:28.000+01:00', environment=cbw_object(id=2, name='Medium', \
+confidentiality_requirement='confidentiality_requirement_medium', integrity_requirement='integrity_requirement_medium', \
+availability_requirement='availability_requirement_medium'), os=cbw_object(key='ubuntu_2004_64', name='Ubuntu 20.04 LTS', \
+arch='x86_64', eol='2025-04-01T02:00:00.000+02:00', short_name='Ubuntu 20.04', type='Os::Ubuntu'), \
+groups=[cbw_object(id=11, name='t4est', description='', color='#12afcb')]), cbw_object(id=4, hostname='Linux2', description=None, \
+last_communication=None, reboot_required=None, boot_at=None, category='server', created_at='2021-02-03T11:49:46.000+01:00', \
+environment=cbw_object(id=2, name='Medium', confidentiality_requirement='confidentiality_requirement_medium', \
+integrity_requirement='integrity_requirement_medium', availability_requirement='availability_requirement_medium'), \
+os=cbw_object(key='ubuntu_2004_64', name='Ubuntu 20.04 LTS', arch='x86_64', eol='2025-04-01T02:00:00.000+02:00', short_name='Ubuntu 20.04', \
+type='Os::Ubuntu'), groups=[cbw_object(id=11, name='t4est', description='', color='#12afcb')]), cbw_object(id=9, hostname='library/alpine:latest', \
+description=None, last_communication=None, reboot_required=None, boot_at=None, category='docker_image', created_at='2021-02-12T11:26:46.000+01:00', \
+environment=cbw_object(id=2, name='Medium', confidentiality_requirement='confidentiality_requirement_medium', integrity_requirement='integrity_requirement_medium', \
+availability_requirement='availability_requirement_medium'), os=cbw_object(key='alpine_linux_64', name='Alpine Linux', arch='x86_64', eol=None, \
+short_name='Alpine Linux', type='Os::Alpine'), groups=[]), cbw_object(id=11, hostname='library/debian:latest', description=None, last_communication=None, \
+reboot_required=None, boot_at=None, category='docker_image', created_at='2021-02-12T11:42:52.000+01:00', environment=cbw_object(id=2, name='Medium', \
+confidentiality_requirement='confidentiality_requirement_medium', integrity_requirement='integrity_requirement_medium', \
+availability_requirement='availability_requirement_medium'), os=cbw_object(key='debian_10_64', name='Debian 10 (Buster)', arch='x86_64', \
+eol='2022-12-31T01:00:00.000+01:00', short_name='Debian 10', type='Os::Debian'), groups=[])"""]
+
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/assets.yaml'):
+            response = client.assets()
+            assert str(response[0]) == assets_validate[0]
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/asset.yaml'):
+            response = client.asset('3')
+
+            asset_validate = """cbw_object(id=3, hostname='Linux', description=None, last_communication=None, \
+reboot_required=None, boot_at=None, category='server', created_at='2021-02-03T11:49:28.000+01:00', \
+environment=cbw_object(id=2, name='Medium', confidentiality_requirement='confidentiality_requirement_medium', \
+integrity_requirement='integrity_requirement_medium', \
+availability_requirement='availability_requirement_medium'), os=cbw_object(key='ubuntu_2004_64', \
+name='Ubuntu 20.04 LTS', arch='x86_64', eol='2025-04-01T02:00:00.000+02:00', short_name='Ubuntu 20.04', \
+type='Os::Ubuntu'), groups=[cbw_object(id=11, name='t4est', description='', color='#12afcb')], \
+packages=[cbw_object(vendor=None, product='firefox', type='Packages::Deb', \
+version='80.0.1+build1-0ubuntu0.20.04.1')], applications=[])"""
+
+            assert str(response) == asset_validate
+
+        with vcr.use_cassette('spec/fixtures/vcr_cassettes/delete_asset.yaml'):
+            response = client.delete_asset('3')
+
+            assert response.hostname == 'Linux'

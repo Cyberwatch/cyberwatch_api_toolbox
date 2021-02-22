@@ -1,34 +1,34 @@
 interactions:
 - request:
-    body: '{"description": "Test update", "level": "level_critical", "score": "5"}'
+    body: '{"description": "Test update", "level": "level_low", "score": "6"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 O/pAkZcvlyERCdyg837gLPHHFoDkj1Iyjjmx4kANIJw=:oNHmQ1QVbcIoP7/oN/KUVvajV3o49iLwvovuJNHujFg=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:vyj4FK09nUmSLvhWkcgAIqkD4t6ZCqtjNd/6+zT4pt8=
       Connection:
       - keep-alive
       Content-Length:
-      - '71'
+      - '66'
       Content-Type:
       - application/json
       Date:
-      - Mon, 27 Apr 2020 08:10:03 GMT
+      - Mon, 22 Feb 2021 09:18:59 GMT
       User-Agent:
-      - python-requests/2.23.0
+      - python-requests/2.22.0
     method: PUT
-    uri: https://localhost/api/v3/security_issues/2
+    uri: https://localhost/api/v3/vulnerabilities/security_issues/30
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAz2KMQoDMQwEvxJUu0rpd6QL4TD2FgJFZyzZcBz5e5QrUu0yMydxo3xP5EcHZZ0i
-        iezHiBIJFiTutVsd7FyLhHB2+ecNFqo77xrtA+a32VtxRGgYC8MoP1+J6sJWVPepFW+oX/jzBbmz
-        LYKDAAAA
+        H4sIAAAAAAAAAx2MsQrDMAxEf6Vo9lDI5rVT53YrJQT7BoMjB0tyCaX/XiXT8R5396WSKU7XQLpv
+        oEgPJOtF97uIQWK8mWhbKZAcRVKITk4VA9X5zLm2jzstWv2CrdZAGZJ62bQ09trTZxfb8qI4rtAH
+        ulB8vQOlgXlhbsYJK1hP/fsDoeCBY5gAAAA=
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -36,33 +36,30 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 27 Apr 2020 08:10:04 GMT
+      - Mon, 22 Feb 2021 09:18:59 GMT
+      ETag:
+      - W/"d314be03d5f37c45129d5eb751c54e3a"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-MiniProfiler-Ids:
-      - 9a9ptgjk0yccg73o22tx,yl4uypv6soy3s7cr1391,s7go23gqxxhpftwv3nfb,jv0ijp54vi1ikq0pted7,6ua7x3rmtk5tothyjyvi,68kbm7ieqadr5pxjlfp9,3kcbczjytavhvadbqt45,q3iszumrsyjzt7erhhyh,re5xhsxng91zx7gnyhrz,1qany6nj8p5msz4ntq5i
-      X-MiniProfiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - ceaedbef-83e4-4de3-aa04-06e76fe42836
+      - b2d8a7c8-163f-489d-885a-d1b4a1e9e996
       X-Runtime:
-      - '0.191440'
+      - '0.018135'
       X-XSS-Protection:
       - 1; mode=block
     status:

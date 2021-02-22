@@ -7,25 +7,25 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:qfvFJS/axoKLpx4sn4tatBkcweFEZj5TLoe8yoPXD24=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:kS9nQAxpmC2eUncUBiIDhvg/VPNYeVSbMlqjMpGrPOA=
       Connection:
       - keep-alive
       Content-Length:
       - '0'
       Date:
-      - Tue, 17 Dec 2019 09:46:06 GMT
+      - Mon, 22 Feb 2021 08:53:22 GMT
       User-Agent:
       - python-requests/2.22.0
     method: DELETE
-    uri: https://localhost/api/v3/groups/12
+    uri: https://localhost/api/v3/assets/groups/12
   response:
     body:
       string: !!binary |
         H4sIAAAAAAAAA6tWykxRsjI00lHKS8xNVbJSKkktLolPzkjMS09V0lFKSS1OLsosKMnMz4PKKSAL
-        6Sgl5+fkFwGllA2NHN2cnZRqAdfVfhRRAAAA
+        6Sgl5+fkFwGllA2NEtOSk5RqATsWbEpRAAAA
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -33,33 +33,30 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 17 Dec 2019 09:46:06 GMT
+      - Mon, 22 Feb 2021 08:53:22 GMT
+      ETag:
+      - W/"98f2c1b060e38ce589430cc3a9041b2d"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-MiniProfiler-Ids:
-      - 45lp14lamukzybdwu4sn,6gv08sstem0x4cmsgon5,88iccwmu5pw6cuw46b6f,vwr4l1ys3c1qqggb3zf0,vio5fsqhdjviuu9fsd8q,ioyct4ixbthcmnyyr88b,qqddckov8xo7pxfmjubn,2187hiar24kzq26n9now,7gty3ple2i7o6fmlhrpf
-      X-MiniProfiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - c1edc483-897f-4394-b78e-5e4350d940af
+      - a3625a2c-724c-414d-a332-28283905c56e
       X-Runtime:
-      - '0.213714'
+      - '0.015009'
       X-XSS-Protection:
       - 1; mode=block
     status:

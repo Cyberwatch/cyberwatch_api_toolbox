@@ -7,7 +7,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:yvhZkF1a8zB3DDtskie2DvFXlJ9T2auMdoMliS6nB34=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:vVo/R91Z6sh+4PZkm9+7xRMwqhc2icBN012f5VFarj4=
       Connection:
       - keep-alive
       Content-Length:
@@ -15,47 +15,45 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 17 Dec 2019 09:46:06 GMT
+      - Mon, 22 Feb 2021 08:51:07 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v3/groups
+    uri: https://localhost/api/v3/assets/groups
   response:
     body:
-      string: '{"id":16,"name":"test","description":"test description","color":"#12AFCB"}'
+      string: '{"id":15,"name":"test","description":"test description","color":"#12AFCB"}'
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 17 Dec 2019 09:46:06 GMT
+      - Mon, 22 Feb 2021 08:51:07 GMT
+      ETag:
+      - W/"24e8940ef6ba1050f5e29a59345696d0"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
+      Vary:
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-MiniProfiler-Ids:
-      - 2187hiar24kzq26n9now,6gv08sstem0x4cmsgon5,88iccwmu5pw6cuw46b6f,vwr4l1ys3c1qqggb3zf0,vio5fsqhdjviuu9fsd8q,ioyct4ixbthcmnyyr88b,qqddckov8xo7pxfmjubn
-      X-MiniProfiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - aaa20388-ebcc-48f8-a667-360d836de929
+      - f2cb0ec2-c1e8-4369-9393-75ffd8a7b7db
       X-Runtime:
-      - '0.182177'
+      - '0.015601'
       X-XSS-Protection:
       - 1; mode=block
     status:

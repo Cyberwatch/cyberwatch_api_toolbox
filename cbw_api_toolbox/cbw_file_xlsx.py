@@ -92,7 +92,7 @@ class CBWXlsx:
             worksheet.write(i, 3, remote_access.node_id)
 
             if remote_access.server_id:
-                server = self.client.server(remote_access.server_id)
+                server = self.client.server(str(remote_access.server_id))
                 if server.groups:
                     group_name = ""
                     for group in server.groups:

@@ -1,31 +1,30 @@
 interactions:
 - request:
-    body: '{"per_page": 100}'
+    body: null
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:fjnF+i2lTABUxDONqdkZeNRHseBe1niPfWypArdqNh4=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:KbaC41R0dymz+fm1hpfp65BE00CYYeHt0UoO3DoF7TQ=
       Connection:
       - keep-alive
       Content-Length:
-      - '17'
-      Content-Type:
-      - application/json
+      - '0'
       Date:
-      - Mon, 22 Feb 2021 08:48:49 GMT
+      - Wed, 17 Feb 2021 13:46:37 GMT
       User-Agent:
       - python-requests/2.22.0
-    method: GET
-    uri: https://localhost/api/v3/assets/groups
+    method: DELETE
+    uri: https://localhost/api/v3/assets/servers/3
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA4uuVspMUbIyNNRRykvMTVWyUioxSS0uUdJRSkktTi7KLCjJzM8DigIFkvNz8ouA
-        TGVDo8S05CSlWh2oXiOEXqDWeCOSNBvDNRcU5aeUJoO1kGKACdwAl9Sy1Jz8gtzUPOLcHwsA6rJW
-        jP0AAAA=
+        H4sIAAAAAAAAA11PSwrCMBC9y7i0yiS60JzBpTsRSdNRA21GJ4ko0rsbixVx934zj/cE34BZVHDm
+        mILtCAxsfMh3qKCh6MRfkucAJuS2raC1MR0cd10O3tlfR6hmTgeha/ZCzSgPok0jLTd0YnmUlkhy
+        Iyk1TqiozZACjVrNUM9wsVXKLNdGr+aIOEVlEEuYws0Lh47C9yfHEZ2E86Ww3XNYpVQFn0lpSTH9
+        T4J3ObcsBU6UtkdXQ7/vX6jiQMcTAQAA
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
@@ -36,9 +35,9 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 22 Feb 2021 08:48:49 GMT
+      - Wed, 17 Feb 2021 13:46:37 GMT
       ETag:
-      - W/"68959256ef043a0ca2c6654d69fa2123"
+      - W/"bc07c5c0e46f5dad5ff3205f5adbb313"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -54,18 +53,12 @@ interactions:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-Page:
-      - '1'
-      X-Per-Page:
-      - '100'
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - d4c308e9-e927-4d3a-b08a-e5d99e3b669e
+      - 39c192a9-d24e-41d1-85dc-4f0fcb2a5a85
       X-Runtime:
-      - '0.029322'
-      X-Total:
-      - '4'
+      - '0.074850'
       X-XSS-Protection:
       - 1; mode=block
     status:

@@ -27,11 +27,11 @@ class TestCBWXlsx:
         file_xlsx = "spec/fixtures/xlsx_files/batch_import_model.xlsx"
 
         remote_accesses_validate = [
-            "cbw_object(id=10, type='CbwRam::RemoteAccess::Ssh::WithPassword', \
+            "cbw_object(id=17, type='CbwRam::RemoteAccess::Ssh::WithPassword', \
 address='10.0.2.15', port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
-            "cbw_object(id=11, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server02.example.com', \
+            "cbw_object(id=18, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server02.example.com', \
 port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
-            "cbw_object(id=12, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server01.example.com', port=22\
+            "cbw_object(id=19, type='CbwRam::RemoteAccess::Ssh::WithPassword', address='server01.example.com', port=22\
 , is_valid=None, last_error=None, server_id=None, node_id=1)"]
 
         with vcr.use_cassette('spec/fixtures/vcr_cassettes/'
@@ -74,7 +74,7 @@ port=22, is_valid=None, last_error=None, server_id=None, node_id=1)",
                 'HOST', 'PORT', 'TYPE', 'NODE_ID', 'SERVER_GROUPS']
 
             result = []
-            for cell in worksheet[2]:
+            for cell in worksheet[5]:
                 result.append(cell.value)
 
             # The group is not assigned yet

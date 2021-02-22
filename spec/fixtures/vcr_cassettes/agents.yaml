@@ -7,7 +7,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 PfeKHglrTELWglMYmgRc4iVxygymwwi7hUt1bR11rp8=:74CbqXd7SFXaFYqwx5ZrXZWsHC+DYDUto4n7wdFTCWw=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:h2agwZQDmtkGB4zA7mCrvTl3HUfWIIyg3zhY5K+ffmc=
       Connection:
       - keep-alive
       Content-Length:
@@ -15,20 +15,20 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 07 May 2020 13:50:36 GMT
+      - Mon, 22 Feb 2021 09:41:41 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v3/agents
+    uri: https://localhost/api/v3/assets/agents
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA4uuVspMUbIy0VEqTi0qSy2KB/GMdZTy8lNSwWxDHSWgcHFmfp6SVV5pTo6OUlFq
-        bn4JULIAJpCTWFwSn5yfm1ual5mcWAJXWqsDMdwUxXBDAyTTjZBMV7JUQjFcydBIz9hEz9RMz9xC
-        ibAtZqheoJEt5jgDCsUSc/IsiQUAaqiErY8BAAA=
+        H4sIAAAAAAAAA52OwQrCMBBE/2WvpmF2GwXzHd5EQmlzCJhEkupF/HdT60FvIsxl57HMO94pTGRZ
+        UfXl5ot7XUZRypN3b9T6GnIiS0YLKSo+5rnRS2sYeonm3ULOQ53dmGO8pjAO8/okEO4gnciBYfu9
+        hWgAG7AF6KFWBflW2P6hgP43BdOG+VPh9AT9Tg7ABwEAAA==
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -36,27 +36,24 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 07 May 2020 13:50:36 GMT
+      - Mon, 22 Feb 2021 09:41:41 GMT
+      ETag:
+      - W/"9dce49f090d3c8cab1607c9d0f2f631f"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-MiniProfiler-Ids:
-      - pats611zk10aevxzsq1p,4u0n4zhaz0f9pzvab6da,tp1580xflybzm6yzi80y,zgzt7wksdnlnjkrsvt53,h5ejg3zc8uo704dipgvf,fw8eu7r39mwq0tqfkq2t,qlwyj6ebwjyucrxj0pqv,5jclghdmdsjxjtkokwtp,a3o46rsoiuzfcgrcpgaf,d6vka79btgtr7sd7bwm2,hy88mqqgn33q2f3fkg5r
-      X-MiniProfiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Page:
       - '1'
       X-Per-Page:
@@ -64,11 +61,11 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - cb854225-83f7-4ec5-a704-d14979345540
+      - 9b42ea1d-95ef-4e16-8d9e-acf3d7770cd5
       X-Runtime:
-      - '0.190653'
+      - '0.019415'
       X-Total:
-      - '4'
+      - '2'
       X-XSS-Protection:
       - 1; mode=block
     status:

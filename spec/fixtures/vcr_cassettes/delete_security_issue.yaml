@@ -7,25 +7,26 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 O/pAkZcvlyERCdyg837gLPHHFoDkj1Iyjjmx4kANIJw=:UA05A5wKmFN8tBbWIWwYxX9aS65S5sq1jB9Q9x24FO4=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:IGzSDpa5L6d+JLvCr25l8D4T5fVYVcEggPmEbGc2D2c=
       Connection:
       - keep-alive
       Content-Length:
       - '0'
       Date:
-      - Mon, 27 Apr 2020 08:01:01 GMT
+      - Mon, 22 Feb 2021 09:20:18 GMT
       User-Agent:
-      - python-requests/2.23.0
+      - python-requests/2.22.0
     method: DELETE
-    uri: https://localhost/api/v3/security_issues/1
+    uri: https://localhost/api/v3/vulnerabilities/security_issues/30
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAz3LSwqAMBAD0Ltk3Y3bXkVEpEYYGKfSjgUR7+5n4SrhkZyQGbEL8GMjou2qAfU1
-        IEDZqE/9chRb8oMurv90Zk1FNpds/5ulsVTEfghIjeNklndLXGn+8XUDoUOxLXYAAAA=
+        H4sIAAAAAAAAAx2MsQrDMAxEf6Vo9lDI5rVT53YrJQT7BoMjB0tyCaX/XiXT8R5396WSKU7XQLpv
+        oEgPJOtF97uIQWK8mWhbKZAcRVKITk4VA9X5zLm2jzstWv2CrdZAGZJ62bQ09trTZxfb8qI4rtAH
+        ulB8vQOlgXlhbsYJK1hP/fsDoeCBY5gAAAA=
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -33,33 +34,30 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 27 Apr 2020 08:01:01 GMT
+      - Mon, 22 Feb 2021 09:20:18 GMT
+      ETag:
+      - W/"d314be03d5f37c45129d5eb751c54e3a"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-MiniProfiler-Ids:
-      - 6ua7x3rmtk5tothyjyvi,yl4uypv6soy3s7cr1391,s7go23gqxxhpftwv3nfb,jv0ijp54vi1ikq0pted7
-      X-MiniProfiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - b84a3c8a-fd19-4f71-9b54-2f69564318d4
+      - 37f76304-5a52-4099-8270-54f274d8cc97
       X-Runtime:
-      - '0.161610'
+      - '0.030379'
       X-XSS-Protection:
       - 1; mode=block
     status:

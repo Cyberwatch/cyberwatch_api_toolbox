@@ -7,26 +7,26 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:fgsofkEDBY+QdBwOnQFIY4e58MH2zRvlkGVOD3KvUT4=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:A4jih9upYAy6ZB+9A5a9HvlEZzg9Ad2KCCTG/TEVzQw=
       Connection:
       - keep-alive
       Content-Length:
       - '0'
       Date:
-      - Tue, 03 Dec 2019 15:47:22 GMT
+      - Mon, 22 Feb 2021 08:56:02 GMT
       User-Agent:
       - python-requests/2.22.0
     method: PUT
-    uri: https://localhost/api/v3/remote_accesses/15/test_deploy
+    uri: https://localhost/api/v3/assets/remote_accesses/15/test_deploy
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA0WNwQrCMBBE/2XPodiAIHuTXjyJtILHEpuFBtKk7G5bRPx3Uy/CXIbhvXlD8ID1
-        0YC+ZgKE5rm1bkJsacpK52EgEcRORsRH0PHmRLbMHgw477mMhakP1Z66svZUhjmzAlprIEi/urg/
-        pCVGA9GJ9sScuVBX0iLuLohNTokGDTndw0R50SIR4pW4/7Mpe/rV+vMF7aqCibUAAAA=
+        H4sIAAAAAAAAAzVOwQqDMBT7l5zLmMou7zb2A8MddiydfWChWnmvKkP899WNQQgkISQbggdVF4P8
+        nhiE22tt3UDU8pAyX7uOVYke2hM9Q+7vTnVN4mHgvJcSlk51Ph0o1BR/SpJBdW0Q1C4uHgPjHKNB
+        dJotiyT5O8qysNjvh8ZgTJ5/Yv8AVTIJQZkAAAA=
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -34,34 +34,31 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 03 Dec 2019 15:47:22 GMT
+      - Mon, 22 Feb 2021 08:56:02 GMT
+      ETag:
+      - W/"fb2ccbfbdf4b933d4b2b91ac9fe54450"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - are9hekp6prqiw0z224a,8tbuhzs1hj7nbe0ql8lw,i1nb4sc2ddgg266tm2f0,mphwre3jew8mqsr2dzrg,81pzvh60alfh2ezmii7f,q3lf2r2t0684b0xrjpac,abg17fzz1ta0oo3c6bue,trxrzi24jossflkw38l1
-      X-Miniprofiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 7991e2a7-3870-4ff5-91c9-cf3724d5f216
+      - b6971889-ee4c-4cb0-9bb2-5d4abd2ba271
       X-Runtime:
-      - '0.352532'
-      X-Xss-Protection:
+      - '0.161657'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 200

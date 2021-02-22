@@ -7,23 +7,24 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 PfeKHglrTELWglMYmgRc4iVxygymwwi7hUt1bR11rp8=:B/FPqZyV7rlGZqll4F0t9wYbLYfu7ikS769dMyiMzRU=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:ys7//J4yQUIEidG0fMA1d8jswia9Mqty8hHyGRtzIWs=
       Connection:
       - keep-alive
       Date:
-      - Thu, 07 May 2020 13:50:37 GMT
+      - Mon, 22 Feb 2021 09:44:36 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v3/agents/4
+    uri: https://localhost/api/v3/assets/agents/2
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA6tWykxRsjLRUSpOLSpLLYoH8Yx1lPLyU1LBbEMdJaBwcWZ+npJVXmlOjo5SUWpu
-        fglQsgAmkJNYXBKfnJ+bW5qXmZxYAldaCwCqjg/pXAAAAA==
+        H4sIAAAAAAAAAyWLMQrDMBRD76K1jtH/TRefo3sIiQdDbRfb7VJ69/wQEEJPQj+kHUEdemzf2JaT
+        5OFQ6h4vcLC+p1oQMHuFQ4u5Dlvf1gj9KbO7La+1j2WrOX9K2tZxnZQqE3VSfQrDLIHiSd5oifgf
+        Fi6FtIIAAAA=
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -31,33 +32,30 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 07 May 2020 13:50:37 GMT
+      - Mon, 22 Feb 2021 09:44:36 GMT
+      ETag:
+      - W/"bf1708d57025d73ec556132bc5e11b43"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-MiniProfiler-Ids:
-      - 7yjezlf3wpho7m0xsqrd,4u0n4zhaz0f9pzvab6da,tp1580xflybzm6yzi80y,zgzt7wksdnlnjkrsvt53,h5ejg3zc8uo704dipgvf,fw8eu7r39mwq0tqfkq2t,qlwyj6ebwjyucrxj0pqv,5jclghdmdsjxjtkokwtp,a3o46rsoiuzfcgrcpgaf,d6vka79btgtr7sd7bwm2,hy88mqqgn33q2f3fkg5r,pats611zk10aevxzsq1p
-      X-MiniProfiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 99277388-1271-4f7a-bab6-3caaa4c6b9a1
+      - 211cb843-e430-47c9-969a-c181dd1591b2
       X-Runtime:
-      - '0.167224'
+      - '0.013297'
       X-XSS-Protection:
       - 1; mode=block
     status:

@@ -1,31 +1,32 @@
 interactions:
 - request:
-    body: '{"per_page": 100}'
+    body: null
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:fjnF+i2lTABUxDONqdkZeNRHseBe1niPfWypArdqNh4=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:Epi8MArEi8zDtTpxFUU/1FmQSiNRZIioT2qRgFJx4pA=
       Connection:
       - keep-alive
-      Content-Length:
-      - '17'
-      Content-Type:
-      - application/json
       Date:
-      - Mon, 22 Feb 2021 08:48:49 GMT
+      - Wed, 17 Feb 2021 13:42:49 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v3/assets/groups
+    uri: https://localhost/api/v3/assets/servers/3
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA4uuVspMUbIyNNRRykvMTVWyUioxSS0uUdJRSkktTi7KLCjJzM8DigIFkvNz8ouA
-        TGVDo8S05CSlWh2oXiOEXqDWeCOSNBvDNRcU5aeUJoO1kGKACdwAl9Sy1Jz8gtzUPOLcHwsA6rJW
-        jP0AAAA=
+        H4sIAAAAAAAAA31SXU/jMBD8K8g8kka2Caj4+R5BnHS9pxOKnHjbWnXsnD+qVqj/nXXcADrKSXlI
+        ZnZ3Zif7SrQi4rYiWxeilQMQQR61TQdSEQWh93qM2lkibDKmIkaG2PZuGJLVvfzMeOici62Hv0l7
+        UDM8gTLOn9gDG+ePqBLA78GjTO8BUTVVEU45W1C+oLcrxkTzIPiyppTeUCYoxWKwe+2dHcBi9etk
+        nlfkbPwJlE5DHunsWius0dLoeJxdla7/se0wj9AWnfqvzRfxjza5l9rITl+Q/Y6am08VcSEvtYOc
+        T+qSjanllDbtfUPel/w94Vec1rS5elz9yqK+3yJzWN6XSnCmRHm3oM2CshXlmB4+JUpeogxb52N7
+        YSpy8Thm9DkIUZjsbuNdGtHhn5I7Y++eYgMh/nsxZPoRxnl8vWZcrvuOnF4qMsp+JzdQBu3BqlxR
+        zmP0TqU+h7XGcNbu8GHl57lLiB/QIYy3E4rMEj3X7KZL2ii8nZIbradVajZJynE053vNsi+nN5jG
+        TmT3AgAA
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
@@ -36,9 +37,9 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 22 Feb 2021 08:48:49 GMT
+      - Wed, 17 Feb 2021 13:42:49 GMT
       ETag:
-      - W/"68959256ef043a0ca2c6654d69fa2123"
+      - W/"d27404aec51bae761fafc353d9dd4992"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -54,18 +55,12 @@ interactions:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-Page:
-      - '1'
-      X-Per-Page:
-      - '100'
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - d4c308e9-e927-4d3a-b08a-e5d99e3b669e
+      - ea0a2e4b-e091-4359-b338-b7fb7c12b012
       X-Runtime:
-      - '0.029322'
-      X-Total:
-      - '4'
+      - '0.069630'
       X-XSS-Protection:
       - 1; mode=block
     status:

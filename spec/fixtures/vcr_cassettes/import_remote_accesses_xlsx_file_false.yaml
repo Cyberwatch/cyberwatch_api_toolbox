@@ -9,7 +9,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:9ATcH5E/HQ9bpXMgW4mbzoup16D8MQbRyiYBAPf0Uw8=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:1V8V10x5tA0PKM02kIbLID8M69qAThDzKkxFcxFgIho=
       Connection:
       - keep-alive
       Content-Length:
@@ -17,11 +17,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 05 Feb 2021 10:03:27 GMT
+      - Wed, 24 Feb 2021 13:31:04 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v3/remote_accesses
+    uri: https://localhost/api/v3/assets/remote_accesses
   response:
     body:
       string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
@@ -34,7 +34,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Feb 2021 10:03:27 GMT
+      - Wed, 24 Feb 2021 13:31:05 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -52,9 +52,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - feb0987f-e586-4873-94ee-e348cd0f9e9f
+      - 1cc5d546-59fc-4d79-9753-e4bcd190060d
       X-Runtime:
-      - '0.194716'
+      - '0.192893'
       X-XSS-Protection:
       - 1; mode=block
     status:
@@ -71,7 +71,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:9ATcH5E/HQ9bpXMgW4mbzoup16D8MQbRyiYBAPf0Uw8=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:Kv9dd+UMQart9oXHO1/jiZUo8FalQ3JVVGTVrUqbjwE=
       Connection:
       - keep-alive
       Content-Length:
@@ -79,11 +79,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 05 Feb 2021 10:03:27 GMT
+      - Wed, 24 Feb 2021 13:31:05 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v3/remote_accesses
+    uri: https://localhost/api/v3/assets/remote_accesses
   response:
     body:
       string: '{"error":{"code":422,"status":"Unprocessable Entity","message":"Validation
@@ -96,7 +96,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Feb 2021 10:03:27 GMT
+      - Wed, 24 Feb 2021 13:31:05 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -114,9 +114,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 74be4328-ed37-49e1-84a8-efeb52f7cbac
+      - 16340d42-a34d-4d8f-a1d7-5fbcdca780db
       X-Runtime:
-      - '0.132120'
+      - '0.129871'
       X-XSS-Protection:
       - 1; mode=block
     status:
@@ -132,7 +132,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:9ATcH5E/HQ9bpXMgW4mbzoup16D8MQbRyiYBAPf0Uw8=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:Kv9dd+UMQart9oXHO1/jiZUo8FalQ3JVVGTVrUqbjwE=
       Connection:
       - keep-alive
       Content-Length:
@@ -140,14 +140,14 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 05 Feb 2021 10:03:27 GMT
+      - Wed, 24 Feb 2021 13:31:05 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v3/remote_accesses
+    uri: https://localhost/api/v3/assets/remote_accesses
   response:
     body:
-      string: '{"id":13,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.16","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
+      string: '{"id":20,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.16","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
@@ -156,9 +156,9 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Feb 2021 10:03:27 GMT
+      - Wed, 24 Feb 2021 13:31:05 GMT
       ETag:
-      - W/"31b256f42c4971796babbabee1e5df7a"
+      - W/"bd595544adfe890d7dfc2a5675304e9b"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -176,9 +176,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 13ea4514-a47a-4791-a9d5-41cf2d0a4fd0
+      - a3cab693-9ccf-48af-a76b-1e19b916ce31
       X-Runtime:
-      - '0.199091'
+      - '0.201505'
       X-XSS-Protection:
       - 1; mode=block
     status:

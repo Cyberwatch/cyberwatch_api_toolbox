@@ -7,7 +7,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 Um7C1MMU5g3tMHjh4INdxbyihUTqpTtoUshlme3lJZU=:LnneLRfN19iosyc8ttYY1ZcHuA5qEF+sxj8ftMT8ghA=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:ykLL33ZrrC11Lk02HJbaSNxdNV3E+25pY9sB404PGQo=
       Connection:
       - keep-alive
       Content-Length:
@@ -15,36 +15,29 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 11 Aug 2020 08:57:36 GMT
+      - Mon, 22 Feb 2021 09:02:44 GMT
       User-Agent:
       - python-requests/2.22.0
     method: PUT
-    uri: https://localhost/api/v3/servers/8/cve_announcements/CVE-2020-3962
+    uri: https://localhost/api/v3/vulnerabilities/servers/9/cve_announcements/CVE-2020-28928
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA+VY227bOBD9lYKvaxGkqPtr0cdiF9ggKLAoBFqiLSKS6CUp19mg/74jyXZcXxLJ
-        lvsSxIgtkZwzc2Y4HM4LkjlKohkqlLE1rwRK0Je/v8mUUDRDuTCZlisrVY2SuinLGSq5sWmmqqqp
-        Zcb7EeQSlzgkcih5oH7C3IT4mBDyB4FfBORoMVfKplr820gt8p2sZpVzKwyIa2qLEkpnqJvH7W4G
-        IIil0s+AUTyvhF5LozQIzLSAkbybeQbd+wU9W4uU1zWAZKIStX0FZDO00lJpaeV/IO3iRJhnLLeN
-        ATQDWgid9rp3TKQLLstzOCj556V7m6m8Jfbz4xfHJTR2KCVxy69c1qrjY8FLI0ACSBP13vqF3Gxt
-        7J8PdN0u+Tm7BECZfz8A4Np1SXg3APAni/03DUDoHelWN28ID4L7Kh9EN8p/R312Z/XjO8u/X3D2
-        8r07y79z7IdkEvnf9zm2S0VtqqdBHJyKXnGbFXxeij7wZshyvRQg+gWtRZ1Dzk3QuvrBtUAtkMqb
-        rN2D2apxKplp1VkAqyBHw+u/ePbEl8IkyaOcw2vIl6Y/KAIcYrAPhyGmPuQRQkP0EyxrtO4se4Xb
-        2XQjlIuDGFMP/gLqd1BnkvRpYj5JpEeJ73vrui2d4WR0rqunxsyHGEcwdShIwEFIMMMR2OjTgFAW
-        DaTzSigXexGmjJAgIOwSnYfkRJORUwvrrKsNfLEhalNMgRiItVtYuhVzNF3xZHSJcuMIs3FKOYef
-        suLYqEE2UOxhSiMPu841lN2OS52RtIWETBdlUNKuBWQakzm5lq1+Y/LaFSF2C+BoouhkRFmlSgNe
-        XhZ2oHshkUAmDkMWx56zZckbyNJYtHa7wz/qegTOO9d57wQ45Midbg/CPmjksMzB4FAEViLCPBYP
-        3Wvj5APrHomZ718MlaPy+5AVNt0pZ3hdCF7aYszOogQiPXA95tOh9FwHFAKW5waMBN509cLs5O5x
-        fFc4Lu6Pi/Hj4vnw2T169o6ej/ChuDz0rDepZ6/06eC6ZSTEzputVz6EN/1Js9ecm1F1fe9RBpUM
-        IyOS2FiYzqvMJSyKPoZXp7uydWdGdyf8DX4dD/RBPAsXc2Va9p7E895PKVAm0yBtF2xbsY9f24FP
-        bUf2E1AEA1xnBQxsoiDtkIQq+xYo3NLg4z8QmhACn74FSvsWqCmUtulBf3crbeuXP1uP9LECpIt6
-        LbWqq62D2xB09xp9Fblsqq43vOBNaXfRl6l6IXNYInkp7fOu17tt1r0xmlY7ibK2YqlPF599/7qM
-        r7ks+Vyegb009LrYFloAOSXYGGL/bGM5dNzwgXoJ9RM/xlEQ7RvLfXgPmgy0LrVqVl2x2bVyVqXk
-        ENXp4WsjYGO1ukpjGtEXpv8DgDku/KIXAAA=
+        H4sIAAAAAAAAA61Uy67TMBD9FeQtSbB9S9vrHULsQLBAbFAVucm0terYwY9yS9V/Z+z0BbeFLq6y
+        yjzOzJw54x1RLRGPBVlZH4zsgAii1dxJt30jda8MCC0D+EAK0oJvnOqDsoYIE7UuiJY+1I3tumhU
+        Iy89DubWhtrBj6gctEezbFsH3oMn4jthfFJR/BiCswmvWPrlZFaQ2LepKkJHE4jgBcloMhxxsBgs
+        rdtiu61t1uBq1cklIFDjAH1tjiWcclZSXjL+lTHBx2I0riilrykTlKbgDdTSGKzSQAcmXFaURurt
+        r3uReqesU0GlhJuotCA+yBBxeuLBbbBt+VNillnWuZxX/lpXSNYuWxvbpg29//ah5JSNysfx6C0m
+        qKWxmeSF1B4QADcC5kRWCwGaW5xMBGV/TLJQT4fQIftiskOBPW7IYlM7soa0gUEotVYmPtXjEWIc
+        lPQuO159TA60Stes0Po0HQ9RYPWxiF9ZF+rraWHbJ+tnL8TgIXvMNRvlrBnG3GUV81PdT9Cq2GXJ
+        LmTUGBFczLyYhWoxRUmtwvaozgHkX966OyIqg8Jzz5Ov2s9pciOVlnN1pewt1zk5rPBmVlbjjJPq
+        7Q2JU1znWLCJGPFqOno4rXM4pbuCkdals7FPeptlFfVaSRRhfWk+3GbWZKKdsecC7GVoVnKu4ch8
+        kG4JeVMbMK11Z3HZNjaptXn027m92PcX2azxpNPW+zWa8Vp8fmDIWfrYcROdO4jgBaBZ9YDvUOl4
+        hr5yh3/d3mxfHFjgL8JCF72+jwJOSz595NM7ObgXmFW84qWj/5n/VH2WHgMP2EGSr/I+ZmnM9r8B
+        cWsxBFoGAAA=
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -52,33 +45,30 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 11 Aug 2020 08:57:37 GMT
+      - Mon, 22 Feb 2021 09:02:44 GMT
+      ETag:
+      - W/"013623a91ee9ae8d5014523830e3f09b"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-MiniProfiler-Ids:
-      - z1kvth88f2jr28652ol1
-      X-MiniProfiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - ded25fc4-7e26-46c3-aeec-6f56680dca63
+      - eaaeaa9d-8163-46d4-8e82-ff80eaad09e5
       X-Runtime:
-      - '0.372552'
+      - '0.137377'
       X-XSS-Protection:
       - 1; mode=block
     status:

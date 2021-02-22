@@ -7,21 +7,20 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:w6mmUBJYlhmWwcgCDYIuFK/TsNLS7GSFXBa1727Nt9M=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:g4XYhbEL8hl+q4FkNZJ9MAoyuUcIR+siZMcU0sfsrYk=
       Connection:
       - keep-alive
       Date:
-      - Wed, 04 Dec 2019 15:39:43 GMT
+      - Mon, 22 Feb 2021 07:11:37 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v3/servers/wrong_id
+    uri: https://localhost/api/v3/vulnerabilities/servers/wrong_id
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAx3KsQrCMBAA0F85bulSxKFToDhIxclBBweRJvRiPbA5yF3aofTfFd/8Vow5S0a3
-        4iAU0TX7pka1YEXR4UUMTlISYY1TVA3jr+BRyodSZfDiRHCLeY4ZFrY3VExVu2RJY88Ej/u5u3bg
-        9T/U7zxrHwbj2UMLhydu2xcyHIMDgAAAAA==
+        H4sIAAAAAAAAAw3KMQrDMAwF0KuIv3jJ0CGToVOgY5ceIIRIdQytBbKcDCZ3T978OsRMDbFjVRbE
+        8TEOqL54q4h4q9NLW2EM+EutS7oLJm0/LsHpmwvTR2wXoyP7RiFzeB6mJc2ZcZ4XF+ZLWF8AAAA=
     headers:
       Cache-Control:
       - no-cache
@@ -32,17 +31,16 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 04 Dec 2019 15:39:43 GMT
+      - Mon, 22 Feb 2021 07:11:37 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -52,10 +50,10 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 222184b8-b549-43cc-8547-20c85574226e
+      - ca205ce1-cd7f-445b-bab8-f75fb88d0b5f
       X-Runtime:
-      - '0.068142'
-      X-Xss-Protection:
+      - '0.009581'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 404
