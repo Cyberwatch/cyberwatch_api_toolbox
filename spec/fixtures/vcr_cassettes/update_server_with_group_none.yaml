@@ -7,7 +7,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:wmiiGUWDjBy+YRyIOr6patIgi3jIxO89Reb/lgHI9lc=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:rdk6POQiqSPYMSDp8tU7ukaLotJESSb6t8gtU2s7Zu8=
       Connection:
       - keep-alive
       Content-Length:
@@ -15,24 +15,23 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 04 Dec 2019 16:16:40 GMT
+      - Mon, 22 Feb 2021 07:22:41 GMT
       User-Agent:
       - python-requests/2.22.0
     method: PATCH
-    uri: https://localhost/api/v3/servers/6
+    uri: https://localhost/api/v3/vulnerabilities/servers/2
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA22RwU7DMBBEfwX5ShrZSUhbHzkjcSBwQchyk21r4djBXletqv4726SCFiHl4pn1
-        zFvnyEzHZJ2xrY/odA9MsjW4YKKdvZmASdtHv2cZ6yC2wQxovGPSJWszZnVE1fq+T860enJYwcVy
-        JooZrxoxl6KWvMg55/dcSM4pJ8DKe1QBvpIJQN1rbSNkTG/AodpBiFNOmYtxuvcIygykiHmRi2XO
-        RyMNnUaIVJ8cMskzNsZqvEYoG2otl7IsbxBoDyRga/BA01cn1UNnUn8e2YHSzlF4Cz2BXRfRqrDx
-        4Xw3QiDiMRJI7f70j09ArQ/VTX9EjSn+XFfTLso4g+R6co7sE875aUWlSYkFr1RdkXn5Q6+jficW
-        Oa/unpoXcnRot+TsF/U0Cd6OKEVJHLOibnhB7fRNKMUFZesDqn9SycPDcFafo5STw04Z2wSfBiJ8
-        /6ClfT9Yo+mJ1K98+gY4WQHeUgIAAA==
+        H4sIAAAAAAAAA32SwU7DMAyG38VXCko7MYm8AzduCEVeY4pFmhTH7TSmvTvpWLUhBlIusf39f2xn
+        D+zBNhW8pawRewILIbUY5jtU4Cm3woNyimDjGEIFAbO6NvX9GLnFy4zQJiV1Qh8jC/kljN4L5UwZ
+        7PNLBePgUSkXiTEqWFPBkUJd6osodUl25SmRdJvk3SlKR+qSuC1tMiuVp7VCpdAfQWhMU9+appyn
+        em1XtV093BljbkxtjZmLJ3IYY7Fsqaeol/YYMew+ryg1xpq1Nfc/lAbhJKw8A/+pZkUdS8uQSSYS
+        h1ssVOzc0S5zLlopLz1TnFhSnEXA7pelnBbySJ7Hfu4ixVf2pYYxsO6WSX9T/2Vdv0hwLMOV3/DV
+        +BnDCTnghq/Y/pVa4EMFnaRxOK2//JwhMJaJuXP48AUq4sUkiAIAAA==
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -40,34 +39,31 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 04 Dec 2019 16:16:40 GMT
+      - Mon, 22 Feb 2021 07:22:41 GMT
+      ETag:
+      - W/"20796ea76b9487a0264bd3657033adc0"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - chd065k9rblj7y0pr0gn,35rt60mfhvopbvikzfss,oba8ar2mxi23104p5nwd,g8od9jo303kx7qwe880c
-      X-Miniprofiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 05c4a3ed-f379-4f33-972c-9a3d792c2f14
+      - 59828453-915a-4f36-abae-fca0db905ced
       X-Runtime:
-      - '0.227798'
-      X-Xss-Protection:
+      - '0.025814'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 200

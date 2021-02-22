@@ -9,7 +9,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:oaVDH1Qw9UX3CnP+SANRfRtjaXGYomRQ2XP9zt3nykc=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:HWTigbMOX99Vopwej1daumwFOZHnYslle+uUz5nYsjw=
       Connection:
       - keep-alive
       Content-Length:
@@ -17,14 +17,14 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 05 Feb 2021 10:03:10 GMT
+      - Wed, 24 Feb 2021 13:28:47 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v3/remote_accesses
+    uri: https://localhost/api/v3/assets/remote_accesses
   response:
     body:
-      string: '{"id":10,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.15","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
+      string: '{"id":17,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"10.0.2.15","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
@@ -33,9 +33,9 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Feb 2021 10:03:10 GMT
+      - Wed, 24 Feb 2021 13:28:48 GMT
       ETag:
-      - W/"c099c7e6b220d75cf6735f9f2daf8561"
+      - W/"63d07aa662e74a354e7a73600e88ec9d"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -53,9 +53,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 7bc753d9-b914-4849-8d1f-b4e469aa76c5
+      - 400788fd-9afb-48ad-a49b-9c1349655fb8
       X-Runtime:
-      - '0.204651'
+      - '0.226156'
       X-XSS-Protection:
       - 1; mode=block
     status:
@@ -72,7 +72,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:oaVDH1Qw9UX3CnP+SANRfRtjaXGYomRQ2XP9zt3nykc=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:RsmZ4E03B5ap7gkmb3uXa2dmw42GVhwj08uO2cnzzJI=
       Connection:
       - keep-alive
       Content-Length:
@@ -80,14 +80,14 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 05 Feb 2021 10:03:10 GMT
+      - Wed, 24 Feb 2021 13:28:48 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v3/remote_accesses
+    uri: https://localhost/api/v3/assets/remote_accesses
   response:
     body:
-      string: '{"id":11,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server02.example.com","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
+      string: '{"id":18,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server02.example.com","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
@@ -96,9 +96,9 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Feb 2021 10:03:11 GMT
+      - Wed, 24 Feb 2021 13:28:48 GMT
       ETag:
-      - W/"bc51d6577de7ce1d87bf59806fe2c7c9"
+      - W/"b40b4d78f51387b94f5a420d3b0d1491"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -116,9 +116,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 9f40e03b-6b99-4edc-a21c-73ce9e22cdec
+      - 142be6ae-7066-4d77-bd49-8712a50e7ce4
       X-Runtime:
-      - '0.139251'
+      - '0.158923'
       X-XSS-Protection:
       - 1; mode=block
     status:
@@ -134,7 +134,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:CJAFCWFkeS8ROFMolhXqrBjfdlKiU69y0mXExy8Cc8s=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:RsmZ4E03B5ap7gkmb3uXa2dmw42GVhwj08uO2cnzzJI=
       Connection:
       - keep-alive
       Content-Length:
@@ -142,14 +142,14 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 05 Feb 2021 10:03:11 GMT
+      - Wed, 24 Feb 2021 13:28:48 GMT
       User-Agent:
       - python-requests/2.22.0
     method: POST
-    uri: https://localhost/api/v3/remote_accesses
+    uri: https://localhost/api/v3/assets/remote_accesses
   response:
     body:
-      string: '{"id":12,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server01.example.com","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
+      string: '{"id":19,"type":"CbwRam::RemoteAccess::Ssh::WithPassword","address":"server01.example.com","port":22,"is_valid":null,"last_error":null,"server_id":null,"node_id":1}'
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
@@ -158,9 +158,9 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Feb 2021 10:03:11 GMT
+      - Wed, 24 Feb 2021 13:28:48 GMT
       ETag:
-      - W/"80f629555ba53589211605a4f4db50de"
+      - W/"a70f6865a8ca3343bad8495c3fea5c04"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -178,9 +178,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 2ee29fd8-8a3f-4079-9036-2b1ce4368223
+      - 799b8f7b-9098-400d-8b81-d2ee39497fd5
       X-Runtime:
-      - '0.196782'
+      - '0.200163'
       X-XSS-Protection:
       - 1; mode=block
     status:

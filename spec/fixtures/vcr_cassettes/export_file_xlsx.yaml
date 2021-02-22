@@ -7,7 +7,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:3fWjh87lvQI5QFkp0BWwJqF5WRFX4fDbIvVeYu5Obt4=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:s46TccdpC2iFwH65FRlQqeAILKyAJQIbWHPvxhDIWO4=
       Connection:
       - keep-alive
       Content-Length:
@@ -15,19 +15,20 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 05 Feb 2021 10:11:18 GMT
+      - Wed, 24 Feb 2021 13:38:34 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v3/remote_accesses
+    uri: https://localhost/api/v3/assets/remote_accesses
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA82SQUsDMRCF/0qYcwibiB7mJr14KtIKHkSWmExtMMksSdpVxP9uVv0BikU8zgzv
-        m/fg3b1C8IB6kNBeJgKE1cO8sQlxQ4kbXTpHtSJu6x7xNrT9ta115uJBgvW+9GPX6EENyih93rcT
-        lwZojIRQx6ONC35nYyUJ0dY2UilcumZNrWO3V4grzplcC5xvQiI+tE6pVI5UxkWcDzFKyOzpY9Rv
-        8suz/pXnzw+DUfRs0xRJOU4/sP9IbWGFvGMUa5tIcBELMzgSmZt4yjznbyYxp0ii/0OSs5P06OJP
-        enT/DpiKaQz9AgAA
+        H4sIAAAAAAAAA82UTUsDMRCG/8qScwib1H6Ym/TiqUgreBBZ4u7UBpPMkmS7ivjfzbYiRVasbClC
+        CIRh3nnemSH3b0RXRPKckvhaA5Fk/tgulZVyCRYjXJUlhCDlKmykvNNxc6NCaNFXhBJVVT4FUw7P
+        WXc4E2KWAjX6SKQQlOhQbJXpKqyVCUCJUSEW4D36lLaAmJRX11LO0Tkoo0Z3qy1gE5NKAL8FX3TJ
+        rjGGEocV7J78nX5iX/yG7WzdR8pEPv0C5RN+SBp98w10X/6Ah4temvEpmpiu0Q89PIZs1Es2HUqW
+        M8H4+KyznQ1i3lfIBYMXZWsDrET7B/wniJ2WdmuU2UJZyNBnnaYuIXMYs2eHrTvSyeUpnPB/4EQM
+        /iZ2ezQ5yx49fABcMdm53AQAAA==
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
@@ -38,9 +39,9 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Feb 2021 10:11:18 GMT
+      - Wed, 24 Feb 2021 13:38:34 GMT
       ETag:
-      - W/"cdbce5e85e48dca8809c110a9abdc5bd"
+      - W/"d26934fb37fb37b10e1a68e794b2c2b4"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -63,11 +64,150 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - d311b528-1207-429e-acd7-6a9d57965716
+      - fb26ea32-8512-46f0-adf2-fda55b4172d1
       X-Runtime:
-      - '0.014857'
+      - '0.016910'
       X-Total:
-      - '4'
+      - '7'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:eq3v14ZlWVTWsCYdXQ/XY25r3k81EEaXXi4No74EN3g=
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 24 Feb 2021 13:38:34 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: https://localhost/api/v3/vulnerabilities/servers/12
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7VTTY/TMBD9K8gnENkqSVsJ+QpC4gCLtHtDKJras6lVxw5jO1VZ9b8zTppuF7p7
+        45TY8/HevDd+FEYLWdWF2PoQHXQopPhogvLLRcQQF9YrsKIQGoMi00fjnZAuWVsICyE2ynddckbB
+        FBF1WVc3ZX1Tr+6rlVyWsqoWZVm+LytZltyHcON9bAh/JUOo516gNWEIGIT88bMQqdfA8Nw9ucj8
+        CjFWQZzzGQ9bTwdGdBj3nnaNxsEoZAhFyFE9Zp/5VB/uqzUPKperZ3zUgA04xzgKO3TxjFkyKQf2
+        8PvFTqv1s049GU8mmlzwWtcQISaeUwSkAamBPXCVa5sRLphwjdUki+fvo9hhHltlkzj10jM+Aqnt
+        LBJ6O/+GrafY/JUbD30+3gYpv00ifho1lHLKOHILNxjyLnPI0HlZ6jPmV9QmdZmudw9Gc44Ba+Jh
+        dneqei3adHML49hQ+rf46v1TGQxgLGzMFdiXQnMxT9eST/1JW17k3hpgwZvL69Mm8mGavloz19b5
+        cXcfwAZk5yGqLWwsaxIp8UUEanEUbECnPV3Y1ZPXScXZhTdfbu+enPgOagctsh+fDXV7oLzOvCNh
+        elvVelG/Xb27W2buKhGdXPmPINf28MiyBGT8LKwJIU2v9vgHdnSOyEwEAAA=
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 24 Feb 2021 13:38:34 GMT
+      ETag:
+      - W/"b44df42f09c772209ebe9d7108d64c50"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - cee218bd-3080-42b0-8549-ff730d5afe98
+      X-Runtime:
+      - '0.101111'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:pR61MRV6ZQOQdkKxXXbAgIrHjz8oHPpfdFulyvabq0c=
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 24 Feb 2021 13:38:34 GMT
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: https://localhost/api/v3/vulnerabilities/servers/13
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA8VUTW/bMAz9K4Wusw1JduxE5x03bMCy0zAYis0mQm3J00fWrOh++yg7adM1LdYt
+        Q2HDAkmRfHwkfUNUSwTLE7IxzmvZAxGklVpBl4ZV8DqQhLTgGqsGr4wmQoeuS0gnna8b0/dBq0ZO
+        FsIpZynlKS+WrBA5FYxnlNI3lAlKMY6FlTG+tvAtKAuY19sACZFta8E5cER8IYxXGcWH4X2GB774
+        yaO04Bkr5xnjfLJWeFaHqyhweizkRwKbj8LXhIShlR4cQg/aE1EkZIQk/TF8vmSlyAsxmz+Aj3XC
+        2tgdXnVgt2CjzgJq20cB6FzwUtDyYYAt1FJrTN1AD9rfwaBIgpbd7sfTkaoHkQarjFVeRYfnojov
+        fXB3gOup/HpqxClE2AJkyeB5Q64glopToH2oOaVFXRbosx+Sz6P+IpJeXLxbfkKLtM0GLdfzcroJ
+        pptqmaW0SClbUo7w8Z1q4VMtbmOsr09ERZvfDVH7wQkxWcgthtVbZY2OeCPMOMD8DtZ7aFXoY2lG
+        X6oW7yjZKb87TN3k9Zy17g8hlMaG28fOJ/X3bnIrVSdX6kTap0wHZ6xubU0Y9n3ABRs6JbE59bF6
+        P8QoTNXnJWJdazPu1KXsHC7VIH2zkasODlvmpV3DSNgWdGvsYZMHa9rQRHCd0uE6XYMGq5p08x3S
+        39rwUTZXcg3YjLewQjVOlJs2f5bFDSuKbEZ/jk5ZTmMxTbB236b/lzXPisU+K1+MWU9N9W2yJ6s6
+        I1kbkC3CeSXSzpH9heTNz0ie6hHZK1H377lfSNzijMR1atWkLWz/DG2R0bQss6p4EUF/kWOWVfnT
+        ROB/ywGmj38+5VyASf0LMyTlLYEIAAA=
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 24 Feb 2021 13:38:34 GMT
+      ETag:
+      - W/"6aa998b36aaeb89bef68751e1c7b7534"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - b062b5c8-ec75-4ce4-9db6-0d708bf81e0d
+      X-Runtime:
+      - '0.148209'
       X-XSS-Protection:
       - 1; mode=block
     status:

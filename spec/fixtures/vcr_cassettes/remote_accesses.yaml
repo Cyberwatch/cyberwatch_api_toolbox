@@ -1,36 +1,35 @@
 interactions:
 - request:
-    body: '{"page": "1"}'
+    body: '{"page": "1", "per_page": 100}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:nVNrGw3CAEBG7yuhizeduAQ8gVLcJiYTMDwQFFvEHrk=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:yXffrL0yYoP0IVrH+g2ZhzdpCjrdN2NzApMc8JBvsdQ=
       Connection:
       - keep-alive
       Content-Length:
-      - '13'
+      - '30'
       Content-Type:
       - application/json
       Date:
-      - Thu, 05 Dec 2019 14:27:51 GMT
+      - Mon, 22 Feb 2021 08:40:54 GMT
       User-Agent:
       - python-requests/2.22.0
     method: GET
-    uri: https://localhost/api/v3/remote_accesses
+    uri: https://localhost/api/v3/assets/remote_accesses
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA82SwUrEQAyGXyXMSaGWtrp7mJt4X2Q9eBAp40xqB6eTkky3ivjuTl3xJrq4B49J
-        yJd88N+9Ku+UbppCpZcRlVZXD/PWDFpvcaCEl9aiiNY30mt961N/bURmYqcKZZzjPMw7dVVWZVPW
-        q9wdidMe6KXdmbDgOxMECxWMpBaZiZc7FCPa5CkCYzcJOjgDu2+eNKfQEcMXN/MyWpB3yO1CjFMI
-        hYrk8KOs34pPkfM/iewvVE2Jz2YYA5aWhgOcHjEtLB870rAxA0KWWJjeIkRK8BRpjr80uTiGSf0f
-        TFZHCdf6gPc3BExTQkgEPUn6Plrrn6N1/w7LdV06JQMAAA==
+        H4sIAAAAAAAAA6XQwUoDMRAG4HeZc1iS1CrMTXrpSaQVPIgscTOlgWyyTGZbSvHdzVaRWhQFIZdk
+        +P98zNMRggc0WoEcBgKExct+5XrEFfVZ6LbrqBTEddkiPgbZ3rtS9pk9KHDecx3WjNGNbmxj5vV1
+        yCyA1ioIpd25ONVvXCykILoiLTFnrpk7klq7XiIuckrUScjpIfSUR6kthXhH3E7hNMaoIGVPp6t5
+        VR/mq9/MqR8umdNprL75hJprcy4VHi+g79+feYz9VjP/7wZPNKNnP+zwL7LZF9nzGzePmJjdAQAA
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
@@ -38,40 +37,37 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 05 Dec 2019 14:27:53 GMT
+      - Mon, 22 Feb 2021 08:40:54 GMT
+      ETag:
+      - W/"4c6b1b3facb2ffab3f45893ac7ac896a"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-Miniprofiler-Ids:
-      - im9xwohhn15ueopedp0j,jnkirmt6f9cz1nsn38z8,aea0ia7j78jx06p1myv3,t24pimyzrtnm53xbvbhn,hdxeasu13ycylvpaaa8v,mufq97dm7oyus2yfelwl,r85kdimdluv9kd1yhxe4,a5mw96bf6214b611zvy0,m9lvgu6tj6ma7w60u6cg,xvf6qx4ttqv0xalugxhx,wdvuoy4gx97g32y3atgm,3kzu676hbbf0fpf618cb,8jkw9ovq30z10z7m119s,unetc2ep0mp37v4tv9nt,2m93de0xlb3bd6dm8hkz,of98qrqp0ilyhnweliqy,wqblt5r7l6lvv3qhd3z0,o8mkclhmi6kyi7c5f312,cwgdecb4knkgev1zsbjn,v2a2vr15m8j9nu3sha2s
-      X-Miniprofiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Page:
       - '1'
       X-Per-Page:
-      - '25'
+      - '100'
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 97aff2b8-1a69-4d41-981d-aada1f1bf889
+      - 55ca510d-ac0b-42bf-9334-39d9033aba89
       X-Runtime:
-      - '1.645022'
+      - '0.033574'
       X-Total:
-      - '4'
-      X-Xss-Protection:
+      - '3'
+      X-XSS-Protection:
       - 1; mode=block
     status:
       code: 200

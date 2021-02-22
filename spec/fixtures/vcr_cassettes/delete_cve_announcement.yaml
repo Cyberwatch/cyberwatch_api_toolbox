@@ -7,68 +7,67 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 zYJ0sI0f+bsPZtvaP1949kCnMFVNeex6emLTixedeGg=:PAuk2hrtBYKowiEm7M0FShaQKKW7Xb+lEpKPzkGYCo4=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:PC4R21l0vogQMOWJ6iE9Mzg3E9UvbuvXEabd3A5HOtM=
       Connection:
       - keep-alive
       Content-Length:
       - '0'
       Date:
-      - Mon, 24 Feb 2020 12:36:06 GMT
+      - Mon, 22 Feb 2021 09:00:02 GMT
       User-Agent:
       - python-requests/2.22.0
     method: DELETE
-    uri: https://localhost/api/v3/cve_announcements/CVE-2019-16768
+    uri: https://localhost/api/v3/vulnerabilities/cve_announcements/CVE-2019-16768
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA21SwW7bMAz9FcKnDWsC20O7zbei6GHndrvMQ0DLdCxElgRRtmsM+/dRcdI0204i
-        +Z7eIyn9ypSzkWzMquzxRZGP2lkYiBn3xNAFN4AWQrBogM4EhndGHwhajNgg0wV5DxgI5oDeUwvN
-        AnX9tAyds0tdP7jBOyteUiM1Bh2PxUB1/Wpd1/dj7IWjFab8icKkFV1aQ9uCD87jHqM4xD64cd/L
-        ScALRxogOvj2dQvPPQXqRP0G2A10meJE01bAAdd5cQFDeDiqNwSTZt0YSlJJWI0cRSJs4R4mNLrF
-        t1uCWce1gdctQEsRtWGBjEmCPhDLUKnhVXJkCjDLoCAbWWkxLAk1bp96XWncO7/NbjI10U65luSV
-        Hr4/bsq8+LIp7j7dfRbMIMfd4FrdaWqFsILlJr99LsuquK3yfJvn+Ye8kCjxaSIjvOO5G+3ButlK
-        3Y+N0dz/o1H8R4OVLDar7GjMKdlN5V/5x+t8XeK5Ri/eOC2/x4hMh4ZJePLWFDirfvxMl9DaK1hN
-        zOfrKX7jcEyvDdR86u/3H0PdsczjAgAA
+        H4sIAAAAAAAAA7VUTU/cMBD9K1ZOrbpEybILJTeEOHCGtocGWV5nklg4tms7WSLEf+9MsrANpYce
+        ONmeefPm20+JtCaCiUmR3Bgm6hpkhIoN4IOyJjBbs9tRqz6sGDxKcBGlrIMQRAOB1d52TCGBN0If
+        AYF90uoBWCWi2IkAR81nJjywvRfOoZfdyMryduxqa8ayvLKdswZjQRnI3qs4CT2U5fWLfVle9rFF
+        jJKC3rfgByXhVc+EqZjz1olGUB6x9bZvWjyBhTFE6Fi07NtNyu5a8FAj+4oF28ExiwNMGVR2Ys5X
+        jEyDeJjYd8AGFdROA1ERsexDRAqfsks2CK0q8WeV2F7FOYBjASuIQumAKq2J0HkImBQFPFP2ATzb
+        Y6IMKzLDoh9Jq21Dsc6w0FpHqajAWhGQCQ2ciLJFJmWOXczT0zTfrPDcpHlG5zY9X03p5OkZKpNV
+        Igfg0laAk3D1/fpkneUXJ/nZ+dlX1GkRIu9spWoFFQJm5fokP79b58V2U2RZmmXZlyzHG+FhAI24
+        6eQdVKrvUOz6nVahXVBkW6LIt28pgsTeJMUmPT3c+bCmZ/b6PF1o5yYkhem1XiXw6LRVcUqIYxen
+        aUKvvcHhGMCgA2PjP6wE9jYpaqEDIDtOGJYxKX7ekythzEIdQbbGYlMUEOYpQfLKenQVprWhrL2t
+        ehmPoud7qnZA/FMipMQx4QOu3WS1eHMDcW/9A5Ic5BJ3RMPjnMxfMq7tnrCLFSHgQsCDMg2msKLd
+        r1VFGpxaNFedE1Og7yu4E54kaEnb0viFzVsRNzi6FM2Aoy52aunhHels8DzXZmrvx5THeTUoDfh/
+        cQ+/euWneXxHesDTLvLpe8Ag54K+Fb3kiqPoaIGmk/dGtsI0SP//pZ5df3yZlwsg90BVx4MrKsrV
+        D/oILggdDl8yxw2wmBl0GPO0Fs+/AeKo3K1FBgAA
     headers:
       Cache-Control:
-      - no-store, must-revalidate, private, max-age=0
+      - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
-      Content-Security-Policy:
-      - 'default-src ''self''; script-src ''self'' ''unsafe-inline'' ''unsafe-eval'';
-        style-src ''self'' ''unsafe-inline''; img-src ''self'' data:'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 24 Feb 2020 12:36:08 GMT
+      - Mon, 22 Feb 2021 09:00:03 GMT
+      ETag:
+      - W/"27b235f14039a71120853945177f91d0"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
       - noopen
       X-Frame-Options:
       - SAMEORIGIN
-      X-MiniProfiler-Ids:
-      - t0mge3ezo1ngjzxq34oo
-      X-MiniProfiler-Original-Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 42d67fd1-f8e4-4379-ab1c-1c24cfcf3754
+      - 7fc8e3f4-8edc-4ad1-a5e4-6d8b8848a5f7
       X-Runtime:
-      - '1.882510'
+      - '0.825949'
       X-XSS-Protection:
       - 1; mode=block
     status:

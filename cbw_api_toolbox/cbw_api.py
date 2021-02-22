@@ -13,6 +13,7 @@ from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader,
 from urllib3.exceptions import NewConnectionError, MaxRetryError
 
 from cbw_api_toolbox.__routes__ import ROUTE_AGENTS
+from cbw_api_toolbox.__routes__ import ROUTE_ASSETS
 from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_RULES
 from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_ASSETS
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
@@ -699,3 +700,26 @@ class CBWApi: # pylint: disable=R0904
 
         logging.error("Error: no docker_image_id was specified for deletion")
         return False
+    def assets(self, params=None):
+        """GET request to /api/v3/assets/servers to get a list of all assets"""
+        response = self._get_pages("GET", [ROUTE_ASSETS], params)
+
+        return response
+
+    def asset(self, asset_id):
+        """GET request to /api/v3/assets/servers/<asset_id> to get a specific asset"""
+        response = self._request("GET", [ROUTE_ASSETS, asset_id])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return self._cbw_parser(response)
+
+    def delete_asset(self, asset_id):
+        """DELETE request to /api/v3/assets/servers/<asset_id> to delete a asset"""
+        response = self._request("DELETE", [ROUTE_ASSETS, asset_id])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return self._cbw_parser(response)

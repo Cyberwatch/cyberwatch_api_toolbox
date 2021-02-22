@@ -1,13 +1,13 @@
 interactions:
 - request:
-    body: '{"description": "Test update", "level": "level_test", "score": "5"}'
+    body: '{"description": "Test update", "level": "level_test", "score": "6"}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - CyberWatch APIAuth-HMAC-SHA256 O/pAkZcvlyERCdyg837gLPHHFoDkj1Iyjjmx4kANIJw=:1Kc9B70a8CQ1MubbDAfCkkjc+sWudZvXtFY8L5JaO4M=
+      - CyberWatch APIAuth-HMAC-SHA256 dEJijBfLnJ6OBIqV8SXvSsFhY1d7RlH7wRaUiy4ESiE=:vyj4FK09nUmSLvhWkcgAIqkD4t6ZCqtjNd/6+zT4pt8=
       Connection:
       - keep-alive
       Content-Length:
@@ -15,11 +15,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 27 Apr 2020 08:10:48 GMT
+      - Mon, 22 Feb 2021 09:18:59 GMT
       User-Agent:
-      - python-requests/2.23.0
+      - python-requests/2.22.0
     method: PUT
-    uri: https://localhost/api/v3/security_issues/2
+    uri: https://localhost/api/v3/vulnerabilities/security_issues/30
   response:
     body:
       string: '{"error":{"code":400,"status":"Bad Request","message":"''level_test''
@@ -32,15 +32,15 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 27 Apr 2020 08:10:49 GMT
+      - Mon, 22 Feb 2021 09:18:59 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - nginx
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/; secure; HttpOnly
       Transfer-Encoding:
       - chunked
+      Vary:
+      - Accept
       X-Content-Type-Options:
       - nosniff
       X-Download-Options:
@@ -50,9 +50,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - a834b49b-5339-43ec-a7f6-8d65e518ceca
+      - bdca75ec-2490-4691-a000-591dd1ab5bda
       X-Runtime:
-      - '0.095105'
+      - '0.010884'
       X-XSS-Protection:
       - 1; mode=block
     status:
