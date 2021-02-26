@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys
 import argparse
 
 from cbw_api_toolbox.cbw_api import CBWApi
@@ -11,8 +12,47 @@ parser.add_argument("--secret-key", type=str, help="Secret Key of the Cyberwatch
 subparser = parser.add_subparsers(dest="resource", help="Resources to interact with")
 subparser.required = True
 
+# -- Docker image --
+
+docker_image_parser = subparser.add_parser('docker-image', help="Interact with docker images")
+docker_image_subparser = docker_image_parser.add_subparsers(dest="action", help="Actions on docker images")
+docker_image_subparser.required = True
+
+def docker_image_cli(args, api):
+    raise NotImplementedError()
+
+# Create
+docker_image_create = docker_image_subparser.add_parser('create',  help="Create a docker image")
+docker_image_create.add_argument('--from-image', type=int, help="The image id from with the new docker image will be created")
+docker_image_create.add_argument('--name', type=str, help="Set the image name of the docker image")
+docker_image_create.add_argument('--tag', type=str, help="Set the image tag of the docker image")
+docker_image_create.add_argument('--registry-id', type=str, help="Set the registry id of the docker image")
+docker_image_create.add_argument('--engine-id', type=str, help="Set the engine id of the docker image")
+docker_image_create.add_argument('--node-id', type=str, help="Set the node of the docker image")
+
+# Update
+docker_image_update = docker_image_subparser.add_parser('update', help="Update a docker image")
+docker_image_update.add_argument('--name', type=str, help="Edit the image name of the docker image")
+docker_image_update.add_argument('--tag', type=str, help="Edit the image tag of the docker image")
+docker_image_update.add_argument('--registry-id', type=str, help="Edit the registry id of the docker image")
+docker_image_update.add_argument('--engine-id', type=str, help="Edit the engine id of the docker image")
+docker_image_update.add_argument('--node-id', type=str, help="Edit the node of the docker image")
+docker_image_update.add_argument("docker_image_id")
+
+# Scan
+docker_image_scan = docker_image_subparser.add_parser('scan', help="Scan a docker image")
+docker_image_scan.add_argument("--wait", action="store_true", help="Wait for the scan to finish before returning")
+docker_image_scan.add_argument("--timeout", type=int, default=300, help="Duration in second to wait for the scan to finish before failing")
+docker_image_scan.add_argument("docker_image_id")
+
 # -- main --
 
 if __name__ == '__main__':
     args = parser.parse_args()
     api = CBWApi(args.api_url, args.api_key, args.secret_key)
+    try:
+        if args.resource == "docker-image":
+            docker_image_cli(args, api)
+    except Exception as exception:
+        print(exception)
+        sys.exit(1)
