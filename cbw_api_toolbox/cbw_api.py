@@ -3,6 +3,7 @@
 import json
 import logging
 import sys
+from os import environ
 
 from collections import namedtuple
 from urllib.parse import urlparse
@@ -30,10 +31,27 @@ from cbw_api_toolbox.cbw_auth import CBWAuth
 class CBWApi: # pylint: disable=R0904
     """Class used to communicate with the CBW API"""
 
-    def __init__(self, api_url, api_key, secret_key, verify_ssl=False):
-        self.api_url = api_url
-        self.api_key = api_key
-        self.secret_key = secret_key
+    def __init__(
+        self,
+        api_url=None,
+        api_key=None,
+        secret_key=None,
+        verify_ssl=False,
+    ):
+
+        try:
+            self.api_url = api_url if api_url is not None else environ["CBW_API_URL"]
+            self.api_key = api_key if api_key is not None else environ["CBW_API_KEY"]
+            self.secret_key = (
+                secret_key if secret_key is not None else environ["CBW_SECRET_KEY"]
+            )
+        except KeyError as error:
+            raise TypeError(
+                (
+                    "CBWApi is missing one of its argument. "
+                    f"You can use the environnement variable {error}."
+                )
+            ) from error
 
         self.verify_ssl = verify_ssl
         self.logger = logging.getLogger(self.__class__.__name__)
@@ -71,6 +89,7 @@ class CBWApi: # pylint: disable=R0904
             self.logger.error("An error occurred, please check your API_URL.")
             sys.exit(-1)
 
+        return None
     def _get_pages(self, verb, route, params):
         """ Get one or more pages for a method using api v3 pagination """
         response_list = []
