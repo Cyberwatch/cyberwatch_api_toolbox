@@ -20,8 +20,8 @@ setup(
     install_requires=[
         "requests>=2.20.1",
         "XlsxWriter>=1.2.1",
-        "openpyxl>=3.0.6"
-    ]
+        "openpyxl>=3.0.6",
+        "python-dateutil>=2.8.1"
     ],
     scripts=['bin/cyberwatch-cli']
 )
