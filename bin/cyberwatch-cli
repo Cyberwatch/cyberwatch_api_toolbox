@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 
 import sys
+import time
 import argparse
+from dateutil import parser as datetime_parser
+from datetime import datetime, timedelta
 
 from cbw_api_toolbox.cbw_api import CBWApi
 
@@ -19,7 +22,12 @@ docker_image_subparser = docker_image_parser.add_subparsers(dest="action", help=
 docker_image_subparser.required = True
 
 def docker_image_cli(args, api):
-    raise NotImplementedError()
+    if args.action == "update":
+        docker_image_update_cli(args, api)
+    elif args.action == "create":
+        docker_image_create_cli(args, api)
+    elif args.action == "scan":
+        docker_image_scan_cli(args, api)
 
 # Create
 docker_image_create = docker_image_subparser.add_parser('create',  help="Create a docker image")
@@ -30,6 +38,16 @@ docker_image_create.add_argument('--registry-id', type=str, help="Set the regist
 docker_image_create.add_argument('--engine-id', type=str, help="Set the engine id of the docker image")
 docker_image_create.add_argument('--node-id', type=str, help="Set the node of the docker image")
 
+def docker_image_create_cli(args, api):
+    params = {}
+    if args.from_image:
+        from_image = api.docker_image(str(args.from_image))
+        for key, value in zip(["docker_image_id", "image_name", "image_tag", "docker_registry_id", "docker_engine_id", "node_id", "server_id"], from_image):
+            params[key] = value
+    params = docker_image_update_params_from_args(params, args)
+    result = api.create_docker_image(params=params)
+    print(result.id)
+
 # Update
 docker_image_update = docker_image_subparser.add_parser('update', help="Update a docker image")
 docker_image_update.add_argument('--name', type=str, help="Edit the image name of the docker image")
@@ -39,11 +57,55 @@ docker_image_update.add_argument('--engine-id', type=str, help="Edit the engine 
 docker_image_update.add_argument('--node-id', type=str, help="Edit the node of the docker image")
 docker_image_update.add_argument("docker_image_id")
 
+def docker_image_update_cli(args, api):
+    params = docker_image_update_params_from_args(params={}, args=args)
+    api.update_docker_image(args.docker_image_id, params=params)
+
 # Scan
 docker_image_scan = docker_image_subparser.add_parser('scan', help="Scan a docker image")
 docker_image_scan.add_argument("--wait", action="store_true", help="Wait for the scan to finish before returning")
 docker_image_scan.add_argument("--timeout", type=int, default=300, help="Duration in second to wait for the scan to finish before failing")
 docker_image_scan.add_argument("docker_image_id")
+
+def docker_image_scan_cli(args, api):
+    server = api.docker_image(args.docker_image_id)
+    server_id = str(server[6])
+    api.server_refresh(server_id)
+
+    if args.wait:
+        start_time = datetime.now()
+        while not is_timeout(start_time, timeout=args.timeout):
+            if analysis_is_finished(server_id, api, start_time):
+                return
+            time.sleep(2)
+        raise TimeoutError("Timeout while waiting for the scan to finish")
+
+def is_timeout(last_time, timeout):
+    time = datetime.now()
+    timeout_delta = timedelta(seconds=timeout)
+    return (time - last_time) > timeout_delta
+
+def get_last_server_analysis(server_id, api):
+    server = api.server(server_id)
+    return datetime_parser.parse(server.analyzed_at)
+
+def analysis_is_finished(server_id, api, start_time):
+    last_analysis = get_last_server_analysis(server_id, api)
+    last_analysis = last_analysis.replace(tzinfo=None)
+    return last_analysis > start_time
+
+def docker_image_update_params_from_args(params, args):
+    if args.name:
+        params["image_name"] = args.name
+    if args.tag:
+        params["image_tag"] = args.tag
+    if args.registry_id:
+        params["docker_registry_id"] = args.registry_id
+    if args.engine_id:
+        params["docker_engine_id"] = args.engine_id
+    if args.node_id:
+        params["docker_node_id"] = args.node_id
+    return params
 
 # -- main --
 
