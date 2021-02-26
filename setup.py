@@ -22,4 +22,6 @@ setup(
         "XlsxWriter>=1.2.1",
         "openpyxl>=3.0.6"
     ]
+    ],
+    scripts=['bin/cyberwatch-cli']
 )
