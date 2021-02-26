@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+import argparse
+
+from cbw_api_toolbox.cbw_api import CBWApi
+
+parser = argparse.ArgumentParser(description="Cli to interact with Cyberwatch API.")
+parser.add_argument("--api-url", type=str, help="Url of the Cyberwatch API")
+parser.add_argument("--api-key", type=str, help="Key of the Cyberwatch API")
+parser.add_argument("--secret-key", type=str, help="Secret Key of the Cyberwatch API")
+subparser = parser.add_subparsers(dest="resource", help="Resources to interact with")
+subparser.required = True
+
+# -- main --
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    api = CBWApi(args.api_url, args.api_key, args.secret_key)
