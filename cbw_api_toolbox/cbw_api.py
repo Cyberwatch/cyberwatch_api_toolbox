@@ -672,7 +672,7 @@ class CBWApi: # pylint: disable=R0904
         return self._cbw_parser(response)
 
     def create_docker_image(self, params):
-        """POST request to /api/v3/docker_images to launch an docker image"""
+        """POST request to /api/v3/assets/docker_images to create a docker image"""
         logging.error(params)
         response = self._request("POST", [ROUTE_DOCKER_IMAGES], params)
         if response.status_code != 201:
@@ -681,7 +681,7 @@ class CBWApi: # pylint: disable=R0904
         return self._cbw_parser(response)
 
     def update_docker_image(self, docker_image_id, params):
-        """PATCH request to /api/v3/docker_images/<id> to update an docker image"""
+        """PATCH request to /api/v3/assets/docker_images/<id> to update a docker image"""
         if  docker_image_id:
             response = self._request("PATCH", [ROUTE_DOCKER_IMAGES, docker_image_id], params)
             logging.info("Update docker image with: {}".format(params))
@@ -691,7 +691,7 @@ class CBWApi: # pylint: disable=R0904
         return False
 
     def delete_docker_image(self, docker_image_id):
-        """DELETE request to /api/v3/docker_images/<id> to delete an docker image"""
+        """DELETE request to /api/v3/assets/docker_images/<id> to delete a docker image"""
         if docker_image_id:
             logging.info("Deleting docker image with ID {}".format(docker_image_id))
             response = self._request("DELETE", [ROUTE_DOCKER_IMAGES, docker_image_id])
