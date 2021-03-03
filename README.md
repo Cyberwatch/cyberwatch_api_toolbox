@@ -1,6 +1,7 @@
 # Cyberwatch API toolbox
 
-A simple interface for your Cyberwatch instance API.
+A simple interface for your Cyberwatch instance API composed of a python library
+and a command line program.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -122,4 +123,8 @@ See the full API documentation [here](https://docs.cyberwatch.fr/api/#introducti
 
 ## Library Documentation
 
-See the library-specific documentation [here](./documentation.md)
+See the library-specific documentation [here](docs/library.md)
+
+## Command line Documentation
+
+See the command line interface documentation [here](docs/cli.md)
