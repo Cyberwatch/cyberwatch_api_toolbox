@@ -1,0 +1,9 @@
+[
+    {"host": "12.34.56.78", "system": "windows", "port": "2222"},
+    {"host": "123.134.56.78", "system": "windows"},
+    {"host": "10.10.1.1", "system": "linux"},
+    {"host": "10.10.10.12", "system": "network device"},
+    {"host": "0.1.1.1", "system": "unknown?"},
+    {"host": "10.10.10.10", "system": "test", "port":"32", "cyberwatch_groups":"development"},
+    {"host": "fullinfo.cyberwatch", "system":"linux", "port":"23", "node_id": "2", "cyberwatch_groups": "production, test", "credential_id": "5"}
+]
