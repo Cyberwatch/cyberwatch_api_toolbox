@@ -28,6 +28,8 @@ def docker_image_cli(args, api):
         docker_image_create_cli(args, api)
     elif args.action == "scan":
         docker_image_scan_cli(args, api)
+    else:
+        print(f"'{args.action}' is not a valid subcommand of docker-image")
 
 # Create
 docker_image_create = docker_image_subparser.add_parser('create',  help="Create a docker image")
@@ -115,6 +117,8 @@ if __name__ == '__main__':
     try:
         if args.resource == "docker-image":
             docker_image_cli(args, api)
+        else:
+            print("'{args.resource}' is not a valid resource.")
     except Exception as exception:
         print(exception)
         sys.exit(1)
