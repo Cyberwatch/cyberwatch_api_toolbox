@@ -22,14 +22,16 @@ docker_image_subparser = docker_image_parser.add_subparsers(dest="action", help=
 docker_image_subparser.required = True
 
 def docker_image_cli(args, api):
-    if args.action == "update":
-        docker_image_update_cli(args, api)
-    elif args.action == "create":
+    if args.action == "create":
         docker_image_create_cli(args, api)
-    elif args.action == "scan":
-        docker_image_scan_cli(args, api)
     elif args.action == "list":
         docker_image_list_cli(args, api)
+    elif args.action == "scan":
+        docker_image_scan_cli(args, api)
+    elif args.action == "show":
+        docker_image_show_cli(args, api)
+    elif args.action == "update":
+        docker_image_update_cli(args, api)
     else:
         print(f"'{args.action}' is not a valid subcommand of docker-image")
 
@@ -92,6 +94,37 @@ docker_image_update.add_argument("docker_image_id")
 def docker_image_update_cli(args, api):
     params = docker_image_update_params_from_args(params={}, args=args)
     api.update_docker_image(args.docker_image_id, params=params)
+
+# Show
+docker_image_show = docker_image_subparser.add_parser('show', help="Show informations about a docker image")
+docker_image_show_subparser = docker_image_show.add_subparsers(dest="information", help="Information to show")
+docker_image_show_subparser.required = True
+
+def docker_image_show_cli(args, api):
+    if args.information == "vulnerabilities":
+        docker_image_show_vulnerabilities(args, api)
+    else:
+        print(f"'{args.object}'")
+
+# Show vulnerabilities
+docker_image_show_vulnerabilities_parser = docker_image_show_subparser.add_parser("vulnerabilities", help="Show vulnerabilities about a scanned docker image")
+docker_image_show_vulnerabilities_parser.add_argument("docker_image_id")
+
+def docker_image_show_vulnerabilities(args, api):
+    docker_image = api.docker_image(args.docker_image_id)
+    server_id = str(docker_image[6])
+    server = api.server(server_id)
+
+    vulnerabilities = server.cve_announcements
+    CVE_ANNOUNCEMENT_FORMAT_STRING = "{cve_code:14} {score:<5} {technologies}"
+    print(CVE_ANNOUNCEMENT_FORMAT_STRING.format(cve_code="CVE", score="SCORE", technologies="TECHNOLOGIES"))
+    for vulnerability in vulnerabilities:
+        cve_code = vulnerability.cve_code
+        cve_announcement = api.cve_announcement(cve_code)
+        print(CVE_ANNOUNCEMENT_FORMAT_STRING.format(cve_code=cve_announcement.cve_code, score=cve_announcement.score, technologies=",".join(f"{techno.vendor}:{techno.product}" for techno in cve_announcement.technologies)))
+
+    if vulnerabilities:
+        raise Exception("Some vulnerabilities have been found")
 
 # Scan
 docker_image_scan = docker_image_subparser.add_parser('scan', help="Scan a docker image")
