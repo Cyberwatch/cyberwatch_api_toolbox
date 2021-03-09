@@ -28,6 +28,8 @@ def docker_image_cli(args, api):
         docker_image_create_cli(args, api)
     elif args.action == "scan":
         docker_image_scan_cli(args, api)
+    elif args.action == "list":
+        docker_image_list_cli(args, api)
     else:
         print(f"'{args.action}' is not a valid subcommand of docker-image")
 
@@ -49,6 +51,34 @@ def docker_image_create_cli(args, api):
     params = docker_image_update_params_from_args(params, args)
     result = api.create_docker_image(params=params)
     print(result.id)
+
+# List
+docker_image_list = docker_image_subparser.add_parser('list', help="List docker images present on instance")
+
+def docker_image_list_cli(args, api):
+    images = api.docker_images()
+    DOCKER_IMAGE_FORMAT_STRING = "{id:<3} {image:30.30} {node_id:<4} {server_id:<6} {docker_engine_id:<6} {docker_registry_id:<8}"
+    print(
+        DOCKER_IMAGE_FORMAT_STRING.format(
+            id="ID",
+            image="IMAGE:TAG",
+            node_id="NODE",
+            server_id="SERVER",
+            docker_engine_id="ENGINE",
+            docker_registry_id="REGISTRY",
+        )
+    )
+    for image in images:
+        print(
+            DOCKER_IMAGE_FORMAT_STRING.format(
+                id=image.id,
+                image=f"{image.image_name}:{image.image_tag}",
+                node_id=image.node_id,
+                server_id=image.server_id,
+                docker_engine_id=image.docker_engine_id,
+                docker_registry_id=image.docker_registry_id,
+            )
+        )
 
 # Update
 docker_image_update = docker_image_subparser.add_parser('update', help="Update a docker image")
