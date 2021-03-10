@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='cbw-api-toolbox',
@@ -15,7 +15,7 @@ setup(
     },
     py_modules=['cbw-api-toolbox'],
     zip_safe=False,
-    packages=['cbw_api_toolbox'],
+    packages=find_packages(),
     package_dir={'cbw_api_toolbox': 'cbw_api_toolbox'},
     install_requires=[
         "requests>=2.20.1",
