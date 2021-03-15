@@ -47,3 +47,11 @@ jobs:
         run: |
           pip install .
           tox
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: gitleaks-action
+      uses: zricethezav/gitleaks-action@master
+      with:
+        config-path: .gitleaks.toml
