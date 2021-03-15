@@ -1,4 +1,4 @@
 requests
 openpyxl
 xlsxwriter
-dateutil
+python-dateutil

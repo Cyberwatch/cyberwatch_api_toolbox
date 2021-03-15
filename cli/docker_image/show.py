@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
+"""This module contain a create subcommand for the docker-image resource."""
+
 import sys
 import xml.etree.ElementTree as ET
 
-
 def configure_parser(docker_image_subparser):
+    """Adds the parser for the show command to an argparse ArgumentParser"""
     docker_image_show = docker_image_subparser.add_parser(
         "show", help="Show informations about a docker image"
     )
@@ -17,6 +19,7 @@ def configure_parser(docker_image_subparser):
 
 
 def subcommand(args, api):
+    """Execute the show command with args."""
     if args.information == "vulnerabilities":
         vulnerabilities_subcommand(args, api)
     else:
@@ -24,13 +27,15 @@ def subcommand(args, api):
             f"'{args.information}' is not a valid information to show.",
             file=sys.stderr,
         )
-        exit(1)
+        sys.exit(1)
 
 
 # Vulnerabilities
 
 
 def init_show_vulnerabilities_subcommand(docker_image_show_subparser):
+    """Adds the parser for the vulnerabilities subcommand to an argparse
+    ArgumentParser"""
     docker_image_show_vulnerabilities_parser = (
         docker_image_show_subparser.add_parser(
             "vulnerabilities",
@@ -46,6 +51,7 @@ def init_show_vulnerabilities_subcommand(docker_image_show_subparser):
 
 
 def vulnerabilities_subcommand(args, api):
+    """Execute the vulnerabilities command with args."""
     docker_image = api.docker_image(args.docker_image_id)
     if docker_image is None:
         print(
@@ -55,7 +61,7 @@ def vulnerabilities_subcommand(args, api):
             ),
             file=sys.stderr,
         )
-        exit(1)
+        sys.exit(1)
     server_id = str(docker_image[6])
     server = api.server(server_id)
 
@@ -67,10 +73,11 @@ def vulnerabilities_subcommand(args, api):
     generate_output(cve_announcements, docker_image, args, api)
 
     if vulnerabilities:
-        exit(1)
+        sys.exit(1)
 
 
 def generate_output(cve_announcements, docker_image, args, api):
+    """Outputs CVE to stdout. Multiple formats are supported."""
     if args.format == "text":
         generate_text_output(cve_announcements)
     elif args.format == "junit-xml":
@@ -80,19 +87,20 @@ def generate_output(cve_announcements, docker_image, args, api):
             f"The following format is not supported: '{args.format}'.",
             file=sys.stderr,
         )
-        exit(1)
+        sys.exit(1)
 
 
 def generate_text_output(cve_announcements):
-    CVE_ANNOUNCEMENT_FORMAT_STRING = "{cve_code:14} {score:<5} {technologies}"
+    """Outputs CVE to stdout as text"""
+    cve_announcement_format_string = "{cve_code:14} {score:<5} {technologies}"
     print(
-        CVE_ANNOUNCEMENT_FORMAT_STRING.format(
+        cve_announcement_format_string.format(
             cve_code="CVE", score="SCORE", technologies="TECHNOLOGIES"
         )
     )
     for cve_announcement in cve_announcements:
         print(
-            CVE_ANNOUNCEMENT_FORMAT_STRING.format(
+            cve_announcement_format_string.format(
                 cve_code=cve_announcement.cve_code,
                 score=cve_announcement.score,
                 technologies=",".join(
@@ -104,6 +112,7 @@ def generate_text_output(cve_announcements):
 
 
 def generate_junit_xml_output(cve_announcements, docker_image, api):
+    """Outputs CVE to stdout as junit xml"""
     testsuite = ET.Element(
         "testsuite", name="Vulnerabilities for docker image"
     )
@@ -125,13 +134,14 @@ def generate_junit_xml_output(cve_announcements, docker_image, api):
             time="0.0",
         )
         failure = ET.SubElement(
-            testcase, "failure", message=f"A vulnerability has been found."
+            testcase, "failure", message="A vulnerability has been found."
         )
         failure.text = prettify_cve_announcement(cve_announcement, api.api_url)
     print(ET.tostring(testsuite).decode())
 
 
 def prettify_cve_announcement(cve_announcement, api_url):
+    """Format a cve_announcement to be human friendly."""
     return (
         f"[{cve_announcement.cve_code}] {cve_announcement.content}\n"
         f"Score: {cve_announcement.score}\n"

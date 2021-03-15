@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 
+"""This module contain a list subcommand for the docker-image resource."""
 
 def configure_parser(docker_image_subparser):
+    """Adds the parser for the list command to an argparse ArgumentParser"""
     docker_image_subparser.add_parser(
         "list", help="List docker images present on instance"
     )
 
 
-def subcommand(args, api):
+def subcommand(api):
+    """Execute the list command with args."""
     images = api.docker_images()
-    DOCKER_IMAGE_FORMAT_STRING = (
+    docker_image_format_string = (
         "{id:<3} "
         "{image:30.30} "
         "{node_id:<4} "
@@ -18,7 +21,7 @@ def subcommand(args, api):
         "{docker_registry_id:<8}"
     )
     print(
-        DOCKER_IMAGE_FORMAT_STRING.format(
+        docker_image_format_string.format(
             id="ID",
             image="IMAGE:TAG",
             node_id="NODE",
@@ -29,7 +32,7 @@ def subcommand(args, api):
     )
     for image in images:
         print(
-            DOCKER_IMAGE_FORMAT_STRING.format(
+            docker_image_format_string.format(
                 id=image.id,
                 image=f"{image.image_name}:{image.image_tag}",
                 node_id=image.node_id,

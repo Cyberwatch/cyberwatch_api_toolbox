@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
+"""This module contain a update subcommand for the docker-image resource."""
+
+from .utils import docker_image_update_params_from_args
 
 def configure_parser(docker_image_subparser):
+    """Adds the parser for the update command to an argparse ArgumentParser"""
     docker_image_update = docker_image_subparser.add_parser(
         "update", help="Update a docker image"
     )
@@ -26,19 +30,6 @@ def configure_parser(docker_image_subparser):
 
 
 def subcommand(args, api):
+    """Execute the update command with args."""
     params = docker_image_update_params_from_args(params={}, args=args)
     api.update_docker_image(args.docker_image_id, params=params)
-
-
-def docker_image_update_params_from_args(params, args):
-    if args.name:
-        params["image_name"] = args.name
-    if args.tag:
-        params["image_tag"] = args.tag
-    if args.registry_id:
-        params["docker_registry_id"] = args.registry_id
-    if args.engine_id:
-        params["docker_engine_id"] = args.engine_id
-    if args.node_id:
-        params["docker_node_id"] = args.node_id
-    return params
