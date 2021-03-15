@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
+"""This module contain a create subcommand for the docker-image resource."""
+
+from .utils import docker_image_update_params_from_args
 
 def configure_parser(docker_image_subparser):
+    """Adds the parser for the create command to an argparse ArgumentParser"""
     docker_image_create = docker_image_subparser.add_parser(
         "create", help="Create a docker image"
     )
@@ -41,6 +45,7 @@ IMAGE_FIELDS = [
 
 
 def subcommand(args, api):
+    """Execute the create command with args."""
     params = {}
     if args.from_image:
         from_image = api.docker_image(str(args.from_image))
@@ -49,17 +54,3 @@ def subcommand(args, api):
     params = docker_image_update_params_from_args(params, args)
     result = api.create_docker_image(params=params)
     print(result.id)
-
-
-def docker_image_update_params_from_args(params, args):
-    if args.name:
-        params["image_name"] = args.name
-    if args.tag:
-        params["image_tag"] = args.tag
-    if args.registry_id:
-        params["docker_registry_id"] = args.registry_id
-    if args.engine_id:
-        params["docker_engine_id"] = args.engine_id
-    if args.node_id:
-        params["docker_node_id"] = args.node_id
-    return params
