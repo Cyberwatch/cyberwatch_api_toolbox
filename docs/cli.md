@@ -50,6 +50,19 @@ The variables can be set as environnement variables. You can use `API_URL`,
 The `cyberwatch-cli` command provide actions `create`, `update` and `scan` to
 interact with `docker-image` resources.
 
+### List docker images
+
+To list docker images present in the instance:
+
+```sh
+$ cyberwatch-cli docker-image list
+ID  IMAGE:TAG                      NODE SERVER ENGINE REGISTRY
+1   library/alpine:latest             1    431      2        1
+2   library/ubuntu:latest             1    432      2        1
+3   library/ubuntu:latest             1    433      2        1
+4   library/node:12                   1    434      2        1
+```
+
 ### Create a docker image
 
 The recommended way to create a docker image is to duplicate an image already
@@ -80,3 +93,23 @@ cyberwatch-cli docker-image scan 4
 
 You can use the `--wait` flag to ask the program to wait until the scan is
 finished before exiting. This can be useful in continuous integration.
+
+### Show informations about a docker image
+
+#### Vulnerabilities
+
+To show vulnerabilities associated to a docker image:
+
+```
+cyberwatch-cli docker-image show vulnerabilities
+```
+
+Several output format exists. The `junit-xml` output can be enabled with the
+`--format` flag. The default format is `text`.
+
+```
+cyberwatch-cli docker-image show vulnerabilities --format junit-xml
+```
+
+Notice that a docker image must have been scanned before vulnerabilities can be
+listed.
