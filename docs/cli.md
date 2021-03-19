@@ -9,6 +9,19 @@ scanning docker images.
 The command line is installed as part of the [the classic installation
 process](../README.md#Installation).
 
+## Use the Dockerfile
+
+To use the api inside a docker container, you can use the Dockerfile. First,
+build the image (here tagged as `cbw-api`), then you can run it with
+environnement variables.
+
+```sh
+docker build . -t cbw-api
+docker run --rm -e CBW_API_URL=https://myinstance.local \
+                -e CBW_API_KEY="PyXpxrcJ7rQ..." \
+                -e CBW_SECRET_KEY="+bUx37WnB0qt..." cbw-api
+```
+
 ## The syntax of `cyberwatch-cli`
 
 The `cyberwatch-cli` command uses the following syntax:
