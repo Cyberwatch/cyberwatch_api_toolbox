@@ -66,11 +66,12 @@ class CBWApi: # pylint: disable=R0904
         """Parse the response text of an API request"""
         try:
             result = json.loads(response.text, object_hook=lambda d: namedtuple('cbw_object', d.keys())(*d.values()))
+            return result
         except TypeError:
             self.logger.error("An error occurred while parsing response")
-        return result
+            sys.exit(-1)
 
-    def _request(self, verb, payloads, body_params=None):
+    def _request(self, verb, payloads, body_params=None, params=None):
         route = self._build_route(payloads)
 
         if body_params is not None:
@@ -81,6 +82,7 @@ class CBWApi: # pylint: disable=R0904
                 verb,
                 route,
                 data=body_params,
+                params=params,
                 auth=CBWAuth(self.api_key, self.secret_key),
                 verify=self.verify_ssl)
 
@@ -93,7 +95,6 @@ class CBWApi: # pylint: disable=R0904
             self.logger.error("An error occurred, please check your API_URL.")
             sys.exit(-1)
 
-        return None
     def _get_pages(self, verb, route, params):
         """ Get one or more pages for a method using api v3 pagination """
         response_list = []
@@ -518,9 +519,9 @@ class CBWApi: # pylint: disable=R0904
 
         return self._cbw_parser(response)
 
-    def fetch_airgapped_script(self, script_id):
+    def fetch_airgapped_script(self, script_id, params=None):
         """GET request to /api/v2/cbw_scans/scripts/{SCRIPT_ID} to get a specific air gapped scanning script"""
-        response = self._request("GET", [ROUTE_AIRGAPPED_SCRIPTS, script_id])
+        response = self._request("GET", [ROUTE_AIRGAPPED_SCRIPTS, script_id], params=params)
         if response.status_code != 200:
             logging.error("Error for script with id {} :: {}".format(script_id, response.text))
             return None
