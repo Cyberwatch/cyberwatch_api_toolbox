@@ -121,10 +121,6 @@ $ python3 your_example_script_file.py
 
 See the full API documentation [here](https://docs.cyberwatch.fr/api/#introduction)
 
-## Library Documentation
-
-See the library-specific documentation [here](docs/library.md)
-
 ## Command line Documentation
 
 See the command line interface documentation [here](docs/cli.md)
