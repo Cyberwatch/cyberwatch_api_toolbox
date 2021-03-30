@@ -126,3 +126,88 @@ cyberwatch-cli docker-image show vulnerabilities --format junit-xml
 
 Notice that a docker image must have been scanned before vulnerabilities can be
 listed.
+
+## Manage airgap assets
+
+The command line interface can be used to download the scripts from the
+Cyberwatch instance, and upload the results of these scripts.
+
+### Download the scripts
+
+To download the scripts to the default directory `scripts`:
+
+```sh
+cyberwatch-cli airgap download-scripts
+```
+
+By default, this command creates a tree structure similar to this one:
+
+```
+cyberwatch-airgap
+├── scripts
+│   ├── Aix
+│   │   ├── InfoScript.sh
+│   │   └── run
+│   ├── Linux
+│   │   ├── InfoScript.sh
+│   │   ├── MetadataScript.sh
+│   │   ├── PortsScript.sh
+│   │   └── run
+│   ├── Macos
+│   │   ├── InfoScript.sh
+│   │   └── run
+│   ├── Vmware
+│   │   ├── InfoScript.sh
+│   │   └── run
+│   └── Windows
+│       ├── cbw_launch_all.ps1
+│       ├── InfoScript.ps1
+│       ├── MetadataScript.ps1
+│       ├── PackagesScript.ps1
+│       ├── PortsScript.ps1
+│       └── WuaScript.ps1
+└── uploads
+```
+
+The scripts downloaded from the Cyberwatch instance are stored in the `scripts` subfolder.
+
+To specify a different destination directory:
+
+```sh
+export CYBERWATCH_DIR=/tmp/cyberwatch-airgap
+cyberwatch-cli airgap download-scripts --dest-dir $CYBERWATCH_DIR
+```
+
+### Execute the scripts
+
+To execute the scripts on a linux machine:
+
+```sh
+./cyberwatch-airgap/scripts/Linux/run > "cyberwatch-airgap/uploads/$(hostname)"
+```
+
+You can also copy the `cyberwatch-airgap/scripts/Linux` directory to an other
+machine and execute the script on it.
+
+To execute the scripts on a windows machine:
+
+```powershell
+.\cyberwatch-airgap\scripts\Windows\run.ps1 > .\cyberwatch-airgap\uploads\${env:COMPUTERNAME}
+```
+
+### Upload the results
+
+To upload the results of the scripts:
+
+```sh
+cyberwatch-cli airgap upload
+```
+
+If no file are provided, the script tries to upload all the files present in
+`cyberwatch-airgap/uploads` (relative to the current directory).
+
+To provide manually the list of files to upload:
+
+```sh
+cyberwatch-cli airgap upload /tmp/cyberwatch-airgap/uploads/*
+```
