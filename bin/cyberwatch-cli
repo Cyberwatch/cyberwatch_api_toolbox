@@ -25,7 +25,7 @@ if __name__ == "__main__":
     try:
         if args.resource == "docker-image":
             docker_image.subcommand(args, api)
-        if args.resource == "airgap":
+        elif args.resource == "airgap":
             airgap.subcommand(args, api)
         else:
             print(f"'{args.resource}' is not a valid resource.", file=sys.stderr)
