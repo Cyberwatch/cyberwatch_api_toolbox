@@ -25,7 +25,8 @@ if __name__ == '__main__':
         if args.resource == "docker-image":
             docker_image.subcommand(args, api)
         else:
-            print("'{args.resource}' is not a valid resource.")
+            print(f"'{args.resource}' is not a valid resource.", file=sys.stderr)
+            sys.exit(1)
     except Exception as exception:
         print(exception)
         sys.exit(1)
