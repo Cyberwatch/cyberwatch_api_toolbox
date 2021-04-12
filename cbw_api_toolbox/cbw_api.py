@@ -4,9 +4,10 @@ import json
 import logging
 import sys
 from os import environ
+import functools
 
 from collections import namedtuple
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from urllib.parse import parse_qs
 import requests
 from requests.exceptions import ProxyError, SSLError, RetryError, InvalidHeader, MissingSchema
@@ -60,7 +61,7 @@ class CBWApi: # pylint: disable=R0904
         self.logger = logging.getLogger(self.__class__.__name__)
 
     def _build_route(self, params):
-        return "{0}{1}".format(self.api_url, '/'.join(params))
+        return functools.reduce(lambda base_url, arg: urljoin(f"{base_url}/", arg), [self.api_url] + params)
 
     def _cbw_parser(self, response):
         """Parse the response text of an API request"""
