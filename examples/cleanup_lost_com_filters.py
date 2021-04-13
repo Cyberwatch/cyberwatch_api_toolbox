@@ -36,10 +36,10 @@ def find_lost_com_servers(servers):
     return lost_com_servers
 
 
-def display_and_delete(delete_list, type, client, delete=DELETE_SERVERS):
+def display_and_delete(delete_list, server_type, client, delete=DELETE_SERVERS):
     '''Display servers then delete them'''
     print('\n\n================ Total of {} {} to delete (delete={}) ================'.format(len(delete_list),
-                                                                                                type,
+                                                                                                server_type,
                                                                                                 delete))
     for delete_server in delete_list:
         print('{} -- {} -- {} -- {}'.format(delete_server.id, delete_server.hostname,
