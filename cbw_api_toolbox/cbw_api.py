@@ -23,6 +23,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_DOCKER_IMAGES
 from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_HOSTS
 from cbw_api_toolbox.__routes__ import ROUTE_AIRGAPPED_SCRIPTS
+from cbw_api_toolbox.__routes__ import ROUTE_AIRGAPPED_COMPLIANCE_SCRIPTS
 from cbw_api_toolbox.__routes__ import ROUTE_NODES
 from cbw_api_toolbox.__routes__ import ROUTE_PING
 from cbw_api_toolbox.__routes__ import ROUTE_REMOTE_ACCESSES
@@ -768,3 +769,20 @@ class CBWApi: # pylint: disable=R0904
 
         logging.error("Error: no applicative_scan_id was specified for deletion")
         return False
+
+    def fetch_compliance_airgapped_scripts(self, params=None):
+        """GET request to /api/v2/compliances/scripts to fetch compliance scripts"""
+        response = self._request("GET", [ROUTE_AIRGAPPED_COMPLIANCE_SCRIPTS], params)
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
+
+    def upload_compliance_airgapped_results(self, content):
+        """POST request to /api/v2/compliances/scripts to upload air gapped compliance script result"""
+        response = self._request("POST", [ROUTE_AIRGAPPED_COMPLIANCE_SCRIPTS], content)
+        if response.status_code != 204:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return response

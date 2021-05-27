@@ -13,3 +13,5 @@ examples/air_gapped_scans/Scripts/
 examples/air_gapped_scans/Uploads/
 test.xlsx
 .pypirc
+cyberwatch-airgap-compliance
+cyberwatch-airgap
