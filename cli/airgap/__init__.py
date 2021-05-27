@@ -3,7 +3,7 @@
 """This module contains all the commands related to airgaps assets."""
 
 import sys
-from . import download_scripts, upload
+from . import download_scripts, upload, download_compliance_scripts, upload_compliance
 
 
 def configure_parser(subparser):
@@ -17,6 +17,8 @@ def configure_parser(subparser):
 
     download_scripts.configure_parser(airgap_subparser)
     upload.configure_parser(airgap_subparser)
+    upload_compliance.configure_parser(airgap_subparser)
+    download_compliance_scripts.configure_parser(airgap_subparser)
 
 
 def subcommand(args, api):
@@ -25,6 +27,10 @@ def subcommand(args, api):
         download_scripts.subcommand(args, api)
     elif args.action == "upload":
         upload.subcommand(args, api)
+    elif args.action == "download-compliance-scripts":
+        download_compliance_scripts.subcommand(args, api)
+    elif args.action == "upload-compliance":
+        upload_compliance.subcommand(args, api)
     else:
         print(
             f"'{args.action}' is not a valid subcommand for airgap",
