@@ -45,11 +45,11 @@ def export_xls(client):
     computer_tab.write(0, 4, "Category")
     computer_tab.write(0, 5, "Associated asset")
 
-    host_details(computer_tab, hosts, get_node_names(client), client)
+    host_details(computer_tab, hosts, get_node_names(client))
 
     file.close()
 
-def host_details(computer_tab, hosts, nodes, client):
+def host_details(computer_tab, hosts, nodes):
     """Write each Host and it's details in `Computers` tab"""
     row = 0
     col = 0
@@ -58,11 +58,10 @@ def host_details(computer_tab, hosts, nodes, client):
         computer_tab.write(row + 1, col + 1, host.hostname)
         computer_tab.write(row + 1, col + 2, host.target)
         computer_tab.write(row + 1, col + 3, nodes[host.node_id])
-        computer_tab.write(row + 1, col + 4, host.category)
+        computer_tab.write(row + 1, col + 4, host.discovery.type)
 
-        if host.server_id:
-            server = client.server(str(host.server_id))
-            computer_tab.write(row + 1, col + 5, server.hostname)
+        if host.server_ids:
+            computer_tab.write(row + 1, col + 5, str(host.server_ids))
 
         row += 2
 
