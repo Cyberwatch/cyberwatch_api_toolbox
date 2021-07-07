@@ -15,7 +15,7 @@ and a command line program.
   - [Configuration](#configuration)
   - [Usage](#usage)
   - [API Documentation](#api-documentation)
-  - [Library Documentation](#library-documentation)
+  - [Command line Documentation](#command-line-documentation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
