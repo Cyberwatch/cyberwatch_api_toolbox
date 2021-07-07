@@ -43,7 +43,8 @@ def configure_parser(airgap_subparser):
     )
     airgap_download_scripts.add_argument("--os", required=True)
     airgap_download_scripts.add_argument(
-        "--groups", nargs='+', help='Repositories to fetch, ex : "-- groups CIS_Benchmark Cyberwatch"', required=True)
+        "--repositories", "--groups", nargs='+',
+        help='Repositories to fetch, ex : "-- repositories CIS_Benchmark Cyberwatch"', required=True)
     airgap_download_scripts.add_argument(
         "--dest-dir", default="cyberwatch-airgap-compliance")
 
@@ -59,7 +60,7 @@ def subcommand(args, api: CBWApi):
     upload_dir = join(abspath(args.dest_dir), "uploads")
     os.makedirs(upload_dir, exist_ok=True)
     airgap_scripts_list = api.fetch_compliance_airgapped_scripts(
-        {"os": args.os, "groups": args.groups})
+        {"os": args.os, "repositories": args.repositories})
     os_target = download_individual_script(airgap_scripts_list, script_dir)
     create_run_scripts(os_target, script_dir)
     print("INFO: Script saved in {}".format(script_dir))
