@@ -29,7 +29,7 @@ for server in SERVERS:
 
         concerned_group[server.category].append(server)
 
-for group in CATEGORY_BY_GROUPS:
+for group in CATEGORY_BY_GROUPS.items():
     print("--- GROUP : {0} ---".format(group))
 
     for category in CATEGORY_BY_GROUPS[group]:
