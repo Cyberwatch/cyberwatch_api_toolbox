@@ -5,7 +5,7 @@ import argparse
 
 from cbw_api_toolbox.cbw_api import CBWApi
 
-from cli import docker_image, airgap
+from cli import docker_image, airgap, os
 
 parser = argparse.ArgumentParser(description="Cli to interact with Cyberwatch API.")
 parser.add_argument("--api-url", type=str, help="Url of the Cyberwatch API")
@@ -16,6 +16,7 @@ subparser.required = True
 
 docker_image.configure_parser(subparser)
 airgap.configure_parser(subparser)
+os.configure_parser(subparser)
 
 # -- main --
 
@@ -27,6 +28,8 @@ if __name__ == "__main__":
             docker_image.subcommand(args, api)
         elif args.resource == "airgap":
             airgap.subcommand(args, api)
+        elif args.resource == "os":
+            os.subcommand(args, api)
         else:
             print(f"'{args.resource}' is not a valid resource.", file=sys.stderr)
             sys.exit(1)
