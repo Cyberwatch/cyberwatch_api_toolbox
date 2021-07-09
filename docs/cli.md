@@ -211,3 +211,21 @@ To provide manually the list of files to upload:
 ```sh
 cyberwatch-cli airgap upload /tmp/cyberwatch-airgap/uploads/*
 ```
+
+## Manage Operating Systems
+
+### List Operating Systems
+
+To list Operating Systems present in the instance:
+
+```sh
+$ cyberwatch-cli os list
+KEY             NAME                 ARCH
+ubuntu_1704_64  Ubuntu 17.04         x86_64
+ubuntu_1704_32  Ubuntu 17.04         i686
+ubuntu_1810_64  Ubuntu 18.10         x86_64
+debian_8_64     Debian 8             x86_64
+debian_10_32    Debian 10            i686
+debian_10_armv7 Debian 10            armv7l
+debian_10_aarch Debian 10            aarch64
+```
