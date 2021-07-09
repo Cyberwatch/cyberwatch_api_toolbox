@@ -31,6 +31,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_SECURITY_ISSUES
 from cbw_api_toolbox.__routes__ import ROUTE_SERVERS
 from cbw_api_toolbox.__routes__ import ROUTE_STORED_CREDENTIALS
 from cbw_api_toolbox.__routes__ import ROUTE_USERS
+from cbw_api_toolbox.__routes__ import ROUTE_OS
 from cbw_api_toolbox.cbw_auth import CBWAuth
 
 class CBWApi: # pylint: disable=R0904
@@ -786,3 +787,11 @@ class CBWApi: # pylint: disable=R0904
             return None
 
         return response
+
+    def operating_systems(self):
+        """GET request to /api/v3/os to list all the operating systems"""
+        response = self._request("GET", [ROUTE_OS])
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+        return self._cbw_parser(response)
