@@ -2,3 +2,4 @@ requests
 openpyxl
 xlsxwriter
 python-dateutil
+chardet
