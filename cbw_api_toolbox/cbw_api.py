@@ -45,6 +45,9 @@ class CBWApi: # pylint: disable=R0904
         verify_ssl=False,
     ):
 
+        self.verify_ssl = verify_ssl
+        self.logger = logging.getLogger(self.__class__.__name__)
+
         try:
             self.api_url = api_url if api_url is not None else environ["CBW_API_URL"]
             self.api_key = api_key if api_key is not None else environ["CBW_API_KEY"]
@@ -52,15 +55,11 @@ class CBWApi: # pylint: disable=R0904
                 secret_key if secret_key is not None else environ["CBW_SECRET_KEY"]
             )
         except KeyError as error:
-            raise TypeError(
-                (
-                    "CBWApi is missing one of its argument. "
-                    f"You can use the environnement variable {error}."
-                )
-            ) from error
-
-        self.verify_ssl = verify_ssl
-        self.logger = logging.getLogger(self.__class__.__name__)
+            self.logger.error(
+                "CBWApi is missing one of its argument. You can use the environnement variable %s.",
+                error
+            )
+            sys.exit(1)
 
     def _build_route(self, params):
         return functools.reduce(lambda base_url, arg: urljoin(f"{base_url}/", arg), [self.api_url] + params)
