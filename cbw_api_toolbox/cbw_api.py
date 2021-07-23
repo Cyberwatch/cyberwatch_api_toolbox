@@ -794,3 +794,12 @@ class CBWApi: # pylint: disable=R0904
             logging.error("Error::{}".format(response.text))
             return None
         return self._cbw_parser(response)
+
+    def server_reboot(self, server_id, params=None):
+        """POST request to /api/v3/vulnerabilities/servers/<id>/reboot to reboot a server"""
+        response = self._request("PATCH", [ROUTE_SERVERS, server_id, "reboot"], params)
+        if response.status_code != 200:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return self._cbw_parser(response)
