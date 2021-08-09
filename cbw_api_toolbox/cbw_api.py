@@ -789,11 +789,8 @@ class CBWApi: # pylint: disable=R0904
 
     def operating_systems(self):
         """GET request to /api/v3/os to list all the operating systems"""
-        response = self._request("GET", [ROUTE_OS])
-        if response.status_code != 200:
-            logging.error("Error::{}".format(response.text))
-            return None
-        return self._cbw_parser(response)
+        response = self._get_pages("GET", [ROUTE_OS], params=None)
+        return response
 
     def server_reboot(self, server_id, params=None):
         """POST request to /api/v3/vulnerabilities/servers/<id>/reboot to reboot a server"""
