@@ -110,14 +110,14 @@ class CBWApi: # pylint: disable=R0904
 
         if 'page' in params:
             response = self._request(verb, route, params)
-            if response.status_code != 200:
+            if not response.ok:
                 logging.error("Error::{}".format(response.text))
                 return None
             return self._cbw_parser(response)
 
         response = self._request(verb, route, params)
 
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -133,7 +133,7 @@ class CBWApi: # pylint: disable=R0904
     @staticmethod
     def verif_response(response):
         """Check the response status code"""
-        if response.status_code >= 200 and response.status_code <= 299:
+        if response.ok:
             logging.debug("response server OK::{}".format(response.text))
             return True
 
@@ -160,7 +160,7 @@ class CBWApi: # pylint: disable=R0904
         """GET request to /api/v3/server/{server_id} to get all informations
         about a specific server"""
         response = self._request("GET", [ROUTE_SERVERS, server_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -169,7 +169,7 @@ class CBWApi: # pylint: disable=R0904
         """PUT request to /api/v3/server/{server_id}/refresh to relaunch analysis
         script on a specific server"""
         response = self._request("PUT", [ROUTE_SERVERS, server_id, 'refresh'])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
 
@@ -190,7 +190,7 @@ class CBWApi: # pylint: disable=R0904
     def server_schedule_updates(self, server_id, params=None):
         """POST request to /api/v3/server/<server_id>/updates to install fixes"""
         response = self._request("POST", [ROUTE_SERVERS, server_id, "updates"], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -209,7 +209,7 @@ class CBWApi: # pylint: disable=R0904
     def update_server_cve(self, server_id, cve_code, params=None):
         """PUT request to /api/v3/server/<server_id>/cve_announcements/<cve_code> to update a server cve"""
         response = self._request("PUT", [ROUTE_SERVERS, server_id, "cve_announcements", cve_code], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -224,7 +224,7 @@ class CBWApi: # pylint: disable=R0904
         """GET request to /api/v3/agents/{agent_id} to get all informations
         about a specific agent"""
         response = self._request("GET", [ROUTE_AGENTS, agent_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error agent id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -276,7 +276,7 @@ class CBWApi: # pylint: disable=R0904
         about a specific remote access"""
         response = self._request("GET", [ROUTE_REMOTE_ACCESSES, remote_access_id])
 
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("error remote_access_id::{}".format(response.text))
             return None
 
@@ -306,7 +306,7 @@ class CBWApi: # pylint: disable=R0904
         """GET request to /api/v3/cve_announcements/{cve_code} to get all informations
         about a specific cve_announcement"""
         response = self._request("GET", [ROUTE_CVE_ANNOUNCEMENTS, cve_code])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
 
@@ -322,7 +322,7 @@ class CBWApi: # pylint: disable=R0904
         """PUT request to /api/v3/cve_announcements/{cve_code} to update cvss_custom/score_custom informations
         about a specific cve_announcement"""
         response = self._request("PUT", [ROUTE_CVE_ANNOUNCEMENTS, cve_code], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
 
@@ -332,7 +332,7 @@ class CBWApi: # pylint: disable=R0904
         """DELETE request to /api/v3/cve_announcements/{cve_code} to delete
          a cvss_custom/score_custom fields of a cve_announcement"""
         response = self._request("DELETE", [ROUTE_CVE_ANNOUNCEMENTS, cve_code])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
 
@@ -347,7 +347,7 @@ class CBWApi: # pylint: disable=R0904
     def group(self, group_id):
         """GET request to /api/v3/groups/<group_id> to get a specific group"""
         response = self._request("GET", [ROUTE_GROUPS, group_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -365,7 +365,7 @@ class CBWApi: # pylint: disable=R0904
     def update_group(self, group_id, params=None):
         """PUT request to /api/v3/groups/<group_id> to update a group"""
         response = self._request("PUT", [ROUTE_GROUPS, group_id], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -374,7 +374,7 @@ class CBWApi: # pylint: disable=R0904
     def delete_group(self, group_id):
         """DELETE request to /api/v3/groups/<group_id> to delete a group"""
         response = self._request("DELETE", [ROUTE_GROUPS, group_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -383,7 +383,7 @@ class CBWApi: # pylint: disable=R0904
     def test_deploy_remote_access(self, remote_access_id):
         """POST request to /api/v3/remote_accesses/:id/test_deploy to test an agentless deployment"""
         response = self._request("PUT", [ROUTE_REMOTE_ACCESSES, remote_access_id, 'test_deploy'])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -398,7 +398,7 @@ class CBWApi: # pylint: disable=R0904
         """GET request to /api/v3/users/<id> to get a specific user"""
         response = self._request("GET", [ROUTE_USERS, user_id])
 
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -413,7 +413,7 @@ class CBWApi: # pylint: disable=R0904
     def node(self, node_id):
         """GET request to /api/v3/nodes/<node_id> to get a list of all nodes"""
         response = self._request("GET", [ROUTE_NODES, node_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -422,7 +422,7 @@ class CBWApi: # pylint: disable=R0904
     def delete_node(self, node_id, new_node_id):
         """DELETE request to /api/v3/nodes/<node_id> to delete a node and transfer the data to another one"""
         response = self._request("DELETE", [ROUTE_NODES, node_id], new_node_id)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -437,7 +437,7 @@ class CBWApi: # pylint: disable=R0904
     def host(self, host_id):
         """GET request to /api/v3/hosts/<host_id> to get a specific host"""
         response = self._request("GET", [ROUTE_HOSTS, host_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -455,7 +455,7 @@ class CBWApi: # pylint: disable=R0904
     def update_host(self, host_id, params=None):
         """PUT request to /api/v3/hosts/<host_id> to update a host"""
         response = self._request("PUT", [ROUTE_HOSTS, host_id], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -464,7 +464,7 @@ class CBWApi: # pylint: disable=R0904
     def delete_host(self, host_id):
         """DELETE request to /api/v3/hosts/<host_id> to delete a host"""
         response = self._request("DELETE", [ROUTE_HOSTS, host_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -479,7 +479,7 @@ class CBWApi: # pylint: disable=R0904
     def security_issue(self, security_issue_id):
         """GET request to /api/v3/security_issues/<security_issue_id> to get a specific security_issue"""
         response = self._request("GET", [ROUTE_SECURITY_ISSUES, security_issue_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -497,7 +497,7 @@ class CBWApi: # pylint: disable=R0904
     def update_security_issue(self, security_issue_id, params=None):
         """PUT request to /api/v3/security_issues/<security_issue_id> to update a security_issue"""
         response = self._request("PUT", [ROUTE_SECURITY_ISSUES, security_issue_id], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -506,7 +506,7 @@ class CBWApi: # pylint: disable=R0904
     def delete_security_issue(self, security_issue_id):
         """DELETE request to /api/v3/security_issues/<security_issue_id> to delete a security_issue"""
         response = self._request("DELETE", [ROUTE_SECURITY_ISSUES, security_issue_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -515,7 +515,7 @@ class CBWApi: # pylint: disable=R0904
     def fetch_airgapped_scripts(self, params=None):
         """GET request to /api/v2/cbw_scans/scripts to get a list of all air gapped scanning scripts"""
         response = self._request("GET", [ROUTE_AIRGAPPED_SCRIPTS], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -524,7 +524,7 @@ class CBWApi: # pylint: disable=R0904
     def fetch_airgapped_script(self, script_id, params=None):
         """GET request to /api/v2/cbw_scans/scripts/{SCRIPT_ID} to get a specific air gapped scanning script"""
         response = self._request("GET", [ROUTE_AIRGAPPED_SCRIPTS, script_id], params=params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error for script with id {} :: {}".format(script_id, response.text))
             return None
 
@@ -548,7 +548,7 @@ class CBWApi: # pylint: disable=R0904
         """GET request to /api/v3/compliance/servers/{server_id} to get all informations
         about a specific compliance asset"""
         response = self._request("GET", [ROUTE_COMPLIANCE_ASSETS, server_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -556,7 +556,7 @@ class CBWApi: # pylint: disable=R0904
     def update_compliance_server(self, server_id, params):
         """PUT request to /api/v3/compliance/servers/{server_id} to update a compliance asset"""
         response = self._request("PUT", [ROUTE_COMPLIANCE_ASSETS, server_id], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -565,7 +565,7 @@ class CBWApi: # pylint: disable=R0904
         """PUT request to /api/v3/compliance/servers/{server_id}/recheck_rules to recheck
         the rules of a specific compliance asset"""
         response = self._request("PUT", [ROUTE_COMPLIANCE_ASSETS, server_id, 'recheck_rules'])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -579,7 +579,7 @@ class CBWApi: # pylint: disable=R0904
         """GET request to /api/v3/compliance/rules/{server_id} to get all rules
         tested on a specific asset"""
         response = self._request("GET", [ROUTE_COMPLIANCE_RULES, server_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -616,7 +616,7 @@ class CBWApi: # pylint: disable=R0904
     def recheck_servers(self, rule_id):
         """PUT request to /api/v3/compliance/rules/{rule_id}/recheck_servers to recheck a rule on all servers"""
         response = self._request("PUT", [ROUTE_COMPLIANCE_RULES, rule_id, 'recheck_servers'])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error rule id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -629,7 +629,7 @@ class CBWApi: # pylint: disable=R0904
     def stored_credential(self, credential_id):
         """GET request to /api/v3/assets/credentials/{credential_id} to retrieve a set of stored credentials"""
         response = self._request("GET", [ROUTE_STORED_CREDENTIALS, credential_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -671,7 +671,7 @@ class CBWApi: # pylint: disable=R0904
     def docker_image(self, docker_image_id):
         """GET request to /api/v3/assets/docker_images/{id} to retrieve an docker image"""
         response = self._request("GET", [ROUTE_DOCKER_IMAGES, docker_image_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -714,7 +714,7 @@ class CBWApi: # pylint: disable=R0904
     def asset(self, asset_id):
         """GET request to /api/v3/assets/servers/<asset_id> to get a specific asset"""
         response = self._request("GET", [ROUTE_ASSETS, asset_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -723,7 +723,7 @@ class CBWApi: # pylint: disable=R0904
     def delete_asset(self, asset_id):
         """DELETE request to /api/v3/assets/servers/<asset_id> to delete a asset"""
         response = self._request("DELETE", [ROUTE_ASSETS, asset_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
@@ -737,7 +737,7 @@ class CBWApi: # pylint: disable=R0904
     def applicative_scan(self, applicative_scan_id):
         """GET request to /api/v3/assets/applicative_scans/{id} to retrieve an applicative scan"""
         response = self._request("GET", [ROUTE_APPLICATIVE_SCANS, applicative_scan_id])
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error server id::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -773,7 +773,7 @@ class CBWApi: # pylint: disable=R0904
     def fetch_compliance_airgapped_scripts(self, params=None):
         """GET request to /api/v2/compliances/scripts to fetch compliance scripts"""
         response = self._request("GET", [ROUTE_AIRGAPPED_COMPLIANCE_SCRIPTS], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
         return self._cbw_parser(response)
@@ -795,7 +795,7 @@ class CBWApi: # pylint: disable=R0904
     def server_reboot(self, server_id, params=None):
         """POST request to /api/v3/vulnerabilities/servers/<id>/reboot to reboot a server"""
         response = self._request("PATCH", [ROUTE_SERVERS, server_id, "reboot"], params)
-        if response.status_code != 200:
+        if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
 
