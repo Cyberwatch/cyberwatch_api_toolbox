@@ -1,4 +1,4 @@
-"""Script used to delete duplicates with 'server_update_comm_fail' status"""
+"""Script used to delete duplicates"""
 
 import os
 from configparser import ConfigParser
@@ -25,11 +25,9 @@ def find_duplicates(servers):
     for server in sorted(servers, key=lambda x: (x.hostname is None, x.hostname)):
         if server.hostname == duplicate.hostname and server.hostname is not None:
             if server.last_communication is None or duplicate.last_communication > server.last_communication:
-                if server.status == 'server_update_comm_fail':
-                    duplicates.append(server)
+                duplicates.append(server)
             else:
-                if duplicate.status == 'server_update_comm_fail':
-                    duplicates.append(duplicate)
+                duplicates.append(duplicate)
                 duplicate = server
         else:
             duplicate = server
