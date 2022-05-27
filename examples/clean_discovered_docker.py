@@ -48,7 +48,7 @@ def find_to_clean(dockers, discoveries):
     '''Find docker images to delete'''
     to_clean = []
     for docker in dockers:
-        if docker['server_id'] in discoveries:
+        if docker['server_id'] not in discoveries:
             date = datetime.fromisoformat(
                 docker['created_at']).replace(tzinfo=None)
             time = datetime.now() - date
