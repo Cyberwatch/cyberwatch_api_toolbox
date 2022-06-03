@@ -19,6 +19,7 @@ from cbw_api_toolbox.__routes__ import ROUTE_APPLICATIVE_SCANS
 from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_RULES
 from cbw_api_toolbox.__routes__ import ROUTE_COMPLIANCE_ASSETS
 from cbw_api_toolbox.__routes__ import ROUTE_CVE_ANNOUNCEMENTS
+from cbw_api_toolbox.__routes__ import ROUTE_DISCOVERY
 from cbw_api_toolbox.__routes__ import ROUTE_DOCKER_IMAGES
 from cbw_api_toolbox.__routes__ import ROUTE_GROUPS
 from cbw_api_toolbox.__routes__ import ROUTE_HOSTS
@@ -795,6 +796,30 @@ class CBWApi: # pylint: disable=R0904
     def server_reboot(self, server_id, params=None):
         """POST request to /api/v3/vulnerabilities/servers/<id>/reboot to reboot a server"""
         response = self._request("PATCH", [ROUTE_SERVERS, server_id, "reboot"], params)
+        if not response.ok:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return self._cbw_parser(response)
+
+    def discoveries(self, params=None):
+        """GET request to /api/v3/assets/discoveries to get a list of all discoveries"""
+        response = self._get_pages("GET", [ROUTE_DISCOVERY], params)
+
+        return response
+
+    def relaunch_discovery(self, discovery_id):
+        """PUT request to /api/v3/assets/discoveries/<discovery_id>/relaunch to get a specific discovery"""
+        response = self._request("PUT", [ROUTE_DISCOVERY, discovery_id, "relaunch"])
+        if not response.ok:
+            logging.error("Error::{}".format(response.text))
+            return None
+
+        return self._cbw_parser(response)
+
+    def delete_discovery(self, discovery_id):
+        """DELETE request to /api/v3/assets/discoveries/<discovery_id> to get a specific discovery"""
+        response = self._request("DELETE", [ROUTE_DISCOVERY, discovery_id])
         if not response.ok:
             logging.error("Error::{}".format(response.text))
             return None
