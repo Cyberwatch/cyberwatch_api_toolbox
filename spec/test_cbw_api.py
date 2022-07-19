@@ -3,6 +3,7 @@
 import vcr  # pylint: disable=import-error
 import pytest  # pylint: disable=import-error
 from cbw_api_toolbox.cbw_api import CBWApi
+# pylint: disable=duplicate-code
 
 # To generate a new vcr cassette:
 # - DO NOT CHANGE THE API_URL
@@ -709,14 +710,14 @@ rule_groups=[], checks=[])"""
         client = CBWApi(API_URL, API_KEY, SECRET_KEY)
 
         info = {
-        "audit": "rule audit",
-        "code": "SBP-Custom-001",
-        "description": "rule description",
-        "equation": "(1 && 2)",
-        "name": "rule name",
-        "rationale": "rule rationale",
-        "remediation": "rule remediation",
-        "checks": [
+            "audit": "rule audit",
+            "code": "SBP-Custom-001",
+            "description": "rule description",
+            "equation": "(1 && 2)",
+            "name": "rule name",
+            "rationale": "rule rationale",
+            "remediation": "rule remediation",
+            "checks": [
                 {
                     "order": 1,
                     "content": "check content",

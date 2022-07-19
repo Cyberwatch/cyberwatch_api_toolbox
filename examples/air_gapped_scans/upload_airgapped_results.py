@@ -20,13 +20,13 @@ def connect_api():
 def upload(client):
     """Upload results from the folder 'Uploads' to Cyberwatch"""
     print("INFO: Searching for available results...")
-    files = ( file for file in sorted(os.listdir(os.path.join(os.path.dirname(__file__), 'Uploads'))) )
+    files = (file for file in sorted(os.listdir(os.path.join(os.path.dirname(__file__), 'Uploads'))))
     for file in files:
         file_path = os.path.join(os.path.dirname(__file__), 'Uploads', file)
         if os.path.isfile(file_path):
-            with open(file_path, 'r') as filehandle:
+            with open(file_path, 'r', encoding="utf-8") as filehandle:
                 filecontent = filehandle.read()
-                content = {'output': filecontent , 'groups': 'my_group_1, my_group_2'}
+                content = {'output': filecontent, 'groups': 'my_group_1, my_group_2'}
                 print('INFO: Sending {} content to the API...'.format(file))
                 client.upload_airgapped_results(content)
 

@@ -19,7 +19,7 @@ INFO = {"type": "", # specifies the type of the stored credentials
         "ca_cert": "", # certificate of the certificate authority for TLS credentials like a docker engine
         "client_cert": "", # specifies client private key for TLS credentials like a Docker engine
         "client_key": "" # client certificate for TLS credentials like a Docker engine
-}
+        }
 
 STORED_CREDENTIALS_ID = ''
 

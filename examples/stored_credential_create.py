@@ -19,6 +19,6 @@ INFO = {"type": "", # mandatory, specifies the type of the stored credentials
         "client_key": "", # client certificate for TLS credentials like a Docker engine
         "auth_password": "", # for SNMP, authentication password for SNMP credentials
         "priv_password": "" # for SNMP, encryption password for SNMP credentials
-}
+        }
 
 CLIENT.create_stored_credential(INFO)

@@ -56,7 +56,8 @@ def display(server_list, what):
     for outdated_server in server_list:
         server = outdated_server["server"]
         print('{} --- {} --- {} --- Last Detection: {} days ago'.format(server.id, server.hostname,
-        server.cve_announcements_count, outdated_server["last_detection"]))
+                                                                        server.cve_announcements_count,
+                                                                        outdated_server["last_detection"]))
 
 
 def send_email(subject, sender, receiver, content, login, password, smtp, port):
@@ -86,7 +87,8 @@ def build_email(server_list):
     for outdated_server in server_list:
         server = outdated_server["server"]
         content += '\n{} --- {} --- {} --- Dernière Détection : {} jours'.format(server.id, server.hostname,
-        server.cve_announcements_count, outdated_server["last_detection"])
+                                                                                 server.cve_announcements_count,
+                                                                                 outdated_server["last_detection"])
 
     mail_content = """
     Bonjour,

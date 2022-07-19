@@ -39,8 +39,8 @@ def find_discoveries(client):
     discoveries_details = client.hosts()
     for host in discoveries_details:
         if host.discovery.type == "CbwAssets::Discovery::DockerRegistry":
-            for id in host.server_ids:
-                ids.append(str(id))
+            for id_server in host.server_ids:
+                ids.append(str(id_server))
     return ids
 
 

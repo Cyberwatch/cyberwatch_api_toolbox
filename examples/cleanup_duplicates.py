@@ -3,7 +3,7 @@
 import os
 from configparser import ConfigParser
 from cbw_api_toolbox.cbw_api import CBWApi
-
+# pylint: disable=duplicate-code
 
 def connect_api():
     '''Connect to the API and test connection'''

@@ -9,6 +9,7 @@ from email.mime.text import MIMEText
 from configparser import ConfigParser
 from datetime import datetime, timedelta
 from cbw_api_toolbox.cbw_api import CBWApi
+# pylint: disable=duplicate-code
 
 ############################################################
 # CONFIGURATION - USE THIS SECTION TO CONFIGURE SCRIPT
@@ -43,7 +44,7 @@ def compare_for_new_cve(new_set):
     # Get latest backup of high-priority CVEs
     list_of_files = glob.glob((os.path.join(os.path.abspath(
         os.path.dirname(__file__)), '*new_cves.json')))
-    old_backup = open(max(list_of_files, key=os.path.getctime), "r")
+    old_backup = open(max(list_of_files, key=os.path.getctime), "r", encoding="utf-8")
     old_list = json.load(old_backup)
     old_backup.close()
 
@@ -53,7 +54,7 @@ def compare_for_new_cve(new_set):
 
     # Write new backup file with all high-priority CVEs
     new_backup = open((os.path.join(os.path.abspath(
-        os.path.dirname(__file__)), datetime.strftime(datetime.now(), '%d-%m-%Y') + "_new_cves.json")), "w")
+        os.path.dirname(__file__)), datetime.strftime(datetime.now(), '%d-%m-%Y') + "_new_cves.json")), "w", encoding="utf-8")
     new_backup.write(json.dumps({**old_high_priority_cves, **new_set}))
     new_backup.close()
 

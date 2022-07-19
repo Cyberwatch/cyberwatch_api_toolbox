@@ -89,7 +89,7 @@ def download_individual_script(script_object, base_directory):
         script_filename = "".join((base_directory, "/", script.filename))
 
         os.makedirs(dirname(script_filename), exist_ok=True)
-        with open(script_filename, "w") as filestream:
+        with open(script_filename, "w", encoding="utf-8") as filestream:
             filestream.write(script.script_content)
 
     if ".ps1" in script_object[0].filename:
@@ -105,10 +105,10 @@ def create_run_scripts(os_target, base_directory):
 
     if os_target in "Windows":
         run_script = join(base_directory, "run.ps1")
-        with open(run_script, "w") as file_stream:
+        with open(run_script, "w", encoding="utf-8") as file_stream:
             file_stream.write(PS1_EXECUTE_SCRIPT)
     else:
         run_script = join(base_directory, "run")
-        with open(run_script, "w") as file_stream:
+        with open(run_script, "w", encoding="utf-8") as file_stream:
             file_stream.write(SH_EXECUTE_SCRIPT)
             os.chmod(run_script, 0o755)

@@ -9,6 +9,7 @@ from configparser import ConfigParser
 from datetime import datetime
 from dateutil.relativedelta import relativedelta  # pylint: disable=import-error
 from cbw_api_toolbox.cbw_api import CBWApi
+# pylint: disable=duplicate-code
 
 def connect_api():
     '''Connect ot the API'''

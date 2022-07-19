@@ -58,7 +58,7 @@ def replace_file(servers):
 def find_communication_failure_servers(servers):
     """Find servers with status "Communication failure" and save them to a file"""
     print('INFO: Finding servers with "Communication failure" status and saving result in file')
-    with open(os.path.dirname(__file__) + '/communication_failure_list.txt', 'w+') as file:
+    with open(os.path.dirname(__file__) + '/communication_failure_list.txt', 'w+', encoding="utf-8") as file:
         for server in servers:
             if server.status == "server_update_comm_fail":
                 json.dump({"id": server.id}, file)
@@ -73,7 +73,7 @@ def find_recovered_servers(client):
         if server.status == "server_update_comm_fail":
             current_servers_list.append({"id": server.id})
 
-    with open(os.path.dirname(__file__) + '/communication_failure_list.txt') as file:
+    with open(os.path.dirname(__file__) + '/communication_failure_list.txt', encoding="utf-8") as file:
         server_list = [json.loads(line) for line in file]
 
     diff = [i for i in current_servers_list +

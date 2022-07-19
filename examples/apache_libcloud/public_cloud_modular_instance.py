@@ -5,9 +5,12 @@
 
 # Prerequisites :
 # - Install libcloud with command "pip3 install apache-libcloud"
-# - If you are not using the default credentials for agentless connections configured in Cyberwatch, set up SERVER_LOGIN and/or WINRM_password variables
-# - Set the constant variables on the first lines of the script depending on which cloud provider you use (https://libcloud.readthedocs.io/en/stable/compute/drivers/)
-# - Set up your Cyberwatch API key in api.conf in the same folder as the script, for an example https://github.com/Cyberwatch/cyberwatch_api_toolbox#configuration
+# - If you are not using the default credentials for agentless connections configured in Cyberwatch,
+# set up SERVER_LOGIN and/or WINRM_password variables
+# - Set the constant variables on the first lines of the script depending
+# on which cloud provider you use (https://libcloud.readthedocs.io/en/stable/compute/drivers/)
+# - Set up your Cyberwatch API key in api.conf in the same folder as the script, for an example:
+# https://github.com/Cyberwatch/cyberwatch_api_toolbox#configuration
 # - SSH key file of servers to import named "id_rsa"
 # Notes :
 # - All servers will be imported with group "cloud_crawling" + zone (ex: "europe-west4-a")
@@ -15,13 +18,13 @@
 import argparse
 import os
 import socket
-
+# pylint: disable=E0401, R1705
 from configparser import ConfigParser
 from libcloud.compute.types import Provider
 from libcloud.compute.providers import get_driver
 from cbw_api_toolbox.cbw_api import CBWApi
 
-SSH_KEY_SERVERS = open(os.path.expanduser('id_rsa')).read()
+SSH_KEY_SERVERS = open(os.path.expanduser('id_rsa'), encoding="utf-8").read()
 SERVER_LOGIN = ""
 WINRM_PASSWORD_SERVERS = ""
 
@@ -49,7 +52,7 @@ def connect_api():
 def get_node():
     '''Get list of available nodes and prompt user to choose'''
     nodes = API.nodes()
-    if len(nodes) > 1 :
+    if len(nodes) > 1:
         print("Which Cyberwatch node do you want to use to import?")
         for node in nodes:
             print("ID: {}, name: {}".format(node.id, node.name))
@@ -60,7 +63,7 @@ def get_node():
             return node_id
         else:
             raise ValueError("Please provide valid node id")
-    else: 
+    else:
         return nodes[0].id
 
 
@@ -98,15 +101,15 @@ def retrieve_ec2_servers():
     return running
 
 
-def port_checker(ip, port):
+def port_checker(ip_address, port):
     '''Check if a specific port is open on an ip address'''
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.settimeout(5)
+    socket1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    socket1.settimeout(5)
     try:
-        s.connect((ip, int(port)))
-        s.shutdown(2)
+        socket1.connect((ip_address, int(port)))
+        socket1.shutdown(2)
         return True
-    except:
+    except Exception: # pylint: disable=broad-except
         return False
 
 
@@ -131,7 +134,8 @@ def check_add_server(servers, cloud_servers, node_id):
                              "key": SSH_KEY_SERVERS})
                 to_add.append(info)
             else:
-                print('The server ' + cloud_server_ip + ' has no default port exposed (SSH/22 or WINRM/5985) so an agentless connection with Cyberwatch is not possible')
+                print("""The server ' + cloud_server_ip + ' has no default port exposed (SSH/22 or WINRM/5985)
+                      so an agentless connection with Cyberwatch is not possible""")
     return to_add
 
 
@@ -150,8 +154,7 @@ def check_delete_server(cloud_servers):
 def display_and_import(to_import_list, apply=False):
     '''Display to_import servers then import them'''
 
-    print('\n\n================= Total of {} cloud servers to import (apply={}) ================='.format(len(to_import_list),
-                                                                                                           apply))
+    print('\n\n===== Total of {} cloud servers to import (apply={}) ====='.format(len(to_import_list), apply))
     for to_add_server in to_import_list:
         print('{} --- {} --- {}'.format(to_add_server["address"],
                                         to_add_server["server_groups"], to_add_server["type"]))
@@ -161,8 +164,7 @@ def display_and_import(to_import_list, apply=False):
 
 def display_and_delete(to_delete_list, apply=False):
     '''Display to_delete servers then delete them'''
-    print('\n\n================= Total of {} servers on Cyberwatch to delete (apply={}) ================='.format(len(to_delete_list),
-                                                                                                                   apply))
+    print('\n\n===== Total of {} servers on Cyberwatch to delete (apply={}) ====='.format(len(to_delete_list), apply))
     for server in to_delete_list:
         print('{} --- {} --- {}'.format(server.remote_ip, server.hostname, server.id))
         if apply is True:
@@ -202,7 +204,8 @@ def main(args=None):
     '''Main function'''
 
     parser = argparse.ArgumentParser(
-        description='Script using Cyberwatch API to import not monitored cloud servers and delete terminated cloud servers in Cyberwatch.\nBy default this script is run in read-only mode.')
+        description="""Script using Cyberwatch API to import not monitored cloud servers and delete terminated
+        cloud servers in Cyberwatch.\nBy default this script is run in read-only mode.""")
 
     parser.add_argument(
         '-i',

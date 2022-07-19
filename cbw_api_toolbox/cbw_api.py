@@ -38,11 +38,11 @@ class CBWApi: # pylint: disable=R0904
     """Class used to communicate with the CBW API"""
 
     def __init__(
-        self,
-        api_url=None,
-        api_key=None,
-        secret_key=None,
-        verify_ssl=False,
+            self,
+            api_url=None,
+            api_key=None,
+            secret_key=None,
+            verify_ssl=False,
     ):
 
         self.verify_ssl = verify_ssl

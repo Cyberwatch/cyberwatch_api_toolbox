@@ -7,6 +7,7 @@ from configparser import ConfigParser
 from datetime import datetime
 from email.mime.text import MIMEText
 from cbw_api_toolbox.cbw_api import CBWApi
+# pylint: disable=duplicate-code
 
 CONF = ConfigParser()
 CONF.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'api.conf'))
@@ -35,11 +36,11 @@ DATE = "01/01/1990" # Mandatory, format dd/mm/yyyy
 
 # Filters to use, please comment unused parameters
 CVE_FILTERS = {
-            "level": "level_critical", #level_critical = CVSS score > 9, level_high = 7 < 9, level_medium = 4 < 7
-            "active": "true",
-            # "technology_product": "",
-            "groups": ["", ""] # ( ["group"] or ["groupA", "groupB", "groupC"]...)
-        }
+    "level": "level_critical", #level_critical = CVSS score > 9, level_high = 7 < 9, level_medium = 4 < 7
+    "active": "true",
+    # "technology_product": "",
+    "groups": ["", ""] # ( ["group"] or ["groupA", "groupB", "groupC"]...)
+    }
 
 ############################################################
 
@@ -143,7 +144,7 @@ def build_email(active_cves):
 </body>
 </html>
 """
-    if filtered_active_cves == []:
+    if not FILTERED_ACTIVE_CVES:
         html = '<p>Aucun serveur avec une CVE active correspondant aux critères définis a été remonté</p>'
         data = html_start + html + html_end
         return data
@@ -178,24 +179,24 @@ def build_email(active_cves):
 
     return html_start
 
-filtered_active_cves = sort_cves()
+FILTERED_ACTIVE_CVES = sort_cves()
 
-HTML = build_email(filtered_active_cves)
+HTML = build_email(FILTERED_ACTIVE_CVES)
 
 print("! Testing communication with SMTP server")
-context = ssl.create_default_context()
-smtpserver = smtplib.SMTP(SMTP_SETTINGS["server"], SMTP_SETTINGS["port"])
-smtpserver.ehlo() # Can be omitted
-smtpserver.starttls(context=context) # Secure the connection
-smtpserver.ehlo() # Can be omitted
-smtpserver.login(SMTP_SETTINGS["username"], SMTP_SETTINGS["password"])
+CONTEXT = ssl.create_default_context()
+SMTPSERVER = smtplib.SMTP(SMTP_SETTINGS["server"], SMTP_SETTINGS["port"])
+SMTPSERVER.ehlo() # Can be omitted
+SMTPSERVER.starttls(context=CONTEXT) # Secure the connection
+SMTPSERVER.ehlo() # Can be omitted
+SMTPSERVER.login(SMTP_SETTINGS["username"], SMTP_SETTINGS["password"])
 print("INFO:OK")
 
-today = datetime.now().strftime("%Y-%m-%d %H:%M")
-msg = MIMEText(HTML, 'html', 'utf-8')
-msg['Subject'] = 'Cyberwatch - Bilan du '+ today
-msg['From'] = SMTP_SETTINGS["sender"]
-msg['To'] = SMTP_SETTINGS["recipient"]
-smtpserver.send_message(msg)
+TODAY = datetime.now().strftime("%Y-%m-%d %H:%M")
+MSG = MIMEText(HTML, 'html', 'utf-8')
+MSG['Subject'] = 'Cyberwatch - Bilan du '+ TODAY
+MSG['From'] = SMTP_SETTINGS["sender"]
+MSG['To'] = SMTP_SETTINGS["recipient"]
+SMTPSERVER.send_message(MSG)
 
-smtpserver.quit()
+SMTPSERVER.quit()

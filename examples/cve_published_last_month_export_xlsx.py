@@ -120,10 +120,10 @@ def export_xls(cve_list, xls_export):
         xls_export.close()
 
 # Defines date to retrieve CVEs published last month
-today = datetime.date.today()
-firstDayOfLastMonth = (today.replace(day=1) - datetime.timedelta(days=1)).replace(day=1)
-firstDayOfCurrentMonth = today.replace(day=1)
+TODAY = datetime.date.today()
+FIRSTDAYOFLASTMONTH = (TODAY.replace(day=1) - datetime.timedelta(days=1)).replace(day=1)
+FIRSTDAYOFCURRENTMONTH = TODAY.replace(day=1)
 
-print("Exporting vulnerabilities published between {} and {}.".format(firstDayOfLastMonth, firstDayOfCurrentMonth))
-export_xls(get_cyberwatch_cves(firstDayOfLastMonth, firstDayOfCurrentMonth),
-           instantiate_export("active_CVEs_{}_to_{}_export.xlsx".format(firstDayOfLastMonth, firstDayOfCurrentMonth)))
+print("Exporting vulnerabilities published between {} and {}.".format(FIRSTDAYOFLASTMONTH, FIRSTDAYOFCURRENTMONTH))
+export_xls(get_cyberwatch_cves(FIRSTDAYOFLASTMONTH, FIRSTDAYOFCURRENTMONTH),
+           instantiate_export("active_CVEs_{}_to_{}_export.xlsx".format(FIRSTDAYOFLASTMONTH, FIRSTDAYOFCURRENTMONTH)))

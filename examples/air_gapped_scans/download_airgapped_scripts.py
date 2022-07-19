@@ -54,7 +54,7 @@ def download_scripts(parsed_args, scripts, client):
         elif "Windows" in file_name:
             file_name[-1] += '.ps1'
         path = os.path.join(os.path.dirname(__file__), "/".join(file_name))
-        with open(path, 'w') as filehandle:
+        with open(path, 'w' , encoding="utf-8") as filehandle:
             filehandle.write(script.contents)
         if script.attachment and parsed_args.no_attachment:
             download_attachment(file_name, script.attachment)
@@ -66,7 +66,7 @@ def download_attachment(path, url):
     attachment = requests.get(url, allow_redirects=True, verify=False)
     location = os.path.join(os.path.dirname(__file__), "/".join(path[:-1]))
     name = url.split("/")[-1]
-    with open(os.path.join(location, name), 'wb') as file:
+    with open(os.path.join(location, name), 'wb', encoding="utf-8") as file:
         file.write(attachment.content)
 
 
@@ -83,7 +83,7 @@ def create_windows_launch_all():
     }"""
 
     path = os.path.join(os.path.dirname(__file__), "Scripts", "Windows", "cbw_launch_all.ps1")
-    with open(path, 'w') as filehandle:
+    with open(path, 'w' , encoding="utf-8") as filehandle:
         filehandle.write(launch_all_powershell)
 
 

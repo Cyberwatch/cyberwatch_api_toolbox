@@ -34,7 +34,7 @@ def parse_json_file(json_file_path):
     }
 
     # Parse the json file, we assume "host" and "system" are mandatory values
-    with open(json_file_path) as json_data:
+    with open(json_file_path, encoding="utf-8") as json_data:
         data = json.load(json_data)
         for json_dict in data:
             remote_access_infos["address"] = json_dict["host"]
@@ -46,11 +46,11 @@ def parse_json_file(json_file_path):
             remote_access_infos["credential_id"] = json_dict.get("credential_id", remote_access_infos["credential_id"])
             remote_access_infos["node_id"] = json_dict.get("node_id", remote_access_infos["node_id"])
             remote_access_infos["server_groups"] = json_dict.get("cyberwatch_groups",
-                remote_access_infos["server_groups"])
+                                                                 remote_access_infos["server_groups"])
 
             print("Trying to create Cyberwatch remote access with the following information : {}"
-                .format(remote_access_infos))
+                  .format(remote_access_infos))
             CLIENT.create_remote_access(remote_access_infos)
 
-json_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'example.json')
-parse_json_file(json_file)
+JSON_FILE = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'example.json')
+parse_json_file(JSON_FILE)
