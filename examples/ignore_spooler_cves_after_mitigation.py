@@ -9,14 +9,14 @@ CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key')
 
 
 
-CVE_CODES = ['CVE-2021-1675','CVE-2021-34527']
+CVE_CODES = ['CVE-2021-1675', 'CVE-2021-34527']
 
 def disabled_spooler_assets():
     '''finds assets with a disabled startup spooler service'''
     params = {
-    "service_name": "spooler",
-    "service_status": "disabled"
-    }
+        "service_name": "spooler",
+        "service_status": "disabled"
+        }
 
     return CLIENT.assets(params)
 
@@ -47,18 +47,18 @@ def ignore():
         "ignored": "true"
     }
 
-    disabled  = disabled_spooler_assets()
+    disabled = disabled_spooler_assets()
 
-    for asset in vulnerable_assets() :
+    for asset in vulnerable_assets():
         if any(d.id == asset.id for d in disabled):
-            for code in CVE_CODES :
+            for code in CVE_CODES:
                 CLIENT.update_server_cve(str(asset.id), code, params)
-                ignored.append([code,asset])
+                ignored.append([code, asset])
 
     return ignored
 
-result = ignore()
-print('\n=========== Total of {} CVEs have been ingored on disabled spooler assets ==========='.format(len(result)))
+RESULT = ignore()
+print('\n=========== Total of {} CVEs have been ingored on disabled spooler assets ==========='.format(len(RESULT)))
 
-for item in result:
+for item in RESULT:
     print('{} --- {} --- {}'.format(item[1].id, item[1].hostname, item[0]))

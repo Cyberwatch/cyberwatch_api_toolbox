@@ -40,7 +40,7 @@ def to_csv_lines(cve_catalog):
 
 def to_csv(csv_lines, name_csv='just_generated.csv', path=""):
     """Write objects in csv_lines into a csv file"""
-    with open(os.path.join(path, name_csv), 'w', newline='') as csvfile:
+    with open(os.path.join(path, name_csv), 'w', newline='', encoding="utf-8") as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=' ',
                                 quotechar='|', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(['"sep=,"'])
@@ -52,11 +52,11 @@ def to_csv(csv_lines, name_csv='just_generated.csv', path=""):
 
 # Fetch active CVE if an exploit is available
 logging.info('Fetching active CVE')
-cve_list = CLIENT.cve_announcements({"exploitable": "true", "active": "true"})
+CVE_LIST = CLIENT.cve_announcements({"exploitable": "true", "active": "true"})
 
 # Formating lines for the csv
 logging.info('Formating lines for the csv file')
-csv_lines_list = to_csv_lines(cve_list)
+CSV_LINES_LIST = to_csv_lines(CVE_LIST)
 
 # Exporting csv file
-to_csv(csv_lines_list, path="")
+to_csv(CSV_LINES_LIST, path="")

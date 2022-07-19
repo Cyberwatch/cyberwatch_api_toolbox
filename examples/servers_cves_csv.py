@@ -2,7 +2,6 @@
 
 import os
 import csv
-import logging
 from configparser import ConfigParser
 from cbw_api_toolbox.cbw_api import CBWApi
 
@@ -16,7 +15,7 @@ CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key')
 
 def to_csv(csv_lines, name_csv, path=""):
     """Write objects in csv_lines into a csv file"""
-    with open(os.path.join(path, name_csv), 'w', newline='') as csvfile:
+    with open(os.path.join(path, name_csv), 'w', newline='', encoding="utf-8") as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=' ',
                                 quotechar='|', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(['"sep=,"'])
@@ -33,24 +32,21 @@ def to_csv_lines(server_list):
         csv_lines = []
         index_cve = 0
         if server.cve_announcements_count > 0:
-            Z = CLIENT.server(str(server.id))
+            server_details = CLIENT.server(str(server.id))
             index_cve += 1
-            for cve in Z.cve_announcements:
+            for cve in server_details.cve_announcements:
                 csv_lines.append({"Vulnérabilité": cve.cve_code,
-                                    "Dernière analyse de l'actif": Z.analyzed_at,
-                                    "Score CVSS": cve.score,
-                                    "Vulnérabilité prioritaire": cve.prioritized,
-                                    "Date de détection": cve.detected_at,
-                                    "Ignorée": cve.ignored,
-                                    "Commentaire": cve.comment
-                })
+                                  "Dernière analyse de l'actif": server_details.analyzed_at,
+                                  "Score CVSS": cve.score,
+                                  "Vulnérabilité prioritaire": cve.prioritized,
+                                  "Date de détection": cve.detected_at,
+                                  "Ignorée": cve.ignored,
+                                  "Commentaire": cve.comment
+                                  })
 
-        logging.info('Generating ' + server.hostname + '.csv')
-        to_csv(csv_lines,name_csv=server.hostname + ".csv", path="")
+        print('Generating ' + server.hostname + '.csv')
+        to_csv(csv_lines, name_csv=server.hostname + ".csv", path="")
 
-    return None
-
-logging.info('Fetching Servers')
-servers_in_group = CLIENT.servers({"group_id": GROUP_ID})
-to_csv_lines(servers_in_group)
-
+print('Fetching Servers')
+SERVERS_IN_GROUP = CLIENT.servers({"group_id": GROUP_ID})
+to_csv_lines(SERVERS_IN_GROUP)

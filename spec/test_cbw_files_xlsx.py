@@ -3,6 +3,7 @@
 import openpyxl  # pylint: disable=import-error
 import vcr  # pylint: disable=import-error
 from cbw_api_toolbox.cbw_file_xlsx import CBWXlsx
+# pylint: disable=duplicate-code
 
 # To generate a new vcr cassette:
 # - DO NOT CHANGE THE API_URL

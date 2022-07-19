@@ -48,7 +48,7 @@ def upload_file(result_script_filename, api: CBWApi):
 def read_file_all_encodings(filename):
     """Return the content of `filename`. Detects the encoding used by the
     file."""
-    with open(filename, "rb") as file_stream:
+    with open(filename, "rb", encoding="utf-8") as file_stream:
         raw_content = file_stream.read()
     detection = chardet.detect(raw_content)
     return raw_content.decode(detection["encoding"])

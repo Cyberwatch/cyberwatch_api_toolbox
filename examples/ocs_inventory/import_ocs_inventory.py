@@ -7,13 +7,13 @@ from configparser import ConfigParser
 import requests
 from cbw_api_toolbox.cbw_api import CBWApi
 
-conf = ConfigParser()
-conf.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', '..', 'api.conf'))
+CONF = ConfigParser()
+CONF.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', '..', 'api.conf'))
 
 def connect_cyberwatch_api():
     '''Connect to the Cyberwatch API and test the connection'''
-    client = CBWApi(conf.get('cyberwatch', 'url'), conf.get('cyberwatch', 'api_key'),
-        conf.get('cyberwatch', 'secret_key'))
+    client = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key'),
+                    CONF.get('cyberwatch', 'secret_key'))
 
     client.ping()
     return client
@@ -39,7 +39,7 @@ def create_infoscript(computer, computer_id):
 
     # Write in the infoscript
     with open(os.path.join(os.path.dirname(__file__), 'ocs_export', '{}_infoscript.txt'
-        .format(computer_id)), 'w') as infoscript:
+                           .format(computer_id)), 'w', encoding="utf-8") as infoscript:
         infoscript.write('IDENTIFIER_SCRIPT:{}'.format(identifier_script_value)+'\n')
         infoscript.write('IDENTIFIER_HOSTNAME:{}'.format(computer[computer_id]['hardware']['NAME'])+'\n')
         infoscript.write('HOSTNAME:{}'.format(computer[computer_id]['hardware']['NAME'])+'\n')
@@ -51,7 +51,7 @@ def create_infoscript(computer, computer_id):
             arch = 'x86_64'
         infoscript.write('ARCH:{}'.format(arch)+'\n')
         infoscript.write('OS_PRETTYNAME:{}'.format(computer[computer_id]['hardware']['OSNAME'])+'\n')
-        if system_type == 'unix' or system_type == 'macos':
+        if system_type in'unix' or system_type in 'macos':
             infoscript.write('KERNEL_VERSION:{}'.format(computer[computer_id]['hardware']['OSVERSION'])+'\n')
         elif system_type == 'windows':
             # Set OS_VERSION, OS_BUILD and WUA_VERSION as hardcoded values since OCS does not provide this information
@@ -67,7 +67,7 @@ def create_windows_packagesscript(computer, computer_id):
     # For Windows systems, create a packagesscript file
     filename = '{}_packagesscript.txt'.format(computer_id)
     softwares = computer[computer_id]['softwares']
-    with open(os.path.join(os.path.dirname(__file__), 'ocs_export', filename), 'w') as packagesscript:
+    with open(os.path.join(os.path.dirname(__file__), 'ocs_export', filename), 'w', encoding="utf-8") as packagesscript:
         packagesscript.write('IDENTIFIER_SCRIPT:2'+'\n')
         packagesscript.write('IDENTIFIER_HOSTNAME:{}'.format(computer[computer_id]['hardware']['NAME'])+'\n')
 
@@ -86,7 +86,7 @@ def create_general_packagesscript(computer, computer_id):
     # If system is macos or unix, we write packages in infoscript
     filename = '{}_infoscript.txt'.format(computer_id)
     softwares = computer[computer_id]['softwares']
-    with open(os.path.join(os.path.dirname(__file__), 'ocs_export', filename), 'a') as packagesscript:
+    with open(os.path.join(os.path.dirname(__file__), 'ocs_export', filename), 'a', encoding="utf-8") as packagesscript:
         for software in softwares:
             packagesscript.write('PACKAGE:{}|{}'.format(software['NAME'], software['VERSION'])+'\n')
 
@@ -95,14 +95,14 @@ def create_general_packagesscript(computer, computer_id):
 def create_empty_portsscript(computer, computer_id, identifier_id):
     '''Generates empty Cyberwatch portsscript to avoid status awaiting analysis'''
     filename = '{}_portsscript.txt'.format(computer_id)
-    with open(os.path.join(os.path.dirname(__file__), 'ocs_export', filename), 'w') as portsscript:
+    with open(os.path.join(os.path.dirname(__file__), 'ocs_export', filename), 'w', encoding="utf-8") as portsscript:
         portsscript.write('IDENTIFIER_SCRIPT:{}'.format(identifier_id)+'\n')
         portsscript.write('IDENTIFIER_HOSTNAME:{}'.format(computer[computer_id]['hardware']['NAME'])+'\n')
         #portsscript.write('TCP:135'+'\n')
 
 def export_ocs():
     '''Create text files to be imported in Cyberwatch using all OCS Inventory'''
-    ocs_url = conf.get('ocs_inventory', 'url')
+    ocs_url = CONF.get('ocs_inventory', 'url')
 
     # Get a list of all the computer IDs
     list_id = request_to_json(ocs_url+'computers/listID')
@@ -124,13 +124,13 @@ def export_ocs():
 def upload_cyberwatch(client):
     """Upload results from the folder 'ocs_export' to Cyberwatch"""
     print('INFO: Searching for available results...')
-    files = ( file for file in sorted(os.listdir(os.path.join(os.path.dirname(__file__), 'ocs_export'))) )
+    files = (file for file in sorted(os.listdir(os.path.join(os.path.dirname(__file__), 'ocs_export'))))
     for file in files:
         file_path = os.path.join(os.path.dirname(__file__), 'ocs_export', file)
         if os.path.isfile(file_path):
-            with open(file_path, 'r') as filehandle:
+            with open(file_path, 'r', encoding="utf-8") as filehandle:
                 filecontent = filehandle.read()
-                content = {'output': filecontent , 'groups': 'OCS_Inventory'}
+                content = {'output': filecontent, 'groups': 'OCS_Inventory'}
                 print('INFO: Sending {} content to the API...'.format(file))
                 client.upload_airgapped_results(content)
                 print('INFO: Done.')

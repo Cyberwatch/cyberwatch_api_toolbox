@@ -39,11 +39,11 @@ def find_lost_com_servers(servers):
 def display_and_delete(delete_list, server_type, client, delete=DELETE_SERVERS):
     '''Display servers then delete them'''
     print('\n\n================ Total of {} {} to delete (delete={}) ================'.format(len(delete_list),
-                                                                                                server_type,
-                                                                                                delete))
+                                                                                              server_type,
+                                                                                              delete))
     for delete_server in delete_list:
         print('{} -- {} -- {} -- {}'.format(delete_server.id, delete_server.hostname,
-                                               delete_server.cve_announcements_count, delete_server.created_at))
+                                            delete_server.cve_announcements_count, delete_server.created_at))
 
         if delete is True:
             client.delete_server(str(delete_server.id))
@@ -52,9 +52,7 @@ def display_and_delete(delete_list, server_type, client, delete=DELETE_SERVERS):
 def launch_script():
     '''Launch script'''
     client = connect_api()
-    filters = {
-    "communication_failed": "true"
-    }
+    filters = {"communication_failed": "true"}
     servers = client.servers(filters)
 
     lost_com_servers = find_lost_com_servers(servers)

@@ -22,12 +22,12 @@ Celle-ci affecte les actifs suivants :"""\
             message += "\n\n* \""+server.hostname+"\":"+CONF.get('cyberwatch', 'url')+"/servers/"+str(server.id)
 
         if cve.level is not None:
-            redmine_priority_id = redmine_priorities[cve.level[6:]]
+            redmine_priority_id = REDMINE_PRIORITIES[cve.level[6:]]
         else:
-            redmine_priority_id = redmine_priorities["unknown"]
+            redmine_priority_id = REDMINE_PRIORITIES["unknown"]
 
-        with redmine.session(return_response=False):
-            redmine.issue.create(project_id=project_id, subject='Cyberwatch new CVE : {}'.format(cve.cve_code), \
+        with REDMINE.session(return_response=False):
+            REDMINE.issue.create(project_id=project_id, subject='Cyberwatch new CVE : {}'.format(cve.cve_code), \
             priority_id=redmine_priority_id, description=message, tracker_id=tracker_id)
 
 def get_cves_today():
@@ -47,7 +47,7 @@ def get_cves_today():
     today_date = datetime.strftime(datetime.now(), '%Y-%m-%d')
 
     print("* Saving the results to data/"+today_date+".txt")
-    with open("data/"+today_date+".txt", "w") as outfile:
+    with open("data/"+today_date+".txt", "w", encoding="utf-8") as outfile:
         outfile.write("\n".join(cve_list_today))
     print("! Done.")
 
@@ -61,7 +61,7 @@ def get_cves_yesterday():
     print("* Yesterday: " + yesterday_date)
 
     cve_list_yesterday = []
-    with open("data/"+yesterday_date+".txt") as infile:
+    with open("data/"+yesterday_date+".txt", encoding="utf-8") as infile:
         for line in infile:
             cve_list_yesterday.append(line.strip())
 
@@ -77,13 +77,13 @@ CLIENT = CBWApi(CONF.get('cyberwatch', 'url'), CONF.get('cyberwatch', 'api_key')
 CLIENT.ping()
 
 # Redmine API informations
-redmine = Redmine(CONF.get('redmine', 'url'), version=CONF.get('redmine', 'version'), key=CONF.get('redmine', 'key'))
+REDMINE = Redmine(CONF.get('redmine', 'url'), version=CONF.get('redmine', 'version'), key=CONF.get('redmine', 'key'))
 # id of the Redmine project to affect newly created issues to
 REDMINE_PROJECT_ID = 2
 # id of the tracker ; optional if a default tracker is defined in Redmine
 REDMINE_TRACKER_ID = 1
 # dict of priorities and their ids in Redmine, available through admin interface : http://[redmine-url]/enumerations
-redmine_priorities = {
+REDMINE_PRIORITIES = {
     "low": 5,
     "medium": 4,
     "high": 3,
@@ -93,12 +93,12 @@ redmine_priorities = {
 
 # Finding the differences between yesterday and today
 print("! Computing the difference...")
-diff = list(set(get_cves_today()) - set(get_cves_yesterday()))
-diff.sort()
-print(diff)
+DIFF = list(set(get_cves_today()) - set(get_cves_yesterday()))
+DIFF.sort()
+print(DIFF)
 
-if len(diff) == 0:
+if len(DIFF) == 0:
     print("No new CVEs found between yesterday and today: nothing to send!")
     sys.exit(0)
 
-send_redmine(diff, REDMINE_PROJECT_ID, REDMINE_TRACKER_ID)
+send_redmine(DIFF, REDMINE_PROJECT_ID, REDMINE_TRACKER_ID)

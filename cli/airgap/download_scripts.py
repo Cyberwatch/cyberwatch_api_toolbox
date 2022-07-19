@@ -64,9 +64,7 @@ def subcommand(args, api: CBWApi):
     print("INFO: Script saved in {}".format(script_dir))
 
 
-def download_individual_script(
-    script_object, base_directory, api: CBWApi, with_attachment=False
-):
+def download_individual_script(script_object, base_directory, api: CBWApi, with_attachment=False):
     """Get each script and put it in the correct category"""
     script = api.fetch_airgapped_script(str(script_object.id), params={"pristine": "1"})
     if script is None or script.type is None:
@@ -77,7 +75,7 @@ def download_individual_script(
     os.makedirs(dirname(script_filename), exist_ok=True)
     script_filename = append_extension(script_filename)
 
-    with open(script_filename, "w") as filestream:
+    with open(script_filename, "w", encoding="utf-8") as filestream:
         filestream.write(script.contents)
 
     if script.attachment and with_attachment:
@@ -118,7 +116,7 @@ def create_run_scripts(script_os_association, base_directory):
 def add_sh_run_script(os_and_scripts, directory):
     """Create a shell run script in directory"""
     run_script = join(directory, "run")
-    with open(run_script, "w") as file_stream:
+    with open(run_script, "w", encoding="utf-8") as file_stream:
         file_stream.write(
             SH_EXECUTE_SCRIPT.format(" ".join(script for (_, script) in os_and_scripts))
         )
@@ -128,7 +126,7 @@ def add_sh_run_script(os_and_scripts, directory):
 def add_pwsh_run_script(os_and_scripts, directory):
     """Creates a "windows launch all" powershell script"""
     run_script_filename = join(directory, "run.ps1")
-    with open(run_script_filename, "w") as file_stream:
+    with open(run_script_filename, "w", encoding="utf-8") as file_stream:
         file_stream.write("$ScriptDir = Split-Path $MyInvocation.MyCommand.Path\n")
         for _, script in os_and_scripts:
             file_stream.write(f'& "$ScriptDir/{script}"\n')
