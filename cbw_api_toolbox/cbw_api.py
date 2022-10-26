@@ -42,11 +42,13 @@ class CBWApi: # pylint: disable=R0904
         api_url=None,
         api_key=None,
         secret_key=None,
+        proxies = None,
         verify_ssl=False,
     ):
 
         self.verify_ssl = verify_ssl
         self.logger = logging.getLogger(self.__class__.__name__)
+        self.proxies = proxies
 
         try:
             self.api_url = api_url if api_url is not None else environ["CBW_API_URL"]
@@ -80,13 +82,23 @@ class CBWApi: # pylint: disable=R0904
             body_params = json.dumps(body_params)
 
         try:
-            return requests.request(
-                verb,
-                route,
-                data=body_params,
-                params=params,
-                auth=CBWAuth(self.api_key, self.secret_key),
-                verify=self.verify_ssl)
+            if self.proxies != None:
+                return requests.request(
+                    verb,
+                    route,
+                    data=body_params,
+                    params=params,
+                    proxies=self.proxies,
+                    auth=CBWAuth(self.api_key, self.secret_key),
+                    verify=self.verify_ssl)
+            else:
+                return requests.request(
+                    verb,
+                    route,
+                    data=body_params,
+                    params=params,
+                    auth=CBWAuth(self.api_key, self.secret_key),
+                    verify=self.verify_ssl)
 
         except (ConnectionError, ProxyError, SSLError, NewConnectionError, RetryError,
                 InvalidHeader, MaxRetryError):
