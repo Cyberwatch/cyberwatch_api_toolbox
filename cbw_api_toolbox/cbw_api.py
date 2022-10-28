@@ -82,23 +82,14 @@ class CBWApi: # pylint: disable=R0904
             body_params = json.dumps(body_params)
 
         try:
-            if self.proxies != None:
-                return requests.request(
-                    verb,
-                    route,
-                    data=body_params,
-                    params=params,
-                    proxies=self.proxies,
-                    auth=CBWAuth(self.api_key, self.secret_key),
-                    verify=self.verify_ssl)
-            else:
-                return requests.request(
-                    verb,
-                    route,
-                    data=body_params,
-                    params=params,
-                    auth=CBWAuth(self.api_key, self.secret_key),
-                    verify=self.verify_ssl)
+            return requests.request(
+                verb,
+                route,
+                data=body_params,
+                params=params,
+                proxies=self.proxies,
+                auth=CBWAuth(self.api_key, self.secret_key),
+                verify=self.verify_ssl)
 
         except (ConnectionError, ProxyError, SSLError, NewConnectionError, RetryError,
                 InvalidHeader, MaxRetryError):
