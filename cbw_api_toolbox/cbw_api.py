@@ -537,7 +537,7 @@ class CBWApi: # pylint: disable=R0904
     def upload_airgapped_results(self, content):
         """POST request to /api/v2/cbw_scans/scripts to upload air gapped scanning script result"""
         response = self._request("POST", [ROUTE_AIRGAPPED_SCRIPTS], content)
-        if response.status_code != 204:
+        if response.status_code != 201:
             logging.error("Error::{}".format(response.text))
             return None
 
