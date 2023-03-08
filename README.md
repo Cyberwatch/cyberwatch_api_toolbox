@@ -1,4 +1,11 @@
-# Cyberwatch API toolbox
+# \[DEPRECATED\]
+
+## New Api Client
+This module has been deprecated. Please consider using [cyberwatch_api](https://github.com/Cyberwatch/cyberwatch_api).
+
+Please contact Cyberwatch support if you need help to migrate your existing scripts to the new client.
+
+## Cyberwatch API toolbox
 
 A simple interface for your Cyberwatch instance API composed of a python library
 and a command line program.
@@ -6,16 +13,15 @@ and a command line program.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
-- [Cyberwatch API toolbox](#cyberwatch-api-toolbox)
-  - [Installation](#installation)
-    - [Prerequisites](#prerequisites)
-    - [Install the package](#install-the-package)
-    - [Test your installation](#test-your-installation)
-  - [Configuration](#configuration)
-  - [Usage](#usage)
-  - [API Documentation](#api-documentation)
-  - [Command line Documentation](#command-line-documentation)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Install the latest package](#install-the-latest-package)
+  - [Install an older package version](#install-an-older-package-version)
+  - [Test your installation](#test-your-installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Command line Documentation](#command-line-documentation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
