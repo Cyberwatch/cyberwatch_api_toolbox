@@ -1,5 +1,3 @@
-"""Find latest high-priority CVEs and send a report"""
-
 import os
 import glob
 import smtplib
@@ -8,15 +6,20 @@ import ssl
 from email.mime.text import MIMEText
 from configparser import ConfigParser
 from datetime import datetime, timedelta
-from cbw_api_toolbox.cbw_api import CBWApi
+from cyberwatch_api import Cyberwatch_Pyhelper
 
 ############################################################
 # CONFIGURATION - USE THIS SECTION TO CONFIGURE SCRIPT
 ############################################################
 
-# Add the following block to api.conf and set variables in smtp_settings:
-# [SMTP]
-# server =
+# Add the following block to api.conf (as stated here https://github.com/Cyberwatch/cyberwatch_api) and set variables in smtp_settings:
+# [cyberwatch] #Configure API acess
+# api_key = 
+# secret_key = 
+# url = 
+#
+# [SMTP] #Configure SMTP server to send mail
+# smtp_server =
 # login =
 # password =
 
@@ -24,70 +27,14 @@ SENDER_EMAIL = ""
 RECEIVER_EMAILS = ""
 SUBJECT = "Cyberwatch - Rapport 'CVEs prioritaires'"
 
-
-def connect_api():
-    '''Connect to the API and test connection'''
-    conf = ConfigParser()
-    conf.read(os.path.join(os.path.abspath(
-        os.path.dirname(__file__)), '..', '..', 'api.conf'))
-    client = CBWApi(conf.get('cyberwatch', 'url'), conf.get(
-        'cyberwatch', 'api_key'), conf.get('cyberwatch', 'secret_key'))
-    client.ping()
-    return client
-
-
-def compare_for_new_cve(new_set):
-    '''Find new high-priority CVEs by comparing with last backup and write a new backup'''
-    old_high_priority_cves = {}
-
-    # Get latest backup of high-priority CVEs
-    list_of_files = glob.glob((os.path.join(os.path.abspath(
-        os.path.dirname(__file__)), '*new_cves.json')))
-    old_backup = open(max(list_of_files, key=os.path.getctime), "r")
-    old_list = json.load(old_backup)
-    old_backup.close()
-
-    # Compare old backup with latest high-priority CVEs
-    new_unique_high_priority_list = {k: v for k,
-                                     v in new_set.items() if k not in old_list}
-
-    # Write new backup file with all high-priority CVEs
-    new_backup = open((os.path.join(os.path.abspath(
-        os.path.dirname(__file__)), datetime.strftime(datetime.now(), '%d-%m-%Y') + "_new_cves.json")), "w")
-    new_backup.write(json.dumps({**old_high_priority_cves, **new_set}))
-    new_backup.close()
-
-    return new_unique_high_priority_list
-
-
-def find_new_high_priority_cve_set(servers, client):
-    '''Find latest high-priority CVEs'''
-    new_high_priority_cve_set = {}
-    for server in servers:
-        server_details = client.server(str(server.id))
-        for cve in server_details.cve_announcements:
-            if cve.prioritized:
-                new_high_priority_cve_set[cve.cve_code] = cve.score
-    return new_high_priority_cve_set
-
-
-def display(cve_list, what):
-    '''Display result'''
-    print('\n\n================= Total of {} {} ================='.format(
-        len(cve_list), what))
-    for key, value in cve_list.items():
-        print(key, value)
-
-
 def send_email(html):
     """Sends an email using smtp specified in the file api.conf"""
 
     conf = ConfigParser()
-    conf.read(os.path.join(os.path.abspath(
-        os.path.dirname(__file__)), '..', '..', 'api.conf'))
+    conf.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'api.conf'))
 
     smtp_settings = {
-        "server": conf.get('SMTP', 'smtp'),
+        "server": conf.get('SMTP', 'smtp_server'),
         "port": 587,
         "username": conf.get('SMTP', 'login'),
         "password": conf.get('SMTP', 'password'),
@@ -95,12 +42,12 @@ def send_email(html):
         "recipient":  RECEIVER_EMAILS
     }
 
-    print("! Testing communication with SMTP server")
+    print("[!] Tentative de connexion au serveur SMTP")
     context = ssl.create_default_context()
     smtpserver = smtplib.SMTP(smtp_settings["server"], smtp_settings["port"])
     smtpserver.starttls(context=context)  # Secure the connection
     smtpserver.login(smtp_settings["username"], smtp_settings["password"])
-    print("INFO:OK")
+    print("[+] Connexion réussie")
 
     today = datetime.now().strftime("%d-%m-%Y")
     msg = MIMEText(html, 'html', 'utf-8')
@@ -111,12 +58,11 @@ def send_email(html):
 
     smtpserver.quit()
 
-
 def build_email(cve_list):
     """Send email with report"""
     conf = ConfigParser()
     conf.read(os.path.join(os.path.abspath(
-        os.path.dirname(__file__)), '..', '..', 'api.conf'))
+        os.path.dirname(__file__)), 'api.conf'))
     api_url = conf.get('cyberwatch', 'url')
     yesterday = datetime.today() - timedelta(days=1)
 
@@ -229,17 +175,84 @@ def build_email(cve_list):
 
     return final_html
 
+def retrieve_actifs():
+    """retrieve all actifs for a cyberwatch node"""
+    actifs = []
+    apiResponse = Cyberwatch_Pyhelper().request(
+        method="GET",
+        endpoint="/api/v3/vulnerabilities/servers",
+    )
+    # for i in apiResponse: 
+    #     if i:
+    #         actifs = actifs + i.json()
+    actifs = actifs + next(apiResponse).json()
+    return actifs
+
+def retrieve_actif_CVEs(actifID):
+    """retrieve all CVE for a given actif"""
+    apiResponse = Cyberwatch_Pyhelper().request(
+        method="GET",
+        endpoint="/api/v3/vulnerabilities/servers/" + str(actifID),
+    )
+    return next(apiResponse).json()["cve_announcements"]
+
+def only_new_found_element(new_set):
+    """keep only CVEs not already found and stored in the last .json backup"""
+    old_high_priority_cves = {}
+
+    # Get latest backup of high-priority CVEs
+    list_of_files = glob.glob((os.path.join(os.path.abspath(os.path.dirname(__file__)), '*new_cves.json')))
+    if list_of_files:
+        with open(max(list_of_files, key=os.path.getctime), "r") as old_backup:
+            old_high_priority_cves = json.load(old_backup)
+
+    # Compare old backup with latest high-priority CVEs
+    new_set = {k: v for k, v in new_set.items() if k not in old_high_priority_cves}
+    
+    # Write new backup file with all high-priority CVEs
+    with open((os.path.join(os.path.abspath(os.path.dirname(__file__)), datetime.strftime(datetime.now(), '%d-%m-%Y') + "_new_cves.json")), "w") as new_backup:
+        new_backup.write(json.dumps({**old_high_priority_cves, **new_set}))
+
+    return new_set
 
 def launch_script():
-    '''Launch script'''
-    client = connect_api()
-    servers = client.servers()
-    latest_high_priority_cve_set = find_new_high_priority_cve_set(
-        servers, client)
-    cve_list = compare_for_new_cve(latest_high_priority_cve_set)
-    display(cve_list, 'new high-priority CVEs')
-    html = build_email(cve_list)
-    send_email(html)
+    # On récupères les actifs
+    actifs = retrieve_actifs()
+    print("[+] " + str(len(actifs)) + " actifs ont été trouvés")
+    if(not actifs): 
+        return
 
+    high_priority_cve_set = {} # Set de toutes les CVE 'prioritaires' de tous les actifs
+
+    # On récupères les vulnérabilité pour chacun des actifs, dont les prioritaires
+    for actif in actifs:
+        print("[+] Actif ID : " + str(actif["id"]))
+
+        cveList = retrieve_actif_CVEs(actif["id"])
+        print("\t- " + str(len(cveList)) + " CVEs trouvés", end="")
+
+        countHighCVE = 0
+        for cve in cveList:
+            if(cve["prioritized"]):
+                high_priority_cve_set[cve["cve_code"]] = cve["score"]
+                countHighCVE += 1
+        print(" dont " + str(countHighCVE) + " prioritaires")
+
+    # On ne garde que les CVEs qui n'ont pas été trouvé lors du dernier lancement
+    high_priority_cve_set = only_new_found_element(high_priority_cve_set)
+   
+    # On affiche les résultats dans le terminal
+    print("\n\n================= " + str(len(high_priority_cve_set)) + " nouvelles CVEs prioritaires trouvées ================='")
+    for key, value in high_priority_cve_set.items(): print("{: >20} : {}".format(key, value))
+
+    # On envoie le rapport en email
+    try:
+        html = build_email(high_priority_cve_set)
+        send_email(html)
+        print("[+] Le rapport a bien été envoyé par email !")
+    except Exception as e:
+        print("[-] Une erreure est survenue ")
+        print(e)
+            
 
 launch_script()
